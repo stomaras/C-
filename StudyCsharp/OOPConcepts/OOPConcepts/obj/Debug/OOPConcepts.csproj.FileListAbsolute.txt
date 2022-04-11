@@ -1,0 +1,8 @@
+C:\Users\spyros\source\repos\OOPConcepts\OOPConcepts\bin\Debug\OOPConcepts.exe.config
+C:\Users\spyros\source\repos\OOPConcepts\OOPConcepts\bin\Debug\OOPConcepts.exe
+C:\Users\spyros\source\repos\OOPConcepts\OOPConcepts\bin\Debug\OOPConcepts.pdb
+C:\Users\spyros\source\repos\OOPConcepts\OOPConcepts\obj\Debug\OOPConcepts.csproj.AssemblyReference.cache
+C:\Users\spyros\source\repos\OOPConcepts\OOPConcepts\obj\Debug\OOPConcepts.csproj.SuggestedBindingRedirects.cache
+C:\Users\spyros\source\repos\OOPConcepts\OOPConcepts\obj\Debug\OOPConcepts.csproj.CoreCompileInputs.cache
+C:\Users\spyros\source\repos\OOPConcepts\OOPConcepts\obj\Debug\OOPConcepts.exe
+C:\Users\spyros\source\repos\OOPConcepts\OOPConcepts\obj\Debug\OOPConcepts.pdb
