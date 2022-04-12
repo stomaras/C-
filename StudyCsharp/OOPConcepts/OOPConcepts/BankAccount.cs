@@ -54,11 +54,7 @@ namespace OOPConcepts
          * opens an account, they must supply an initial balance, and information about the owner
          * or owners of that account.
          * Constructor is used to initialize objects of that class type.
-         * 
-         * 
-         * 
          */
-        
 
         public BankAccount(string name, decimal initialBalance)
         {
@@ -69,7 +65,58 @@ namespace OOPConcepts
             this.Number = accountNumberSeed.ToString();
             accountNumberSeed++;
             // DateTime.Now is a property that returns the current date and time
-            
+            MakeDeposit(initialBalance, DateTime.Now, "Initial Balance");
+        }
+
+        public void MakeDeposit(decimal amount, DateTime date, string note)
+        {
+            if(amount <= 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(amount), "Amount of deposit must be positive");
+            }
+            var deposit = new Transaction(amount, date, note);
+            allTransactions.Add(deposit);
+        }
+
+        public void MakeWithDrawal(decimal amount, DateTime date, string note)
+        {
+            if(amount <= 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(amount), "Amount of withdrawal must be positive");
+            }
+            if(Balance - amount < 0)
+            {
+                throw new InvalidOperationException("Not sufficient funds for this withdrawal");
+            }
+            var withdrawal = new Transaction(-amount, date, note);
+            allTransactions.Add(withdrawal);
+        }
+
+        /*
+         * The below code shows how you use the virtual keyword to declare a method in the base class
+         * that a derived class may provide a different implementationfor.A virtual method is a method where any derived class may 
+         * choose to reimplement.The derived classes use the override keyword to define the new implementation. The virtual keyword
+         * specifies that derived classes may override the behavior.You can also declare abstract methods where derived classes must override the behaviour.
+         * The base class does not provide an implementation for an abstract method.
+         */
+        public virtual void PerformMonthEndTransactions()
+        {
+
+        }
+
+        public string GetAccountHistory()
+        {
+            var report = new System.Text.StringBuilder();
+
+            decimal balance = 0;
+            report.AppendLine("Date\t\tAmount\tBalance\tNote");
+            Console.WriteLine("\n");
+            foreach (Transaction transaction in allTransactions)
+            {
+                balance += transaction.Amount;
+                report.AppendLine($"{transaction.Date.ToShortDateString()}\t{transaction.Amount}\t{balance}\t{transaction.Notes}");
+            }
+            return report.ToString();
         }
 
         
