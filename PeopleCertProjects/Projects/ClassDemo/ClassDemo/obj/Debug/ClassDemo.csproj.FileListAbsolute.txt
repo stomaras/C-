@@ -1,0 +1,7 @@
+C:\Users\spyros\source\repos\ClassDemo\ClassDemo\obj\Debug\ClassDemo.csproj.AssemblyReference.cache
+C:\Users\spyros\source\repos\ClassDemo\ClassDemo\obj\Debug\ClassDemo.csproj.CoreCompileInputs.cache
+C:\Users\spyros\source\repos\ClassDemo\ClassDemo\bin\Debug\ClassDemo.exe.config
+C:\Users\spyros\source\repos\ClassDemo\ClassDemo\bin\Debug\ClassDemo.exe
+C:\Users\spyros\source\repos\ClassDemo\ClassDemo\bin\Debug\ClassDemo.pdb
+C:\Users\spyros\source\repos\ClassDemo\ClassDemo\obj\Debug\ClassDemo.exe
+C:\Users\spyros\source\repos\ClassDemo\ClassDemo\obj\Debug\ClassDemo.pdb
