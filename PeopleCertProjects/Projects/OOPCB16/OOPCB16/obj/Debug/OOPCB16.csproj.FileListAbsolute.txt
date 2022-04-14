@@ -1,0 +1,7 @@
+C:\Users\spyros\source\repos\OOPCB16\OOPCB16\bin\Debug\OOPCB16.exe.config
+C:\Users\spyros\source\repos\OOPCB16\OOPCB16\bin\Debug\OOPCB16.exe
+C:\Users\spyros\source\repos\OOPCB16\OOPCB16\bin\Debug\OOPCB16.pdb
+C:\Users\spyros\source\repos\OOPCB16\OOPCB16\obj\Debug\OOPCB16.csproj.AssemblyReference.cache
+C:\Users\spyros\source\repos\OOPCB16\OOPCB16\obj\Debug\OOPCB16.csproj.CoreCompileInputs.cache
+C:\Users\spyros\source\repos\OOPCB16\OOPCB16\obj\Debug\OOPCB16.exe
+C:\Users\spyros\source\repos\OOPCB16\OOPCB16\obj\Debug\OOPCB16.pdb
