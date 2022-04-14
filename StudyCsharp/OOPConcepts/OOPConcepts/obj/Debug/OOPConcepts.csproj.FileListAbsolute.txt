@@ -10,7 +10,6 @@ C:\Users\spyros\C-\StudyCsharp\OOPConcepts\OOPConcepts\bin\Debug\OOPConcepts.exe
 C:\Users\spyros\C-\StudyCsharp\OOPConcepts\OOPConcepts\bin\Debug\OOPConcepts.exe
 C:\Users\spyros\C-\StudyCsharp\OOPConcepts\OOPConcepts\bin\Debug\OOPConcepts.pdb
 C:\Users\spyros\C-\StudyCsharp\OOPConcepts\OOPConcepts\obj\Debug\OOPConcepts.csproj.AssemblyReference.cache
-C:\Users\spyros\C-\StudyCsharp\OOPConcepts\OOPConcepts\obj\Debug\OOPConcepts.csproj.SuggestedBindingRedirects.cache
 C:\Users\spyros\C-\StudyCsharp\OOPConcepts\OOPConcepts\obj\Debug\OOPConcepts.csproj.CoreCompileInputs.cache
 C:\Users\spyros\C-\StudyCsharp\OOPConcepts\OOPConcepts\obj\Debug\OOPConcepts.exe
 C:\Users\spyros\C-\StudyCsharp\OOPConcepts\OOPConcepts\obj\Debug\OOPConcepts.pdb

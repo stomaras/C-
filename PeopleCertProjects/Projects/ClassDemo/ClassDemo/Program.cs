@@ -16,6 +16,8 @@ namespace ClassDemo
             employees.Add(tom);
             employees.Add(natalia);
 
+            Console.WriteLine();
+
             //tom.SetAge(24);
             //natalia.SetAge(24);
             tom.Age = 24;
@@ -30,7 +32,7 @@ namespace ClassDemo
             natalia.StartingDate = new DateTime(1997, 02, 24);
 
             // Initialization
-            Employee agathi = new Employee
+            Employee agathi = new Employee // call to default constructor
             {
                 Age = 22,
                 Name = "Agathi",
@@ -39,6 +41,7 @@ namespace ClassDemo
                 StartingDate = new DateTime(2014, 5, 16)
             };
             employees.Add(agathi);
+            
 
             Console.WriteLine($"Tom Age is: {tom.Age}");
             Console.WriteLine($"Natalia Age is: {natalia.Age}");
@@ -60,6 +63,8 @@ namespace ClassDemo
             Console.WriteLine("\n");
             Console.WriteLine("List With Employees after Bonus:\n");
             IterateListWithEmployees(employees);
+
+            Employee spyros = new Employee(24, new DateTime(1997, 11, 01), "6973057110", "Spyros", 800.00);
 
 
         }

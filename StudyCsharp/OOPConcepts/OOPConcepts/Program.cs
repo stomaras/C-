@@ -49,6 +49,19 @@ namespace OOPConcepts
             account.MakeDeposit(400, DateTime.Now, "Sell of desk");
 
             Console.WriteLine(account.GetAccountHistory());
+            var giftCard = new GiftCardAccount("gift card", 100, 50);
+            giftCard.MakeWithDrawal(20, DateTime.Now, "get expensive coffee");
+            giftCard.MakeWithDrawal(50, DateTime.Now, "buy groceries");
+            giftCard.PerformMonthEndTransactions();
+            giftCard.MakeDeposit(27, DateTime.Now, "add some additional spending money");
+            Console.WriteLine(giftCard.GetAccountHistory());
+
+            var savings = new InterestEarningAccount("Saving Account", 100000);
+            savings.MakeDeposit(750, DateTime.Now, "Save some money");
+            savings.MakeDeposit(1250, DateTime.Now, "Add some savings");
+            savings.MakeWithDrawal(250, DateTime.Now, "Needed to pay monthly");
+            savings.PerformMonthEndTransactions();
+            Console.WriteLine(savings.GetAccountHistory());
 
         }
     }

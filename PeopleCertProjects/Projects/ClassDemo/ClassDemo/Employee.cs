@@ -32,6 +32,18 @@ namespace ClassDemo
         }
          */
 
+        // default constructor
+        public Employee() { }
+
+        public Employee(int age, DateTime startingDate, string phoneNumber, string name, double salary)
+        {
+            Age = age;
+            StartingDate = startingDate;
+            PhoneNumber = phoneNumber;
+            Name = name;
+            Salary = salary;
+        }
+
         public double TakeBonusReturnSalaryDiff(double bonusPercent)
         {
             double newSalary = Salary + (Salary * bonusPercent);

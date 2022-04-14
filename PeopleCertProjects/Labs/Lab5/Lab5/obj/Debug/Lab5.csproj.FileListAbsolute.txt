@@ -1,0 +1,7 @@
+C:\Users\spyros\source\repos\Lab5\Lab5\bin\Debug\Lab5.exe.config
+C:\Users\spyros\source\repos\Lab5\Lab5\bin\Debug\Lab5.exe
+C:\Users\spyros\source\repos\Lab5\Lab5\bin\Debug\Lab5.pdb
+C:\Users\spyros\source\repos\Lab5\Lab5\obj\Debug\Lab5.csproj.AssemblyReference.cache
+C:\Users\spyros\source\repos\Lab5\Lab5\obj\Debug\Lab5.csproj.CoreCompileInputs.cache
+C:\Users\spyros\source\repos\Lab5\Lab5\obj\Debug\Lab5.exe
+C:\Users\spyros\source\repos\Lab5\Lab5\obj\Debug\Lab5.pdb
