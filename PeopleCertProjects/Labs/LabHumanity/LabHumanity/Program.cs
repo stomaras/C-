@@ -10,10 +10,12 @@ namespace LabHumanity
     {
         static void Main(string[] args)
         {
-            Student student = new Student("Spyros", "Tomaras", "123456789");
-            Console.WriteLine(student.ToString());
-            Worker worker = new Worker("Spyros", "Tomaras", 220.23, 9, 10.50);
+            
+            Worker worker = new Worker("Spyros","Tomaras", 11, 13, 10.50);
             Console.WriteLine(worker.ToString());
+            Student student = new Student("Chris", "Fragulis", "213");
+            Console.WriteLine(student.ToString());
+            
         }
     }
 }
