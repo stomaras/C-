@@ -34,5 +34,23 @@ namespace OOPCB16
         {
             Console.WriteLine($"Selling {Name} with ID: {ID} for {Price}");
         }
+
+        public static List<Product> GetProducts(int numbertToGet)
+        {
+            var newList = new List<Product>();
+            var random = new Random();
+            Product product = null;
+            for(int i=0; i < numbertToGet; i++)
+            {
+                product = new Product()
+                {
+                    ID = random.Next(),
+                    Name = "my Product" + i.ToString(),
+                    Price = random.Next(1, 101)
+                };
+                newList.Add(product);
+            }
+            return newList;
+        }
     }
 }

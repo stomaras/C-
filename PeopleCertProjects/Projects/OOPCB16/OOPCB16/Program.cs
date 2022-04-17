@@ -59,6 +59,12 @@ namespace OOPCB16
                 productt.Sale(); // polymorphism
             }
 
+            
+            List<Product> myProducts = Product.GetProducts(10);
+            foreach(var productInList in myProducts)
+            {
+                Console.WriteLine($"Product ID is {productInList.ID}, Name is {productInList.Name} and Price is {productInList.Price}");
+            }
         }
     }
 }
