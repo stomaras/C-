@@ -1,0 +1,7 @@
+C:\Users\spyros\source\repos\Interfaces2\Interfaces2\obj\Debug\Interfaces2.csproj.AssemblyReference.cache
+C:\Users\spyros\source\repos\Interfaces2\Interfaces2\obj\Debug\Interfaces2.csproj.CoreCompileInputs.cache
+C:\Users\spyros\source\repos\Interfaces2\Interfaces2\bin\Debug\Interfaces2.exe.config
+C:\Users\spyros\source\repos\Interfaces2\Interfaces2\bin\Debug\Interfaces2.exe
+C:\Users\spyros\source\repos\Interfaces2\Interfaces2\bin\Debug\Interfaces2.pdb
+C:\Users\spyros\source\repos\Interfaces2\Interfaces2\obj\Debug\Interfaces2.exe
+C:\Users\spyros\source\repos\Interfaces2\Interfaces2\obj\Debug\Interfaces2.pdb
