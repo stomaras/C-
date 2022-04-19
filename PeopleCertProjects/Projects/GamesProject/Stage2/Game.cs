@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Stage1
+namespace Stage2
 {
     class Game
     {
@@ -14,12 +14,5 @@ namespace Stage1
         public decimal Price { get; set; }
         public double Rating { get; set; }
         public DateTime ReleaseDate { get; set; }
-
-
-
-        public virtual void Sell()
-        {
-            Console.WriteLine($"The game with title: {Title} has been sold");
-        }
     }
 }

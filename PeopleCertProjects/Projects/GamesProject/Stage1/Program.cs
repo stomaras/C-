@@ -99,6 +99,29 @@ namespace Stage1
                     Console.WriteLine($"\t {game.Title}");
                 }
             }
+
+            Console.WriteLine("Getting the average of game ratings in each Loop");
+            foreach(Shop shop in shops)
+            {
+                Console.WriteLine(shop.Name);
+                Console.WriteLine($"\t Average rating: {shop.AverageRating}");
+            }
+
+            Console.WriteLine("Getting the newest game of each shop");
+            foreach(Shop shop in shops)
+            {
+                Console.WriteLine(shop.Name);
+                Console.WriteLine($"\t And the newest game is {shop.NewestGame.Title}");
+            }
+
+            Console.WriteLine("Deciding to buy a game");
+            Customer customer = new Customer()
+            {
+                ID = 3,
+                FullName = "Spyros Tom"
+            };
+
+            customer.BuyGames(vintageGamesLtd.Games);
         }
     }
 }

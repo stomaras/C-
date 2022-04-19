@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{94E0FD3C-F59A-4B76-9B91-15831C50A8C7}</ProjectGuid>
+    <ProjectGuid>{4ED821EC-8462-410D-BB5D-40F4BD79AC29}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Stage1</RootNamespace>
-    <AssemblyName>Stage1</AssemblyName>
+    <RootNamespace>Stage3</RootNamespace>
+    <AssemblyName>Stage3</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,15 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConsoleGame.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="Game.cs" />
-    <Compile Include="PcGame.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="..\..\..\..\C-\PeopleCertProjects\Projects\GamesProject\Shop.cs">
-      <Link>Shop.cs</Link>
-    </Compile>
+    <Compile Include="Shop.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

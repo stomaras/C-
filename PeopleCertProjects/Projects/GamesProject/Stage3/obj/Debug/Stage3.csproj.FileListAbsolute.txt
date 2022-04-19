@@ -1,0 +1,7 @@
+C:\Users\spyros\source\repos\GamesProject\Stage3\bin\Debug\Stage3.exe.config
+C:\Users\spyros\source\repos\GamesProject\Stage3\bin\Debug\Stage3.exe
+C:\Users\spyros\source\repos\GamesProject\Stage3\bin\Debug\Stage3.pdb
+C:\Users\spyros\source\repos\GamesProject\Stage3\obj\Debug\Stage3.csproj.AssemblyReference.cache
+C:\Users\spyros\source\repos\GamesProject\Stage3\obj\Debug\Stage3.csproj.CoreCompileInputs.cache
+C:\Users\spyros\source\repos\GamesProject\Stage3\obj\Debug\Stage3.exe
+C:\Users\spyros\source\repos\GamesProject\Stage3\obj\Debug\Stage3.pdb

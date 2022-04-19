@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Stage1
+namespace Stage3
 {
     class Shop
     {
@@ -16,6 +16,7 @@ namespace Stage1
         private Game _cheapestGame;
         private Game _newestGame;
         private double _averageRating;
+
         public Game CheapestGame
         {
             get
@@ -40,9 +41,9 @@ namespace Stage1
             {
                 _newestGame = Games[0];
 
-                foreach(Game game in Games)
+                foreach (Game game in Games)
                 {
-                    if(game.ReleaseDate.Year > _newestGame.ReleaseDate.Year)
+                    if (game.ReleaseDate.Year > _newestGame.ReleaseDate.Year)
                     {
                         _newestGame = game;
                     }
@@ -56,7 +57,7 @@ namespace Stage1
             get
             {
                 double sum = 0;
-                foreach(Game game in Games)
+                foreach (Game game in Games)
                 {
                     sum += game.Rating;
                 }
@@ -71,9 +72,9 @@ namespace Stage1
         {
             Game cheapestGame = Games[0];
 
-            foreach(Game game in Games)
+            foreach (Game game in Games)
             {
-                if(game.Price < cheapestGame.Price)
+                if (game.Price < cheapestGame.Price)
                 {
                     cheapestGame = game;
                 }

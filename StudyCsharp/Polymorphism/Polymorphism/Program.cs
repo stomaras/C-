@@ -22,6 +22,18 @@ namespace Polymorphism
          */
         static void Main(string[] args)
         {
+            var cars = new List<Car>
+            {
+                new Audi(200, "blue", "a4"),
+                new BMW(250, "red", "M3")
+            };
+
+            foreach(var car in cars)
+            {
+                car.Repair();
+            }
+
+            Console.ReadKey();
         }
     }
 }
