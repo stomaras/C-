@@ -1,0 +1,7 @@
+C:\Users\spyros\source\repos\DelegatesExampless\Stage5\bin\Debug\Stage5.exe.config
+C:\Users\spyros\source\repos\DelegatesExampless\Stage5\bin\Debug\Stage5.exe
+C:\Users\spyros\source\repos\DelegatesExampless\Stage5\bin\Debug\Stage5.pdb
+C:\Users\spyros\source\repos\DelegatesExampless\Stage5\obj\Debug\Stage5.csproj.AssemblyReference.cache
+C:\Users\spyros\source\repos\DelegatesExampless\Stage5\obj\Debug\Stage5.csproj.CoreCompileInputs.cache
+C:\Users\spyros\source\repos\DelegatesExampless\Stage5\obj\Debug\Stage5.exe
+C:\Users\spyros\source\repos\DelegatesExampless\Stage5\obj\Debug\Stage5.pdb

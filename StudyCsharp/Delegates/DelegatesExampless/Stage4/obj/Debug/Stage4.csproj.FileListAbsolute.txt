@@ -1,0 +1,6 @@
+C:\Users\spyros\source\repos\DelegatesExampless\Stage4\bin\Debug\Stage4.exe.config
+C:\Users\spyros\source\repos\DelegatesExampless\Stage4\bin\Debug\Stage4.exe
+C:\Users\spyros\source\repos\DelegatesExampless\Stage4\bin\Debug\Stage4.pdb
+C:\Users\spyros\source\repos\DelegatesExampless\Stage4\obj\Debug\Stage4.csproj.CoreCompileInputs.cache
+C:\Users\spyros\source\repos\DelegatesExampless\Stage4\obj\Debug\Stage4.exe
+C:\Users\spyros\source\repos\DelegatesExampless\Stage4\obj\Debug\Stage4.pdb

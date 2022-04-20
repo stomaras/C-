@@ -1,0 +1,7 @@
+C:\Users\spyros\source\repos\DelegatesExampless\Stage\bin\Debug\Stage.exe.config
+C:\Users\spyros\source\repos\DelegatesExampless\Stage\bin\Debug\Stage.exe
+C:\Users\spyros\source\repos\DelegatesExampless\Stage\bin\Debug\Stage.pdb
+C:\Users\spyros\source\repos\DelegatesExampless\Stage\obj\Debug\Stage.csproj.AssemblyReference.cache
+C:\Users\spyros\source\repos\DelegatesExampless\Stage\obj\Debug\Stage.csproj.CoreCompileInputs.cache
+C:\Users\spyros\source\repos\DelegatesExampless\Stage\obj\Debug\Stage.exe
+C:\Users\spyros\source\repos\DelegatesExampless\Stage\obj\Debug\Stage.pdb
