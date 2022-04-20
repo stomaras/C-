@@ -15,18 +15,24 @@ namespace FootballTeam
         public int Goals { get; set; }
         public int TotalGoals { get; set; }
 
-        public Player(string name, DateTime dateOfBirth, int goals, int totalGoals)
+        public int Assists { get; set; }
+
+        public int RedCards { get; set; }
+
+        public Player(string name, DateTime dateOfBirth, int goals, int totalGoals, int assists, int redCards)
         {
             this.id = uid++;
             Name = name;
             DateOfBirth = dateOfBirth;
             Goals = goals;
             TotalGoals = totalGoals;
+            Assists = assists;
+            RedCards = redCards;
         }
 
         public override string ToString()
         {
-            return $"Player with :\n\t Name - {Name}\n\t Date of birth - {DateOfBirth}\n\t Goals - {Goals}\n\t TotalGoals - {TotalGoals}";
+            return $"Player with :\n\t Name - {Name}\n\t Date of birth - {DateOfBirth}\n\t Goals - {Goals}\n\t TotalGoals - {TotalGoals}\n\t Assists - {Assists}\n\t Red Cards - {RedCards} ";
         }
     }
 }

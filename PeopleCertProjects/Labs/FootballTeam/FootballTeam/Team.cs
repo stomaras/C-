@@ -9,9 +9,28 @@ namespace FootballTeam
     class Team
     {
         private static int uid = 0;
+        private string _firstScorrer = "";
         private int TID { get; set; }
         public String Name { get; set; }
         public List<Player> players { get; set; }
+
+        public string FirstScorrer
+        {
+            get
+            {
+                int maxScore = 0;
+                string _firstScorrer = "";
+                for (int i = 0; i <= this.players.Count - 1; i++)
+                {
+                    if (this.players[i].TotalGoals > maxScore)
+                    {
+                        maxScore = this.players[i].TotalGoals;
+                        _firstScorrer = this.players[i].Name;
+                    }
+                }
+                return $"First scorrer of {this.Name} is : {_firstScorrer}";
+            }
+        }
 
         public Team (string name)
         {
@@ -55,21 +74,6 @@ namespace FootballTeam
             return sumOfGoals;
         }
 
-        public String FirstScorrer()
-        {
-            int maxScore = 0;
-            string maxName = "";
-            for(int i=0; i<= this.players.Count - 1; i++)
-            {
-                if(this.players[i].TotalGoals > maxScore)
-                {
-                    maxScore = this.players[i].TotalGoals;
-                    maxName = this.players[i].Name;
-                }
-            }
-            return $"First scorrer of {this.Name} is : {maxName}";
-        }
-
         public String YoungerPlayer()
         {
             DateTime minDate = new DateTime(1900,01,01);
@@ -93,10 +97,30 @@ namespace FootballTeam
             for(int i=0; i<= this.players.Count -1; i++)
             {
                 Player newPlayer = players[i];
-                s = s + $"\n\tPlayer {i + 1} , name {newPlayer.Name}, date of birth {newPlayer.DateOfBirth}, season goals {newPlayer.Goals}, all time goals {newPlayer.TotalGoals}";
+                s = s + $"\n\tPlayer {i + 1} , name {newPlayer.Name}, date of birth {newPlayer.DateOfBirth}, season goals {newPlayer.Goals}, all time goals {newPlayer.TotalGoals}, all time assists {newPlayer.Assists}, all time red cards {newPlayer.RedCards}";
 
             }
             return s;
         }
     }
 }
+
+
+
+/*
+        * public String FirstScorrer()
+       {
+           int maxScore = 0;
+           string maxName = "";
+           for(int i=0; i<= this.players.Count - 1; i++)
+           {
+               if(this.players[i].TotalGoals > maxScore)
+               {
+                   maxScore = this.players[i].TotalGoals;
+                   maxName = this.players[i].Name;
+               }
+           }
+           return $"First scorrer of {this.Name} is : {maxName}";
+       }
+        * 
+        */

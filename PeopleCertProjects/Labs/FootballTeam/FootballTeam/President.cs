@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace FootballTeam
 {
+    
     class President
     {
         private static int uid = 0;
@@ -22,7 +23,7 @@ namespace FootballTeam
             this.team = team;
         }
 
-        public void AddPlayerToCalendar()
+        public void AddPlayerToCalendar(SelectionBasedOnCriteria selectionBasedOnCriteria, SelectionBasedOnCriteria selectionBasedOnCriteria1)
         {
             Team searchTeam = this.team;
             List<Player> players = searchTeam.players;
@@ -30,7 +31,7 @@ namespace FootballTeam
             int i = 1;
             foreach(Player player in players)
             {
-                if(player.TotalGoals > 60)
+                if(selectionBasedOnCriteria(player) && selectionBasedOnCriteria1(player))
                 {
                     Console.WriteLine($"Star {i} : {player.Name}");
                     i++;

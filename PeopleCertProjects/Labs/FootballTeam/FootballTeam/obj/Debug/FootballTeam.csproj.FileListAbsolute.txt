@@ -5,3 +5,10 @@ C:\Users\spyros\source\repos\FootballTeam\FootballTeam\obj\Debug\FootballTeam.cs
 C:\Users\spyros\source\repos\FootballTeam\FootballTeam\obj\Debug\FootballTeam.csproj.CoreCompileInputs.cache
 C:\Users\spyros\source\repos\FootballTeam\FootballTeam\obj\Debug\FootballTeam.exe
 C:\Users\spyros\source\repos\FootballTeam\FootballTeam\obj\Debug\FootballTeam.pdb
+C:\Users\spyros\C-\PeopleCertProjects\Labs\FootballTeam\FootballTeam\bin\Debug\FootballTeam.exe.config
+C:\Users\spyros\C-\PeopleCertProjects\Labs\FootballTeam\FootballTeam\bin\Debug\FootballTeam.exe
+C:\Users\spyros\C-\PeopleCertProjects\Labs\FootballTeam\FootballTeam\bin\Debug\FootballTeam.pdb
+C:\Users\spyros\C-\PeopleCertProjects\Labs\FootballTeam\FootballTeam\obj\Debug\FootballTeam.csproj.AssemblyReference.cache
+C:\Users\spyros\C-\PeopleCertProjects\Labs\FootballTeam\FootballTeam\obj\Debug\FootballTeam.csproj.CoreCompileInputs.cache
+C:\Users\spyros\C-\PeopleCertProjects\Labs\FootballTeam\FootballTeam\obj\Debug\FootballTeam.exe
+C:\Users\spyros\C-\PeopleCertProjects\Labs\FootballTeam\FootballTeam\obj\Debug\FootballTeam.pdb
