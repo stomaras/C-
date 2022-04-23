@@ -1,0 +1,7 @@
+C:\Users\spyros\source\repos\ChessTournamentTest\ChessTournamentTest\bin\Debug\ChessTournamentTest.exe.config
+C:\Users\spyros\source\repos\ChessTournamentTest\ChessTournamentTest\bin\Debug\ChessTournamentTest.exe
+C:\Users\spyros\source\repos\ChessTournamentTest\ChessTournamentTest\bin\Debug\ChessTournamentTest.pdb
+C:\Users\spyros\source\repos\ChessTournamentTest\ChessTournamentTest\obj\Debug\ChessTournamentTest.csproj.AssemblyReference.cache
+C:\Users\spyros\source\repos\ChessTournamentTest\ChessTournamentTest\obj\Debug\ChessTournamentTest.csproj.CoreCompileInputs.cache
+C:\Users\spyros\source\repos\ChessTournamentTest\ChessTournamentTest\obj\Debug\ChessTournamentTest.exe
+C:\Users\spyros\source\repos\ChessTournamentTest\ChessTournamentTest\obj\Debug\ChessTournamentTest.pdb
