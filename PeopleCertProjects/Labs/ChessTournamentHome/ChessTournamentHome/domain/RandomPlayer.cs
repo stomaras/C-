@@ -9,11 +9,38 @@ namespace ChessTournamentHome.domain
     class RandomPlayer : Player
     {
 
+        private int[] _idDetails;
+        private int[] _rankingDetails;
+        private int[] _nameDetails;
+
         public RandomPlayer()
         {
-            this.Id = CreateRandomNumber(1, 201);
-            this.Name = CreateRandomName(65, 91, 4);
-            this.Ranking = CreateRandomNumber(1000, 2001);
+            _idDetails = new int[2];
+            _idDetails[0] = 1;
+            _idDetails[1] = 201; 
+            this.Id = CreateRandomNumber(_idDetails[0], _idDetails[1]);
+
+
+            _nameDetails = new int[3];
+            _nameDetails[0] = 65;
+            _nameDetails[1] = 91;
+            _nameDetails[2] = 3;
+            this.Name = CreateRandomName(_nameDetails[0], _nameDetails[1], _nameDetails[2]);
+
+            _rankingDetails = new int[2];
+            _rankingDetails[0] = 1000;
+            _rankingDetails[1] = 2001;
+            this.Ranking = CreateRandomNumber(_rankingDetails[0], _rankingDetails[1]);
+        }
+
+        public RandomPlayer(int[] idDetails, int[] nameDetails, int[] rankingDetails)
+        {
+            _idDetails = idDetails;
+            _nameDetails = nameDetails;
+            _rankingDetails = rankingDetails;
+            this.Id = CreateRandomNumber(_idDetails[0], _idDetails[1]);
+            this.Name = CreateRandomName(_nameDetails[0], _nameDetails[1], _nameDetails[2]);
+            this.Ranking = CreateRandomNumber(_rankingDetails[0], _rankingDetails[1]);
         }
 
 
