@@ -1,0 +1,7 @@
+C:\Users\spyros\source\repos\StringVSStringBuilder\StringVSStringBuilder\bin\Debug\StringVSStringBuilder.exe.config
+C:\Users\spyros\source\repos\StringVSStringBuilder\StringVSStringBuilder\bin\Debug\StringVSStringBuilder.exe
+C:\Users\spyros\source\repos\StringVSStringBuilder\StringVSStringBuilder\bin\Debug\StringVSStringBuilder.pdb
+C:\Users\spyros\source\repos\StringVSStringBuilder\StringVSStringBuilder\obj\Debug\StringVSStringBuilder.csproj.AssemblyReference.cache
+C:\Users\spyros\source\repos\StringVSStringBuilder\StringVSStringBuilder\obj\Debug\StringVSStringBuilder.csproj.CoreCompileInputs.cache
+C:\Users\spyros\source\repos\StringVSStringBuilder\StringVSStringBuilder\obj\Debug\StringVSStringBuilder.exe
+C:\Users\spyros\source\repos\StringVSStringBuilder\StringVSStringBuilder\obj\Debug\StringVSStringBuilder.pdb
