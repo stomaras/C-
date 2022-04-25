@@ -11,6 +11,6 @@ namespace ChessTournamentHome.services
     {
         void Initialize();
         void Initialize(int[] idDetails, int[] nameDetails, int[] rankingDetails);
-        List<Player> GeneratePlayers(int numOfPlayers);
+        //List<Player> GeneratePlayers();
     }
 }

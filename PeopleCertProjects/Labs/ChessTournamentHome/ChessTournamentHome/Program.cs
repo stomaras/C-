@@ -50,6 +50,9 @@ using ChessTournamentHome.domain;
  *         overloaded initialize().
  * NOTE!!! I match all defaults of RandomPlayer with all defaults of PlayerService
  * NOTE!!! I match all overloaded of RandomPlayer with all overloaded of PlayerService
+ * NOTE!!! You must have only one GeneratePlayers(), which can generate number of Players and generate List of Players
+ * NOTE!!! In PlayerService class GeneratePlayers() is private , so other can't have access outside of that class, so you can call only 2 constructors of PlayerService!!!
+ * NOTE!!! I hide complexity of GeneratePlayers, i put generate players only in PlayerService class as private not as public int the IPlayerService Interface.(fasad Design Pattern).
  */
 
 
@@ -61,8 +64,7 @@ namespace ChessTournamentHome
         {
             ChessTournament tournament = new ChessTournament();
             tournament.start();
-            Player p1 = CreateRandomPlayer();
-            Console.WriteLine(p1);
+           
             
         }
 
