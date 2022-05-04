@@ -1,0 +1,6 @@
+C:\Users\spyros\source\repos\CollectionsCSharp\GenericsPart2\bin\Debug\GenericsPart2.exe.config
+C:\Users\spyros\source\repos\CollectionsCSharp\GenericsPart2\bin\Debug\GenericsPart2.exe
+C:\Users\spyros\source\repos\CollectionsCSharp\GenericsPart2\bin\Debug\GenericsPart2.pdb
+C:\Users\spyros\source\repos\CollectionsCSharp\GenericsPart2\obj\Debug\GenericsPart2.csproj.CoreCompileInputs.cache
+C:\Users\spyros\source\repos\CollectionsCSharp\GenericsPart2\obj\Debug\GenericsPart2.exe
+C:\Users\spyros\source\repos\CollectionsCSharp\GenericsPart2\obj\Debug\GenericsPart2.pdb
