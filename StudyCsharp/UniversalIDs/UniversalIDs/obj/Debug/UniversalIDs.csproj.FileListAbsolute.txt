@@ -1,0 +1,7 @@
+C:\Users\spyros\source\repos\UniversalIDs\UniversalIDs\bin\Debug\UniversalIDs.exe.config
+C:\Users\spyros\source\repos\UniversalIDs\UniversalIDs\bin\Debug\UniversalIDs.exe
+C:\Users\spyros\source\repos\UniversalIDs\UniversalIDs\bin\Debug\UniversalIDs.pdb
+C:\Users\spyros\source\repos\UniversalIDs\UniversalIDs\obj\Debug\UniversalIDs.csproj.AssemblyReference.cache
+C:\Users\spyros\source\repos\UniversalIDs\UniversalIDs\obj\Debug\UniversalIDs.csproj.CoreCompileInputs.cache
+C:\Users\spyros\source\repos\UniversalIDs\UniversalIDs\obj\Debug\UniversalIDs.exe
+C:\Users\spyros\source\repos\UniversalIDs\UniversalIDs\obj\Debug\UniversalIDs.pdb
