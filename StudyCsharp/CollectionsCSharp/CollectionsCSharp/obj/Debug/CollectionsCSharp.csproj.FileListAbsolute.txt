@@ -1,2 +1,4 @@
 C:\Users\spyros\source\repos\CollectionsCSharp\CollectionsCSharp\obj\Debug\CollectionsCSharp.csproj.AssemblyReference.cache
 C:\Users\spyros\source\repos\CollectionsCSharp\CollectionsCSharp\obj\Debug\CollectionsCSharp.csproj.CoreCompileInputs.cache
+C:\Users\spyros\C-\StudyCsharp\CollectionsCSharp\CollectionsCSharp\obj\Debug\CollectionsCSharp.csproj.AssemblyReference.cache
+C:\Users\spyros\C-\StudyCsharp\CollectionsCSharp\CollectionsCSharp\obj\Debug\CollectionsCSharp.csproj.CoreCompileInputs.cache

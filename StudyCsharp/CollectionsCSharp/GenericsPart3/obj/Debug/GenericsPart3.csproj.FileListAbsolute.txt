@@ -4,3 +4,10 @@ C:\Users\spyros\source\repos\CollectionsCSharp\GenericsPart3\bin\Debug\GenericsP
 C:\Users\spyros\source\repos\CollectionsCSharp\GenericsPart3\obj\Debug\GenericsPart3.csproj.CoreCompileInputs.cache
 C:\Users\spyros\source\repos\CollectionsCSharp\GenericsPart3\obj\Debug\GenericsPart3.exe
 C:\Users\spyros\source\repos\CollectionsCSharp\GenericsPart3\obj\Debug\GenericsPart3.pdb
+C:\Users\spyros\C-\StudyCsharp\CollectionsCSharp\GenericsPart3\bin\Debug\GenericsPart3.exe.config
+C:\Users\spyros\C-\StudyCsharp\CollectionsCSharp\GenericsPart3\bin\Debug\GenericsPart3.exe
+C:\Users\spyros\C-\StudyCsharp\CollectionsCSharp\GenericsPart3\bin\Debug\GenericsPart3.pdb
+C:\Users\spyros\C-\StudyCsharp\CollectionsCSharp\GenericsPart3\obj\Debug\GenericsPart3.csproj.AssemblyReference.cache
+C:\Users\spyros\C-\StudyCsharp\CollectionsCSharp\GenericsPart3\obj\Debug\GenericsPart3.csproj.CoreCompileInputs.cache
+C:\Users\spyros\C-\StudyCsharp\CollectionsCSharp\GenericsPart3\obj\Debug\GenericsPart3.exe
+C:\Users\spyros\C-\StudyCsharp\CollectionsCSharp\GenericsPart3\obj\Debug\GenericsPart3.pdb

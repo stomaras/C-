@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace GenericsPart3
 {
+    // In case we don't have access to Student class directly 
+    // to overcome the problem we go to IComparer Interface.
     class CompareStudents : IComparer<Student>
     {
         public int Compare(Student x, Student y)

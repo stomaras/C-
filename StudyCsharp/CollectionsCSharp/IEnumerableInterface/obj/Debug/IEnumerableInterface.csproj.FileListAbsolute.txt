@@ -1,0 +1,6 @@
+C:\Users\spyros\C-\StudyCsharp\CollectionsCSharp\IEnumerableInterface\bin\Debug\IEnumerableInterface.exe.config
+C:\Users\spyros\C-\StudyCsharp\CollectionsCSharp\IEnumerableInterface\bin\Debug\IEnumerableInterface.exe
+C:\Users\spyros\C-\StudyCsharp\CollectionsCSharp\IEnumerableInterface\bin\Debug\IEnumerableInterface.pdb
+C:\Users\spyros\C-\StudyCsharp\CollectionsCSharp\IEnumerableInterface\obj\Debug\IEnumerableInterface.csproj.CoreCompileInputs.cache
+C:\Users\spyros\C-\StudyCsharp\CollectionsCSharp\IEnumerableInterface\obj\Debug\IEnumerableInterface.exe
+C:\Users\spyros\C-\StudyCsharp\CollectionsCSharp\IEnumerableInterface\obj\Debug\IEnumerableInterface.pdb

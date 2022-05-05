@@ -1,0 +1,6 @@
+C:\Users\spyros\C-\StudyCsharp\CollectionsCSharp\IEnumerable\obj\Debug\IEnumerable.csproj.CoreCompileInputs.cache
+C:\Users\spyros\C-\StudyCsharp\CollectionsCSharp\IEnumerable\bin\Debug\IEnumerable.exe.config
+C:\Users\spyros\C-\StudyCsharp\CollectionsCSharp\IEnumerable\bin\Debug\IEnumerable.exe
+C:\Users\spyros\C-\StudyCsharp\CollectionsCSharp\IEnumerable\bin\Debug\IEnumerable.pdb
+C:\Users\spyros\C-\StudyCsharp\CollectionsCSharp\IEnumerable\obj\Debug\IEnumerable.exe
+C:\Users\spyros\C-\StudyCsharp\CollectionsCSharp\IEnumerable\obj\Debug\IEnumerable.pdb
