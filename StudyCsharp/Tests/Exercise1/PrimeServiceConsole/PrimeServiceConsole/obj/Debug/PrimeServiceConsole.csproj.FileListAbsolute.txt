@@ -1,0 +1,14 @@
+C:\Users\user\source\week 3\Day 5\PrimeServiceConsole\PrimeServiceConsole\bin\Debug\PrimeServiceConsole.exe.config
+C:\Users\user\source\week 3\Day 5\PrimeServiceConsole\PrimeServiceConsole\bin\Debug\PrimeServiceConsole.exe
+C:\Users\user\source\week 3\Day 5\PrimeServiceConsole\PrimeServiceConsole\bin\Debug\PrimeServiceConsole.pdb
+C:\Users\user\source\week 3\Day 5\PrimeServiceConsole\PrimeServiceConsole\obj\Debug\PrimeServiceConsole.csprojAssemblyReference.cache
+C:\Users\user\source\week 3\Day 5\PrimeServiceConsole\PrimeServiceConsole\obj\Debug\PrimeServiceConsole.csproj.CoreCompileInputs.cache
+C:\Users\user\source\week 3\Day 5\PrimeServiceConsole\PrimeServiceConsole\obj\Debug\PrimeServiceConsole.exe
+C:\Users\user\source\week 3\Day 5\PrimeServiceConsole\PrimeServiceConsole\obj\Debug\PrimeServiceConsole.pdb
+C:\Users\spyros\Downloads\Exercise1\PrimeServiceConsole\PrimeServiceConsole\bin\Debug\PrimeServiceConsole.exe.config
+C:\Users\spyros\Downloads\Exercise1\PrimeServiceConsole\PrimeServiceConsole\bin\Debug\PrimeServiceConsole.exe
+C:\Users\spyros\Downloads\Exercise1\PrimeServiceConsole\PrimeServiceConsole\bin\Debug\PrimeServiceConsole.pdb
+C:\Users\spyros\Downloads\Exercise1\PrimeServiceConsole\PrimeServiceConsole\obj\Debug\PrimeServiceConsole.csproj.AssemblyReference.cache
+C:\Users\spyros\Downloads\Exercise1\PrimeServiceConsole\PrimeServiceConsole\obj\Debug\PrimeServiceConsole.csproj.CoreCompileInputs.cache
+C:\Users\spyros\Downloads\Exercise1\PrimeServiceConsole\PrimeServiceConsole\obj\Debug\PrimeServiceConsole.exe
+C:\Users\spyros\Downloads\Exercise1\PrimeServiceConsole\PrimeServiceConsole\obj\Debug\PrimeServiceConsole.pdb
