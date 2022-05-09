@@ -10,22 +10,35 @@ namespace PrimeServiceConsole
     {
         public bool IsPrime(int candidate)
         {
-            if(candidate < 2)
+            /*
+             * candidate < 0 ----> false
+             * candidate = 1 ----> false
+             */
+            var m = candidate / 2;
+            if (candidate < 2)
             {
                 return false;
             }
-            if(candidate == 2)
+
+
+
+            for (int i = 2; i < m; i++)
             {
-                return true;
+                // find a number which divide candidate so is not prime
+                if(candidate % i == 0)
+                {
+                    return false;
+                }
             }
-            var resultWith1 = candidate / 1;
-            var resultWithSelf = candidate / candidate;
-            if (resultWith1 == candidate && resultWithSelf == 1)
-            {
-                return true;
-            }
+            return true;
+
             throw new NotImplementedException("Please create a test first");
-            
         }
     }
 }
+
+
+
+
+
+

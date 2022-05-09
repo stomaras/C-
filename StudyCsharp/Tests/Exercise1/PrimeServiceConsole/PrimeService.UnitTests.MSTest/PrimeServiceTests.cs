@@ -50,6 +50,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
  * [TestMethod] -> Inside has a try catch and if throw exception will do try catch on it in order to have a result on test explorer
  * 
  * I can have multiple asserts in a method
+ * 
+ * I can group tests with annotation [DataTestMethod]
  */
 namespace PrimeService.UnitTests.MSTest
 {
@@ -83,23 +85,26 @@ namespace PrimeService.UnitTests.MSTest
         }
 
         [TestMethod]
-        public void ReturnFalseGivenValueOf31()
+        public void ReturnFalseGivenValueOf97()
         {
 
-            var result = _primeService.IsPrime(-33);
+            var result = _primeService.IsPrime(97);
             Assert.IsTrue(result);
         }
 
 
-
-        //[DataTestMethod]
-        //[DataRow(-1)]
-        //[DataRow(0)]
-        //[DataRow(1)]
-        //public void ReturnFalseGivenValueLessThan2(int value)
-        //{
-        //    var result = _primeService.IsPrime(value);
-        //    Assert.IsFalse(result, $"{value} should not be prime.");
-        //}
+        // run three times for each DataRow --> means data
+        // run all data rows and hold all differents results
+        // in this case i test negatives, zero's and 1
+        // same test cases Assert.IsFalse()
+        [DataTestMethod]
+        [DataRow(-1)]
+        [DataRow(0)]
+        [DataRow(1)]
+        public void ReturnFalseGivenValueLessThan2(int value)
+        {
+            var result = _primeService.IsPrime(value);
+            Assert.IsFalse(result, $"{value} should not be prime.");
+        }
     }
 }
