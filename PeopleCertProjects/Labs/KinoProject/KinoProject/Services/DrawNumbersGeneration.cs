@@ -14,12 +14,52 @@ namespace KinoProject.Services
         public DrawNumbersGeneration()
         {
             RandomNumbersGeneration = new List<int>();
-            for(int i=0; i<=9; i++)
+            List<int> kinoNumbers = AddKinoNumbers(RandomNumbersGeneration);
+            PrintRandomNumbersGeneration(kinoNumbers);
+        }
+
+        public List<int> AddKinoNumbers(List<int> RandomNumbersGeneration)
+        {
+            for (int i = 0; i <= 9; i++)
             {
-                int num = RandomService.Number(1, 80);
-                RandomNumbersGeneration.Add(num);
+                int num;
+                bool isUnique = false;
+                if (i == 0)
+                {
+                    num = RandomService.Number(1, 80);
+                    RandomNumbersGeneration.Add(num);
+                }
+                if(i > 0)
+                {
+                   
+                    while (!isUnique)
+                    {
+                        
+                        num = RandomService.Number(1, 80);
+                        isUnique = CheckUniqueNumber(num, RandomNumbersGeneration);
+                        if (isUnique)
+                        {
+                            RandomNumbersGeneration.Add(num);
+                        }
+                        
+                    }
+                    
+                }
             }
-            PrintRandomNumbersGeneration(RandomNumbersGeneration);
+            return RandomNumbersGeneration;
+        }
+
+        public bool CheckUniqueNumber(int number, List<int> RandomNumbersGeneration)
+        {
+           
+            for(int i=0; i <= RandomNumbersGeneration.Count -1; i++)
+            {
+                if(RandomNumbersGeneration[i] == number)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         public static void PrintRandomNumbersGeneration(List<int> RandomNumbersGeneration)
