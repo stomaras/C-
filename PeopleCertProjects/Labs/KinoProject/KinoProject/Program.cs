@@ -17,13 +17,13 @@ namespace KinoProject
             DrawNumbersGeneration drawNumbersGeneration = new DrawNumbersGeneration(KinoBonus);
             List<int> KinoNumbers = drawNumbersGeneration.RandomNumbersGeneration;
             List<int> UserNumbers = userDataInputService.KinoNumbers;
-            
             ListComparisonService listComparisonService = new ListComparisonService(UserNumbers, KinoNumbers);
             listComparisonService.CheckMatches(UserNumbers, KinoNumbers, KinoBonus);
             
         }
         public static void Options()
         {
+
             Console.WriteLine("Enter 6 numbers at total:\n");
             Console.WriteLine("Enter A number between: 1-80\n");
         }
