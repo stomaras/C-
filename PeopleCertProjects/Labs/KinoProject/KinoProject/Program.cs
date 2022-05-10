@@ -19,7 +19,7 @@ namespace KinoProject
             List<int> UserNumbers = userDataInputService.KinoNumbers;
             
             ListComparisonService listComparisonService = new ListComparisonService(UserNumbers, KinoNumbers);
-            listComparisonService.CheckMatches(UserNumbers, KinoNumbers);
+            listComparisonService.CheckMatches(UserNumbers, KinoNumbers, KinoBonus);
             
         }
         public static void Options()

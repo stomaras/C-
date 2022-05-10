@@ -21,6 +21,22 @@ namespace KinoProject.Services
             set { _matches = value; }
         }
 
+        private bool _matchesKinoBonus;
+
+        public bool MatchesKinoBonus
+        {
+            get { return _matchesKinoBonus; }
+            set { _matchesKinoBonus = value; }
+        }
+
+        private int _count;
+
+        public int Count
+        {
+            get { return _count; }
+            set { _count = value; }
+        }
+
 
         public ListComparisonService(List<int> UserNumbers, List<int> KinoNumbers)
         {
@@ -28,7 +44,7 @@ namespace KinoProject.Services
             this.KinoNumbers = KinoNumbers;
         }
 
-        public void CheckMatches(List<int> UserNumbers, List<int> KinoNumbers)
+        public void CheckMatches(List<int> UserNumbers, List<int> KinoNumbers, bool KinoBonus)
         {
             for(int i=0; i<= UserNumbers.Count-1; i++)
             {
@@ -38,9 +54,24 @@ namespace KinoProject.Services
                     {
                         Matches++;
                     }
+                    if((Count==UserNumbers.Count-1) && (UserNumbers[i] == KinoNumbers[j]))
+                    {
+                        MatchesKinoBonus = true;
+                    }
                 }
             }
-            Console.WriteLine("User catch: " + Matches + " Numbers ");
+            if(KinoBonus && MatchesKinoBonus)
+            {
+                Console.WriteLine($"User catch {Matches} numbers and won Kino Bonus"); 
+            } else if(KinoBonus && !MatchesKinoBonus)
+            {
+                Console.WriteLine($"User catch {Matches} numbers and lost Kino Bonus");
+            }else
+            {
+                Console.WriteLine($"User catch {Matches} numbers");
+            }
+
+           
         }
     }
 }
