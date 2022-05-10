@@ -13,7 +13,13 @@ namespace KinoProject
         {
             Options();
             UserDataInputService userDataInputService = new UserDataInputService();
-            DrawNumbersGeneration drawNumbersGeneration = new DrawNumbersGeneration();
+            bool KinoBonus = userDataInputService.KinoBonus;
+            DrawNumbersGeneration drawNumbersGeneration = new DrawNumbersGeneration(KinoBonus);
+            List<int> KinoNumbers = drawNumbersGeneration.RandomNumbersGeneration;
+            List<int> UserNumbers = userDataInputService.KinoNumbers;
+            
+            ListComparisonService listComparisonService = new ListComparisonService(UserNumbers, KinoNumbers);
+            listComparisonService.CheckMatches(UserNumbers, KinoNumbers);
             
         }
         public static void Options()
@@ -22,5 +28,4 @@ namespace KinoProject
             Console.WriteLine("Enter A number between: 1-80\n");
         }
     }
-    
 }

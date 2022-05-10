@@ -57,8 +57,15 @@ namespace KinoProject.Services
         }
 
 
-        public List<int>  KinoNumbers{ get; private set; }
+        private bool _kinoBonus;
 
+        public bool KinoBonus
+        {
+            get { return _kinoBonus; }
+            set { _kinoBonus = value; }
+        }
+
+        public List<int>  KinoNumbers{ get; private set; }
 
         public UserDataInputService()
         {
@@ -75,7 +82,29 @@ namespace KinoProject.Services
             KinoNumbers.Add(FifthNumber);
             SixthNumber = EnterNumber();
             KinoNumbers.Add(SixthNumber);
+            KinoBonus = PlayWithKinoBonus();
             PrintKinoNumbers();
+        }
+
+        private bool PlayWithKinoBonus()
+        {
+            bool playWithKinoBonus = false; 
+            Console.WriteLine("Do You Want to Play With Kino Bonus Enter: Y/N\n");
+            string input = Console.ReadLine();
+            while (input != "Y" && input != "N")
+            {
+                Console.WriteLine("Do You Want to Play With Kino Bonus Enter: Y/N\n");
+                input = Console.ReadLine();
+            }
+            if(input == "Y")
+            {
+                playWithKinoBonus = true;
+            }
+            if(input == "N")
+            {
+                playWithKinoBonus = false;
+            }
+            return playWithKinoBonus;
         }
 
         private void PrintKinoNumbers()
@@ -94,7 +123,7 @@ namespace KinoProject.Services
                     Console.WriteLine($"{i + 1}rd User Number is {KinoNumbers[i]}");
                 }
                 else
-                {
+                {   
                     Console.WriteLine($"{i + 1}th User Number is {KinoNumbers[i]}");
                 }
             }
@@ -136,8 +165,6 @@ namespace KinoProject.Services
             bool isNumber = int.TryParse(num, out numeric);
             return isNumber;
         }
-
-
 
     }
 

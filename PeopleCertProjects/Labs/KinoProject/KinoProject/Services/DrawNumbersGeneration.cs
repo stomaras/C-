@@ -11,16 +11,26 @@ namespace KinoProject.Services
     {
         public List<int> RandomNumbersGeneration{ get; private set; }
 
-        public DrawNumbersGeneration()
+        private bool _kinoBonus;
+
+        public bool KinoBonus
         {
+            get { return _kinoBonus; }
+            set { _kinoBonus = value; }
+        }
+
+
+        public DrawNumbersGeneration(bool KinoBonus)
+        {
+            this.KinoBonus = KinoBonus;
             RandomNumbersGeneration = new List<int>();
             List<int> kinoNumbers = AddKinoNumbers(RandomNumbersGeneration);
-            PrintRandomNumbersGeneration(kinoNumbers);
+            PrintRandomNumbersGeneration(kinoNumbers, KinoBonus);
         }
 
         public List<int> AddKinoNumbers(List<int> RandomNumbersGeneration)
         {
-            for (int i = 0; i <= 9; i++)
+            for (int i = 0; i <= 10; i++)
             {
                 int num;
                 bool isUnique = false;
@@ -62,7 +72,7 @@ namespace KinoProject.Services
             return true;
         }
 
-        public static void PrintRandomNumbersGeneration(List<int> RandomNumbersGeneration)
+        public static void PrintRandomNumbersGeneration(List<int> RandomNumbersGeneration, bool KinoBonus)
         {
             Console.WriteLine("Kino Numbers:\n");
             for(int i=0; i<= RandomNumbersGeneration.Count-1; i++)
@@ -85,11 +95,18 @@ namespace KinoProject.Services
                 }
                 else if(i >= 4)
                 {
-                    Console.WriteLine($"{i+1}th Kino Number {RandomNumbersGeneration[i]}\n");
-                }
-                
+                    if(i == RandomNumbersGeneration.Count-1 && KinoBonus)
+                    {
+                        Console.WriteLine($"{i + 1}th Kino Bonus Number {RandomNumbersGeneration[i]}\n");
+                    }else if(i == RandomNumbersGeneration.Count-1 && !KinoBonus)
+                    {
+                        Console.WriteLine($"{i + 1}th Kino Number {RandomNumbersGeneration[i]}\n");
+                    }else if(i != RandomNumbersGeneration.Count - 1)
+                    {
+                        Console.WriteLine($"{i + 1}th Kino Number {RandomNumbersGeneration[i]}\n");
+                    }
+                }  
             }
-            
         }
     }
 }
