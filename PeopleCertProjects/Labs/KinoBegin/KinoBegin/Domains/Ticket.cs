@@ -19,10 +19,20 @@ namespace KinoBegin.Domains
             set { _numbers = value; }
         }
 
+        private int _tid;
+
+        public int Tid
+        {
+            get { return _tid; }
+            set { _tid = value; }
+        }
+
+
         public Ticket()
         {
             TicketService ticketService = new TicketService();
             GenerateTicket(ticketService);
+            Tid++;
         }
 
         public List<int> GenerateTicket(TicketService ticketService)
@@ -54,7 +64,7 @@ namespace KinoBegin.Domains
 
         public override string ToString()
         {
-            string s = $" Ticket {{ \n";
+            string s = $" Ticket {Tid} {{ \n";
             for(int i=0; i<= Numbers.Count-1; i++)
             {
                 s = s + $" Number: {i+1} -> " + Numbers[i] + "\n";

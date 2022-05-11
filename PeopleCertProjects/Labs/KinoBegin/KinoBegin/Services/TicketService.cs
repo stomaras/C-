@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KinoBegin.Services;
 
 namespace KinoBegin.Services
 {
@@ -38,7 +39,7 @@ namespace KinoBegin.Services
             // check if is number
             while (!isNumber)
             {
-                Console.WriteLine("Enter Number between 1-80:\n");
+                PrintService.EnterNumberBetween1And80();
                 number = Console.ReadLine();
                 isNumber = CheckIfIsNumber(number);
                 if (isNumber == true)

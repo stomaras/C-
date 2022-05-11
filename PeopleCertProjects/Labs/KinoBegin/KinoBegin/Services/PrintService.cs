@@ -23,6 +23,16 @@ namespace KinoBegin.Services
             Console.WriteLine("Number already exists! try again");
         }
 
+        public static void QuestionAboutKinoBonus()
+        {
+            Console.WriteLine("Do You Want to Play With Kino Bonus Enter: Y/N\n");
+        }
+
+        public static void EnterNumberBetween1And80()
+        {
+            Console.WriteLine("Enter Number between 1-80:\n");
+        }
+
        
     }
 }

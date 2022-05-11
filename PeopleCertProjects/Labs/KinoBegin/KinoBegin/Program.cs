@@ -11,7 +11,10 @@ namespace KinoBegin
         static void Main(string[] args)
         {
             Ticket ticket = new Ticket();
-            Console.WriteLine(ticket);
+            Player player = new Player(ticket);
+            Console.WriteLine(player);
+            Lottery lottery = new Lottery(player.KinoBonus);
+            Console.WriteLine(lottery.ToString());
         }
     }
 }
