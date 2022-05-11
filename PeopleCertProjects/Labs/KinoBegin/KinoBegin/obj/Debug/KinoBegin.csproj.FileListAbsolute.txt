@@ -1,0 +1,7 @@
+C:\Users\spyros\source\repos\KinoBegin\KinoBegin\bin\Debug\KinoBegin.exe.config
+C:\Users\spyros\source\repos\KinoBegin\KinoBegin\bin\Debug\KinoBegin.exe
+C:\Users\spyros\source\repos\KinoBegin\KinoBegin\bin\Debug\KinoBegin.pdb
+C:\Users\spyros\source\repos\KinoBegin\KinoBegin\obj\Debug\KinoBegin.csproj.AssemblyReference.cache
+C:\Users\spyros\source\repos\KinoBegin\KinoBegin\obj\Debug\KinoBegin.csproj.CoreCompileInputs.cache
+C:\Users\spyros\source\repos\KinoBegin\KinoBegin\obj\Debug\KinoBegin.exe
+C:\Users\spyros\source\repos\KinoBegin\KinoBegin\obj\Debug\KinoBegin.pdb
