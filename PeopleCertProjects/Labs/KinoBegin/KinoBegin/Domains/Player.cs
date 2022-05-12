@@ -64,16 +64,8 @@ namespace KinoBegin.Domains
 
         public override string ToString()
         {
-            string message = "";
-            if (KinoBonus)
-            {
-                message = "Play with Kino Bonus";
-            }
-            else
-            {
-                message = "Don't play with Kino Bonus";
-            }
-            string s = $"Player {PID} {{ with full name : {FullName}, with age : {Age}, {message} ,with Tickets: \n{Ticket}}}";
+           
+            string s = $"Player {PID} {{ with full name : {FullName}, with age : {Age},with Tickets: \n{Ticket}}}";
             return s;
 
         }

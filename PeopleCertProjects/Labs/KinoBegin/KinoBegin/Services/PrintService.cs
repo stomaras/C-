@@ -33,6 +33,16 @@ namespace KinoBegin.Services
             Console.WriteLine("Enter Number between 1-80:\n");
         }
 
+        public static void PlayerWinsKinoBonus()
+        {
+            Console.WriteLine("Player wins kino bonus");
+        }
+
+        public static void PlayerLostKinoBonus()
+        {
+            Console.WriteLine("Player lost kino bonus");
+        }
+
        
     }
 }

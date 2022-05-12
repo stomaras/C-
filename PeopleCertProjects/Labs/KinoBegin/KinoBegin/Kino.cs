@@ -11,22 +11,7 @@ namespace KinoBegin
     class Kino
     {
 
-        private int myVar;
-
-        public int MyProperty
-        {
-            get { return myVar; }
-            set { myVar = value; }
-        }
-
-        private int myVar;
-
-        public int MyProperty
-        {
-            get { return myVar; }
-            set { myVar = value; }
-        }
-
+        
 
         public Kino() { }
 
@@ -34,13 +19,42 @@ namespace KinoBegin
         {
             Ticket ticket = new Ticket();
             Player player = new Player(ticket);
-            Console.WriteLine(player);
+            Console.WriteLine(player.ToString());
             Lottery lottery = new Lottery(player.KinoBonus);
             Console.WriteLine(lottery.ToString());
-            List<int> KinoNumbers = new List<int>();
-            List<int> LotteryNumbers = new List<int>();
-            LotteryNumbers = lottery.LotteryNumbers;
-            KinoNumbers = ticket.Numbers;
+            List<int> LotteryNums = lottery.LotteryNumbers;
+            List<int> Ticketnums = ticket.Numbers;
+            bool KinoBonus = player.KinoBonus;
+            if (KinoBonus)
+            {
+                EvaluationService evaluationService = new EvaluationService(LotteryNums, Ticketnums, KinoBonus);
+                int num = evaluationService.CountOfWinNumbers;
+                bool kinoBonus = evaluationService.KinoBonus;
+                if (kinoBonus)
+                {
+                    PrintService.PlayerWinsKinoBonus();
+                    evaluationService.PrintWinNumbers(num);
+                }
+                else
+                {
+                    PrintService.PlayerLostKinoBonus();
+                    evaluationService.PrintWinNumbers(num);
+                }
+                
+            }
+            else
+            {
+                EvaluationService evaluationService = new EvaluationService(LotteryNums, Ticketnums);
+                int num = evaluationService.CountOfWinNumbers;
+                evaluationService.PrintWinNumbers(num);
+            }
+            
+            
+           
+            
+           
+            
+            
         }
     }
 }
