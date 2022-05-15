@@ -19,9 +19,9 @@ namespace KinoBegin.Domains
             set { _numbers = value; }
         }
 
-        private int _tid;
+        public static int _tid;
 
-        public int Tid
+        public static int Tid
         {
             get { return _tid; }
             set { _tid = value; }
@@ -31,35 +31,43 @@ namespace KinoBegin.Domains
         public Ticket()
         {
             TicketService ticketService = new TicketService();
-            GenerateTicket(ticketService);
-            Tid++;
+           
+            Numbers = ticketService.UserNumbers;
+            GenerateID();
+            
         }
 
-        public List<int> GenerateTicket(TicketService ticketService)
+
+        //public List<int> GenerateTicket(TicketService ticketService)
+        //{
+        //    for (int i = 0; i <= _numOfIterations; i++)
+        //    {
+        //        if (i == 0)
+        //        {
+        //            Numbers = new List<int>();
+        //            int num = ticketService.EnterValidNumber();
+        //            Numbers.Add(num);
+        //        }
+        //        else
+        //        {
+        //            bool isUnique = false;
+        //            while (!isUnique)
+        //            {
+        //                int num = ticketService.EnterValidNumber();
+        //                isUnique = ticketService.CheckUniqueness(Numbers, num);
+        //                if (isUnique)
+        //                {
+        //                    Numbers.Add(num);
+        //                }
+        //            }
+        //        }
+        //    }
+        //    return Numbers;
+        //}
+
+        public static void GenerateID()
         {
-            for (int i = 0; i <= _numOfIterations; i++)
-            {
-                if (i == 0)
-                {
-                    Numbers = new List<int>();
-                    int num = ticketService.EnterValidNumber();
-                    Numbers.Add(num);
-                }
-                else
-                {
-                    bool isUnique = false;
-                    while (!isUnique)
-                    {
-                        int num = ticketService.EnterValidNumber();
-                        isUnique = ticketService.CheckUniqueness(Numbers, num);
-                        if (isUnique)
-                        {
-                            Numbers.Add(num);
-                        }
-                    }
-                }
-            }
-            return Numbers;
+            Tid++;
         }
 
         public override string ToString()
@@ -72,6 +80,8 @@ namespace KinoBegin.Domains
             s = s + $" }} ";
             return s;
         }
+
+        
 
 
 

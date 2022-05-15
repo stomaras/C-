@@ -31,7 +31,7 @@ namespace KinoBegin.Services
 
         public static int Age()
         {
-            List<int> ages = new List<int>() { 44, 13, 18, 87, 90, 100, 87, 100, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 50, 61, 79, 44, 45 };
+            List<int> ages = new List<int>() { 44, 13, 18, 87, 90, 100, 87, 100, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 50, 61, 79, 44, 45, 46, 47, 48, 49, 50 };
             int age = ages[_rand.Next(0, ages.Count - 1)];
             return age;
         }

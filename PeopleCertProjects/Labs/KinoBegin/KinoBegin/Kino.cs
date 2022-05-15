@@ -11,50 +11,36 @@ namespace KinoBegin
     class Kino
     {
 
-        
+        public Kino()
+        {
 
-        public Kino() { }
+        }
 
-        public void Start()
+        // stage 1
+        //public void Start()
+        //{
+        //    Ticket ticket = new Ticket();
+        //    Player player = new Player(ticket);
+        //    Console.WriteLine(player);
+        //    Lottery lottery = new Lottery(player.KinoBonus);
+        //    Console.WriteLine(lottery.ToString());
+        //    List<int> UserNumbers = player.Ticket.Numbers;
+        //    List<int> KinoNumbers = lottery.LotteryNumbers;
+        //    EvaluationService evaluationService = new EvaluationService(UserNumbers, KinoNumbers);
+        //    evaluationService.CheckMatches(UserNumbers, KinoNumbers, player.KinoBonus);
+        //}
+
+        // stage 2
+        public void Begin()
         {
             Ticket ticket = new Ticket();
-            Player player = new Player(ticket);
-            Console.WriteLine(player.ToString());
-            Lottery lottery = new Lottery(player.KinoBonus);
-            Console.WriteLine(lottery.ToString());
-            List<int> LotteryNums = lottery.LotteryNumbers;
-            List<int> Ticketnums = ticket.Numbers;
-            bool KinoBonus = player.KinoBonus;
-            if (KinoBonus)
-            {
-                EvaluationService evaluationService = new EvaluationService(LotteryNums, Ticketnums, KinoBonus);
-                int num = evaluationService.CountOfWinNumbers;
-                bool kinoBonus = evaluationService.KinoBonus;
-                if (kinoBonus)
-                {
-                    PrintService.PlayerWinsKinoBonus();
-                    evaluationService.PrintWinNumbers(num);
-                }
-                else
-                {
-                    PrintService.PlayerLostKinoBonus();
-                    evaluationService.PrintWinNumbers(num);
-                }
-                
-            }
-            else
-            {
-                EvaluationService evaluationService = new EvaluationService(LotteryNums, Ticketnums);
-                int num = evaluationService.CountOfWinNumbers;
-                evaluationService.PrintWinNumbers(num);
-            }
+            Console.WriteLine(ticket);
+
             
             
            
-            
-           
-            
-            
         }
+
+        
     }
 }

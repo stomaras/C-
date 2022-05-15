@@ -43,22 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Domains\Lottery.cs" />
-    <Compile Include="Domains\Player.cs" />
     <Compile Include="Domains\Ticket.cs" />
     <Compile Include="Kino.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\EvaluationService.cs" />
-    <Compile Include="Services\LotteryService.cs" />
-    <Compile Include="Services\PlayerService.cs" />
     <Compile Include="Services\PrintService.cs" />
-    <Compile Include="Services\RandomNameGenerator.cs" />
     <Compile Include="Services\RandomService.cs" />
     <Compile Include="Services\TicketService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

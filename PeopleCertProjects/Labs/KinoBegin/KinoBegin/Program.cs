@@ -11,8 +11,12 @@ namespace KinoBegin
         static void Main(string[] args)
         {
             Kino kino = new Kino();
-            kino.Start();
 
+            // stage 1
+            //kino.Start();
+
+            // stage 2
+            kino.Begin();
         }
     }
 }

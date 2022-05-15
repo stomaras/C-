@@ -10,17 +10,17 @@ namespace KinoBegin.Services
     {
         public static void InvalidNumberMessage()
         {
-            Console.WriteLine("Number cannot be string must be integer between <<1-80>>");
+            Console.WriteLine("Ticket Number cannot be string must be integer between <<1-80>>");
         }
 
         public static void InvalidRangeNumberMessage()
         {
-            Console.WriteLine("Number Must be in range <<1-80>>");
+            Console.WriteLine("Ticket Number Must be in range <<1-80>>");
         }
 
         public static void IsNotUniqueUserNumber()
         {
-            Console.WriteLine("Number already exists! try again");
+            Console.WriteLine("Ticket Number already exists! try again");
         }
 
         public static void QuestionAboutKinoBonus()
@@ -30,17 +30,33 @@ namespace KinoBegin.Services
 
         public static void EnterNumberBetween1And80()
         {
-            Console.WriteLine("Enter Number between 1-80:\n");
+            Console.WriteLine("Enter New Ticket Number between 1-80:\n");
         }
 
-        public static void PlayerWinsKinoBonus()
+        public static void EnterNumberOfPlayers()
         {
-            Console.WriteLine("Player wins kino bonus");
+            Console.WriteLine("Enter Number of Players:\n");
         }
 
-        public static void PlayerLostKinoBonus()
+        public static void PlayersNumberMustBeBetween1And20()
         {
-            Console.WriteLine("Player lost kino bonus");
+            Console.WriteLine("Players Number must be between <<1 and 20>>");
+        }
+
+        public static void EnterNumberBetween1And20()
+        {
+            Console.WriteLine("Number must be in range <<1-20>>");
+        }
+
+        //public static void EnterNumberOfTickets()
+        //{
+        //    Console.WriteLine("Number Of Tickets must be amont <<1-10>> tickets");
+        //}
+
+        public static string EnterNewTicketNumber()
+        {
+            string s = " New Ticket With Number : ";
+            return s;
         }
 
        

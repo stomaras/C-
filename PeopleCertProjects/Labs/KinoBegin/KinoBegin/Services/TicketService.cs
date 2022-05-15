@@ -4,20 +4,53 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using KinoBegin.Services;
+using KinoBegin.Domains;
 
 namespace KinoBegin.Services
 {
     class TicketService
     {
+
+        private int _numOfIterations = 5;
         public List<int> UserNumbers { get; private set; }
+
+        
+
         public TicketService()
         {
-           
-            
-
+            UserNumbers = GenerateTicket();
         }
 
-       public bool CheckUniqueness(List<int> UserNumbers, int number)
+        public List<int> GenerateTicket()
+        {
+            TicketService ticketService = new TicketService();
+            for (int i = 0; i <= _numOfIterations; i++)
+            {
+                if (i == 0)
+                {
+                    UserNumbers = new List<int>();
+                    int num = ticketService.EnterValidNumber();
+                    UserNumbers.Add(num);
+                }
+                else
+                {
+                    bool isUnique = false;
+                    while (!isUnique)
+                    {
+                        int num = ticketService.EnterValidNumber();
+                        isUnique = ticketService.CheckUniqueness(UserNumbers, num);
+                        if (isUnique)
+                        {
+                            UserNumbers.Add(num);
+                        }
+                    }
+                }
+            }
+            return UserNumbers;
+        }
+
+
+        public bool CheckUniqueness(List<int> UserNumbers, int number)
        {
             for (int i = 0; i <= UserNumbers.Count - 1; i++)
             {
@@ -70,6 +103,14 @@ namespace KinoBegin.Services
             int numeric;
             bool isNumber = int.TryParse(num, out numeric);
             return isNumber;
+        }
+
+        
+
+        public string PrintTicketNumber(int NumOfTickets)
+        {
+            string s = PrintService.EnterNewTicketNumber() + $"{NumOfTickets}" + $" registered ";
+            return s;
         }
     }
 }

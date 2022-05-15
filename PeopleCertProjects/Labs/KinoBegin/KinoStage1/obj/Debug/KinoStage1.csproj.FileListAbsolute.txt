@@ -1,0 +1,7 @@
+C:\Users\spyros\C-\PeopleCertProjects\Labs\KinoBegin\KinoStage1\bin\Debug\KinoStage1.exe.config
+C:\Users\spyros\C-\PeopleCertProjects\Labs\KinoBegin\KinoStage1\bin\Debug\KinoStage1.exe
+C:\Users\spyros\C-\PeopleCertProjects\Labs\KinoBegin\KinoStage1\bin\Debug\KinoStage1.pdb
+C:\Users\spyros\C-\PeopleCertProjects\Labs\KinoBegin\KinoStage1\obj\Debug\KinoStage1.csproj.AssemblyReference.cache
+C:\Users\spyros\C-\PeopleCertProjects\Labs\KinoBegin\KinoStage1\obj\Debug\KinoStage1.csproj.CoreCompileInputs.cache
+C:\Users\spyros\C-\PeopleCertProjects\Labs\KinoBegin\KinoStage1\obj\Debug\KinoStage1.exe
+C:\Users\spyros\C-\PeopleCertProjects\Labs\KinoBegin\KinoStage1\obj\Debug\KinoStage1.pdb

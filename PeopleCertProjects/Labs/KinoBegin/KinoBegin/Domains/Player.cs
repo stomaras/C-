@@ -4,27 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using KinoBegin.Services;
-
 namespace KinoBegin.Domains
 {
     class Player
     {
-        private int _PID;
+        private int _pid;
 
         public int PID
         {
-            get { return _PID; }
-            set { _PID = value; }
+            get { return _pid; }
+            set { _pid = value; }
         }
 
-        private string _fullName;
+
+        private string _FullName;
 
         public string FullName
         {
-            get { return _fullName; }
-            set { _fullName = value; }
+            get { return _FullName; }
+            set { _FullName = value; }
         }
-
 
         private int _age;
 
@@ -34,43 +33,17 @@ namespace KinoBegin.Domains
             set { _age = value; }
         }
 
-        private bool _kinoBonus;
-
-        public bool KinoBonus
+        public List<Ticket> Tickets { get; private set; }
+        public Player()
         {
-            get { return _kinoBonus; }
-            set { _kinoBonus = value; }
-        }
-
-
-        private Ticket _ticket;
-
-        public Ticket Ticket
-        {
-            get { return _ticket; }
-            set { _ticket = value; }
-        }
-
-
-        public Player(Ticket ticket)
-        {
+            Tickets = new List<Ticket>();
             FullName = RandomService.RandName();
             Age = RandomService.Age();
-            Ticket = ticket;
-            PlayerService playerService = new PlayerService();
-            KinoBonus = playerService.PlayWithKinoBonus();
-            PID++;
         }
 
         public override string ToString()
         {
-           
-            string s = $"Player {PID} {{ with full name : {FullName}, with age : {Age},with Tickets: \n{Ticket}}}";
-            return s;
-
+            return base.ToString(); 
         }
-
-
-
     }
 }

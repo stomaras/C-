@@ -9,95 +9,71 @@ namespace KinoBegin.Services
 {
     class EvaluationService
     {
+        public List<int> WinsPerPlayer = new List<int>() { 0, 0, 0, 0, 0, 0 };
+        public List<int> UserNumbers { get; private set; }
+        public List<int> KinoNumbers { get; private set; }
 
-        private Ticket _Ticket;
+        private int _matches;
 
-        public Ticket Ticket
+        public int Matches
         {
-            get { return _Ticket; }
-            set { _Ticket = value; }
+            get { return _matches; }
+            set { _matches = value; }
         }
 
-        private Lottery _lottery;
+        private bool _matchesKinoBonus;
 
-        public Lottery Lottery
+        public bool MatchesKinoBonus
         {
-            get { return _lottery; }
-            set { _lottery = value; }
+            get { return _matchesKinoBonus; }
+            set { _matchesKinoBonus = value; }
         }
 
-        private int _CountOfWinNumbers;
+        private int _count;
 
-        public int CountOfWinNumbers
+        public int Count
         {
-            get { return _CountOfWinNumbers; }
-            set { _CountOfWinNumbers = value; }
+            get { return _count; }
+            set { _count = value; }
         }
 
-        private bool _kinoBonus;
-
-        public bool KinoBonus
+        public EvaluationService(List<int> UserNumbers, List<int> KinoNumbers)
         {
-            get { return _kinoBonus; }
-            set { _kinoBonus = value; }
+            this.UserNumbers = UserNumbers;
+            this.KinoNumbers = KinoNumbers;
         }
 
-
-        public EvaluationService(List<int> LotteryNumbers, List<int> TicketNumbers, bool KinoBonus)
+        public void CheckMatches(List<int> UserNumbers, List<int> KinoNumbers, bool KinoBonus)
         {
-            CountOfWinNumbers = ComparisonLists(LotteryNumbers, TicketNumbers);
-            KinoBonus = KinoBonusSearch(LotteryNumbers, TicketNumbers);
-            
-        }
-
-        public EvaluationService(List<int> LotteryNumbers, List<int> TicketNumbers)
-        {
-            CountOfWinNumbers = ComparisonLists(LotteryNumbers, TicketNumbers);
-        }
-
-        public int ComparisonLists(List<int> LotteryNumbers, List<int> TicketNumbers)
-        {
-           
-            int count = 0;
-            for(int i=0; i<= LotteryNumbers.Count-1; i++)
+            for (int i = 0; i <= UserNumbers.Count - 1; i++)
             {
-                
-                for (int j = 0; j < TicketNumbers.Count-1; j++)
+                for (int j = 0; j <= KinoNumbers.Count - 1; j++)
                 {
-                    
-                    if(LotteryNumbers[i] == TicketNumbers[j])
-                    {   
-                        count++;
-                    }
-                    
-                }
-            }
-            return count;
-        }
-        public bool KinoBonusSearch(List<int> LotteryNumbers, List<int> TicketNumbers)
-        {
-            bool countBonus = false;
-            for (int i = 0; i <= LotteryNumbers.Count - 1; i++)
-            {
-
-                for (int j = 0; j < TicketNumbers.Count - 1; j++)
-                {
-
-                    if (LotteryNumbers[i] == TicketNumbers[j] && LotteryNumbers[i] == LotteryNumbers.Count - 1)
+                    if (UserNumbers[i] == KinoNumbers[j])
                     {
-                        countBonus = true;
+                        Matches++;
                     }
-
+                    if ((Count == UserNumbers.Count - 1) && (UserNumbers[i] == KinoNumbers[j]))
+                    {
+                        MatchesKinoBonus = true;
+                    }
                 }
             }
-            return countBonus;
+            if (KinoBonus && MatchesKinoBonus)
+            {
+                Console.WriteLine($"Player catch {Matches} / 6 numbers and won Kino Bonus");
+            }
+            else if (KinoBonus && !MatchesKinoBonus)
+            {
+                Console.WriteLine($"Player catch {Matches} / 6 numbers and lost Kino Bonus");
+            }
+            else
+            {
+                Console.WriteLine($"Player catch {Matches} / 6 numbers");
+            }
         }
 
-        public void PrintWinNumbers(int num)
-        {
-               Console.WriteLine($"Player  of win numbers {num} / 6");
-        }
-
+        
 
 
     }
