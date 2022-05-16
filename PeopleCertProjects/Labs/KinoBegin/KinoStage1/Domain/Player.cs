@@ -68,18 +68,18 @@ namespace KinoStage1.Domain
 
         public override string ToString()
         {
-            string s = $"Player  {Pid}\n\tTicket {Ticket.Tid}\n";
+            string s = $"\t\tPlayer  {Pid}\n\t\t\tTicket {Ticket.Tid}\n";
             for (int i = 0; i < Ticket.Numbers.Count-1; i++)
             {
-                s = s + $"\t\t Number {i+1}, {Ticket.Numbers[i]}\n";
+                s = s + $"\t\t\t\t Number {i+1}, {Ticket.Numbers[i]}\n";
             }
             if (Ticket.KinoBonus)
             {
-                s = s + $"\t\t Play with Kino Bonus\n";
+                s = s + $"\t\t\t\t Play with Kino Bonus\n";
             }
             else
             {
-                s = s + $"\t\t Don't Play with Kino Bonus\n";
+                s = s + $"\t\t\t\t Don't Play with Kino Bonus\n";
             }
             return s;
 

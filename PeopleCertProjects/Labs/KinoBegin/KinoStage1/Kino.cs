@@ -61,6 +61,15 @@ namespace KinoStage1
             set { _numOfPlayers = value; }
         }
 
+        private int _numOfLotteries;
+
+        public int NumOfLotteries
+        {
+            get { return _numOfLotteries; }
+            set { _numOfLotteries = value; }
+        }
+
+
         public Kino()
         {
 
@@ -91,6 +100,11 @@ namespace KinoStage1
             
             PlayerService playerService = new PlayerService(numOfPlayers, KinoBonus);
             
+        }
+
+        public void Start(int numOfPlayers, bool KinoBonus, int numOfLotteries)
+        {
+            PlayerService playerService = new PlayerService(numOfPlayers, KinoBonus, numOfLotteries);
         }
     }
 }

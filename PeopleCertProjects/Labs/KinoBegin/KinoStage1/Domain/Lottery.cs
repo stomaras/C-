@@ -29,14 +29,13 @@ namespace KinoStage1.Domain
 
         public Lottery()
         {
-            Lid = GenerateLotteryID();
+            GenerateLotteryID();
             LotteryNumbers = GenerateNumbers();
         }
 
-        public static int GenerateLotteryID()
+        private void GenerateLotteryID()
         {
             Lid++;
-            return Lid;
         }
 
         public List<int> GenerateNumbers()

@@ -18,6 +18,15 @@ namespace KinoStage1.Services
             set { _players = value; }
         }
 
+        private List<Lottery> _Lotteries;
+
+        public List<Lottery> Lotteries
+        {
+            get { return _Lotteries; }
+            set { _Lotteries = value; }
+        }
+
+
         private Lottery _lottery;
 
         public Lottery Lottery
@@ -33,6 +42,29 @@ namespace KinoStage1.Services
             Lottery = new Lottery();
             Players = GeneratePlayers(numOfPlayers, kinoBonus, Lottery);
            
+        }
+
+       public PlayerService(int numOfPlayers, bool kinoBonus, int numOfLotteries)
+        {
+            Lotteries = GenerateLotteries(numOfLotteries);
+            for(int i=0; i<=Lotteries.Count-1; i++)
+            {
+                PrintService.PrintLineSeperatorLotteryStart();
+                Lottery = new Lottery();
+                
+                Players = GeneratePlayers(numOfPlayers, kinoBonus, Lottery);
+            }
+        }
+
+        public List<Lottery> GenerateLotteries(int numOfLotteries)
+        {
+            List<Lottery> lotteries = new List<Lottery>();
+            for (int i = 0; i <= numOfLotteries-1; i++)
+            {
+                Lottery lottery = new Lottery();
+                lotteries.Add(lottery);
+            }
+            return lotteries;
         }
 
         public List<Player> GeneratePlayers(int numOfPlayers, bool kinoBonus, Lottery lottery)

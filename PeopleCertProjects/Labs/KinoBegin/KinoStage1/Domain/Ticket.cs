@@ -120,7 +120,7 @@ namespace KinoStage1.Domain
 
         public override string ToString()
         {
-            string s = $"Ticket {{ {Tid}\n";
+            string s = $"\t\tTicket {{ {Tid}\n";
             for (int i = 0; i <= Numbers.Count - 1; i++)
             {
                 s = s + $"Number {i + 1} -> {Numbers[i]}\n";

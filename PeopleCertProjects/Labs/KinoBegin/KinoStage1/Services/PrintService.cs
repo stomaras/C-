@@ -13,17 +13,17 @@ namespace KinoStage1.Services
         {
             if (KinoBonus)
             {
-                Console.WriteLine($"User catch {count} / 6 numbers and win Kino Bonus");
+                Console.WriteLine($"\t\t\t\tUser catch {count} / 6 numbers and win Kino Bonus");
             }
             else
             {
-                Console.WriteLine($"User catch {count} / 6 numbers and lost Kino Bonus");
+                Console.WriteLine($"\t\t\t\tUser catch {count} / 6 numbers and lost Kino Bonus");
             }
         }
 
         public static void PrintMessageAboutWins(int count)
         {
-            Console.WriteLine($"User catch {count} / 6 numbers");
+            Console.WriteLine($"\t\t\t\tUser catch {count} / 6 numbers");
         }
 
         public static void PrintPlayer(Player player)
@@ -39,6 +39,17 @@ namespace KinoStage1.Services
         public static void PrintLineSeperator()
         {
             Console.WriteLine("--------------------------------------------------------");
+        }
+        
+        public static void PrintLineSeperatorLotteryStart()
+        {
+            Console.WriteLine("------------------Lottery--------------------------------");
+            Console.WriteLine("---------------------------------------------------------");
+        }
+
+        public static void PrintLineSeperatorLotteryEnd()
+        {
+            Console.WriteLine("-----------------------Lottery End--------------------------");
         }
     }
 }
