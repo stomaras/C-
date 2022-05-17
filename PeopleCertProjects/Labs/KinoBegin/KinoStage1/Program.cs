@@ -13,7 +13,7 @@ namespace KinoStage1
             Kino kino = new Kino();
             // Games, Players, KinoBonus
             //kino.Start(1, 10, true);
-            kino.Start(10,true,5);
+            kino.Start(10,false,5);
 
         }
     }
