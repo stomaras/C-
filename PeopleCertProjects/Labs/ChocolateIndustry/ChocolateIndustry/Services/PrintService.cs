@@ -20,6 +20,29 @@ namespace ChocolateIndustry.Services
             }
         }
 
+        public static void PrintSuppliersEmployees(List<IPeople> peoples)
+        {
+            foreach (IPeople people in peoples)
+            {
+                if (people is Employee)
+                {
+                    Console.WriteLine($"Employee\t\t {people}");
+                }
+                if (people is Supplier)
+                {
+                    Console.WriteLine($"Supplier\t\t {people}");
+                }
+            }
+        }
+  
+        public static void PrintSuppliers(List<Supplier> suppliers)
+        {
+             for (int i = 0; i < suppliers.Count - 1; i++)
+             {
+                 Console.WriteLine(suppliers[i]);
+             }
+        }
+
         public static void PrintEmployees(List<Employee> employees)
         {
             foreach (Employee employee in employees)
@@ -33,6 +56,16 @@ namespace ChocolateIndustry.Services
             foreach (Factory factory in factories)
             {
                 Console.WriteLine(factory);
+            }
+        }
+
+        public static void PrintShopNames(List<string> shopNames)
+        {
+            Console.WriteLine("Shops:\n");
+            for (int i = 0; i <= shopNames.Count - 1; i++)
+            {
+
+                Console.WriteLine("\t" + shopNames[i]);
             }
         }
 

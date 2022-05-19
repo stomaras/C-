@@ -17,6 +17,8 @@ namespace ChocolateIndustry.Services
             return (result);
         }
 
+        
+
         public static string RandFirstName()
         {
             List<string> FirstNames = new List<string>() { "Spyros", "Natalia", "Agathi", "Stathis", "Eleni", "Nafsika", "Panagiwta", "Eleana", "Apostolhs", "Xristoforos", "Giannis", "Chris", "George", "Xristos" };
@@ -48,9 +50,11 @@ namespace ChocolateIndustry.Services
             return factoryName;
         }
 
+        
+
         public static int RandQualityIndex()
         {
-            List<int> indexes = new List<int>() { 1, 2, 3, 4, 5 };
+            List<int> indexes = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
             int index = indexes[_rand.Next(0, indexes.Count - 1)];
             return index;
         }
@@ -67,6 +71,13 @@ namespace ChocolateIndustry.Services
             List<int> ages = new List<int>() { 44, 13, 18, 87, 90, 100, 87, 100, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 50, 61, 79, 44, 45 };
             int age = ages[_rand.Next(0, ages.Count - 1)];
             return age;
+        }
+
+        public static string ProductName()
+        {
+            List<string> products = new List<string>() { "BlackChocolate", "WhiteChocolate", "MilkChocolate" };
+            string product = products[_rand.Next(0, products.Count - 1)];
+            return product;
         }
 
         public static int Wages()

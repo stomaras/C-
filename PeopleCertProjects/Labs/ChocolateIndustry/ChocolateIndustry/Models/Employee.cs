@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using ChocolateIndustry.Services;
 using ChocolateIndustry.Repository;
-
+using ChocolateIndustry.Interfaces;
 
 namespace ChocolateIndustry.Models
 {
-    class Employee
+    class Employee : IPeople
     {
 
         private Guid _eid;
@@ -20,21 +20,9 @@ namespace ChocolateIndustry.Models
             set { _eid = value; }
         }
 
-        private string _firstName;
+        public string firstName { get; set; }
 
-        public string FirstName
-        {
-            get { return _firstName; }
-            set { _firstName = value; }
-        }
-
-        private string _lastName;
-
-        public string LastName
-        {
-            get { return _lastName; }
-            set { _lastName = value; }
-        }
+        public string lastName { get; set; }
 
         private int _age;
 
@@ -44,7 +32,7 @@ namespace ChocolateIndustry.Models
             set { _age = value; }
         }
 
-
+        public Sex sex { get; set; }
         private int _wage;
 
         public int Wage
@@ -53,13 +41,16 @@ namespace ChocolateIndustry.Models
             set { _wage = value; }
         }
 
+        
+
         public Employee()
         {
             Eid = Guid.NewGuid();
-            FirstName = RandomService.RandFirstName();
-            LastName = RandomService.RandLastName();
+            firstName = RandomService.RandFirstName();
+            lastName = RandomService.RandLastName();
             Age = RandomService.Age();
             Wage = RandomService.Wages();
+            sex = Sex.Female;
 
         }
 
@@ -67,7 +58,7 @@ namespace ChocolateIndustry.Models
 
         public override string ToString()
         {
-            return $"Employee {{ FirstName: {FirstName}, LastName: {LastName}, Age: {Age}, Wage: {Wage}}}";
+            return $"Employee {{ FirstName: {firstName}, LastName: {lastName}, Age: {Age}, Wage: {Wage}}}";
         }
 
 

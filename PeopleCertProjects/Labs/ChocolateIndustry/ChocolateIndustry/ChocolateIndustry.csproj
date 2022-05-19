@@ -44,11 +44,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Industry.cs" />
+    <Compile Include="Interfaces\IBusiness.cs" />
     <Compile Include="Interfaces\IChocolate.cs" />
+    <Compile Include="Interfaces\IPeople.cs" />
     <Compile Include="Models\BlackChocolate.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Factory.cs" />
     <Compile Include="Models\MilkChocolate.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Shop.cs" />
     <Compile Include="Models\Supplier.cs" />
     <Compile Include="Models\WhiteChocolate.cs" />
@@ -60,12 +63,16 @@
     <Compile Include="Repository\ShopMockRepository.cs" />
     <Compile Include="Repository\SupplierMockRepository.cs" />
     <Compile Include="Services\CheckService.cs" />
+    <Compile Include="Services\InputService.cs" />
     <Compile Include="Services\PrintService.cs" />
     <Compile Include="Services\RandomService.cs" />
+    <Compile Include="Sex.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="ExternalSources\ShopNames.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

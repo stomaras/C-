@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using ChocolateIndustry.Models;
 using ChocolateIndustry.Services;
+using ChocolateIndustry.Interfaces;
 
 namespace ChocolateIndustry.Models
 {
-    class Factory
+    class Factory : IBusiness
     {
 
         private static int _fid;
@@ -71,9 +72,14 @@ namespace ChocolateIndustry.Models
             return $" Factory {{ Fid {Fid}, Name : {FactoryName}}}";
         }
 
+        public void AddEmployee(List<Employee> employees, Employee employee)
+        {
+            throw new NotImplementedException();
+        }
 
-
-
-
+        public void RemoveEmployee(List<Employee> employees, Employee employee)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
