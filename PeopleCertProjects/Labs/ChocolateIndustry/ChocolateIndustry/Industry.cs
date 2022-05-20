@@ -14,6 +14,8 @@ namespace ChocolateIndustry
     {
 
         public List<string> ShopNames { get; set; }
+        public List<string> StreetNames { get; set; }
+        public List<string> AreaNames { get; set; }
 
         public Industry()
         {
@@ -22,19 +24,22 @@ namespace ChocolateIndustry
 
         public void Start()
         {
-            int numOfProducts = 10;
-            Supplier supplier = new Supplier(numOfProducts);
-            Console.WriteLine(supplier);
+            //int numOfProducts = 10;
+            //Supplier supplier = new Supplier(numOfProducts);
+            //Console.WriteLine(supplier);
 
-            Supplier supplier1 = new Supplier(3);
-            Console.WriteLine(supplier1);
+            //Supplier supplier1 = new Supplier(3);
+            //Console.WriteLine(supplier1);
 
 
-            InputService inputService = new InputService();
-            ShopNames = inputService.ShopNames;
-            int index = RandomService.Number(1, ShopNames.Count - 1);
-            string name = ShopNames[index];
-            Shop shop = new Shop(name);
+            InputServiceShopEntity inputServiceShopEntity = new InputServiceShopEntity();
+            ShopNames = inputServiceShopEntity.ShopNames;
+            StreetNames = inputServiceShopEntity.StreetNames;
+            AreaNames = inputServiceShopEntity.Areas;
+            string name = RandomService.RandShopName(ShopNames);
+            string street = RandomService.RandStreetName(StreetNames);
+            string area = RandomService.RandAreaName(AreaNames);
+            Shop shop = new Shop(name, street, area);
 
             // Print Shop Names
             //InputService inputService = new InputService();

@@ -17,7 +17,28 @@ namespace ChocolateIndustry.Services
             return (result);
         }
 
-        
+     
+
+        public static string RandShopName(List<string> shopNames)
+        {
+            int index = RandomService.Number(1, shopNames.Count - 1);
+            string name = shopNames[index];
+            return name;
+        }
+
+        public static string RandStreetName(List<string> streetNames)
+        {
+            int index = RandomService.Number(1, streetNames.Count - 1);
+            string street = streetNames[index];
+            return street;
+        }
+
+        public static string RandAreaName(List<string> areaNames)
+        {
+            int index = RandomService.Number(1, areaNames.Count - 1);
+            string area = areaNames[index];
+            return area;
+        }
 
         public static string RandFirstName()
         {

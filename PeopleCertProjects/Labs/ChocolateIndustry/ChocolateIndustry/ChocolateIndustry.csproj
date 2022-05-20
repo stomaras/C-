@@ -54,6 +54,7 @@
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Shop.cs" />
     <Compile Include="Models\Supplier.cs" />
+    <Compile Include="Models\Warehouse.cs" />
     <Compile Include="Models\WhiteChocolate.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -63,7 +64,7 @@
     <Compile Include="Repository\ShopMockRepository.cs" />
     <Compile Include="Repository\SupplierMockRepository.cs" />
     <Compile Include="Services\CheckService.cs" />
-    <Compile Include="Services\InputService.cs" />
+    <Compile Include="Services\InputServiceShopEntity.cs" />
     <Compile Include="Services\PrintService.cs" />
     <Compile Include="Services\RandomService.cs" />
     <Compile Include="Sex.cs" />
@@ -72,7 +73,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ExternalSources\Areas.txt" />
     <Content Include="ExternalSources\ShopNames.txt" />
+    <Content Include="ExternalSources\ShopStreets.txt" />
+    <Content Include="ExternalSources\ZipCodes.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

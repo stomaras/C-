@@ -30,7 +30,7 @@ namespace ChocolateIndustry.Models
             
             for (int i = 0; i <= numOfProducts-1; i++)
             {
-                Product product = new Product();
+                Product product = Product.GetProduct();
                 products.Add(product);
             }
             return products;

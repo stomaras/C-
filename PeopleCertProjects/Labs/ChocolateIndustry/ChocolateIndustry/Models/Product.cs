@@ -40,6 +40,12 @@ namespace ChocolateIndustry.Models
             Quality = RandomService.RandQualityIndex();
             PricePerKg = CalculationPricePerKg(Quantity, Quality);
         }
+        
+
+        public static Product GetProduct()
+        {
+            return new Product();
+        }
 
         public int GenerateUniqueID(int id, List<int> ids)
         {

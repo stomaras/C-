@@ -32,7 +32,6 @@ namespace ChocolateIndustry.Models
             set { _age = value; }
         }
 
-        public Sex sex { get; set; }
         private int _wage;
 
         public int Wage
@@ -50,11 +49,14 @@ namespace ChocolateIndustry.Models
             lastName = RandomService.RandLastName();
             Age = RandomService.Age();
             Wage = RandomService.Wages();
-            sex = Sex.Female;
-
         }
 
-        
+       
+
+        public static Employee GetEmployee()
+        {
+            return new Employee();
+        }
 
         public override string ToString()
         {
