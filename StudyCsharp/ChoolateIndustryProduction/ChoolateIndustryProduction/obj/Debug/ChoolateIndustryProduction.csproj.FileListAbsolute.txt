@@ -1,0 +1,7 @@
+C:\Users\spyros\source\repos\ChoolateIndustryProduction\ChoolateIndustryProduction\obj\Debug\ChoolateIndustryProduction.csproj.AssemblyReference.cache
+C:\Users\spyros\source\repos\ChoolateIndustryProduction\ChoolateIndustryProduction\obj\Debug\ChoolateIndustryProduction.csproj.CoreCompileInputs.cache
+C:\Users\spyros\source\repos\ChoolateIndustryProduction\ChoolateIndustryProduction\bin\Debug\ChoolateIndustryProduction.exe.config
+C:\Users\spyros\source\repos\ChoolateIndustryProduction\ChoolateIndustryProduction\bin\Debug\ChoolateIndustryProduction.exe
+C:\Users\spyros\source\repos\ChoolateIndustryProduction\ChoolateIndustryProduction\bin\Debug\ChoolateIndustryProduction.pdb
+C:\Users\spyros\source\repos\ChoolateIndustryProduction\ChoolateIndustryProduction\obj\Debug\ChoolateIndustryProduction.exe
+C:\Users\spyros\source\repos\ChoolateIndustryProduction\ChoolateIndustryProduction\obj\Debug\ChoolateIndustryProduction.pdb
