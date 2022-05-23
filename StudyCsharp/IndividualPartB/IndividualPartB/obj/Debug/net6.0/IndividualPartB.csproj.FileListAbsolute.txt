@@ -1,0 +1,15 @@
+C:\Users\user\source\repos\IndividualPartB\IndividualPartB\bin\Debug\net6.0\IndividualPartB.exe
+C:\Users\user\source\repos\IndividualPartB\IndividualPartB\bin\Debug\net6.0\IndividualPartB.deps.json
+C:\Users\user\source\repos\IndividualPartB\IndividualPartB\bin\Debug\net6.0\IndividualPartB.runtimeconfig.json
+C:\Users\user\source\repos\IndividualPartB\IndividualPartB\bin\Debug\net6.0\IndividualPartB.dll
+C:\Users\user\source\repos\IndividualPartB\IndividualPartB\bin\Debug\net6.0\IndividualPartB.pdb
+C:\Users\user\source\repos\IndividualPartB\IndividualPartB\obj\Debug\net6.0\IndividualPartB.csproj.AssemblyReference.cache
+C:\Users\user\source\repos\IndividualPartB\IndividualPartB\obj\Debug\net6.0\IndividualPartB.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\source\repos\IndividualPartB\IndividualPartB\obj\Debug\net6.0\IndividualPartB.AssemblyInfoInputs.cache
+C:\Users\user\source\repos\IndividualPartB\IndividualPartB\obj\Debug\net6.0\IndividualPartB.AssemblyInfo.cs
+C:\Users\user\source\repos\IndividualPartB\IndividualPartB\obj\Debug\net6.0\IndividualPartB.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\IndividualPartB\IndividualPartB\obj\Debug\net6.0\IndividualPartB.dll
+C:\Users\user\source\repos\IndividualPartB\IndividualPartB\obj\Debug\net6.0\refint\IndividualPartB.dll
+C:\Users\user\source\repos\IndividualPartB\IndividualPartB\obj\Debug\net6.0\IndividualPartB.pdb
+C:\Users\user\source\repos\IndividualPartB\IndividualPartB\obj\Debug\net6.0\IndividualPartB.genruntimeconfig.cache
+C:\Users\user\source\repos\IndividualPartB\IndividualPartB\obj\Debug\net6.0\ref\IndividualPartB.dll
