@@ -1,0 +1,7 @@
+C:\Users\user\source\repos\IndividualPartBProject\IndividualPartBProject\bin\Debug\IndividualPartBProject.exe.config
+C:\Users\user\source\repos\IndividualPartBProject\IndividualPartBProject\bin\Debug\IndividualPartBProject.exe
+C:\Users\user\source\repos\IndividualPartBProject\IndividualPartBProject\bin\Debug\IndividualPartBProject.pdb
+C:\Users\user\source\repos\IndividualPartBProject\IndividualPartBProject\obj\Debug\IndividualPartBProject.csproj.AssemblyReference.cache
+C:\Users\user\source\repos\IndividualPartBProject\IndividualPartBProject\obj\Debug\IndividualPartBProject.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\IndividualPartBProject\IndividualPartBProject\obj\Debug\IndividualPartBProject.exe
+C:\Users\user\source\repos\IndividualPartBProject\IndividualPartBProject\obj\Debug\IndividualPartBProject.pdb
