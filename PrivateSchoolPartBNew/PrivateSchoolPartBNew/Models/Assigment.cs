@@ -50,6 +50,11 @@ namespace PrivateSchoolPartBNew.Models
             A_Id++;
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return $"Assigment {{ Title {Title}, Description {Description}, Submission Date Time {SubDateTime}}}";

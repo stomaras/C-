@@ -7,18 +7,20 @@ using System.Threading.Tasks;
 
 namespace PrivateSchoolPartBNew.Services
 {
-    class DatabaseInputService
+    class DatabaseService
     {
         static string connectionString =
             @"Server = SPYROSTOM\SQLEXPRESS;Database = PrivateSchool; Trusted_Connection = True;";
 
         static SqlConnection sqlConnection = new SqlConnection(connectionString);
 
-        public DatabaseInputService()
+        public DatabaseService()
         {
 
         }
-
+        /// <summary>
+        /// This method open connection with Database Private School
+        /// </summary>
         public void ConnectToDB()
         {
             using (sqlConnection)
@@ -26,7 +28,6 @@ namespace PrivateSchoolPartBNew.Services
                 try
                 {
                     sqlConnection.Open();
-                    // Insert Student 
 
                 }
                 catch (Exception ex)
@@ -35,7 +36,9 @@ namespace PrivateSchoolPartBNew.Services
                 }
             }
         }
-
+        /// <summary>
+        /// This method close connection with Database Private School
+        /// </summary>
         public void CloseDB()
         {
             using (sqlConnection)
@@ -51,7 +54,12 @@ namespace PrivateSchoolPartBNew.Services
                 }
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="subject"></param>
         public static void InsertTrainer(string firstName, string lastName, string subject)
         {
             string query = "INSERT INTO Trainers(firstName, lastName, subject) VALUES('" + firstName + "','" + lastName + "','" + subject + "');";
@@ -61,6 +69,13 @@ namespace PrivateSchoolPartBNew.Services
             sqlConnection.Close();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="dateTime"></param>
+        /// <param name="tuitionFees"></param>
         public static void InsertStudent(string firstName, string lastName, DateTime dateTime, int tuitionFees)
         {
             string query = "INSERT INTO Students(firstName, lastName, dateTime, tuitionFees) VALUES('" + firstName + "','" + lastName + "','" + dateTime + "','" + tuitionFees + "');";
@@ -70,7 +85,10 @@ namespace PrivateSchoolPartBNew.Services
             sqlConnection.Close();
         }
 
-
+        /// <summary>
+        ///  Return All Trainers Of PrivateSchool
+        /// </summary>
+        /// <returns></returns>
         public static string SelectTrainers()
         {
             string result = "";
@@ -82,9 +100,7 @@ namespace PrivateSchoolPartBNew.Services
                 {
                     while (reader.Read())
                     {
-                        
                         result += reader.GetString(1) + " " + reader.GetString(2) + " " + reader.GetString(3) + "\n";
-                        
                     }
                 }
             }

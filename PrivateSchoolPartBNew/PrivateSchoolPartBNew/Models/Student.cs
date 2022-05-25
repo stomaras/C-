@@ -5,17 +5,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PrivateSchoolPartBNew.Interfaces;
 
 namespace PrivateSchoolPartBNew.Models
 {
-    class Student
+    class Student : IPeople
     {
         public static int S_Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-
-        [DataType(DataType.DateTime)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true, NullDisplayText = "NULL")]
         public DateTime DateOfBirth { get; set; }
 
         public int TuitionFees { get; set; }
@@ -79,5 +77,16 @@ namespace PrivateSchoolPartBNew.Models
             return $"Student {{ FirstName:{FirstName}, LastName:{LastName}, DateOfBirth:{DateOfBirth}, TuitionFees{TuitionFees} }}";
         }
 
+        
+
+        public string CheckFirstName(string firstName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string CheckLastName(string lastName)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

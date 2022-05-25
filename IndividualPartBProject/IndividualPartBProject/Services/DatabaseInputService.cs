@@ -54,7 +54,7 @@ namespace IndividualPartBProject.Services
             DateTime dateOfBirth = new DateTime(yearOfBirth, monthOfBirth, dayOfBirth);
             PrintService.EnterStudentTuitionFees();
             int tuitionFees = Convert.ToInt32(Console.ReadLine());
-            SqlCommand cmdInsert = new SqlCommand($"INSERT INTO Students(FirstName, LastName, DateOfBirth, TuitionFees) VALUES ('{firstName}', '{lastName}', '{dateOfBirth.Date}', '{tuitionFees}')", sqlConnection);
+            SqlCommand cmdInsert = new SqlCommand($"INSERT INTO Students(FirstName, LastName, DateOfBirth, TuitionFees) VALUES ('{firstName}', '{lastName}', '{dateOfBirth}', '{tuitionFees}')", sqlConnection);
             
             int insertedRows = cmdInsert.ExecuteNonQuery();
             if (insertedRows > 0)

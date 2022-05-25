@@ -5,3 +5,10 @@ C:\Users\spyros\source\repos\PrivateSchoolPartBNew\PrivateSchoolPartBNew\obj\Deb
 C:\Users\spyros\source\repos\PrivateSchoolPartBNew\PrivateSchoolPartBNew\obj\Debug\PrivateSchoolPartBNew.csproj.CoreCompileInputs.cache
 C:\Users\spyros\source\repos\PrivateSchoolPartBNew\PrivateSchoolPartBNew\obj\Debug\PrivateSchoolPartBNew.exe
 C:\Users\spyros\source\repos\PrivateSchoolPartBNew\PrivateSchoolPartBNew\obj\Debug\PrivateSchoolPartBNew.pdb
+C:\Users\spyros\C-\PrivateSchoolPartBNew\PrivateSchoolPartBNew\bin\Debug\PrivateSchoolPartBNew.exe.config
+C:\Users\spyros\C-\PrivateSchoolPartBNew\PrivateSchoolPartBNew\bin\Debug\PrivateSchoolPartBNew.exe
+C:\Users\spyros\C-\PrivateSchoolPartBNew\PrivateSchoolPartBNew\bin\Debug\PrivateSchoolPartBNew.pdb
+C:\Users\spyros\C-\PrivateSchoolPartBNew\PrivateSchoolPartBNew\obj\Debug\PrivateSchoolPartBNew.csproj.AssemblyReference.cache
+C:\Users\spyros\C-\PrivateSchoolPartBNew\PrivateSchoolPartBNew\obj\Debug\PrivateSchoolPartBNew.csproj.CoreCompileInputs.cache
+C:\Users\spyros\C-\PrivateSchoolPartBNew\PrivateSchoolPartBNew\obj\Debug\PrivateSchoolPartBNew.exe
+C:\Users\spyros\C-\PrivateSchoolPartBNew\PrivateSchoolPartBNew\obj\Debug\PrivateSchoolPartBNew.pdb

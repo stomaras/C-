@@ -28,6 +28,12 @@ namespace PrivateSchoolPartBNew.Models
             C_Id++;
         }
 
+        
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return $"Course {{ Stream {Stream}, Type {Type}, Start_Date {Start_Date}, End_Date {End_Date} }}";
