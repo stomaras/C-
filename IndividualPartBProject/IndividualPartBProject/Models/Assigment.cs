@@ -100,7 +100,7 @@ namespace IndividualPartBProject.Models
 
         public override string ToString()
         {
-            return $"Assigment {{ Title {Title}, Description {Description}, Submission Date Time {SubDateTime}}}";
+            return $"Assigment {{ Title: {Title}, Description: {Description}, Submission Date Time: {SubDateTime}}}";
         }
     }
 }

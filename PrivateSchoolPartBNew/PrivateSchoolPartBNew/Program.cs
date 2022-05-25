@@ -3,20 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlClient;
-using IndividualPartBProject.Services;
+using PrivateSchoolPartBNew.Services;
 
-namespace IndividualPartBProject
+namespace PrivateSchoolPartBNew
 {
     class Program
     {
-        
         static void Main(string[] args)
         {
-            School school = new School();
-            school.Start();
+            while (MenuService.Menu()) ;
         }
-        
-        
     }
 }

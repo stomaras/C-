@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IndividualPartBProject.Models
+namespace PrivateSchoolPartBNew.Models
 {
     class Course
     {
@@ -30,7 +30,7 @@ namespace IndividualPartBProject.Models
 
         public override string ToString()
         {
-            return $"Course {{ Stream: {Stream}, Type: {Type}, Start_Date: {Start_Date}, End_Date: {End_Date} }}";
+            return $"Course {{ Stream {Stream}, Type {Type}, Start_Date {Start_Date}, End_Date {End_Date} }}";
         }
     }
 }

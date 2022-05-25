@@ -28,9 +28,11 @@ namespace IndividualPartBProject.Models
             S_Id++;
         }
 
+        
+
         public override string ToString()
         {
-            return $"Student {{ FirstName:{FirstName}, LastName:{LastName}, DateOfBirth:{DateOfBirth}, TuitionFees{TuitionFees} }}";
+            return $"Student {{ FirstName:{FirstName}, LastName:{LastName}, DateOfBirth:{DateOfBirth}, TuitionFees:{TuitionFees} }}";
         }
 
     }

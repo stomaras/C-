@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IndividualPartBProject.Models
+namespace PrivateSchoolPartBNew.Models
 {
     class Trainer
     {
@@ -27,7 +27,7 @@ namespace IndividualPartBProject.Models
         }
         public override string ToString()
         {
-            return $" Trainer {{First Name :{FirstName}, Last Name :{LastName}, Subject :{Subject}}}";
+            return $" Trainer {{First Name :{FirstName}, Last Name : {LastName}, Subject {Subject}}}";
         }
     }
 }

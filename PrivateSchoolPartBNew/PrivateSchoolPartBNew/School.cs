@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using IndividualPartBProject.Models;
-using IndividualPartBProject.Services;
+using PrivateSchoolPartBNew.Models;
+using PrivateSchoolPartBNew.Services;
 
-namespace IndividualPartBProject
+namespace PrivateSchoolPartBNew
 {
     class School
     {
@@ -15,14 +14,14 @@ namespace IndividualPartBProject
         public int NumOfCourses { get; set; }
         public int NumOfStudents { get; set; }
         public int NumOfTrainers { get; set; }
-
-        
         public School() { }
 
+        public School(int numOfAssigments, int numOfCourses, int numOfStudents, int numOfTrainers)
+        {
+
+        }
         public void Start()
         {
-            DatabaseInputService databaseInputService = new DatabaseInputService();
-            databaseInputService.ConnectToDB();
             
         }
     }
