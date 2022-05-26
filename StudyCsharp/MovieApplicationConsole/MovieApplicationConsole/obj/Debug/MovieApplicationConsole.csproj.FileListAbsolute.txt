@@ -1,0 +1,7 @@
+C:\Users\spyros\source\repos\MovieApplicationConsole\MovieApplicationConsole\obj\Debug\MovieApplicationConsole.csproj.AssemblyReference.cache
+C:\Users\spyros\source\repos\MovieApplicationConsole\MovieApplicationConsole\obj\Debug\MovieApplicationConsole.csproj.CoreCompileInputs.cache
+C:\Users\spyros\source\repos\MovieApplicationConsole\MovieApplicationConsole\bin\Debug\MovieApplicationConsole.exe.config
+C:\Users\spyros\source\repos\MovieApplicationConsole\MovieApplicationConsole\bin\Debug\MovieApplicationConsole.exe
+C:\Users\spyros\source\repos\MovieApplicationConsole\MovieApplicationConsole\bin\Debug\MovieApplicationConsole.pdb
+C:\Users\spyros\source\repos\MovieApplicationConsole\MovieApplicationConsole\obj\Debug\MovieApplicationConsole.exe
+C:\Users\spyros\source\repos\MovieApplicationConsole\MovieApplicationConsole\obj\Debug\MovieApplicationConsole.pdb
