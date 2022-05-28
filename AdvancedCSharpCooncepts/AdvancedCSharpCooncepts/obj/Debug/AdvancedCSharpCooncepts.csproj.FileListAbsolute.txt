@@ -1,0 +1,7 @@
+C:\Users\spyros\source\repos\AdvancedCSharpCooncepts\AdvancedCSharpCooncepts\bin\Debug\AdvancedCSharpCooncepts.exe.config
+C:\Users\spyros\source\repos\AdvancedCSharpCooncepts\AdvancedCSharpCooncepts\bin\Debug\AdvancedCSharpCooncepts.exe
+C:\Users\spyros\source\repos\AdvancedCSharpCooncepts\AdvancedCSharpCooncepts\bin\Debug\AdvancedCSharpCooncepts.pdb
+C:\Users\spyros\source\repos\AdvancedCSharpCooncepts\AdvancedCSharpCooncepts\obj\Debug\AdvancedCSharpCooncepts.csproj.AssemblyReference.cache
+C:\Users\spyros\source\repos\AdvancedCSharpCooncepts\AdvancedCSharpCooncepts\obj\Debug\AdvancedCSharpCooncepts.csproj.CoreCompileInputs.cache
+C:\Users\spyros\source\repos\AdvancedCSharpCooncepts\AdvancedCSharpCooncepts\obj\Debug\AdvancedCSharpCooncepts.exe
+C:\Users\spyros\source\repos\AdvancedCSharpCooncepts\AdvancedCSharpCooncepts\obj\Debug\AdvancedCSharpCooncepts.pdb

@@ -1,0 +1,10 @@
+C:\Users\spyros\source\repos\AbstractClassesRepeat\AbstractClassesRepeat\bin\Debug\AbstractClassesRepeat.exe.config
+C:\Users\spyros\source\repos\AbstractClassesRepeat\AbstractClassesRepeat\bin\Debug\AbstractClassesRepeat.exe
+C:\Users\spyros\source\repos\AbstractClassesRepeat\AbstractClassesRepeat\bin\Debug\AbstractClassesRepeat.pdb
+C:\Users\spyros\source\repos\AbstractClassesRepeat\AbstractClassesRepeat\bin\Debug\DemoLibraryy.dll
+C:\Users\spyros\source\repos\AbstractClassesRepeat\AbstractClassesRepeat\bin\Debug\DemoLibraryy.pdb
+C:\Users\spyros\source\repos\AbstractClassesRepeat\AbstractClassesRepeat\obj\Debug\AbstractClassesRepeat.csproj.AssemblyReference.cache
+C:\Users\spyros\source\repos\AbstractClassesRepeat\AbstractClassesRepeat\obj\Debug\AbstractClassesRepeat.csproj.CoreCompileInputs.cache
+C:\Users\spyros\source\repos\AbstractClassesRepeat\AbstractClassesRepeat\obj\Debug\AbstractClassesRepeat.csproj.CopyComplete
+C:\Users\spyros\source\repos\AbstractClassesRepeat\AbstractClassesRepeat\obj\Debug\AbstractClassesRepeat.exe
+C:\Users\spyros\source\repos\AbstractClassesRepeat\AbstractClassesRepeat\obj\Debug\AbstractClassesRepeat.pdb

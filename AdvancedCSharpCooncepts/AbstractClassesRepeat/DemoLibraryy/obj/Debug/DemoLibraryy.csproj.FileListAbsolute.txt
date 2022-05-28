@@ -1,0 +1,6 @@
+C:\Users\spyros\source\repos\AbstractClassesRepeat\DemoLibraryy\bin\Debug\DemoLibraryy.dll
+C:\Users\spyros\source\repos\AbstractClassesRepeat\DemoLibraryy\bin\Debug\DemoLibraryy.pdb
+C:\Users\spyros\source\repos\AbstractClassesRepeat\DemoLibraryy\obj\Debug\DemoLibraryy.csproj.CoreCompileInputs.cache
+C:\Users\spyros\source\repos\AbstractClassesRepeat\DemoLibraryy\obj\Debug\DemoLibraryy.dll
+C:\Users\spyros\source\repos\AbstractClassesRepeat\DemoLibraryy\obj\Debug\DemoLibraryy.pdb
+C:\Users\spyros\source\repos\AbstractClassesRepeat\DemoLibraryy\obj\Debug\DemoLibraryy.csproj.AssemblyReference.cache

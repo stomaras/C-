@@ -1,0 +1,7 @@
+C:\Users\spyros\source\repos\AdvancedCSharpCooncepts\RandomNumbers\bin\Debug\RandomNumbers.exe.config
+C:\Users\spyros\source\repos\AdvancedCSharpCooncepts\RandomNumbers\bin\Debug\RandomNumbers.exe
+C:\Users\spyros\source\repos\AdvancedCSharpCooncepts\RandomNumbers\bin\Debug\RandomNumbers.pdb
+C:\Users\spyros\source\repos\AdvancedCSharpCooncepts\RandomNumbers\obj\Debug\RandomNumbers.csproj.AssemblyReference.cache
+C:\Users\spyros\source\repos\AdvancedCSharpCooncepts\RandomNumbers\obj\Debug\RandomNumbers.csproj.CoreCompileInputs.cache
+C:\Users\spyros\source\repos\AdvancedCSharpCooncepts\RandomNumbers\obj\Debug\RandomNumbers.exe
+C:\Users\spyros\source\repos\AdvancedCSharpCooncepts\RandomNumbers\obj\Debug\RandomNumbers.pdb
