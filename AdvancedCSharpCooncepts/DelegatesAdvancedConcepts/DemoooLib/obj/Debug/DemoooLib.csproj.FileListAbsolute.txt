@@ -1,0 +1,6 @@
+C:\Users\spyros\source\repos\DelegatesAdvancedConcepts\DemoooLib\bin\Debug\DemoooLib.dll
+C:\Users\spyros\source\repos\DelegatesAdvancedConcepts\DemoooLib\bin\Debug\DemoooLib.pdb
+C:\Users\spyros\source\repos\DelegatesAdvancedConcepts\DemoooLib\obj\Debug\DemoooLib.csproj.AssemblyReference.cache
+C:\Users\spyros\source\repos\DelegatesAdvancedConcepts\DemoooLib\obj\Debug\DemoooLib.csproj.CoreCompileInputs.cache
+C:\Users\spyros\source\repos\DelegatesAdvancedConcepts\DemoooLib\obj\Debug\DemoooLib.dll
+C:\Users\spyros\source\repos\DelegatesAdvancedConcepts\DemoooLib\obj\Debug\DemoooLib.pdb

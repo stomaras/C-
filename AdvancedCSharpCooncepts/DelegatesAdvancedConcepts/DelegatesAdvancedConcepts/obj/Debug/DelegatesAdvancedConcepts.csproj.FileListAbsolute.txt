@@ -1,0 +1,10 @@
+C:\Users\spyros\source\repos\DelegatesAdvancedConcepts\DelegatesAdvancedConcepts\bin\Debug\DelegatesAdvancedConcepts.exe.config
+C:\Users\spyros\source\repos\DelegatesAdvancedConcepts\DelegatesAdvancedConcepts\bin\Debug\DelegatesAdvancedConcepts.exe
+C:\Users\spyros\source\repos\DelegatesAdvancedConcepts\DelegatesAdvancedConcepts\bin\Debug\DelegatesAdvancedConcepts.pdb
+C:\Users\spyros\source\repos\DelegatesAdvancedConcepts\DelegatesAdvancedConcepts\bin\Debug\DemoooLib.dll
+C:\Users\spyros\source\repos\DelegatesAdvancedConcepts\DelegatesAdvancedConcepts\bin\Debug\DemoooLib.pdb
+C:\Users\spyros\source\repos\DelegatesAdvancedConcepts\DelegatesAdvancedConcepts\obj\Debug\DelegatesAdvancedConcepts.csproj.AssemblyReference.cache
+C:\Users\spyros\source\repos\DelegatesAdvancedConcepts\DelegatesAdvancedConcepts\obj\Debug\DelegatesAdvancedConcepts.csproj.CoreCompileInputs.cache
+C:\Users\spyros\source\repos\DelegatesAdvancedConcepts\DelegatesAdvancedConcepts\obj\Debug\DelegatesAdvancedConcepts.csproj.CopyComplete
+C:\Users\spyros\source\repos\DelegatesAdvancedConcepts\DelegatesAdvancedConcepts\obj\Debug\DelegatesAdvancedConcepts.exe
+C:\Users\spyros\source\repos\DelegatesAdvancedConcepts\DelegatesAdvancedConcepts\obj\Debug\DelegatesAdvancedConcepts.pdb
