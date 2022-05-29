@@ -1,0 +1,7 @@
+C:\Users\spyros\source\repos\SOLIDPRINCIPLES\S\bin\Debug\S.exe.config
+C:\Users\spyros\source\repos\SOLIDPRINCIPLES\S\bin\Debug\S.exe
+C:\Users\spyros\source\repos\SOLIDPRINCIPLES\S\bin\Debug\S.pdb
+C:\Users\spyros\source\repos\SOLIDPRINCIPLES\S\obj\Debug\S.csproj.AssemblyReference.cache
+C:\Users\spyros\source\repos\SOLIDPRINCIPLES\S\obj\Debug\S.csproj.CoreCompileInputs.cache
+C:\Users\spyros\source\repos\SOLIDPRINCIPLES\S\obj\Debug\S.exe
+C:\Users\spyros\source\repos\SOLIDPRINCIPLES\S\obj\Debug\S.pdb
