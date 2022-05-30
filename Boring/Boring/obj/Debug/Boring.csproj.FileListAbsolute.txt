@@ -1,0 +1,12 @@
+C:\Users\spyros\source\repos\Boring\Boring\bin\Debug\Boring.exe.config
+C:\Users\spyros\source\repos\Boring\Boring\bin\Debug\Boring.exe
+C:\Users\spyros\source\repos\Boring\Boring\bin\Debug\Boring.pdb
+C:\Users\spyros\source\repos\Boring\Boring\bin\Debug\EntityFramework.dll
+C:\Users\spyros\source\repos\Boring\Boring\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\spyros\source\repos\Boring\Boring\bin\Debug\EntityFramework.xml
+C:\Users\spyros\source\repos\Boring\Boring\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\spyros\source\repos\Boring\Boring\obj\Debug\Boring.csproj.AssemblyReference.cache
+C:\Users\spyros\source\repos\Boring\Boring\obj\Debug\Boring.csproj.CoreCompileInputs.cache
+C:\Users\spyros\source\repos\Boring\Boring\obj\Debug\Boring.csproj.CopyComplete
+C:\Users\spyros\source\repos\Boring\Boring\obj\Debug\Boring.exe
+C:\Users\spyros\source\repos\Boring\Boring\obj\Debug\Boring.pdb
