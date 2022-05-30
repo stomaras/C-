@@ -1,0 +1,6 @@
+C:\Users\spyros\source\repos\SOLIDPRINCIPLES\O\bin\Debug\O.exe.config
+C:\Users\spyros\source\repos\SOLIDPRINCIPLES\O\bin\Debug\O.exe
+C:\Users\spyros\source\repos\SOLIDPRINCIPLES\O\bin\Debug\O.pdb
+C:\Users\spyros\source\repos\SOLIDPRINCIPLES\O\obj\Debug\O.csproj.CoreCompileInputs.cache
+C:\Users\spyros\source\repos\SOLIDPRINCIPLES\O\obj\Debug\O.exe
+C:\Users\spyros\source\repos\SOLIDPRINCIPLES\O\obj\Debug\O.pdb

@@ -1,0 +1,7 @@
+C:\Users\spyros\source\repos\AdvamcedTopicsCsharp\AdvamcedTopicsCsharp\bin\Debug\AdvamcedTopicsCsharp.exe.config
+C:\Users\spyros\source\repos\AdvamcedTopicsCsharp\AdvamcedTopicsCsharp\bin\Debug\AdvamcedTopicsCsharp.exe
+C:\Users\spyros\source\repos\AdvamcedTopicsCsharp\AdvamcedTopicsCsharp\bin\Debug\AdvamcedTopicsCsharp.pdb
+C:\Users\spyros\source\repos\AdvamcedTopicsCsharp\AdvamcedTopicsCsharp\obj\Debug\AdvamcedTopicsCsharp.csproj.AssemblyReference.cache
+C:\Users\spyros\source\repos\AdvamcedTopicsCsharp\AdvamcedTopicsCsharp\obj\Debug\AdvamcedTopicsCsharp.csproj.CoreCompileInputs.cache
+C:\Users\spyros\source\repos\AdvamcedTopicsCsharp\AdvamcedTopicsCsharp\obj\Debug\AdvamcedTopicsCsharp.exe
+C:\Users\spyros\source\repos\AdvamcedTopicsCsharp\AdvamcedTopicsCsharp\obj\Debug\AdvamcedTopicsCsharp.pdb
