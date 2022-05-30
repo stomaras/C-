@@ -46,9 +46,7 @@ namespace PrivateSchoolRepeatPartA
         /// <param name="message"></param>
         public static void Students(List<Student> Students, string message)
         {
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine(message);
-            Console.ForegroundColor = ConsoleColor.Yellow;
+            PrintService.PrintMessageForEntities(message);
             Console.WriteLine($"{"Id",-15}{"FirstName",-15}{"LastName",-15}{"DateOfBirth",-15}{"Tuition Fees", -25}");
             Console.ResetColor();
             foreach (var student in Students)
@@ -60,9 +58,7 @@ namespace PrivateSchoolRepeatPartA
 
         public static void Trainers(List<Trainer> Trainers, string message)
         {
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine(message);
-            Console.ForegroundColor = ConsoleColor.Yellow;
+            PrintService.PrintMessageForEntities(message);
             Console.WriteLine($"{"Id",-15}{"FirstName",-15}{"LastName",-15}{"Subject",-15}");
             Console.ResetColor();
             foreach (var trainer in Trainers)
@@ -73,9 +69,7 @@ namespace PrivateSchoolRepeatPartA
 
         public static void Courses(List<Course> Courses, string message)
         {
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine(message);
-            Console.ForegroundColor = ConsoleColor.Yellow;
+            PrintService.PrintMessageForEntities(message);
             Console.WriteLine($"{"Id",-15}{"Stream",-15}{"Type",-15}{"Start Date",-15}{"End Date",-15}");
             Console.ResetColor();
             foreach (var course in Courses)
@@ -86,9 +80,7 @@ namespace PrivateSchoolRepeatPartA
 
         public static void Assigments(List<Assigment> Assigments, string message)
         {
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine(message);
-            Console.ForegroundColor = ConsoleColor.Yellow;
+            PrintService.PrintMessageForEntities(message);
             Console.WriteLine($"{"Id",-15}{"Stream",-15}{"",-15}{"Submission Date Time",-15}");
             Console.ResetColor();
             foreach (var assigment in Assigments)

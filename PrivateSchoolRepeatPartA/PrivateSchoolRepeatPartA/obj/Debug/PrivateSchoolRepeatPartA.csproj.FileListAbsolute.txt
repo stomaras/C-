@@ -1,0 +1,7 @@
+C:\Users\spyros\source\repos\PrivateSchoolRepeatPartA\PrivateSchoolRepeatPartA\bin\Debug\PrivateSchoolRepeatPartA.exe.config
+C:\Users\spyros\source\repos\PrivateSchoolRepeatPartA\PrivateSchoolRepeatPartA\bin\Debug\PrivateSchoolRepeatPartA.exe
+C:\Users\spyros\source\repos\PrivateSchoolRepeatPartA\PrivateSchoolRepeatPartA\bin\Debug\PrivateSchoolRepeatPartA.pdb
+C:\Users\spyros\source\repos\PrivateSchoolRepeatPartA\PrivateSchoolRepeatPartA\obj\Debug\PrivateSchoolRepeatPartA.csproj.AssemblyReference.cache
+C:\Users\spyros\source\repos\PrivateSchoolRepeatPartA\PrivateSchoolRepeatPartA\obj\Debug\PrivateSchoolRepeatPartA.csproj.CoreCompileInputs.cache
+C:\Users\spyros\source\repos\PrivateSchoolRepeatPartA\PrivateSchoolRepeatPartA\obj\Debug\PrivateSchoolRepeatPartA.exe
+C:\Users\spyros\source\repos\PrivateSchoolRepeatPartA\PrivateSchoolRepeatPartA\obj\Debug\PrivateSchoolRepeatPartA.pdb
