@@ -14,6 +14,8 @@ namespace SchoolDatabasePartB.Database
     
     public partial class Student
     {
+
+
         // scalar properties
         public int student_id { get; set; }
         public string first_name { get; set; }

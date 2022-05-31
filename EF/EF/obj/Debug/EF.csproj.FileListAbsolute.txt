@@ -1,0 +1,13 @@
+C:\Users\spyros\source\repos\EF\EF\bin\Debug\EF.exe.config
+C:\Users\spyros\source\repos\EF\EF\bin\Debug\EF.exe
+C:\Users\spyros\source\repos\EF\EF\bin\Debug\EF.pdb
+C:\Users\spyros\source\repos\EF\EF\bin\Debug\EntityFramework.dll
+C:\Users\spyros\source\repos\EF\EF\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\spyros\source\repos\EF\EF\bin\Debug\EntityFramework.xml
+C:\Users\spyros\source\repos\EF\EF\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\spyros\source\repos\EF\EF\obj\Debug\EF.csproj.AssemblyReference.cache
+C:\Users\spyros\source\repos\EF\EF\obj\Debug\EF.csproj.SuggestedBindingRedirects.cache
+C:\Users\spyros\source\repos\EF\EF\obj\Debug\EF.csproj.CoreCompileInputs.cache
+C:\Users\spyros\source\repos\EF\EF\obj\Debug\EF.csproj.CopyComplete
+C:\Users\spyros\source\repos\EF\EF\obj\Debug\EF.exe
+C:\Users\spyros\source\repos\EF\EF\obj\Debug\EF.pdb

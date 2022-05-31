@@ -79,6 +79,7 @@
       <DependentUpon>SchoolDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="Services\PrintService.cs" />
+    <Compile Include="Services\UserDataInputService.cs" />
     <Compile Include="Views\View.cs" />
   </ItemGroup>
   <ItemGroup>
