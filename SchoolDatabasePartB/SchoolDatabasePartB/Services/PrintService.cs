@@ -51,5 +51,25 @@ namespace SchoolDatabasePartB.Services
             Console.WriteLine($"{assigment.title,-15}{assigment.description,-15}{assigment.subDateTime,-15}");
             Console.ResetColor();
         }
+
+        #region CreateStudentMessages
+        public static void PrintStudentFirstName()
+        {
+            Console.WriteLine("Enter Student First Name:\n");
+        }
+
+        public static void PrintStudentLastName()
+        {
+            Console.WriteLine("Enter Student Last Name:\n");
+        }
+
+        public static void PrintStudentBirthDate()
+        {
+            Console.WriteLine("Enter Student Birth Date:\n");
+        }
+        #endregion
+
+
+
     }
 }
