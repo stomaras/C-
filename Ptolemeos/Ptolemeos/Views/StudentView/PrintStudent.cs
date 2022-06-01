@@ -11,14 +11,18 @@ namespace Ptolemeos.Views.StudentView
     {
         public void Print(Student student)
         {
-            Console.WriteLine("Print Student to Console");
-            throw new NotImplementedException();
+            Console.WriteLine($"{"Id",-5}{"Name",-15}{"Score",-15}");
+            Console.WriteLine($"{student.Id,-5}{student.Name,-15}{student.Score,-15}");
         }
 
-        public void PrintStudents(List<Student> studebnts)
+        public void PrintStudents(List<Student> students)
         {
-            Console.WriteLine("Print All Students to Console");
-            throw new NotImplementedException();
+            Console.WriteLine($"{"Id",-5}{"Name",-15}{"Score",-15}");
+            foreach (var student in students)
+            {
+                Console.WriteLine($"{student.Id,-5}{student.Name,-15}{student.Score,-15}");
+            }
         }
+
     }
 }

@@ -11,19 +11,36 @@ namespace Ptolemeos.Views.StudentView
     {
         public Student GetDataForEdit()
         {
-            Console.WriteLine("Get Student From Console For Edit");
-            throw new NotImplementedException();
+            Console.WriteLine("Give student's id to edit it");
+            int id = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Give Student's name to edit it");
+            string name = Console.ReadLine();
+
+
+            Console.WriteLine("Give Student's Score");
+            int score = Convert.ToInt32(Console.ReadLine());
+
+            return new Student() { Id = id, Name = name, Score = score };
         }
 
         public int GetIdForDelete()
         {
-            Console.WriteLine("Get Id From Console In Order To Delete");
-            throw new NotImplementedException();
+
+            Console.WriteLine("Give student's id to delete it");
+            int id = Convert.ToInt32(Console.ReadLine());
+            return id;
         }
 
         public Student GetStudentData()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Give Student's Name");
+            string name = Console.ReadLine();
+
+            Console.WriteLine("Give Student's Score");
+            int score = Convert.ToInt32(Console.ReadLine());
+
+            return new Student(name, score);
         }
     }
 }
