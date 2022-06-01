@@ -1,0 +1,13 @@
+C:\Users\spyros\source\repos\CFE\CFE\bin\Debug\CFE.exe.config
+C:\Users\spyros\source\repos\CFE\CFE\bin\Debug\CFE.exe
+C:\Users\spyros\source\repos\CFE\CFE\bin\Debug\CFE.pdb
+C:\Users\spyros\source\repos\CFE\CFE\bin\Debug\EntityFramework.dll
+C:\Users\spyros\source\repos\CFE\CFE\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\spyros\source\repos\CFE\CFE\bin\Debug\EntityFramework.xml
+C:\Users\spyros\source\repos\CFE\CFE\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\spyros\source\repos\CFE\CFE\obj\Debug\CFE.csproj.AssemblyReference.cache
+C:\Users\spyros\source\repos\CFE\CFE\obj\Debug\CFE.csproj.SuggestedBindingRedirects.cache
+C:\Users\spyros\source\repos\CFE\CFE\obj\Debug\CFE.csproj.CoreCompileInputs.cache
+C:\Users\spyros\source\repos\CFE\CFE\obj\Debug\CFE.csproj.CopyComplete
+C:\Users\spyros\source\repos\CFE\CFE\obj\Debug\CFE.exe
+C:\Users\spyros\source\repos\CFE\CFE\obj\Debug\CFE.pdb
