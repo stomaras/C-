@@ -11,6 +11,6 @@ namespace Ptolemeos.Views.StudentView
     {
         void Print(Student student);
 
-        void PrintStudents(List<Student> studebnts);
+        void PrintStudents(List<Student> students);
     }
 }
