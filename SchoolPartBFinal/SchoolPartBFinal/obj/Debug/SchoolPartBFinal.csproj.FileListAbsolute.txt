@@ -1,0 +1,13 @@
+C:\Users\spyros\source\repos\SchoolPartBFinal\SchoolPartBFinal\bin\Debug\SchoolPartBFinal.exe.config
+C:\Users\spyros\source\repos\SchoolPartBFinal\SchoolPartBFinal\bin\Debug\SchoolPartBFinal.exe
+C:\Users\spyros\source\repos\SchoolPartBFinal\SchoolPartBFinal\bin\Debug\SchoolPartBFinal.pdb
+C:\Users\spyros\source\repos\SchoolPartBFinal\SchoolPartBFinal\bin\Debug\EntityFramework.dll
+C:\Users\spyros\source\repos\SchoolPartBFinal\SchoolPartBFinal\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\spyros\source\repos\SchoolPartBFinal\SchoolPartBFinal\bin\Debug\EntityFramework.xml
+C:\Users\spyros\source\repos\SchoolPartBFinal\SchoolPartBFinal\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\spyros\source\repos\SchoolPartBFinal\SchoolPartBFinal\obj\Debug\SchoolPartBFinal.csproj.AssemblyReference.cache
+C:\Users\spyros\source\repos\SchoolPartBFinal\SchoolPartBFinal\obj\Debug\SchoolPartBFinal.csproj.SuggestedBindingRedirects.cache
+C:\Users\spyros\source\repos\SchoolPartBFinal\SchoolPartBFinal\obj\Debug\SchoolPartBFinal.csproj.CoreCompileInputs.cache
+C:\Users\spyros\source\repos\SchoolPartBFinal\SchoolPartBFinal\obj\Debug\SchoolPartBFinal.csproj.CopyComplete
+C:\Users\spyros\source\repos\SchoolPartBFinal\SchoolPartBFinal\obj\Debug\SchoolPartBFinal.exe
+C:\Users\spyros\source\repos\SchoolPartBFinal\SchoolPartBFinal\obj\Debug\SchoolPartBFinal.pdb
