@@ -48,3 +48,4 @@
   
   EF also does not create a column for a property which does not have either getters or setters.
   
+  # todo ForeignKey
