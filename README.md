@@ -44,3 +44,7 @@
   
   EF Core does not support creating a composite key using the Key attribute. You have to use the Fluent API HasKey() Function in EF Core
   
+  # Note
+  
+  EF also does not create a column for a property which does not have either getters or setters.
+  
