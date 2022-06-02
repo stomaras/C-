@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using EFCodeFirstHomeExce.Database;
 using EFCodeFirstHomeExce.Entities;
+using System.ComponentModel.DataAnnotations;
+
 namespace EFCodeFirstHomeExce
 {
     internal class Program
@@ -39,6 +41,7 @@ namespace EFCodeFirstHomeExce
          * Cascade Delete : Enabled by default for all types of relationships
          * 
          * The following table list C# data type mapped with SQL Server data type.
+         * 
          *  c# Data Type        Mapping to SQL Server Data Type
          *  
          *  int                 int
@@ -56,6 +59,15 @@ namespace EFCodeFirstHomeExce
          *  sbyte               No mapping
          *  object              No mapping
          *
+         * There are two ways to configure your domain classes:
+         * 
+         * 1) Data Annotation Attributes --> System.ComponentModel.DataAnnotations.
+         * 2) Fluent API
+         * 
+         * Note !!! Data Annotaton Attributes do not support all the Configuration options for Entity Framework
+         *          So you can use Fluent API, which provides all the configuration options for EF.
+         * 
+         * Fluent API 
          *
          */
         static void Main(string[] args)

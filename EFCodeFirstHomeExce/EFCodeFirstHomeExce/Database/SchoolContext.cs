@@ -18,5 +18,10 @@ namespace EFCodeFirstHomeExce.Database
 
         public DbSet<Student> Students { get; set; }
         public DbSet<Grade> Grades { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
