@@ -37,3 +37,10 @@
   DatabaseGenerated	Can be applied to a property to configure how the underlying database should generate the value for the corresponding column e.g. identity,                             computed or none.
   InverseProperty   Can be applied to a property to specify the inverse of a navigation property that represents the other end of the same relationship.
   
+  # Note
+  
+  In EF6, the Key attribute along with the column attribute can be applied o multiple properties of an entity class which will create composite 
+  Primary Key Columns in the Database
+  
+  EF Core does not support creating a composite key using the Key attribute. You have to use the Fluent API HasKey() Function in EF Core
+  
