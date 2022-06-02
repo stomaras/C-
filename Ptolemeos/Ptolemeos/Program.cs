@@ -26,11 +26,13 @@ namespace Ptolemeos
                 Console.WriteLine("8 - Delete A Trainer");
                 Console.WriteLine("Choose:");
                 Console.ForegroundColor = ConsoleColor.Green;
-                string choice = Console.ReadLine();
+                string input = Console.ReadLine();
                 Console.ResetColor();
-
                 Console.Clear();
-                switch (choice)
+
+
+
+                switch (input)
                 {
                     case "1": service.ReadingService(); break;
                     case "2": service.CreatingService(); break;

@@ -51,7 +51,7 @@ namespace Ptolemeos.RepositoryServices.StudentRepository
             // with using or dispose
             using (ApplicationContext db = new ApplicationContext() )
             {
-                return db.Students.ToList();
+                return db.Students.SqlQuery("SELECT * FROM Students").ToList();
             }
         }
 

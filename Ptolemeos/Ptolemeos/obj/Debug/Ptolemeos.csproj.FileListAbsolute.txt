@@ -11,3 +11,16 @@ C:\Users\spyros\source\repos\Ptolemeos\Ptolemeos\obj\Debug\Ptolemeos.csproj.Core
 C:\Users\spyros\source\repos\Ptolemeos\Ptolemeos\obj\Debug\Ptolemeos.csproj.CopyComplete
 C:\Users\spyros\source\repos\Ptolemeos\Ptolemeos\obj\Debug\Ptolemeos.exe
 C:\Users\spyros\source\repos\Ptolemeos\Ptolemeos\obj\Debug\Ptolemeos.pdb
+C:\Users\spyros\C-\Ptolemeos\Ptolemeos\bin\Debug\Ptolemeos.exe.config
+C:\Users\spyros\C-\Ptolemeos\Ptolemeos\bin\Debug\Ptolemeos.exe
+C:\Users\spyros\C-\Ptolemeos\Ptolemeos\bin\Debug\Ptolemeos.pdb
+C:\Users\spyros\C-\Ptolemeos\Ptolemeos\bin\Debug\EntityFramework.dll
+C:\Users\spyros\C-\Ptolemeos\Ptolemeos\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\spyros\C-\Ptolemeos\Ptolemeos\bin\Debug\EntityFramework.xml
+C:\Users\spyros\C-\Ptolemeos\Ptolemeos\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\spyros\C-\Ptolemeos\Ptolemeos\obj\Debug\Ptolemeos.csproj.AssemblyReference.cache
+C:\Users\spyros\C-\Ptolemeos\Ptolemeos\obj\Debug\Ptolemeos.csproj.SuggestedBindingRedirects.cache
+C:\Users\spyros\C-\Ptolemeos\Ptolemeos\obj\Debug\Ptolemeos.csproj.CoreCompileInputs.cache
+C:\Users\spyros\C-\Ptolemeos\Ptolemeos\obj\Debug\Ptolemeos.csproj.CopyComplete
+C:\Users\spyros\C-\Ptolemeos\Ptolemeos\obj\Debug\Ptolemeos.exe
+C:\Users\spyros\C-\Ptolemeos\Ptolemeos\obj\Debug\Ptolemeos.pdb
