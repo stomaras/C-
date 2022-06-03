@@ -54,6 +54,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\Services.cs" />
+    <Compile Include="Entities\Address.cs" />
+    <Compile Include="Entities\Animal.cs" />
+    <Compile Include="Entities\Doctor.cs" />
+    <Compile Include="Entities\House.cs" />
+    <Compile Include="Entities\Patient.cs" />
     <Compile Include="Entities\Student.cs" />
     <Compile Include="Entities\Trainer.cs" />
     <Compile Include="Enums\Choice.cs" />

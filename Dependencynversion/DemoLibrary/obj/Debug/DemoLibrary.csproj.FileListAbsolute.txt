@@ -1,0 +1,6 @@
+C:\Users\spyros\source\repos\Dependencynversion\DemoLibrary\bin\Debug\DemoLibrary.dll
+C:\Users\spyros\source\repos\Dependencynversion\DemoLibrary\bin\Debug\DemoLibrary.pdb
+C:\Users\spyros\source\repos\Dependencynversion\DemoLibrary\obj\Debug\DemoLibrary.csproj.AssemblyReference.cache
+C:\Users\spyros\source\repos\Dependencynversion\DemoLibrary\obj\Debug\DemoLibrary.csproj.CoreCompileInputs.cache
+C:\Users\spyros\source\repos\Dependencynversion\DemoLibrary\obj\Debug\DemoLibrary.dll
+C:\Users\spyros\source\repos\Dependencynversion\DemoLibrary\obj\Debug\DemoLibrary.pdb

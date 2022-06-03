@@ -16,5 +16,14 @@ namespace Ptolemeos.MyDatabase
 
         public DbSet<Student> Students { get; set; }
         public DbSet<Trainer> Trainers { get; set; }
+
+        public virtual DbSet<Animal> Animals { get; set; }
+
+        public virtual DbSet<Doctor> Doctors { get; set; }
+        public virtual DbSet<Patient> Patients { get; set; }
+
+        public virtual DbSet<House> Houses { get; set; }
+
+        public virtual DbSet<Address> Addresses { get; set; }
     }
 }

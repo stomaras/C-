@@ -1,4 +1,5 @@
 ﻿using Ptolemeos.Controllers;
+using Ptolemeos.MyDatabase;
 using Ptolemeos.RepositoryServices.StudentRepository;
 using Ptolemeos.Views.StudentView;
 using System;
@@ -6,12 +7,43 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace Ptolemeos
 {
     internal class Program
     {
         static void Main(string[] args)
+        {
+            //NewMethod();
+            ApplicationContext db = new ApplicationContext();
+
+            var doctors = db.Doctors.Include(x => x.Houses).Include(x => x.Patients);
+            Console.WriteLine(doctors);
+
+            foreach (var doc in doctors)
+            {
+                Console.WriteLine(doc.DoctorName);
+                foreach (var house in doc.Houses)
+                {
+                    if (!(house.Address is null))
+                    {
+                        if (!(house.Address.Name is null))
+                        {
+                            Console.WriteLine(house.Address.Name);
+                        }
+                        Console.WriteLine("No Address Name");
+                    }
+                    else
+                    {
+                        Console.WriteLine("No Addrss");
+                    }
+                    
+                }
+            }
+        }
+
+        private static void NewMethod()
         {
             Services service = new Services();
             while (true)

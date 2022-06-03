@@ -1,0 +1,11 @@
+C:\Users\spyros\source\repos\Dependencynversion\Dependencynversion\bin\Debug\Dependencynversion.exe.config
+C:\Users\spyros\source\repos\Dependencynversion\Dependencynversion\bin\Debug\Dependencynversion.exe
+C:\Users\spyros\source\repos\Dependencynversion\Dependencynversion\bin\Debug\Dependencynversion.pdb
+C:\Users\spyros\source\repos\Dependencynversion\Dependencynversion\bin\Debug\DemoLibrary.dll
+C:\Users\spyros\source\repos\Dependencynversion\Dependencynversion\bin\Debug\DemoLibrary.pdb
+C:\Users\spyros\source\repos\Dependencynversion\Dependencynversion\obj\Debug\DependencyInversion.csproj.AssemblyReference.cache
+C:\Users\spyros\source\repos\Dependencynversion\Dependencynversion\obj\Debug\DependencyInversion.csproj.SuggestedBindingRedirects.cache
+C:\Users\spyros\source\repos\Dependencynversion\Dependencynversion\obj\Debug\DependencyInversion.csproj.CoreCompileInputs.cache
+C:\Users\spyros\source\repos\Dependencynversion\Dependencynversion\obj\Debug\DependencyInversion.csproj.CopyComplete
+C:\Users\spyros\source\repos\Dependencynversion\Dependencynversion\obj\Debug\Dependencynversion.exe
+C:\Users\spyros\source\repos\Dependencynversion\Dependencynversion\obj\Debug\Dependencynversion.pdb
