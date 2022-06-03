@@ -40,12 +40,26 @@ namespace SchoolPartBFinal.GeneralServices
             return word;
         }
 
-        
+        public string CheckIfStringIsNumber(string input)
+        {
+            bool isNumber = int.TryParse(input, out int number);
+            string newInput = "";
+            while (!isNumber)
+            {
+                GeneralPrintService.IsNotNumber();
+                newInput = Console.ReadLine();
+                isNumber = int.TryParse(input, out int num);
+            }
+            return newInput;
+        }
 
-       
 
-        
 
-        
+
+
+
+
+
+
     }
 }

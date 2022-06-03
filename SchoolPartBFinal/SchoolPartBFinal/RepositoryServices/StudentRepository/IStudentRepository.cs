@@ -12,7 +12,7 @@ namespace SchoolPartBFinal.RepositoryServices.StudentRepository
         List<Student> GetAll();
         Student GetStudentById(int id);
         string DeleteStudent(int id);
-        string UpdateStudent(Student student);
+        Student UpdateStudent(Student student);
 
         string CreateStudent(Student student);
     }

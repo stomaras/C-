@@ -11,8 +11,12 @@ namespace SchoolPartBFinal.Views.StudentView
     {
         public void PrintStudents(List<Student> students)
         {
-            Console.WriteLine("Print All Students");
-            throw new NotImplementedException();
+            for (int i = 0; i <= students.Count-1; i++)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"Student with first name {students[i].FirstName} with last name {students[i].LastName} ");
+                Console.ResetColor();
+            }
         }
 
         public void PrintAStudent(Student student)
@@ -27,6 +31,20 @@ namespace SchoolPartBFinal.Views.StudentView
             Console.WriteLine(message);
             Console.ResetColor();
             
+        }
+
+        public void PrintStudentSuccessUpdateMessage(string message)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(message);
+            Console.ResetColor();
+        }
+
+        public void PrintStudentFailureUpdateMessage(string message)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(message);
+            Console.ResetColor();
         }
     }
 }

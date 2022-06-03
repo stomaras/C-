@@ -11,5 +11,8 @@ namespace SchoolPartBFinal.Views.StudentView
     {
         void PrintAStudent(Student student);
         void PrintStudents(List<Student> students);
+
+        void PrintStudentSuccessUpdateMessage(string message);
+        void PrintStudentFailureUpdateMessage(string message);
     }
 }

@@ -56,6 +56,8 @@
     <Compile Include="Controller\StudentController.cs" />
     <Compile Include="Database\ApplicationContext.cs" />
     <Compile Include="Entities\Student.cs" />
+    <Compile Include="Enums\Choice.cs" />
+    <Compile Include="FactoryObjects\Factory.cs" />
     <Compile Include="GeneralServices\GeneralPrintService.cs" />
     <Compile Include="GeneralServices\StringEvaluations.cs" />
     <Compile Include="Migrations\Configuration.cs" />

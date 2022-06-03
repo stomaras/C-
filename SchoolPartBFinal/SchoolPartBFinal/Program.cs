@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SchoolPartBFinal.Enums;
 
 namespace SchoolPartBFinal
 {
@@ -16,7 +17,7 @@ namespace SchoolPartBFinal
             const int third = -45;
             const int fourth = -50;
             string input = "";
-            StudentController stController = new StudentController();
+            StudentController studentController = new StudentController();
             while (input != "e" || input != "E")
             {
                 Console.WriteLine();
@@ -24,26 +25,29 @@ namespace SchoolPartBFinal
 
                 Console.WriteLine("----------------------------------------------------------------------------------------CRUD---------------------------------------------------------------------------------------------------");
                 Console.WriteLine($"{"---------Create Operations---------",first}{"---------Reading Operations---------", second}{"---------Update Operations---------", third}{"---------Delete Operations---------",fourth}");
-                Console.WriteLine($"{"Press 1 - Create Student",first}{"Press 2 - Read Student",second}{"Press 3 - Update Student",third}{"Press 4 - Delete Student",fourth}");
+                Console.WriteLine($"{"Press 1 - Create Student",first}{"Press 2 - Read Students",second}{"Press 3 - Update Student",third}{"Press 4 - Delete Student",fourth}");
                 Console.WriteLine($"{"Press 5 - Create Trainer",first}{"Press 6 - Read Trainer",second}{"Press 7 - Update Trainer",third}{"Press 8 - Delete Trainer",fourth}");
                 Console.WriteLine($"{"Press 9 - Create Course",first}{"Press 10 - Read Course",second}{"Press 11 - Update Course",third}{"Press 12 - Delete Course",fourth}");
                 Console.WriteLine($"{"Press 13 - Create Assigment",first}{"Press 14 - Read Assigment",second}{"Press 15 - Update Assigment",third}{"Press 16 - Delete Assigment",fourth}");
-
+                
 
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("Choose an option");
                 Console.WriteLine();
+                
+                int inputt = Convert.ToInt32(Console.ReadLine()); // "1", "2", "3", "4"
                 Console.ResetColor();
-                input = Console.ReadLine();
-
                 Console.Clear();
-                switch (input)
+
+                Choice choice = (Choice)inputt;
+
+                switch (choice)
                 {
-                    case "1": stController.CreateStudent();break;
-                    case "2": stController.ReadingStudent(); break;
-                    case "3": stController.UpdateStudent(); break;
-                    case "4": stController.DeleteStudent(); break;
-                    default: stController.ErrorService();break;
+                    case Choice.CreateStudent: studentController.CreateStudent();break;
+                    case Choice.ReadStudent: studentController.ReadingStudent(); break;
+                    case Choice.UpdateStudent: studentController.UpdateStudent(); break;
+                    case Choice.DeleteStudent: studentController.DeleteStudent(); break;
+                    default: studentController.ErrorService();break;
                 }
 
             }

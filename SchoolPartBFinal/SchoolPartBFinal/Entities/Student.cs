@@ -15,11 +15,21 @@ namespace SchoolPartBFinal.Entities
 
         public Student() { }
 
-        public Student(string firstName, string lastName)
+       
+
+        public Student(int id, string firstName, string lastName)
         {
+            StudentId = id;
             FirstName = firstName;
             LastName = lastName;
         }
-       
+
+        public Student(string firstName, string lastName)
+        {
+         
+            FirstName = firstName;
+            LastName = lastName;
+        }
+
     }
 }
