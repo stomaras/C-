@@ -22,7 +22,7 @@ namespace SchoolPartBFinal.RepositoryServices.StudentRepository
                 {
                     db.Entry(student).State = EntityState.Added;
                     db.SaveChanges();
-                    message = $"New Student With First Name {student.FirstName} And Last Name {student.LastName} added to database";
+                    message = $"Student {{ With First Name {student.FirstName} And Last Name {student.LastName} With birth date {student.BirthDate} With tuition fees {student.TuitionFees}  added to database }}";
                 }
                 else
                 {
@@ -34,10 +34,33 @@ namespace SchoolPartBFinal.RepositoryServices.StudentRepository
             return message;
         }
 
-        public string DeleteStudent(int id)
+        public List<int> GetAllStudentsIds()
         {
-            Console.WriteLine("Delete A Specific Student From Database");
-            throw new NotImplementedException();
+            List<int> studentIDs = Factory.CreateListWithInts();
+            using (ApplicationContext db = new ApplicationContext())
+            {
+                var Students = db.Students.ToList();
+
+                foreach (var student in Students)
+                {
+                    studentIDs.Add(student.StudentId);
+                }
+            }
+            return studentIDs;
+        }
+
+        public bool CheckIfStudentIdExists(List<int> StudentIds, int StudentId)
+        {
+            bool exists = false;
+            for (int i = 0; i <= StudentIds.Count-1; i++)
+            {
+                if (StudentIds[i] == StudentId)
+                {
+                    exists = true;
+                }
+            }
+            return exists;
+            
         }
 
         public List<Student> GetAll()
@@ -88,13 +111,34 @@ namespace SchoolPartBFinal.RepositoryServices.StudentRepository
 
                 if (count == 0)
                 {
-                    Console.WriteLine("dssdgiatii");
+                   
                     return null;
                 }
             }
             return studentToUpdate;
         }
 
-        
+        public Student DeleteStudent(int id)
+        {
+           
+            StudentRepository studentRepository = Factory.CreateStudentRepositoryObject();
+            var studentToDelete = new Student()
+            {
+                StudentId = id
+            };
+            var deleteStudent = studentRepository.GetStudentById(id);
+            using (var db = new ApplicationContext())
+            {
+                var sql = @"DELETE [Students] FROM Students WHERE StudentId=@StudentId";
+                db.Database.ExecuteSqlCommand(sql, new SqlParameter("@StudentId", id));
+                
+                //db.Students.Attach(studentToDelete);
+                //db.Entry(studentToDelete).State = EntityState.Deleted;
+                //db.Students.Remove(studentToDelete);
+                //db.SaveChanges();
+            }
+            
+            return deleteStudent;
+        }
     }
 }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SchoolPartBFinal.GeneralServices;
+using SchoolPartBFinal.RepositoryServices.StudentRepository;
 
 namespace SchoolPartBFinal.FactoryObjects
 {
@@ -29,6 +30,16 @@ namespace SchoolPartBFinal.FactoryObjects
         public static Student CreateStudent(int id, string firstName, string lastName)
         {
             return new Student(id, firstName,lastName);
+        }
+
+        public static List<int> CreateListWithInts()
+        {
+            return new List<int>();
+        }
+
+        public static StudentRepository CreateStudentRepositoryObject()
+        {
+            return new StudentRepository();
         }
     }
 }

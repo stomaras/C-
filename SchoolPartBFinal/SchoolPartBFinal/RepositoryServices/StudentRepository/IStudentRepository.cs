@@ -11,7 +11,7 @@ namespace SchoolPartBFinal.RepositoryServices.StudentRepository
     {
         List<Student> GetAll();
         Student GetStudentById(int id);
-        string DeleteStudent(int id);
+        Student DeleteStudent(int id);
         Student UpdateStudent(Student student);
 
         string CreateStudent(Student student);

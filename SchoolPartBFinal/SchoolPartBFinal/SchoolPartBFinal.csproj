@@ -60,6 +60,18 @@
     <Compile Include="FactoryObjects\Factory.cs" />
     <Compile Include="GeneralServices\GeneralPrintService.cs" />
     <Compile Include="GeneralServices\StringEvaluations.cs" />
+    <Compile Include="Migrations\202206060952368_AddDateTimeAttributeInDBTable.cs" />
+    <Compile Include="Migrations\202206060952368_AddDateTimeAttributeInDBTable.designer.cs">
+      <DependentUpon>202206060952368_AddDateTimeAttributeInDBTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206060955192_AddDateTimeAttributeInDBTable1.cs" />
+    <Compile Include="Migrations\202206060955192_AddDateTimeAttributeInDBTable1.designer.cs">
+      <DependentUpon>202206060955192_AddDateTimeAttributeInDBTable1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206060956283_AddDateTimeAttributeInDBTable2.cs" />
+    <Compile Include="Migrations\202206060956283_AddDateTimeAttributeInDBTable2.designer.cs">
+      <DependentUpon>202206060956283_AddDateTimeAttributeInDBTable2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,7 +86,17 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202206060952368_AddDateTimeAttributeInDBTable.resx">
+      <DependentUpon>202206060952368_AddDateTimeAttributeInDBTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206060955192_AddDateTimeAttributeInDBTable1.resx">
+      <DependentUpon>202206060955192_AddDateTimeAttributeInDBTable1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206060956283_AddDateTimeAttributeInDBTable2.resx">
+      <DependentUpon>202206060956283_AddDateTimeAttributeInDBTable2.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SchoolPartBFinal.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -34,6 +35,20 @@ namespace SchoolPartBFinal.GeneralServices
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("This Is Not Number Enter A Valid Id:\n");
+            Console.ResetColor();
+        }
+
+        public static void StudentIdNotExistsMessage(int id)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"Student with id {id} does not exists!!!");
+            Console.ResetColor();
+        }
+
+        public static void SuccessDeleteMessage(Student deleteStudent)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"Student {{ with id : {deleteStudent.StudentId} , with first name {deleteStudent.FirstName} , with last name {deleteStudent.LastName} deleted successfully!!!}}");
             Console.ResetColor();
         }
 

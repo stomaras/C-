@@ -1,6 +1,7 @@
 ﻿using SchoolPartBFinal.Entities;
 using SchoolPartBFinal.RepositoryServices.StudentRepository;
 using SchoolPartBFinal.Views.StudentView;
+using SchoolPartBFinal.GeneralServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -97,13 +98,25 @@ namespace SchoolPartBFinal.Controller
                 InputStudent input = new InputStudent();
 
                 int studentId = input.EnterStudentIdToDelete();
-                rep.DeleteStudent(studentId);
+                
+                List<int> studentIds = rep.GetAllStudentsIds();
+                if (rep.CheckIfStudentIdExists(studentIds,studentId))
+                {
+                    Student studentToDelete = rep.DeleteStudent(studentId);
+                    GeneralPrintService.SuccessDeleteMessage(studentToDelete);
+                }
+                else
+                {
+                    GeneralPrintService.StudentIdNotExistsMessage(studentId);
+                }
+                
+               
 
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                throw;
+                throw new Exception(ex.Message);
             }
         }
 

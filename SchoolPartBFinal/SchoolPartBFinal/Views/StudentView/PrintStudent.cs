@@ -11,12 +11,14 @@ namespace SchoolPartBFinal.Views.StudentView
     {
         public void PrintStudents(List<Student> students)
         {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("All Students :\n");
             for (int i = 0; i <= students.Count-1; i++)
             {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"Student with first name {students[i].FirstName} with last name {students[i].LastName} ");
-                Console.ResetColor();
+                Console.WriteLine($"\t\tStudent {{ with first name {students[i].FirstName}, with last name {students[i].LastName}, " +
+                    $" with birth date {students[i].BirthDate}, with tuiton fees {students[i].TuitionFees} }}");
             }
+            Console.ResetColor();
         }
 
         public void PrintAStudent(Student student)
