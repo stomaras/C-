@@ -1,0 +1,56 @@
+﻿@model IEnumerable<MVCALLAHector.Models.Student>
+
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Date Of Birth</th>
+            <th>Actions</th>
+        </tr>
+
+    </thead>
+    <tbody>
+        <!--Conditional Rendering-->
+        @foreach (var stu in Model)
+        {
+            if (stu.Age > 25)
+            {
+                <tr class="bg-primary">
+                    <td>@stu.Id</td>
+                    <td>@stu.Name</td>
+                    <td>@(DateTime.Now.Year - stu.Age)</td>
+                    <td>
+                        <button class="btn btn-primary">Edit</button>
+                        <button class="btn btn-danger">Delete</button>
+                    </td>
+
+                </tr>
+            }
+            else
+            {
+                <tr class="bg-success">
+                    <td>@stu.Id</td>
+                    <td>@stu.Name</td>
+                    <td>@(DateTime.Now.Year - stu.Age)</td>
+                    <td>
+                        <button class="btn btn-primary">Edit</button>
+                        <button class="btn btn-danger">Delete</button>
+                    </td>
+
+                </tr>
+            }
+
+        }
+
+
+
+    </tbody>
+</table>
+
+
+
+

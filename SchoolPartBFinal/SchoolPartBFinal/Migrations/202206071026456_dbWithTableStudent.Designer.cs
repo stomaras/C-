@@ -7,13 +7,13 @@ namespace SchoolPartBFinal.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class AddDateTimeAttributeInDBTable1 : IMigrationMetadata
+    public sealed partial class dbWithTableStudent : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddDateTimeAttributeInDBTable1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(dbWithTableStudent));
         
         string IMigrationMetadata.Id
         {
-            get { return "202206060955192_AddDateTimeAttributeInDBTable1"; }
+            get { return "202206071026456_dbWithTableStudent"; }
         }
         
         string IMigrationMetadata.Source

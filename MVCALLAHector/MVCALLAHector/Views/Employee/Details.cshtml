@@ -1,0 +1,28 @@
+﻿@model MVCALLAHector.Models.Employee
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details Employee Works</h2>
+
+<img width="200" src="@Model.PhotoUrl" />
+
+<strong>Name :</strong>
+<span>@Model.Name</span>
+
+<strong>Age :</strong>
+<span>@Model.Age</span>
+
+<strong>Salary :</strong>
+<span>@Model.Salary</span>
+
+<strong>Hire Date :</strong>
+<span>@Model.HireDate.ToString("d")</span>
+
+<strong>Country :</strong>
+<span>@Model.Country</span>
+
+<a href="/Employee/Index">Go Back</a>
+
+

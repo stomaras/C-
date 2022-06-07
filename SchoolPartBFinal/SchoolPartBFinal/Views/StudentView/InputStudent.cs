@@ -24,15 +24,29 @@ namespace SchoolPartBFinal.Views.StudentView
             Console.WriteLine("Enter Student Id To Update:\n");
             int id = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("Enter Student First Name:\n");
+            Console.WriteLine("Enter Student First Name To Update:\n");
             string firstNameToUpdate = Console.ReadLine();
             string firstName = stringEvaluation.CheckIfStringContainsNumberOrSpecialCharacters(firstNameToUpdate);
 
-            Console.WriteLine("Enter Student Last Name:\n");
+            Console.WriteLine("Enter Student Last Name To Update:\n");
             string lastNameToUpdate = Console.ReadLine();
             string lastName = stringEvaluation.CheckIfStringContainsNumberOrSpecialCharacters(lastNameToUpdate);
 
-            Student student = new Student(id,firstName,lastName);
+            Console.WriteLine("Enter Student Year Of Birth To Update:\n");
+            int year = helper.CheckYearType(Console.ReadLine());
+
+            Console.WriteLine("Enter Student Month Of Birth To Update:\n");
+            int month = helper.CheckMonth(Console.ReadLine());
+
+            Console.WriteLine("Enter Student Day Of Birth To Update:\n");
+            int day = helper.CheckDay(Console.ReadLine());
+
+            DateTime dateOfBirth = new DateTime(year, month, day);
+
+            Console.WriteLine("Enter Student Tuition Fees To Update:\n");
+            int tuitionFees = helper.CheckTuitionFees(Console.ReadLine());
+
+            Student student = new Student(id, firstName, lastName, dateOfBirth, tuitionFees);
 
             return student;
         }
@@ -40,6 +54,7 @@ namespace SchoolPartBFinal.Views.StudentView
         public int EnterStudentIdToDelete()
         {
             Console.WriteLine("Enter Student Id To Delete:\n");
+           
             int id = Convert.ToInt32(Console.ReadLine());
             
             return id;
@@ -58,20 +73,15 @@ namespace SchoolPartBFinal.Views.StudentView
             string studentLastName = Console.ReadLine();
             string lastName = stringEvaluation.CheckIfStringContainsNumberOrSpecialCharacters(studentLastName);
 
-            // todo method to check if student year of Birth is between 2004-1970
             Console.WriteLine("Enter Student Year Of Birth:\n");
             int year = helper.CheckYearType(Console.ReadLine());
             
-
-            // todo method to check id student month of birth is integer and number between 1-12
             Console.WriteLine("Enter Student Month Of Birth:\n");
             int month = helper.CheckMonth(Console.ReadLine());
 
-            // todo method to check if student day of birth is integer between 1-365
             Console.WriteLine("Enter Student Day Of Birth:\n");
             int day = helper.CheckDay(Console.ReadLine());
 
-            // todo method to check if student tuitionfees is integer 2100 or 2500 only!!!
             Console.WriteLine("Enter Student Tuition Fees:\n");
             int tuitionFees = helper.CheckTuitionFees(Console.ReadLine());
 

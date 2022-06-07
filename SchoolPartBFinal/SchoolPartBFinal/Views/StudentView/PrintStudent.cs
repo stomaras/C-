@@ -27,6 +27,13 @@ namespace SchoolPartBFinal.Views.StudentView
             throw new NotImplementedException();
         }
 
+        public void PrintStudentSuccessDeleteMessage(string message)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(message);
+            Console.ResetColor();
+        }
+
         public void PrintStudentSuccessCreateMessage(string message)
         {
             Console.ForegroundColor = ConsoleColor.Green;
@@ -43,6 +50,13 @@ namespace SchoolPartBFinal.Views.StudentView
         }
 
         public void PrintStudentFailureUpdateMessage(string message)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(message);
+            Console.ResetColor();
+        }
+
+        public void PrintStudentFailureDeleteMessage(string message)
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(message);

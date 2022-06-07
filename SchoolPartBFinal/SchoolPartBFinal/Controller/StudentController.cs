@@ -71,11 +71,10 @@ namespace SchoolPartBFinal.Controller
                 PrintStudent pr = new PrintStudent();
                 string message = "";
                 Student studentToUpdate = input.EnterStudentDetailsToUpdate();
-                Console.WriteLine($"{studentToUpdate.FirstName}");
                 Student stu = rep.UpdateStudent(studentToUpdate);
                 if (stu != null)
                 {
-                    message = $"Student Updated With New First Name {stu.FirstName} With New Last Name {stu.LastName}";
+                    message = $"Student Updated With New First Name {stu.FirstName} With New Last Name {stu.LastName} With New Date Of Birth {stu.BirthDate} With New Tuition Fees {stu.TuitionFees}";
                     pr.PrintStudentSuccessUpdateMessage(message);
                 }
                 else
@@ -96,22 +95,25 @@ namespace SchoolPartBFinal.Controller
             {
                 StudentRepository rep = new StudentRepository();
                 InputStudent input = new InputStudent();
-
+                PrintStudent pr = new PrintStudent();
                 int studentId = input.EnterStudentIdToDelete();
                 
                 List<int> studentIds = rep.GetAllStudentsIds();
-                if (rep.CheckIfStudentIdExists(studentIds,studentId))
+                bool studentToDeleteExists = rep.CheckIfStudentIdExists(studentIds, studentId);
+                
+                if (studentToDeleteExists)
                 {
+                    Console.WriteLine(studentId);
                     Student studentToDelete = rep.DeleteStudent(studentId);
-                    GeneralPrintService.SuccessDeleteMessage(studentToDelete);
+                    string successDeleteMessage = $"Student with id {studentToDelete.StudentId}, with student name {studentToDelete.FullName} , with date of birth {studentToDelete.BirthDate} , with tuition fees {studentToDelete.TuitionFees} deleted successfully";
+                    pr.PrintStudentSuccessDeleteMessage(successDeleteMessage);
+                    
                 }
                 else
                 {
-                    GeneralPrintService.StudentIdNotExistsMessage(studentId);
+                    string failureDeleteMessage = $"Student with id {studentId} does not exists!";
+                    pr.PrintStudentFailureDeleteMessage(failureDeleteMessage);
                 }
-                
-               
-
             }
             catch (Exception ex)
             {

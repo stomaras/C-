@@ -46,11 +46,13 @@ namespace SchoolPartBFinal.Entities
 
        
 
-        public Student(int id, string firstName, string lastName)
+        public Student(int id, string firstName, string lastName, DateTime birthDate, decimal TuitonFees)
         {
             StudentId = id;
             FirstName = firstName;
             LastName = lastName;
+            BirthDate = birthDate;
+            TuitionFees = TuitonFees;
         }
 
         public Student(string firstName, string lastName)

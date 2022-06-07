@@ -14,5 +14,8 @@ namespace SchoolPartBFinal.Views.StudentView
 
         void PrintStudentSuccessUpdateMessage(string message);
         void PrintStudentFailureUpdateMessage(string message);
+
+        void PrintStudentSuccessDeleteMessage(string message);  
+        void PrintStudentFailureDeleteMessage(string message);
     }
 }

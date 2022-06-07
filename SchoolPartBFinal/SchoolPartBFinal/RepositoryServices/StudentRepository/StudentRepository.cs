@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 using System.Data.SqlClient;
 using SchoolPartBFinal.FactoryObjects;
+using System.Data;
 
 namespace SchoolPartBFinal.RepositoryServices.StudentRepository
 {
@@ -54,8 +55,10 @@ namespace SchoolPartBFinal.RepositoryServices.StudentRepository
             bool exists = false;
             for (int i = 0; i <= StudentIds.Count-1; i++)
             {
+                
                 if (StudentIds[i] == StudentId)
                 {
+                    
                     exists = true;
                 }
             }
@@ -78,7 +81,7 @@ namespace SchoolPartBFinal.RepositoryServices.StudentRepository
             Student student = Factory.CreateStudent();
             using (var db = new ApplicationContext())
             {
-                student = db.Students.SqlQuery("SELECT * FROM Students WHERE StudentId=@id", new SqlParameter("@id", 1)).FirstOrDefault();
+                student = db.Students.SqlQuery("SELECT * FROM Students WHERE StudentId=@id", new SqlParameter("@id", id)).FirstOrDefault();
             }
             return student; 
         }
@@ -101,11 +104,15 @@ namespace SchoolPartBFinal.RepositoryServices.StudentRepository
                         count++;
                         string newFirstName = student.FirstName;
                         string newLastName = student.LastName;
+                        DateTime NewDateOfBirth = (DateTime)student.BirthDate;
+                        Console.WriteLine(NewDateOfBirth);
+                        decimal NewtuitionFees = student.TuitionFees;
+                        Console.WriteLine(NewtuitionFees);
                         int id = student.StudentId;
-                        var sql = @"UPDATE [Students] SET FirstName = @FirstName, LastName = @LastName WHERE StudentId = @StudentId";
-                        db.Database.ExecuteSqlCommand(sql, new SqlParameter("@FirstName", newFirstName), new SqlParameter("@LastName", newLastName), new SqlParameter("@StudentId",id));
+                        var sql = @"UPDATE [Students] SET FirstName = @FirstName, LastName = @LastName, BirthDate = @BirthDate, TuitionFees = @TuitionFees WHERE StudentId = @StudentId";
+                        db.Database.ExecuteSqlCommand(sql, new SqlParameter("@FirstName", newFirstName), new SqlParameter("@LastName", newLastName), new SqlParameter("@BirthDate", NewDateOfBirth), new SqlParameter("@TuitionFees", NewtuitionFees) ,new SqlParameter("@StudentId",id));
                         
-                        studentToUpdate = Factory.CreateStudent(id,newFirstName, newLastName);
+                        studentToUpdate = Factory.CreateStudent(id,newFirstName, newLastName, NewDateOfBirth, NewtuitionFees);
                     }
                 }
 
@@ -126,19 +133,32 @@ namespace SchoolPartBFinal.RepositoryServices.StudentRepository
             {
                 StudentId = id
             };
+            Console.WriteLine(id);
             var deleteStudent = studentRepository.GetStudentById(id);
             using (var db = new ApplicationContext())
             {
                 var sql = @"DELETE [Students] FROM Students WHERE StudentId=@StudentId";
                 db.Database.ExecuteSqlCommand(sql, new SqlParameter("@StudentId", id));
-                
-                //db.Students.Attach(studentToDelete);
-                //db.Entry(studentToDelete).State = EntityState.Deleted;
-                //db.Students.Remove(studentToDelete);
-                //db.SaveChanges();
+
+                db.SaveChanges();
             }
             
             return deleteStudent;
+        }
+
+        public List<int> GetAllStudentIds()
+        {
+            List<int> studentIds = Factory.CreateListWithInts();
+            using (var db = new ApplicationContext())
+            {
+
+                var studentsList = db.Students.SqlQuery("SELECT * FROM Students").ToList<Student>();
+                foreach (var stu in studentsList)
+                {
+                    studentIds.Add(stu.StudentId);
+                }
+            }
+            return studentIds;
         }
     }
 }

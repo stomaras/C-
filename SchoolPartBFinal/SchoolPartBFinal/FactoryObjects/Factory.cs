@@ -28,9 +28,9 @@ namespace SchoolPartBFinal.FactoryObjects
             return new StringEvaluations();
         }
 
-        public static Student CreateStudent(int id, string firstName, string lastName)
+        public static Student CreateStudent(int id, string firstName, string lastName, DateTime dateTime, decimal tuitionFees)
         {
-            return new Student(id, firstName,lastName);
+            return new Student(id, firstName,lastName, dateTime, tuitionFees);
         }
 
         public static List<int> CreateListWithInts()
@@ -46,6 +46,11 @@ namespace SchoolPartBFinal.FactoryObjects
         public static Helper CreateHelper()
         {
             return new Helper();
+        }
+
+        public static List<int> StudentIds()
+        {
+            return new List<int>();
         }
     }
 }

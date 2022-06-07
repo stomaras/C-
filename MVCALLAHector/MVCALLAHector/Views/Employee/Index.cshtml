@@ -1,0 +1,51 @@
+﻿@model IEnumerable<MVCALLAHector.Models.Employee> 
+
+@ViewBag.movie
+
+@if (@TempData["message"] != null)
+{
+    <strong>delete</strong>
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Salary</th>
+            <th>Age</th>
+            <th>HireDate</th>
+            <th>Country</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var emp in Model)
+        {
+            <tr>
+                <td><img width="80" src="@emp.PhotoUrl" /></td>
+                <td>@emp.Id</td>
+                <td>@emp.Name</td>
+                <td>@emp.Salary</td>
+                <td>@emp.Age</td>
+                <td>@emp.HireDate.ToString("d")</td>
+                <td>@emp.Country</td>
+                <td>
+                    <a class="btn btn-primary" href="/Employee/Details?id=@emp.Id">Details</a>
+                    <a class="btn btn-success" href="#">Edit</a>
+                    @*<a class="btn btn-danger" href="/Employee/Delete?id=@emp.Id">Delete</a>*@
+
+                    <form action="/employee/delete" method="post">
+
+                        <input type="hidden" name="id" value="@emp.Id"/>
+                        <input type="submit" value="Delete"/>
+                    </form>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+

@@ -218,7 +218,7 @@ namespace SchoolPartBFinal.Validations
             public static bool ValidDayRange(int day)
             {
                 bool LowestDayRange = day >=1;
-                bool HighestDayRange = day <= 365;
+                bool HighestDayRange = day <= 30;
                 if (LowestDayRange && HighestDayRange)
                 {
                     return true;

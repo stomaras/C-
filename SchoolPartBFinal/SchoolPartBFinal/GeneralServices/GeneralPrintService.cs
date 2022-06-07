@@ -90,7 +90,7 @@ namespace SchoolPartBFinal.GeneralServices
         public static void PrintDayMustBeInRange()
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine($"Student day of birth must be a number between << 1 and 365 >> :\n");
+            Console.WriteLine($"Student day of birth must be a number between << 1 and 30 >> :\n");
             Console.ResetColor();
         }
 

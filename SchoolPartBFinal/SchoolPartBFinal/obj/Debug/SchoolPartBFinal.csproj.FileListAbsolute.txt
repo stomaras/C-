@@ -24,7 +24,5 @@ C:\Users\spyros\C-\SchoolPartBFinal\SchoolPartBFinal\obj\Debug\SchoolPartBFinal.
 C:\Users\spyros\C-\SchoolPartBFinal\SchoolPartBFinal\obj\Debug\SchoolPartBFinal.csproj.CopyComplete
 C:\Users\spyros\C-\SchoolPartBFinal\SchoolPartBFinal\obj\Debug\SchoolPartBFinal.exe
 C:\Users\spyros\C-\SchoolPartBFinal\SchoolPartBFinal\obj\Debug\SchoolPartBFinal.pdb
-C:\Users\spyros\C-\SchoolPartBFinal\SchoolPartBFinal\obj\Debug\SchoolPartBFinal.Migrations.AddDateTimeAttributeInDBTable.resources
+C:\Users\spyros\C-\SchoolPartBFinal\SchoolPartBFinal\obj\Debug\SchoolPartBFinal.Migrations.dbWithTableStudent.resources
 C:\Users\spyros\C-\SchoolPartBFinal\SchoolPartBFinal\obj\Debug\SchoolPartBFinal.csproj.GenerateResource.cache
-C:\Users\spyros\C-\SchoolPartBFinal\SchoolPartBFinal\obj\Debug\SchoolPartBFinal.Migrations.AddDateTimeAttributeInDBTable1.resources
-C:\Users\spyros\C-\SchoolPartBFinal\SchoolPartBFinal\obj\Debug\SchoolPartBFinal.Migrations.AddDateTimeAttributeInDBTable2.resources
