@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SchoolPartBFinal.GeneralServices;
 using SchoolPartBFinal.FactoryObjects;
+using SchoolPartBFinal.Validations;
 
 namespace SchoolPartBFinal.Views.StudentView
 {
@@ -13,6 +14,7 @@ namespace SchoolPartBFinal.Views.StudentView
     {
 
         StringEvaluations stringEvaluation = Factory.StringEvaluation();
+        Helper helper = Factory.CreateHelper();
         public Func<string, string> CheckIfStringContainsNumberOrSpecialCharacters { get; private set; }
 
         public Student EnterStudentDetailsToUpdate()
@@ -52,27 +54,26 @@ namespace SchoolPartBFinal.Views.StudentView
             string studentFirstName = Console.ReadLine();
             string firstName = stringEvaluation.CheckIfStringContainsNumberOrSpecialCharacters(studentFirstName);
 
-
-
             Console.WriteLine("Enter Student Last Name:\n");
             string studentLastName = Console.ReadLine();
             string lastName = stringEvaluation.CheckIfStringContainsNumberOrSpecialCharacters(studentLastName);
 
             // todo method to check if student year of Birth is between 2004-1970
             Console.WriteLine("Enter Student Year Of Birth:\n");
-            int year = Convert.ToInt32(Console.ReadLine());
+            int year = helper.CheckYearType(Console.ReadLine());
+            
 
             // todo method to check id student month of birth is integer and number between 1-12
             Console.WriteLine("Enter Student Month Of Birth:\n");
-            int month = Convert.ToInt32(Console.ReadLine());
+            int month = helper.CheckMonth(Console.ReadLine());
 
             // todo method to check if student day of birth is integer between 1-365
             Console.WriteLine("Enter Student Day Of Birth:\n");
-            int day = Convert.ToInt32(Console.ReadLine());
+            int day = helper.CheckDay(Console.ReadLine());
 
             // todo method to check if student tuitionfees is integer 2100 or 2500 only!!!
             Console.WriteLine("Enter Student Tuition Fees:\n");
-            int tuitionFees = Convert.ToInt32(Console.ReadLine());
+            int tuitionFees = helper.CheckTuitionFees(Console.ReadLine());
 
             DateTime dateOfBirth = new DateTime(year, month, day);  
 

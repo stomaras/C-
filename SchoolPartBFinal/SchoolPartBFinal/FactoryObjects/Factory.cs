@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SchoolPartBFinal.GeneralServices;
 using SchoolPartBFinal.RepositoryServices.StudentRepository;
+using SchoolPartBFinal.Validations;
 
 namespace SchoolPartBFinal.FactoryObjects
 {
@@ -40,6 +41,11 @@ namespace SchoolPartBFinal.FactoryObjects
         public static StudentRepository CreateStudentRepositoryObject()
         {
             return new StudentRepository();
+        }
+
+        public static Helper CreateHelper()
+        {
+            return new Helper();
         }
     }
 }

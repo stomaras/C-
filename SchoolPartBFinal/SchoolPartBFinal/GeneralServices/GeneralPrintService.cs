@@ -52,6 +52,65 @@ namespace SchoolPartBFinal.GeneralServices
             Console.ResetColor();
         }
 
-        
+        public static void PrintYearMustBeInteger()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"Student year of birth must be a number :\n");
+            Console.ResetColor ();
+        }
+
+        public static void PrintYearMustBeInRange(int HighestBoundYearOfBirth, int LowestBoundYearOfBirth)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"Student year of birth must be between {LowestBoundYearOfBirth} and {HighestBoundYearOfBirth} try again :\n");
+            Console.ResetColor();
+        }
+
+        public static void PrintMonthMustBeInteger()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"Student month of birth must be a number :\n");
+            Console.ResetColor();
+        }
+
+        public static void PrintMonthMustBeInRange()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"Student month of birth must be a number between << 1 and 12 >> :\n");
+            Console.ResetColor();
+        }
+
+        public static void PrintDayMustBeInteger()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"Student day of birth must be a number :\n");
+            Console.ResetColor();
+        }
+
+        public static void PrintDayMustBeInRange()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"Student day of birth must be a number between << 1 and 365 >> :\n");
+            Console.ResetColor();
+        }
+
+        public static void PrintTuitionFeesMustBeInRange(int low, int high)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"Student Tuition Fees must be {low} or {high} :\n");
+            Console.ResetColor();
+        }
+
+        public static void PrintTuitionMustBeANumber()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"Student Tuition fees must be a number");
+            Console.ResetColor();
+        }
+
+       
+
+
+
     }
 }
