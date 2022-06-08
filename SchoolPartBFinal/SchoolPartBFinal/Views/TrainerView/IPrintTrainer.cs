@@ -23,6 +23,18 @@ namespace SchoolPartBFinal.Views.TrainerView
 
         void PrintTrainerCannotBeLessThan2CharactersLongOrBiggerThan50CharactersLong();
 
+        void PrintTrainerLastNameCannotContainNumbersOrSpecialCharacters();
+
+        void PrintTrainerLastNameCannotBeLessThan2CharactersLongOrBiggerThan50CharactersLong();
+
+        void PrintTrainerLaastNameCannotBeNull();
+
+        void PrintSubjectCannotContainNumbersOrSpecialCharacters();
+
+        void PrintSubjectInValidSubjectDetails();
+
+        void PrintSubjectCannotBeNull();
+
 
     }
 }

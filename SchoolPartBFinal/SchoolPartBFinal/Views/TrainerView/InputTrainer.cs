@@ -22,16 +22,14 @@ namespace SchoolPartBFinal.Views.TrainerView
         {
             Helper helper = Factory.CreateHelper();
             printTrainer.CreateTrainerFirstName();
-            // Validation of Trainer first name
             string firstName = helper.CheckValidFirstName(Console.ReadLine());
 
             printTrainer.CreateTrainerLastName();
-            // Validation of Trainer last name
-            string lastName = Console.ReadLine();
+            string lastName = helper.CheckValidLastName(Console.ReadLine());
 
             printTrainer.CreateTrainerSubject();
             // Validation of Trainer Subject
-            string subject = Console.ReadLine();
+            string subject = helper.CheckValidSubject(Console.ReadLine());
 
             Trainer trainerToCreate = new Trainer(firstName, lastName, subject);
             return trainerToCreate;

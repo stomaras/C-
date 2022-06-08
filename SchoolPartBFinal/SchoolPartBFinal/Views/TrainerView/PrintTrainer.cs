@@ -85,5 +85,48 @@ namespace SchoolPartBFinal.Views.TrainerView
             Console.WriteLine("First Name of a trainer cannot be less than 2 characters long or bigger than 50 characters long!:\n");
             Console.ResetColor();
         }
+
+        public void PrintTrainerLastNameCannotContainNumbersOrSpecialCharacters()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Last Name of a trainer cannot contains numbers or special characters try again!:\n");
+            Console.ResetColor();
+        }
+
+        public void PrintTrainerLastNameCannotBeLessThan2CharactersLongOrBiggerThan50CharactersLong()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Last Name of a trainer cannot be less than 2 characters long or bigger than 50 characters long!:\n");
+            Console.ResetColor();
+        }
+
+        public void PrintTrainerLaastNameCannotBeNull()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Last Name of a trainer cannot be empty:\n");
+            Console.ResetColor();
+        }
+
+        public void PrintSubjectCannotContainNumbersOrSpecialCharacters()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Subject of a trainer cannot be number or special character:\n");
+            Console.ResetColor();
+        }
+
+        public void PrintSubjectInValidSubjectDetails()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Subject of a trainer can be << java (or) csharp (or) python (or) javascript:\n");
+            Console.ResetColor();
+        }
+
+        public void PrintSubjectCannotBeNull()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Subject of a trainer cannot be null:\n");
+            Console.ResetColor();
+        }
     }
+    
 }
