@@ -34,5 +34,11 @@ namespace MVCALLAHector.Repositories
             db.Entry(emp).State = EntityState.Deleted;
             db.SaveChanges();
         }
+
+        public void Add(Employee emp)
+        {
+            db.Entry(emp).State = EntityState.Added;
+            db.SaveChanges();
+        }
     }
 }

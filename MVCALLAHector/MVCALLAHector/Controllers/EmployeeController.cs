@@ -1,4 +1,5 @@
-﻿using MVCALLAHector.MyContext;
+﻿using MVCALLAHector.Models;
+using MVCALLAHector.MyContext;
 using MVCALLAHector.Repositories;
 using System;
 using System.Collections.Generic;
@@ -37,6 +38,27 @@ namespace MVCALLAHector.Controllers
             }
             return View(employee);
         }
+
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(Employee emp) // new Employee(name="Remos" hiredate=null) with all payloads features we fill 
+        {
+            // Save in database a new Employee
+            if (ModelState.IsValid)
+            {
+                employeeRepository.Add(emp);
+                TempData["message"] = "You have successfully created employee" + emp.Name;
+                return RedirectToAction("Index");
+            }
+            
+            return View(emp);
+        }
+
 
         [HttpPost]
         public ActionResult Delete(int? id)
