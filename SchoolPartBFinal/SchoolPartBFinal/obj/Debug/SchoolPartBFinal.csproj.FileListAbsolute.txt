@@ -24,5 +24,3 @@ C:\Users\spyros\C-\SchoolPartBFinal\SchoolPartBFinal\obj\Debug\SchoolPartBFinal.
 C:\Users\spyros\C-\SchoolPartBFinal\SchoolPartBFinal\obj\Debug\SchoolPartBFinal.csproj.CopyComplete
 C:\Users\spyros\C-\SchoolPartBFinal\SchoolPartBFinal\obj\Debug\SchoolPartBFinal.exe
 C:\Users\spyros\C-\SchoolPartBFinal\SchoolPartBFinal\obj\Debug\SchoolPartBFinal.pdb
-C:\Users\spyros\C-\SchoolPartBFinal\SchoolPartBFinal\obj\Debug\SchoolPartBFinal.Migrations.dbWithTableStudent.resources
-C:\Users\spyros\C-\SchoolPartBFinal\SchoolPartBFinal\obj\Debug\SchoolPartBFinal.csproj.GenerateResource.cache

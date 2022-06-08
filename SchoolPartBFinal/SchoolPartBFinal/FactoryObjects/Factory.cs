@@ -52,5 +52,16 @@ namespace SchoolPartBFinal.FactoryObjects
         {
             return new List<int>();
         }
+
+        #region Trainer Objects
+
+        public static Trainer CreateTrainer()
+        {
+            return new Trainer();
+        }
+
+
+
+        #endregion
     }
 }

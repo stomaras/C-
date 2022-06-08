@@ -1,0 +1,20 @@
+﻿@model MVCDay2Begin.Models.Student
+
+
+<h2>Details Student</h2>
+
+<img width="200" src="@Model.PhotoUrl"/>
+
+<strong>First Name:</strong>
+<span>@Model.FirstName</span>
+
+<strong>Last Name:</strong>
+<span>@Model.LastName</span>
+
+<strong>Birth Date:</strong>
+<span>@Model.DateOfBirth.ToString("d")</span>
+
+
+
+<a href="/Student/Index">Go Back</a>
+

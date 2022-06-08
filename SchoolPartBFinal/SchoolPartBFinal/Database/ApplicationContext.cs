@@ -16,5 +16,7 @@ namespace SchoolPartBFinal.Database
         }
 
         public DbSet<Student> Students { get; set; }
+
+        public DbSet<Trainer> Trainers { get; set; }
     }
 }

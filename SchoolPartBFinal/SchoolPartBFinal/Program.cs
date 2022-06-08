@@ -18,6 +18,7 @@ namespace SchoolPartBFinal
             const int fourth = -50;
             string input = "";
             StudentController studentController = new StudentController();
+            TrainerController trainerController = new TrainerController();
             while (input != "e" || input != "E")
             {
                 Console.WriteLine();
@@ -47,6 +48,10 @@ namespace SchoolPartBFinal
                     case Choice.ReadStudent: studentController.ReadingStudent(); break;
                     case Choice.UpdateStudent: studentController.UpdateStudent(); break;
                     case Choice.DeleteStudent: studentController.DeleteStudent(); break;
+                    case Choice.CreateTrainer: trainerController.CreateTrainer(); break;
+                    case Choice.ReadTrainer: trainerController.ReadingTrainers(); break;
+                    case Choice.UpdateTrainer: trainerController.UpdateTrainer(); break;
+                    case Choice.DeleteTrainer: trainerController.DeleteTrainer(); break;
                     default: studentController.ErrorService();break;
                 }
 

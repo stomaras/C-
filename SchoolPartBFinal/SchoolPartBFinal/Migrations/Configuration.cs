@@ -11,12 +11,13 @@
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(SchoolPartBFinal.Database.ApplicationContext context)
         {
-            //  This method will be called after migrating to the latest version.
+
+            #region Seeding Students
             var students = new List<Student>
             {
                 new Student { FirstName = "Spyros", LastName = "Tomaras", BirthDate = DateTime.Parse("1997-11-01"), TuitionFees = 2100},
@@ -33,6 +34,26 @@
             context.SaveChanges();
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method
             //  to avoid creating duplicate seed data.
+            #endregion
+
+            #region Seeding Trainers
+            var trainers = new List<Trainer>
+            {
+                new Trainer {FirstName = "George", LastName = "Pasparakis", Subject="Java"},
+                new Trainer {FirstName = "Hector", LastName = "Gatsos", Subject="C#"},
+                new Trainer {FirstName = "Periklis", LastName = "Aidinopoulos", Subject="SQL"},
+                new Trainer {FirstName = "Panagiotis", LastName = "Bozas", Subject="Javascript"},
+            };
+
+            trainers.ForEach(t => context.Trainers.AddOrUpdate(p => p.FirstName, t));
+            context.SaveChanges();
+
+            //  This method will be called after migrating to the latest version.
+
+            //  You can use the DbSet<T>.AddOrUpdate() helper extension method
+            //  to avoid creating duplicate seed data.
+            #endregion
+
         }
     }
 }

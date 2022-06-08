@@ -11,6 +11,10 @@ namespace SchoolPartBFinal.Enums
         CreateStudent = 1,
         ReadStudent,
         UpdateStudent,
-        DeleteStudent
+        DeleteStudent,
+        CreateTrainer,
+        ReadTrainer,
+        UpdateTrainer,
+        DeleteTrainer
     }
 }
