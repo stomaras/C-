@@ -1,4 +1,6 @@
-﻿using SchoolPartBFinal.RepositoryServices.TrainerRepository;
+﻿using SchoolPartBFinal.Entities;
+using SchoolPartBFinal.FactoryObjects;
+using SchoolPartBFinal.RepositoryServices.TrainerRepository;
 using SchoolPartBFinal.Views.TrainerView;
 using System;
 using System.Collections.Generic;
@@ -18,12 +20,12 @@ namespace SchoolPartBFinal.Controller
                 PrintTrainer pr = new PrintTrainer();
                 TrainerRepository trainerRepository = new TrainerRepository();
                 var trainers = trainerRepository.GetAll();
+                
                 pr.PrintTrainers(trainers);
 
             }
             catch (Exception ex)
             {
-
                 Console.WriteLine(ex.Message);
             }
         }
@@ -32,6 +34,13 @@ namespace SchoolPartBFinal.Controller
         {
             try
             {
+                PrintTrainer pr = Factory.CreatePrintTrainer();
+                InputTrainer inputTrainer = new InputTrainer();
+                Trainer trainerToCreate = inputTrainer.EnterTrainerToCreate();
+                TrainerRepository trainerRepository = Factory.CreateTrainerRepository();
+                string message = trainerRepository.CreateTrainer(trainerToCreate);
+                pr.PrintSuccessCreateTrainerMessage(message);
+
 
             }
             catch (Exception)

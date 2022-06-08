@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using SchoolPartBFinal.FactoryObjects;
 using SchoolPartBFinal.GeneralServices;
+using SchoolPartBFinal.Views.TrainerView;
 
 namespace SchoolPartBFinal.Validations
 {
@@ -248,6 +251,85 @@ namespace SchoolPartBFinal.Validations
                     return false;
                 }
             }
+
+        #region Validations For Trainers
+
+        public string CheckValidFirstName(string nameInput)
+        {
+            PrintTrainer printTrainer = Factory.CreatePrintTrainer();
+            bool isValid = false;
+            bool containsRegularDigits = false;
+            while (!isValid || !containsRegularDigits)
+            {
+                
+                if (string.IsNullOrEmpty(nameInput))
+                {
+                    isValid = false;
+                    printTrainer.PrintTrainerFirstNameCannotBeNull();
+                    nameInput = Console.ReadLine();
+                } 
+                else
+                {
+
+                    //process 1
+                    containsRegularDigits = Regex.IsMatch(nameInput, @"^[a-zA-Z]+$");
+                    if (!containsRegularDigits)
+                    {
+                        printTrainer.PrintTrainerFirstNameCannotContainNumbersOrSpecialCharacters();
+                        nameInput = Console.ReadLine();
+                    }
+                    else
+                    {
+                        containsRegularDigits = true;
+                        if (nameInput.Length < 2 || nameInput.Length > 50)
+                        {
+                            isValid = false;
+                            printTrainer.PrintTrainerCannotBeLessThan2CharactersLongOrBiggerThan50CharactersLong();
+                            nameInput= Console.ReadLine();
+                        }
+                        else
+                        {
+                            isValid = true;
+                        }
+                    }
+
+
+                    ////process 2
+                    //foreach (char c in nameInput)
+                    //{
+                    //    if (!Char.IsLetter(c))
+                    //    {
+                    //        count++;
+                    //        isValid = false;
+                    //        printTrainer.PrintTrainerFirstNameCannotContainNumbersOrSpecialCharacters();
+                    //        nameInput = Console.ReadLine();
+                    //    }
+
+                    //}
+
+                    //if (count == 0)
+                    //{
+                    //    if (nameInput.Length < 2 || nameInput.Length > 50)
+                    //    {
+                    //        isValid = false;
+                    //        printTrainer.PrintTrainerCannotBeLessThan2CharactersLongOrBiggerThan50CharactersLong();
+                    //        nameInput = Console.ReadLine();
+                    //    }
+                    //    else
+                    //    {
+                    //        isValid = true;
+                    //    }
+                    //}
+                }
+
+                
+            }
+            
+            return nameInput;
+        }
+
+
+        #endregion
 
 
 

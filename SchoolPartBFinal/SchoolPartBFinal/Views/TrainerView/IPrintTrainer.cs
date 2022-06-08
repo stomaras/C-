@@ -17,6 +17,12 @@ namespace SchoolPartBFinal.Views.TrainerView
         void PrintSuccessUpdateTrainerMessage(string message);
         void PrintSuccessDeleteTrainerMessage(string message);
 
+        void PrintTrainerFirstNameCannotBeNull();
+
+        void PrintTrainerFirstNameCannotContainNumbersOrSpecialCharacters();
+
+        void PrintTrainerCannotBeLessThan2CharactersLongOrBiggerThan50CharactersLong();
+
 
     }
 }

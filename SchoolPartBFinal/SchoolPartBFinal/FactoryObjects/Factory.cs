@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using SchoolPartBFinal.GeneralServices;
 using SchoolPartBFinal.RepositoryServices.StudentRepository;
 using SchoolPartBFinal.Validations;
+using SchoolPartBFinal.Views.TrainerView;
+using SchoolPartBFinal.RepositoryServices.TrainerRepository;
 
 namespace SchoolPartBFinal.FactoryObjects
 {
@@ -53,12 +55,29 @@ namespace SchoolPartBFinal.FactoryObjects
             return new List<int>();
         }
 
-        #region Trainer Objects
+        #region Trainer Related Objects
 
         public static Trainer CreateTrainer()
         {
             return new Trainer();
         }
+
+        public static List<Trainer> CreateListWithTrainers()
+        {
+            return new List<Trainer>();
+        }
+
+        public static PrintTrainer CreatePrintTrainer()
+        {
+            return new PrintTrainer();
+        }
+
+        public static TrainerRepository CreateTrainerRepository()
+        {
+            return new TrainerRepository();
+        }
+
+        
 
 
 
