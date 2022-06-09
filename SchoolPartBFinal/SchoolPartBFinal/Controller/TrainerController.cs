@@ -65,9 +65,28 @@ namespace SchoolPartBFinal.Controller
 
         public void DeleteTrainer()
         {
+            TrainerRepository trainerRepository = Factory.CreateTrainerRepository();
             try
             {
+                PrintTrainer printTrainer = Factory.CreatePrintTrainer();
+                InputTrainer inputTrainer = Factory.CreateInputTrainer();
+                int trainerId = inputTrainer.EnterTrainerIdToDelete();
+                List<int> trainerIDs = trainerRepository.GetAllTrainerIds();
+                bool trainerToDeleteExists = trainerRepository.CheckIfTrainerIdExists(trainerIDs, trainerId);
 
+                if (trainerToDeleteExists)
+                {
+
+                    Trainer trainerToDelete = trainerRepository.DeleteTrainer(trainerId);
+                    string successDeleteMessage = $"Trainer with id {trainerToDelete.Id}, with trainer name {trainerToDelete.FirstName} , with subject {trainerToDelete.Subject} deleted successfully";
+                    printTrainer.PrintSuccessDeleteTrainerMessage(successDeleteMessage);
+
+                }
+                else
+                {
+                    string failureDeleteMessage = $"Trainer with id {trainerId} does not exists!";
+                    printTrainer.PrintFailureDeleteTrainerMessage(failureDeleteMessage);
+                }
             }
             catch (Exception)
             {

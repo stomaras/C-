@@ -103,7 +103,7 @@ namespace SchoolPartBFinal.Controller
                 
                 if (studentToDeleteExists)
                 {
-                    Console.WriteLine(studentId);
+                    
                     Student studentToDelete = rep.DeleteStudent(studentId);
                     string successDeleteMessage = $"Student with id {studentToDelete.StudentId}, with student name {studentToDelete.FullName} , with date of birth {studentToDelete.BirthDate} , with tuition fees {studentToDelete.TuitionFees} deleted successfully";
                     pr.PrintStudentSuccessDeleteMessage(successDeleteMessage);

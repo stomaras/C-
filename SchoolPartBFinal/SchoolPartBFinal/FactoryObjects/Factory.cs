@@ -77,6 +77,11 @@ namespace SchoolPartBFinal.FactoryObjects
             return new TrainerRepository();
         }
 
+        public static InputTrainer CreateInputTrainer()
+        {
+            return new InputTrainer();
+        }
+
         
 
 

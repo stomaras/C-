@@ -16,6 +16,7 @@ namespace SchoolPartBFinal.Views.TrainerView
         void PrintSuccessCreateTrainerMessage(string message);
         void PrintSuccessUpdateTrainerMessage(string message);
         void PrintSuccessDeleteTrainerMessage(string message);
+        void PrintFailureDeleteTrainerMessage(string message);
 
         void PrintTrainerFirstNameCannotBeNull();
 
@@ -34,6 +35,10 @@ namespace SchoolPartBFinal.Views.TrainerView
         void PrintSubjectInValidSubjectDetails();
 
         void PrintSubjectCannotBeNull();
+
+        void EnterTrainerID();
+
+        void PrintTrainerIDMustBeNumber();
 
 
     }

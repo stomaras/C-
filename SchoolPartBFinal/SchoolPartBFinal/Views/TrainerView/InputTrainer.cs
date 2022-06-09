@@ -13,14 +13,21 @@ namespace SchoolPartBFinal.Views.TrainerView
     {
 
         PrintTrainer printTrainer = Factory.CreatePrintTrainer();
+        Helper helper = Factory.CreateHelper();
         public int EnterTrainerIdToDelete()
         {
-            throw new NotImplementedException();
+
+            printTrainer.EnterTrainerIDToDelete();
+            string inputId = Console.ReadLine();
+            int trainerID = helper.FilterIdIsNumber(inputId);
+            
+
+            return trainerID;
         }
 
         public Trainer EnterTrainerToCreate()
         {
-            Helper helper = Factory.CreateHelper();
+            
             printTrainer.CreateTrainerFirstName();
             string firstName = helper.CheckValidFirstName(Console.ReadLine());
 
@@ -28,7 +35,6 @@ namespace SchoolPartBFinal.Views.TrainerView
             string lastName = helper.CheckValidLastName(Console.ReadLine());
 
             printTrainer.CreateTrainerSubject();
-            // Validation of Trainer Subject
             string subject = helper.CheckValidSubject(Console.ReadLine());
 
             Trainer trainerToCreate = new Trainer(firstName, lastName, subject);

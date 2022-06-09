@@ -13,6 +13,8 @@ namespace SchoolPartBFinal.RepositoryServices.TrainerRepository
 {
     public class TrainerRepository : ITrainerRepository
     {
+        public IEnumerable<object> Trainers { get; private set; }
+
         public string CreateTrainer(Trainer trainer)
         {
             using (var db = new ApplicationContext())
@@ -32,11 +34,22 @@ namespace SchoolPartBFinal.RepositoryServices.TrainerRepository
 
         public Trainer DeleteTrainer(int id)
         {
+
+            TrainerRepository trainerRepository = Factory.CreateTrainerRepository();
+            var trainerToDelete = new Trainer()
+            {
+                Id = id
+            };
+            var deleteTrainer = trainerRepository.GetTrainerById(id);
             using (var db = new ApplicationContext())
             {
+                var sql = @"DELETE [Trainers] FROM Trainers WHERE Id=@Id";
+                db.Database.ExecuteSqlCommand(sql, new SqlParameter("@Id", id));
 
+                db.SaveChanges();
             }
-            return null;
+
+            return trainerToDelete;
         }
 
         public List<Trainer> GetAll()
@@ -51,11 +64,17 @@ namespace SchoolPartBFinal.RepositoryServices.TrainerRepository
 
         public List<int> GetAllTrainerIds()
         {
-            using (var db = new ApplicationContext())
+            List<int> trainerIDs = Factory.CreateListWithInts();
+            using (ApplicationContext db = new ApplicationContext())
             {
+                var Trainers = db.Trainers.ToList();
 
+                foreach (var trainer in Trainers)
+                {
+                    trainerIDs.Add(trainer.Id);
+                }
             }
-            return null;
+            return trainerIDs;
         }
 
         public Trainer GetTrainerById(int id)
@@ -74,6 +93,21 @@ namespace SchoolPartBFinal.RepositoryServices.TrainerRepository
 
             }
             return null;
+        }
+
+        public bool CheckIfTrainerIdExists(List<int> TrainerIds, int TrainerId)
+        {
+            bool exists = false;
+            for (int i = 0; i <= TrainerIds.Count - 1; i++)
+            {
+
+                if (TrainerIds[i] == TrainerId)
+                {
+
+                    exists = true;
+                }
+            }
+            return exists;
         }
     }
 }

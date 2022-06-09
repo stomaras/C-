@@ -127,6 +127,30 @@ namespace SchoolPartBFinal.Views.TrainerView
             Console.WriteLine("Subject of a trainer cannot be null:\n");
             Console.ResetColor();
         }
+
+        public void EnterTrainerIDToDelete()
+        {
+            Console.WriteLine("Enter trainer id to delete : \n");
+        }
+
+        public void PrintTrainerIDMustBeNumber()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Trainer ID must be a number try again: \n");
+            Console.ResetColor();
+        }
+
+        public void EnterTrainerID()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void PrintFailureDeleteTrainerMessage(string message)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(message);
+            Console.ResetColor();
+        }
     }
     
 }

@@ -417,6 +417,20 @@ namespace SchoolPartBFinal.Validations
             }
         }
 
+        public int FilterIdIsNumber(string inputID)
+        {
+            PrintTrainer printTrainer = Factory.CreatePrintTrainer();
+            bool isNumber = Regex.IsMatch(inputID, @"^[0-9]+$");
+            while (!isNumber)
+            {
+               printTrainer.PrintTrainerIDMustBeNumber();
+               inputID = Console.ReadLine();
+               isNumber = Regex.IsMatch(inputID, @"^[0-9]+$");
+            }
+            int trainerId = Convert.ToInt32(inputID);
+            return trainerId;
+        }
+
         #endregion
 
 
