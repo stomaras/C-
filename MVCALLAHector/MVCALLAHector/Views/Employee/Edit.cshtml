@@ -1,0 +1,90 @@
+﻿@model MVCALLAHector.Models.Employee
+@using MVCALLAHector.Models.Enums
+
+
+
+
+
+
+<h1>Edit Employee</h1>
+
+<form method="post">
+
+    @Html.AntiForgeryToken()
+
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name)
+        @Html.EditorFor(m => m.Name, new { htmlAttributes = new { @class = "form-control", placeholder = "Give Your Name" } })
+    </div>
+    @Html.ValidationMessageFor(m => m.Name, "", new { title = "Boom", id = "boomer", @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Salary)
+        @Html.EditorFor(m => m.Salary, new { htmlAttributes = new { @class = "form-control", type = "number", placeholder = "Give your Salary" } })
+    </div>
+    @Html.ValidationMessageFor(m => m.Salary, "", new { title = "Boom", id = "boomer", @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Age)
+        @Html.EditorFor(m => m.Age, new { htmlAttributes = new { @class = "form-control", type = "number", placeholder = "Give your Age" } })
+    </div>
+    @Html.ValidationMessageFor(m => m.Age, "", new { title = "Boom", id = "boomer", @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.HireDate)
+        @Html.EditorFor(m => m.HireDate, new { htmlAttributes = new { @class = "form-control"} })
+    </div>
+    @Html.ValidationMessageFor(m => m.HireDate, "", new { title = "Boom", id = "boomer", @class = "text-danger" })
+
+    <div>
+        @Html.LabelFor(m => m.Country)
+        @Html.EnumDropDownListFor(m => m.Country, new { @class = "form-control" })
+    </div>
+
+
+    @*@{
+            var countries = Enum.GetNames(typeof(Country));
+        }
+
+        @{
+            int countryValue = 0;
+            if (!(Model == null))
+            {
+                countryValue = (int)Model?.Country;
+            }
+        }
+
+
+        <div class="form-group">
+            <label for="country">Country</label>
+            <select id="country" class="form-control" name="Country">
+
+
+                @for (int i = 0; i < countries.Length; i++)
+                {
+                    if (i == countryValue)
+                    {
+                        <option selected value="@i">@countries[i]</option>
+                    }
+                    else
+                    {
+                        <option value="@i">@countries[i]</option>
+                    }
+
+                }
+
+            </select>
+        </div>*@
+    @Html.ValidationMessageFor(m => m.Country, "", new { title = "Boom", id = "boomer", @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(m => m.PhotoUrl)
+        @Html.EditorFor(m => m.PhotoUrl, new { htmlAttributes = new { @class = "form-control", type = "url", placeholder = "Give your Image" } })
+    </div>
+    @Html.ValidationMessageFor(m => m.PhotoUrl, "", new { @class = "text-danger" })
+
+
+    <input class="btn btn-primary" type="submit" value="Edit" />
+    <input class="btn btn-success" type="reset" value="Clear" />
+</form>
+

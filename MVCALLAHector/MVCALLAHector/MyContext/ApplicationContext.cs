@@ -18,5 +18,7 @@ namespace MVCALLAHector.MyContext
         public DbSet<Student> Students { get; set; }
 
         public DbSet<Employee> Employees { get; set; }
+
+        public DbSet<Project> Projects { get; set; }
     }
 }

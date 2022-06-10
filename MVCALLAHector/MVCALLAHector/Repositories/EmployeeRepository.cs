@@ -40,5 +40,14 @@ namespace MVCALLAHector.Repositories
             db.Entry(emp).State = EntityState.Added;
             db.SaveChanges();
         }
+
+        public void Edit(Employee emp) // new Employee(){name="NewName"
+        {
+            // single responsiblity and seperaton of concerns
+            db.Entry(emp).State = EntityState.Modified;
+            db.SaveChanges();
+            // ask sql server : do you have someone employee with id=55??
+            
+        }
     }
 }

@@ -23,9 +23,17 @@ namespace MVCALLAHector.Models
 
         [Range(15,140)]
         public int Age { get; set; }
+
+        [Display(Name = "Hire Date")]
         public DateTime HireDate { get; set; }
         public Country Country { get; set; }
 
         public string PhotoUrl { get; set; }
+
+        // Foreign Keys
+        public int ProjectId { get; set; }
+
+        // Navigation Properties
+        public Project Project { get; set; }
     }
 }

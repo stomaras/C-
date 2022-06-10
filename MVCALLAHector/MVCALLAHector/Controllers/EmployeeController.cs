@@ -15,10 +15,12 @@ namespace MVCALLAHector.Controllers
         private ApplicationContext db = new ApplicationContext();
 
         private EmployeeRepository employeeRepository;
+        private ProjectRepository projectRepository;
 
         public EmployeeController()
         {
             employeeRepository = new EmployeeRepository(db);
+            projectRepository = new ProjectRepository(db);
         }
         // GET: Employee
         public ActionResult Index()
@@ -42,10 +44,15 @@ namespace MVCALLAHector.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+
+            var projects = projectRepository.GetAll();
+            ViewBag.Projects = projects;
             return View();
         }
 
+
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(Employee emp) // new Employee(name="Remos" hiredate=null) with all payloads features we fill 
         {
             // Save in database a new Employee
@@ -61,6 +68,7 @@ namespace MVCALLAHector.Controllers
 
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Delete(int? id)
         {
             var employee = employeeRepository.GetById(id);
@@ -73,6 +81,41 @@ namespace MVCALLAHector.Controllers
             TempData["message"] = $"You have successfully deleted employee with name : {employee.Name} and id {employee.Id}";
 
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var emp = employeeRepository.GetById(id);
+
+            if (emp == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+            }
+
+            return View(emp);
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Employee emp)
+        {
+            if (ModelState.IsValid)
+            {
+                employeeRepository.Edit(emp);
+                TempData["message"] = $"Employee with id {emp.Id} edited!!!";
+                return RedirectToAction("Index");
+            }
+
+            return View(emp);
+            
+
         }
 
 
