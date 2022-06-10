@@ -5,8 +5,20 @@
 }
 
 <h2>Delete</h2>
-
+<script>
+    alert("Danger")
+</script>
 <h3>Are you sure you want to delete this?</h3>
+<h3>All employees associated with this project will be deleted</h3>
+
+<ul>
+    @foreach (var emp in Model.Employees)
+    {
+        <li>@emp.Name</li>
+    }
+</ul>
+
+
 <div>
     <h4>Project</h4>
     <hr />

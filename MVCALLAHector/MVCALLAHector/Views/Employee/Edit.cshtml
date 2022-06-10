@@ -1,6 +1,6 @@
 ﻿@model MVCALLAHector.Models.Employee
 @using MVCALLAHector.Models.Enums
-
+@using MVCALLAHector.Models
 
 
 
@@ -33,7 +33,7 @@
 
     <div class="form-group">
         @Html.LabelFor(m => m.HireDate)
-        @Html.EditorFor(m => m.HireDate, new { htmlAttributes = new { @class = "form-control"} })
+        @Html.EditorFor(m => m.HireDate, new { htmlAttributes = new { @class = "form-control" } })
     </div>
     @Html.ValidationMessageFor(m => m.HireDate, "", new { title = "Boom", id = "boomer", @class = "text-danger" })
 
@@ -43,39 +43,7 @@
     </div>
 
 
-    @*@{
-            var countries = Enum.GetNames(typeof(Country));
-        }
 
-        @{
-            int countryValue = 0;
-            if (!(Model == null))
-            {
-                countryValue = (int)Model?.Country;
-            }
-        }
-
-
-        <div class="form-group">
-            <label for="country">Country</label>
-            <select id="country" class="form-control" name="Country">
-
-
-                @for (int i = 0; i < countries.Length; i++)
-                {
-                    if (i == countryValue)
-                    {
-                        <option selected value="@i">@countries[i]</option>
-                    }
-                    else
-                    {
-                        <option value="@i">@countries[i]</option>
-                    }
-
-                }
-
-            </select>
-        </div>*@
     @Html.ValidationMessageFor(m => m.Country, "", new { title = "Boom", id = "boomer", @class = "text-danger" })
     <div class="form-group">
         @Html.LabelFor(m => m.PhotoUrl)
@@ -83,6 +51,24 @@
     </div>
     @Html.ValidationMessageFor(m => m.PhotoUrl, "", new { @class = "text-danger" })
 
+    <label for="project">Select Project</label>
+    <div class="form-group">
+        <select id="project" name="projectId" class="form-control">
+
+            @foreach (var pro in ViewBag.Projects as List<Project>)
+            {
+                if (pro.Id == Model.ProjectId)
+                {
+                    <option selected value="@pro.Id">@pro.Title</option>
+                }
+                else
+                {
+                    <option  value="@pro.Id">@pro.Title</option>
+                }
+
+            }
+        </select>
+    </div>
 
     <input class="btn btn-primary" type="submit" value="Edit" />
     <input class="btn btn-success" type="reset" value="Clear" />

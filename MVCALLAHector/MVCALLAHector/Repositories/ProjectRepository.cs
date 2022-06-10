@@ -23,6 +23,8 @@ namespace MVCALLAHector.Repositories
             return db.Projects.ToList();
         }
 
+        
+
         public List<Project> GetAllWithEmployees()
         {
             return db.Projects.Include(x=>x.Employees).ToList();
@@ -32,6 +34,14 @@ namespace MVCALLAHector.Repositories
         {
             var project = db.Projects.Find(id);
             return project;
+        }
+
+        public Project GetByIdWithEmployee(int? id)
+        {
+            var projects = GetAllWithEmployees();
+
+            var pro = projects.Find(x=>x.Id == id);
+            return pro;
         }
 
         public void Delete(Project pro)

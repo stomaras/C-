@@ -106,7 +106,7 @@ namespace MVCALLAHector.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Project project = projectRepository.GetById(id);
+            Project project = projectRepository.GetByIdWithEmployee(id);
             if (project == null)
             {
                 return HttpNotFound();

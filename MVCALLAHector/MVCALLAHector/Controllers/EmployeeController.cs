@@ -1,4 +1,5 @@
 ﻿using MVCALLAHector.Models;
+using MVCALLAHector.Models.Queries;
 using MVCALLAHector.MyContext;
 using MVCALLAHector.Repositories;
 using System;
@@ -23,11 +24,28 @@ namespace MVCALLAHector.Controllers
             projectRepository = new ProjectRepository(db);
         }
         // GET: Employee
-        public ActionResult Index()
+        public ActionResult Index(EmployeeSearchQuery query)// same name as in input name attribute
         {
             //ViewBag.movie = "Titanikos";
             //ViewBag["movie"] = "foufoutos";
-            var employees = employeeRepository.GetAll();
+            var employees = employeeRepository.GetAllWithProjects();
+
+            // Current State
+            ViewBag.currentName = query.searchName;
+            ViewBag.currentCountry = query.searchCountry; 
+            ViewBag.currentMin = query.searchMin;
+            ViewBag.currentMax = query.searchMax;
+
+
+
+
+
+
+            ViewBag.MinAge = employees.Min(x => x.Age);
+            ViewBag.MaxAge = employees.Max(x => x.Age);
+
+            employeeRepository.Filter(employees, query);
+            
             return View(employees);
         }
 
@@ -45,8 +63,7 @@ namespace MVCALLAHector.Controllers
         public ActionResult Create()
         {
 
-            var projects = projectRepository.GetAll();
-            ViewBag.Projects = projects;
+            GetProjects();
             return View();
         }
 
@@ -59,10 +76,10 @@ namespace MVCALLAHector.Controllers
             if (ModelState.IsValid)
             {
                 employeeRepository.Add(emp);
-                TempData["message"] = "You have successfully created employee" + emp.Name;
+                ShowAlert("You have successfully created employee" + emp.Name);
                 return RedirectToAction("Index");
             }
-            
+            GetProjects();
             return View(emp);
         }
 
@@ -77,9 +94,7 @@ namespace MVCALLAHector.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.NotFound);
             }
             employeeRepository.Delete(employee);
-
-            TempData["message"] = $"You have successfully deleted employee with name : {employee.Name} and id {employee.Id}";
-
+            ShowAlert($"You have successfully deleted employee with name : {employee.Name} and id {employee.Id}");
             return RedirectToAction("Index");
         }
 
@@ -98,6 +113,8 @@ namespace MVCALLAHector.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.NotFound);
             }
 
+            GetProjects();
+
             return View(emp);
         }
 
@@ -109,9 +126,12 @@ namespace MVCALLAHector.Controllers
             if (ModelState.IsValid)
             {
                 employeeRepository.Edit(emp);
-                TempData["message"] = $"Employee with id {emp.Id} edited!!!";
+                ShowAlert($"Employee with id {emp.Id} edited!!!");
                 return RedirectToAction("Index");
             }
+
+            GetProjects();
+
 
             return View(emp);
             
@@ -127,5 +147,21 @@ namespace MVCALLAHector.Controllers
             }
             base.Dispose(disposing);
         }
+
+
+
+        [NonAction]
+        public void GetProjects()
+        {
+            var projects = projectRepository.GetAll();
+            ViewBag.Projects = projects;
+        }
+
+        [NonAction]
+        public void ShowAlert(string message)
+        {
+            TempData["message"] = message;  
+        }
+
     }
 }

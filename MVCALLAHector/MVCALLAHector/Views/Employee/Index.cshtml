@@ -1,13 +1,45 @@
 ﻿@model IEnumerable<MVCALLAHector.Models.Employee> 
-
+@using MVCALLAHector.Models.Enums;
 @ViewBag.movie
 
 @if (@TempData["message"] != null)
 {
-    <strong>delete</strong>
+    <strong>@TempData["message"]</strong>
 }
 
+<div>
+    <form>
 
+        @{
+            var countries = Enum.GetNames(typeof(Country));
+        }
+        <select name="searchCountry">
+
+
+
+
+            <option value="">All</option>
+            @{foreach (var country in countries)
+                {
+                    
+                <option>@country</option>
+            }
+
+            }
+        </select>
+        
+        <input type="number" name="searchMin" value="@(ViewBag.currentMin == null ? ViewBag.MinAge : ViewBag.currentMin)" placeholder="Give your min Age" min="@ViewBag.MinAge" max="@ViewBag.MaxAge"/>
+        <input type="number" name="searchMax" value="@(ViewBag.currentMax == null ? ViewBag.MaxAge : ViewBag.currentMax)" placeholder="Give your max Age" min="@ViewBag.MinAge" max="@ViewBag.MaxAge"/>
+        <input type="number" name="searchMin" value="" placeholder="Give your min Age"/>
+
+        <input type="text" name="searchName" value="@ViewBag.currentName" placeholder="Search Name"/>
+
+        <input type="submit" value="Search Employee" />
+    </form>
+</div>
+
+<br/>
+<br/>
 <a class="btn btn-primary" href="/Employee/Create">Create Employee</a>
 
 <table class="table">
@@ -19,6 +51,7 @@
             <th>Salary</th>
             <th>Age</th>
             <th>HireDate</th>
+            <th>Project</th>
             <th>Country</th>
             <th>Actions</th>
         </tr>
@@ -33,6 +66,7 @@
                 <td>@emp.Salary</td>
                 <td>@emp.Age</td>
                 <td>@emp.HireDate.ToString("d")</td>
+                <td>@emp.Project.Title</td>
                 <td>@emp.Country</td>
                 <td>
                     <a class="btn btn-primary" href="/Employee/Details?id=@emp.Id">Details</a>
