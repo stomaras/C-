@@ -1,0 +1,55 @@
+﻿@model MVCDAY4.Models.Employee
+@using MVCDAY4.Models.Enums
+
+
+<h2>Edit Employee</h2>
+
+<form method="post">
+
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(emp => emp.FirstName)
+        @Html.EditorFor(emp => emp.FirstName, new { htmlAttributes = new { @class = "form-control", placeholder = "Give Your First Name" } })
+    </div>
+    @Html.ValidationMessageFor(emp => emp.FirstName, "", new { @class = "text-danger" })
+
+
+    <div class="form-group">
+        @Html.LabelFor(emp => emp.LastName)
+        @Html.EditorFor(emp => emp.LastName, new { htmlAttributes = new { @class = "form-control", placeholder = "Give Your Last Name" } })
+    </div>
+    @Html.ValidationMessageFor(emp => emp.LastName, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(emp => emp.Age)
+        @Html.EditorFor(emp => emp.Age, new { htmlAttributes = new { @class = "form-control", placeholder = "Give Your Age" } })
+    </div>
+    @Html.ValidationMessageFor(emp => emp.Age, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(emp => emp.DateOfBirth)
+        @Html.EditorFor(emp => emp.DateOfBirth, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+    @Html.ValidationMessageFor(emp => emp.DateOfBirth, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(emp => emp.Country)
+        @Html.DropDownListFor(emp => emp.Country, new SelectList(Enum.GetValues(typeof(Country))), new { @class = "form-control" })
+    </div>
+    @Html.ValidationMessageFor(emp => emp.Country, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(emp => emp.PhotoUrl)
+        @Html.EditorFor(emp => emp.PhotoUrl, new { htmlAttributes = new { @class = "form-control", type = "url", placeholder = "Give Your Photo" } })
+    </div>
+    @Html.ValidationMessageFor(emp => emp.PhotoUrl, "", new { @class = "text-danger" })
+
+    <input class="btn btn-primary" type="submit" value="Edit" />
+    <input class="btn btn-success" type="reset" value="Clear" />
+
+
+</form>
+
+
+

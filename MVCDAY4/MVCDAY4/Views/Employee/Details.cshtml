@@ -1,0 +1,36 @@
+﻿@model MVCDAY4.Models.Employee
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Photo</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+            <th>Date Of Birth</th>
+            <th>Country</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        
+            <tr>
+                <td><img width="200" src="@Model.PhotoUrl" /></td>
+                <td>@Model.FirstName</td>
+                <td>@Model.LastName</td>
+                <td>@Model.Age</td>
+                <td>@Model.DateOfBirth.ToString("d")</td>
+                <td>@Model.Country</td>
+                <td>
+                    <a class="btn btn-primary" href="/Employee/Index">Go Back</a>
+                </td>
+            </tr>
+        
+
+
+    </tbody>
+</table>
+
+

@@ -1,0 +1,53 @@
+﻿@model IEnumerable<MVCDAY4.Models.Employee>
+
+@if (TempData["DeleteEmployeeMessage"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["DeleteEmployeeMessage"]
+    </div>
+}
+
+@if (TempData["successCreateEmployee"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["successCreateEmployee"]
+    </div>
+}
+
+<h2>Index Empoyees</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Photo</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+            <th>Date Of Birth</th>
+            <th>Country</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var emp in Model)
+        {
+            <tr>
+                <td><img width="80" src="@emp.PhotoUrl" /></td>
+                <td>@emp.FirstName</td>
+                <td>@emp.LastName</td>
+                <td>@emp.Age</td>
+                <td>@emp.DateOfBirth.ToString("d")</td>
+                <td>@emp.Country</td>
+                <td>
+                    <a class="btn btn-primary" href="/Employee/Details?id=@emp.EmployeeId">Details</a>
+                    <a class="btn btn-danger" href="/Employee/Delete?id=@emp.EmployeeId">Delete</a>
+                    <a class="btn btn-info" href="/Employee/Edit?id=@emp.EmployeeId">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a class="btn btn-info" href="/Employee/Create">Create Employee</a>
