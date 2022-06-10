@@ -15,5 +15,6 @@ namespace CodeFirst
         }
 
         public virtual DbSet<Student> Students { get; set; }
+        public virtual DbSet<Trainer> Trainers { get; set; }
     }
 }

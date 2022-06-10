@@ -9,6 +9,12 @@
     @Html.AntiForgeryToken()
 
     <div class="form-group">
+        @Html.HiddenFor(Model => Model.EmployeeId)
+        @Html.LabelFor(emp => emp.EmployeeId)
+        @Html.EditorFor(emp => emp.EmployeeId, new { htmlAttributes = new { @class = "form-control", placeholder = "Give Your First Name" } })
+    </div>
+
+    <div class="form-group">
         @Html.LabelFor(emp => emp.FirstName)
         @Html.EditorFor(emp => emp.FirstName, new { htmlAttributes = new { @class = "form-control", placeholder = "Give Your First Name" } })
     </div>
