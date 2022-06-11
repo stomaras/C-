@@ -28,7 +28,7 @@
 
     <div class="form-group">
         @Html.LabelFor(m => m.HireDate)
-        @Html.EditorFor(m => m.HireDate, new { htmlAttributes = new { @class = "form-control", type = "Date", placeholder = "Give Hire Date" } })
+        @Html.EditorFor(m => m.HireDate, new { htmlAttributes = new { @class = "form-control", type = "text", placeholder = "Give Hire Date" } })
     </div>
     @Html.ValidationMessageFor(m => m.HireDate, "", new { @class = "text-danger" })
 
