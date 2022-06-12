@@ -48,5 +48,12 @@ namespace MVCDAY5Web.Models
             }
         }
 
+        // Foreign Keys
+        public int ProjectId { get; set; }
+
+
+        //Navigation Properties
+        public Project Project { get; set; }
+
     }
 }

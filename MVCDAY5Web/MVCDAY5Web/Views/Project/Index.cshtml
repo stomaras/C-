@@ -1,0 +1,53 @@
+﻿@model IEnumerable<MVCDAY5Web.Models.Project>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                Employees
+            </th>
+            <th>
+                Actions
+            </th>
+
+        </tr>
+    </thead>
+   
+    <tbody>
+        @foreach (var project in Model)
+        {
+            <tr>
+                <td>
+                    @project.Title
+                </td>
+                <td>
+                    <ul>
+                        @foreach (var employee in project.Employees)
+                        {
+                            <li>@employee.FullName</li>
+                        }
+                    </ul>
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = project.Id, title = project.Title }) |
+                    @Html.ActionLink("Details", "Details", "Project", new {id = project.Id}, null) |
+                    @Html.ActionLink("Delete", "Delete", new { id = project.Id }, new {@class = "btn btn-danger"})
+                </td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>

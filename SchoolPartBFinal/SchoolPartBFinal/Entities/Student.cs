@@ -42,6 +42,10 @@ namespace SchoolPartBFinal.Entities
         public decimal TuitionFees { get; set; }
 
 
+
+        
+
+
         public Student() { }
 
        
@@ -70,6 +74,12 @@ namespace SchoolPartBFinal.Entities
             BirthDate = birthDate;
             TuitionFees = TuitonFees;
         }
+
+        // Foreign Keys
+        public int CourseId { get; set; }
+
+        // Navigation Properties
+        public Course Course { get; set; }
 
     }
 }

@@ -56,6 +56,8 @@
     <Compile Include="Controller\StudentController.cs" />
     <Compile Include="Controller\TrainerController.cs" />
     <Compile Include="Database\ApplicationContext.cs" />
+    <Compile Include="Entities\Assigment.cs" />
+    <Compile Include="Entities\Course.cs" />
     <Compile Include="Entities\Student.cs" />
     <Compile Include="Entities\Trainer.cs" />
     <Compile Include="Enums\Choice.cs" />

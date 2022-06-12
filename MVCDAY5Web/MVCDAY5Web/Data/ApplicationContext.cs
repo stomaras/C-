@@ -16,5 +16,6 @@ namespace MVCDAY5Web.Data
         }
 
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<Project> Projects { get; set; }
     }
 }
