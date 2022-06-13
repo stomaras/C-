@@ -26,13 +26,18 @@ namespace MVCDAY5Web.Repositories
 
         public List<Project> GetAllWithEmployees()
         {
-            var ProjectWithEmployees = db.Projects.SqlQuery("SELECT * FROM Projects INNER JOIN Employees ON Projects.Id = Employees.ProjectId").ToList();
             return db.Projects.Include(x => x.Employees).ToList();
         }
 
         public Project GetById(int? id)
         {
             var project = db.Projects.Find(id);
+            return project;
+        }
+
+        public Project GetByIdWithEmployees(int? id)
+        {
+            var project = GetAllWithEmployees().Find(x => x.Id == id);
             return project;
         }
 

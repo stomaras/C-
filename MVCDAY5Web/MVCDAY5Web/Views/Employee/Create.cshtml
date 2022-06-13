@@ -1,5 +1,7 @@
 ﻿@model MVCDAY5Web.Models.Employee
 @using MVCDAY5Web.Models.Enums
+@using MVCDAY5Web.Models
+
 
 <h2>Create New Employee</h2>
 
@@ -42,8 +44,22 @@
         @Html.DropDownListFor(m => m.Country, new SelectList(Enum.GetValues(typeof(Country))), new { @class = "form-control" })
     </div>
     @Html.ValidationMessageFor(m => m.Country, "", new { @class = "text-danger" })
+
+    <label for="project">Select Project</label>
+    <div class="form-group">
+        <select id="project" name="projectId" class="form-control">
+            @foreach (var item in ViewBag.Projects as List<Project>)
+            {
+                <option value="@item.Id">@item.Title</option>
+            }
+
+
+        </select>
+    </div>
+
+
     <input class="btn btn-primary" type="submit" value="Create" />
-    @Html.ActionLink("Go Back", "Index", "Employee", new {@class = "btn btn-info"})
+    @Html.ActionLink("Go Back", "Index", "Employee", new { @class = "btn btn-info" })
 
 
 </form>

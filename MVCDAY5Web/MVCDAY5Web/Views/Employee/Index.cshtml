@@ -19,6 +19,7 @@
             <td>Age</td>
             <td>Hire Date</td>
             <td>Country</td>
+            <td>Project</td>
             <td>Actions</td>
         </tr>
     </thead>
@@ -32,6 +33,7 @@
                 <td>@emp.Age</td>
                 <td>@emp.HireDate.ToString("d")</td>
                 <td>@emp.Country</td>
+                <td>@emp.Project.Title</td>
                 <td>
                     <a class="btn btn-primary" href="/Employee/Details?id=@emp.Id">Details</a>
                     <a class="btn btn-danger" href="/Employee/Delete?id=@emp.Id">Delete</a>

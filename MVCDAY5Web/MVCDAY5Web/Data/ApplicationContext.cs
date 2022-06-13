@@ -1,4 +1,5 @@
-﻿using MVCDAY5Web.Models;
+﻿using MVCDAY5Web.Data.Initializers;
+using MVCDAY5Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -12,7 +13,9 @@ namespace MVCDAY5Web.Data
 
         public ApplicationContext():base("Sindesmos")
         {
+            Database.SetInitializer<ApplicationContext>(new MockupDbInitializer());
 
+            Database.Initialize(false);
         }
 
         public DbSet<Employee> Employees { get; set; }

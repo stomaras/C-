@@ -17,10 +17,13 @@ namespace MVCDAY5Web.Controllers
 
         private EmployeeRepository employeeRepository;
 
+        private ProjectRepository projectRepository;
+
 
         public EmployeeController()
         {
             employeeRepository = new EmployeeRepository(db);
+            projectRepository = new ProjectRepository(db);
         }
 
 
@@ -28,7 +31,7 @@ namespace MVCDAY5Web.Controllers
         // GET: Student
         public ActionResult Index()
         {
-            var employees = employeeRepository.GetAll();
+            var employees = employeeRepository.GetAllWithProjects();
             return View(employees);
         }
 
@@ -72,7 +75,7 @@ namespace MVCDAY5Web.Controllers
             var employee = employeeRepository.GetById(id);
             
             employeeRepository.Delete(employee);
-            TempData["message"] = $"You have successfully deleted employee with name : {employee.FirstName} and last name {employee.LastName}";
+            ShowAlert($"You have successfully deleted employee with name : {employee.FirstName} and last name {employee.LastName}");
             return RedirectToAction("Index");
         }
 
@@ -80,6 +83,8 @@ namespace MVCDAY5Web.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+            GetProjects();
+
             return View();
         }
 
@@ -91,9 +96,11 @@ namespace MVCDAY5Web.Controllers
             if (ModelState.IsValid)
             {
                 employeeRepository.Add(employee);
-                TempData["message"] = $"You have successfully created new employee with first name {employee.FirstName}, with last name {employee.LastName}";
+                ShowAlert($"You have successfully created new employee with first name {employee.FirstName}, with last name {employee.LastName}");
                 return RedirectToAction("Index");
             }
+
+            GetProjects();
 
             return View(employee);
 
@@ -112,6 +119,8 @@ namespace MVCDAY5Web.Controllers
             {
                 return HttpNotFound();
             }
+            GetProjects();
+
             return View(employee);
         }
 
@@ -122,11 +131,33 @@ namespace MVCDAY5Web.Controllers
             if (ModelState.IsValid)
             {
                 employeeRepository.Edit(employee);
-                TempData["message"] = $"You have successfully edited employee with first name {employee.FirstName} , with last name {employee.LastName}";
+                ShowAlert($"You have successfully edited employee with first name {employee.FirstName} , with last name {employee.LastName}");
                 return RedirectToAction("Index");
             }
 
+            GetProjects();
+
             return View(employee);
         }
+
+
+        #region Non Action Methods
+
+        [NonAction]
+        public void GetProjects()
+        {
+            var projects = projectRepository.GetAll();
+            ViewBag.Projects = projects;
+        }
+
+        [NonAction]
+        public void ShowAlert(string message)
+        {
+            TempData["message"] = message;
+        }
+
+        #endregion
+
+
     }
 }
