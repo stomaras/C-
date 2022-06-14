@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication6mvc.Data;
+using WebApplication6mvc.Models;
 using WebApplication6mvc.Repositories;
 
 namespace WebApplication6mvc.Controllers
@@ -23,6 +25,100 @@ namespace WebApplication6mvc.Controllers
         {
             var employees = employeeRepository.GetAll();    
             return View(employees);
+        }
+
+
+        // GET : Employee // Details
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var employee = employeeRepository.GetById(id);
+            if (employee == null)
+            {
+                return HttpNotFound();
+            }
+            return View(employee);
+        }
+
+        // GET : Employee // Delete
+
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var employee = employeeRepository.GetById(id);
+            if (employee == null)
+            {
+                return HttpNotFound();
+            }
+            return View(employee);
+        }
+
+        // POST : Employee // Delete
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int? id)
+        {
+            var employee = employeeRepository.GetById(id);
+
+            employeeRepository.Delete(employee);
+            TempData["message"] = $"You have succeessfully deleted employee with name : {employee.FirstName} and last name : {employee.LastName}";
+            return RedirectToAction("Index");
+        }
+
+        // GET : Employee // Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+
+        // POST : Employee // Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Employee employee)
+        {
+            if (ModelState.IsValid)
+            {
+                employeeRepository.Create(employee);
+                TempData["message"] = $"You have successfully created employee with name : {employee.FirstName} and last name: {employee.LastName}";
+                return RedirectToAction("Index");
+            }
+            return View(employee);
+        }
+
+        // GET : Employee // Edit
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var employee = employeeRepository.GetById(id);
+            if (employee == null)
+            {
+                return HttpNotFound();
+            }
+            return View(employee);
+        }
+
+        // POST : Employee // Edit
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Employee employee)
+        {
+            if (ModelState.IsValid)
+            {
+                employeeRepository.Edit(employee);
+                TempData["message"] = $"You have successfully updated employee with name: {employee.FirstName} and last name: {employee.LastName}";
+                return RedirectToAction("Index");
+            }
+            return View(employee);
         }
     }
 }

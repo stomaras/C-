@@ -1,6 +1,44 @@
-﻿
-@{
+﻿@model IEnumerable<WebApplication6mvc.Models.Employee>
+
+@if (TempData["message"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["message"]
+    </div>
 }
 
 <h2>Index Employees</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+            <th>Hire Date</th>
+            <th>Country</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+        {
+            <tr>
+                <td>@employee.FirstName</td>
+                <td>@employee.LastName</td>
+                <td>@employee.Age</td>
+                <td>@employee.HireDate</td>
+                <td>@employee.Country</td>
+                <td>
+                    <a class="btn btn-primary" href="/Employee/Details?Id=@employee.Id">Details</a>
+                    <a class="btn btn-danger" href="/Employee/Delete?Id=@employee.Id">Delete</a>
+                    <a class="btn btn-info" href="/Employee/Edit?Id=@employee.Id">Edit</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+<a class="btn btn-info" href="/Employee/Create">Create</a>
 
