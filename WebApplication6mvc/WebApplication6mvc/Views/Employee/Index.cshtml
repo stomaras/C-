@@ -17,6 +17,7 @@
             <th>Age</th>
             <th>Hire Date</th>
             <th>Country</th>
+            <th>Project</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -29,6 +30,7 @@
                 <td>@employee.Age</td>
                 <td>@employee.HireDate</td>
                 <td>@employee.Country</td>
+                <td>@employee.Project.Title</td>
                 <td>
                     <a class="btn btn-primary" href="/Employee/Details?Id=@employee.Id">Details</a>
                     <a class="btn btn-danger" href="/Employee/Delete?Id=@employee.Id">Delete</a>

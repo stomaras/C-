@@ -25,6 +25,12 @@ namespace WebApplication6mvc.Repositories
             return employees;
         }
 
+        public List<Employee> GetAllWithProjects()
+        {
+            var employeesWithProjects = db.Employees.Include(x=>x.Project).ToList();
+            return employeesWithProjects;
+        }
+
         public Employee GetById(int? id)
         {
             var employee = db.Employees.Find(id);

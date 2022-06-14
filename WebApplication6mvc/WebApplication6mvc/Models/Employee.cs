@@ -34,5 +34,15 @@ namespace WebApplication6mvc.Models
         public Country Country { get; set; }
 
 
+
+
+        // Foreign Keys
+        public int ProjectId { get; set; }
+
+
+        // Navigation Properties
+        public Project Project { get; set; }
+
+
     }
 }

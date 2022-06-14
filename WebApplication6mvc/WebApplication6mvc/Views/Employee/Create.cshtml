@@ -1,6 +1,6 @@
 ﻿@model WebApplication6mvc.Models.Employee
 @using WebApplication6mvc.Models.Enums 
-
+@using WebApplication6mvc.Models
 <h2>Create Employee</h2>
 
 
@@ -37,6 +37,18 @@
         @Html.LabelFor(m => m.Country)
         @Html.DropDownListFor(m => m.Country, new SelectList(Enum.GetValues(typeof(Country))), new { @class = "form-control" })
     </div>
+
+    <label for="projet">Select Project</label>
+    <div class="form-group">
+        <select id="project" name="projectId" class="form-control">
+            @foreach (var project in ViewBag.Projects as List<Project>)
+            {
+                <option value="@project.ProjectId">@project.Title</option>
+            }
+
+        </select>
+    </div>
+
 
     <input class="btn btn-primary" type="submit" value="Create" />
     @Html.ActionLink("Go Back", "Index", "Employee", new { @class = "btn btn-info" })

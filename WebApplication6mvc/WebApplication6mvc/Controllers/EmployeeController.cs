@@ -16,14 +16,17 @@ namespace WebApplication6mvc.Controllers
 
         private EmployeeRepository employeeRepository;
 
+        private ProjectRepository projectRepository;
+
         public EmployeeController()
         {
             employeeRepository = new EmployeeRepository(db);
+            projectRepository = new ProjectRepository(db);
         }
         // GET: Employee
         public ActionResult Index()
         {
-            var employees = employeeRepository.GetAll();    
+            var employees = employeeRepository.GetAllWithProjects(); 
             return View(employees);
         }
 
@@ -40,6 +43,7 @@ namespace WebApplication6mvc.Controllers
             {
                 return HttpNotFound();
             }
+            GetProjects();
             return View(employee);
         }
 
@@ -56,6 +60,7 @@ namespace WebApplication6mvc.Controllers
             {
                 return HttpNotFound();
             }
+            GetProjects();
             return View(employee);
         }
 
@@ -67,13 +72,14 @@ namespace WebApplication6mvc.Controllers
             var employee = employeeRepository.GetById(id);
 
             employeeRepository.Delete(employee);
-            TempData["message"] = $"You have succeessfully deleted employee with name : {employee.FirstName} and last name : {employee.LastName}";
+            ShowAlert($"You have succeessfully deleted employee with name : {employee.FirstName} and last name : {employee.LastName}");
             return RedirectToAction("Index");
         }
 
         // GET : Employee // Create
         public ActionResult Create()
         {
+            GetProjects();
             return View();
         }
 
@@ -86,9 +92,12 @@ namespace WebApplication6mvc.Controllers
             if (ModelState.IsValid)
             {
                 employeeRepository.Create(employee);
-                TempData["message"] = $"You have successfully created employee with name : {employee.FirstName} and last name: {employee.LastName}";
+                ShowAlert($"You have successfully created employee with name : {employee.FirstName} and last name: {employee.LastName}");
                 return RedirectToAction("Index");
             }
+
+            GetProjects();
+
             return View(employee);
         }
 
@@ -104,6 +113,7 @@ namespace WebApplication6mvc.Controllers
             {
                 return HttpNotFound();
             }
+            GetProjects();
             return View(employee);
         }
 
@@ -115,10 +125,40 @@ namespace WebApplication6mvc.Controllers
             if (ModelState.IsValid)
             {
                 employeeRepository.Edit(employee);
-                TempData["message"] = $"You have successfully updated employee with name: {employee.FirstName} and last name: {employee.LastName}";
+                ShowAlert($"You have successfully updated employee with name: {employee.FirstName} and last name: {employee.LastName}");
                 return RedirectToAction("Index");
             }
+            GetProjects();
             return View(employee);
         }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+
+        #region Non Action Methods
+
+
+        [NonAction]
+        public void GetProjects()
+        {
+            var projects = projectRepository.GetAll();
+            ViewBag.Projects = projects;
+        }
+
+        [NonAction]
+        public void ShowAlert(string message)
+        {
+            TempData["message"] = message;
+        }
+
+        #endregion
+
     }
 }

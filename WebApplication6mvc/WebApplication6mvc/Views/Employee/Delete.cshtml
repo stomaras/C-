@@ -11,6 +11,7 @@
             <th>Age</th>
             <th>Hire Date</th>
             <th>Country</th>
+            <th>Project</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -22,11 +23,12 @@
             <td>@Model.Age</td>
             <td>@Model.HireDate</td>
             <td>@Model.Country</td>
+            <th>@Model.Project.Title</th>
             <td>
                 <form action="/Employee/Delete" method="post">
                     @Html.AntiForgeryToken()
                     <input type="hidden" name="id" value="@Model.Id" />
-                    <input class="btn btn-danger" type="submit" value="Delete"/>
+                    <input class="btn btn-danger" type="submit" value="Delete" />
                     <a class="btn btn-primary" href="/Employee/Index">Go Back</a>
                 </form>
             </td>

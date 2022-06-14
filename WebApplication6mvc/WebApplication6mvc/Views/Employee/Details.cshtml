@@ -1,7 +1,5 @@
 ﻿@model WebApplication6mvc.Models.Employee
-@{
-    ViewBag.Title = "Details";
-}
+
 
 <h2>Details of Employee</h2>
 
@@ -12,6 +10,7 @@
             <th>Last Name</th>
             <th>Age</th>
             <th>Hire Date</th>
+            <th>Project</th>
             <th>Country</th>
         </tr>
     </thead>
@@ -22,6 +21,7 @@
                 <td>@Model.LastName</td>
                 <td>@Model.Age</td>
                 <td>@Model.HireDate</td>
+                <td>@Model.Project.Title</td>
                 <td>@Model.Country</td>
             </tr>
     </tbody>
