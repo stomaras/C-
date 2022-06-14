@@ -53,6 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AssigmentController.cs" />
+    <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\TrainerController.cs" />
     <Compile Include="Database\ApplicationContext.cs" />
@@ -64,10 +66,18 @@
     <Compile Include="Models\Trainer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AssigmentRepository\AssigmentRepository.cs" />
+    <Compile Include="Repositories\AssigmentRepository\IAssigmentRepository.cs" />
+    <Compile Include="Repositories\CourseRepository\CourseRepository.cs" />
+    <Compile Include="Repositories\CourseRepository\ICourseRepository.cs" />
     <Compile Include="Repositories\IStudentRepository.cs" />
     <Compile Include="Repositories\StudentRepository.cs" />
     <Compile Include="Repositories\TrainerRepository\ITrainerRepository.cs" />
     <Compile Include="Repositories\TrainerRepository\TrainerRepository.cs" />
+    <Compile Include="View\AssigmentView\IPrintAssigment.cs" />
+    <Compile Include="View\AssigmentView\PrintAssigment.cs" />
+    <Compile Include="View\CourseView\IPrintCourse.cs" />
+    <Compile Include="View\CourseView\PrintCourse.cs" />
     <Compile Include="View\StudentView\IPrintStudent.cs" />
     <Compile Include="View\StudentView\PrintStudent.cs" />
     <Compile Include="View\TrainerView\IPrintTrainer.cs" />

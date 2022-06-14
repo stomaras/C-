@@ -11,3 +11,16 @@ C:\Users\spyros\source\repos\PARTB\PARTB\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\spyros\source\repos\PARTB\PARTB\obj\Debug\PARTB.csproj.CopyComplete
 C:\Users\spyros\source\repos\PARTB\PARTB\obj\Debug\PARTB.exe
 C:\Users\spyros\source\repos\PARTB\PARTB\obj\Debug\PARTB.pdb
+C:\Users\spyros\C-\PARTB\PARTB\bin\Debug\PARTB.exe.config
+C:\Users\spyros\C-\PARTB\PARTB\bin\Debug\PARTB.exe
+C:\Users\spyros\C-\PARTB\PARTB\bin\Debug\PARTB.pdb
+C:\Users\spyros\C-\PARTB\PARTB\bin\Debug\EntityFramework.dll
+C:\Users\spyros\C-\PARTB\PARTB\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\spyros\C-\PARTB\PARTB\bin\Debug\EntityFramework.xml
+C:\Users\spyros\C-\PARTB\PARTB\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\spyros\C-\PARTB\PARTB\obj\Debug\PARTB.csproj.AssemblyReference.cache
+C:\Users\spyros\C-\PARTB\PARTB\obj\Debug\PARTB.csproj.SuggestedBindingRedirects.cache
+C:\Users\spyros\C-\PARTB\PARTB\obj\Debug\PARTB.csproj.CoreCompileInputs.cache
+C:\Users\spyros\C-\PARTB\PARTB\obj\Debug\PARTB.csproj.CopyComplete
+C:\Users\spyros\C-\PARTB\PARTB\obj\Debug\PARTB.exe
+C:\Users\spyros\C-\PARTB\PARTB\obj\Debug\PARTB.pdb

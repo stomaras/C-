@@ -19,6 +19,8 @@ namespace PARTB
             string input = "";
             StudentController studentController = new StudentController();
             TrainerController trainerController = new TrainerController();
+            AssigmentController assigmentController = new AssigmentController();
+            CourseController courseController = new CourseController();
             while (input != "e" || input != "E")
             {
                 Console.WriteLine();
@@ -46,6 +48,8 @@ namespace PARTB
                 {
                     case Choice.ReadStudents: studentController.ReadingStudents(); break;
                     case Choice.ReadTrainers: trainerController.ReadingTrainers(); break;
+                    case Choice.ReadAssigments: assigmentController.ReadingAssigments(); break;
+                    case Choice.ReadCourses: courseController.ReadingCourses(); break;
                     default: studentController.ErrorService();break;
                 }
 
