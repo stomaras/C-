@@ -1,1 +1,32 @@
-﻿
+﻿@model MVCALLAHector.Models.ViewModels.Baroufa
+
+@Model.Title
+
+<hr/>
+
+
+@foreach (var stu in Model.Students)
+{
+    <h1>@stu.Name</h1>
+}
+
+<hr/>
+
+@foreach (var emp in Model.Employees)
+{
+    <h1>@emp.Name</h1>
+}
+
+<hr/>
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            @{Html.RenderAction("Index", "Employee", new { sortOrder = "AgeAsc" });}
+        </div>
+        <div class="col-6">
+            @{Html.RenderAction("Index", "Student");}
+        </div>
+    </div>
+</div>
+

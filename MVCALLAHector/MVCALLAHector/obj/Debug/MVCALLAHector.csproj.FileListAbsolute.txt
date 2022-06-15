@@ -118,3 +118,9 @@ C:\Users\spyros\C-\MVCALLAHector\MVCALLAHector\obj\Debug\MVCALLAHector.csproj.Co
 C:\Users\spyros\C-\MVCALLAHector\MVCALLAHector\obj\Debug\MVCALLAHector.csproj.CopyComplete
 C:\Users\spyros\C-\MVCALLAHector\MVCALLAHector\obj\Debug\MVCALLAHector.dll
 C:\Users\spyros\C-\MVCALLAHector\MVCALLAHector\obj\Debug\MVCALLAHector.pdb
+C:\Users\spyros\C-\MVCALLAHector\MVCALLAHector\bin\System.ValueTuple.dll
+C:\Users\spyros\C-\MVCALLAHector\MVCALLAHector\bin\System.ValueTuple.xml
+C:\Users\spyros\C-\MVCALLAHector\MVCALLAHector\bin\PagedList.dll
+C:\Users\spyros\C-\MVCALLAHector\MVCALLAHector\bin\PagedList.Mvc.dll
+C:\Users\spyros\C-\MVCALLAHector\MVCALLAHector\bin\PagedList.xml
+C:\Users\spyros\C-\MVCALLAHector\MVCALLAHector\bin\PagedList.Mvc.xml

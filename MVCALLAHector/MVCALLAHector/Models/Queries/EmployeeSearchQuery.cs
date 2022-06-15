@@ -5,7 +5,7 @@ using System.Web;
 
 namespace MVCALLAHector.Models.Queries
 {
-    public class EmployeeSearchQuery// Data Transfer Object
+    public class EmployeeFilterSettings// Data Transfer Object
     {
         public string searchName { get; set; }
         public string searchCountry { get; set; }

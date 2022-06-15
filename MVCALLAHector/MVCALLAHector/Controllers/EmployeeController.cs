@@ -8,6 +8,8 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using PagedList.Mvc;
+using PagedList;
 
 namespace MVCALLAHector.Controllers
 {
@@ -24,24 +26,54 @@ namespace MVCALLAHector.Controllers
             projectRepository = new ProjectRepository(db);
         }
         // GET: Employee
-        public ActionResult Index(EmployeeSearchQuery query)// same name as in input name attribute
+        public ActionResult Index(EmployeeFilterSettings filterSettings, string sortOrder, int? page, int? pSize)// same name as in input name attribute
         {
             //ViewBag.movie = "Titanikos";
             //ViewBag["movie"] = "foufoutos";
-            List<Employee> employees = employeeRepository.GetAllWithProjects();
+           
 
             // Current State
-            ViewBag.currentName = query.searchName;
-            ViewBag.currentCountry = query.searchCountry; 
-            ViewBag.currentMin = query.searchMin;
-            ViewBag.currentMax = query.searchMax;
+            ViewBag.currentName = filterSettings.searchName;
+            ViewBag.currentCountry = filterSettings.searchCountry; 
+            ViewBag.currentMin = filterSettings.searchMin;
+            ViewBag.currentMax = filterSettings.searchMax;
 
-            ViewBag.MinAge = employees.Min(x => x.Age);
-            ViewBag.MaxAge = employees.Max(x => x.Age);
+            // Filtering...
+            (int minAge, int maxAge) employeeAgeRange;
+            var filterEmployees = employeeRepository.Filter(filterSettings, out employeeAgeRange);
 
-            var filterEmployees = employeeRepository.Filter(employees, query);
-            
-            return View(filterEmployees);
+            ViewBag.MinAge = employeeAgeRange.minAge;
+            ViewBag.MaxAge = employeeAgeRange.maxAge;
+
+            // Sorting...
+
+            ViewBag.NameSortParam = String.IsNullOrEmpty(sortOrder) ? "NameDesc" : "";
+            ViewBag.AgeSortParam = sortOrder == "AgeAsc" ? "AgeDesc" : "AgeAsc";
+            ViewBag.HireDateSortParam = sortOrder == "HireDateAsc" ? "HireDateDesc" : "HireDateAsc";
+            ViewBag.ProjectTitleSortParam = sortOrder == "ProjectTitleAsc" ? "ProjectTitleDesc" : "ProjectTitleAsc";
+
+            switch (sortOrder)
+            {
+                case "NameAsc" : filterEmployees = filterEmployees.OrderBy(x => x.Name).ToList(); break;
+                case "NameDesc" : filterEmployees = filterEmployees.OrderByDescending(x => x.Name).ToList(); break;
+
+                case "AgeAsc": filterEmployees = filterEmployees.OrderBy(x => x.Age).ToList(); break;
+                case "AgeDesc": filterEmployees = filterEmployees.OrderByDescending(x => x.Age).ToList(); break;
+
+                case "HireDateAsc": filterEmployees = filterEmployees.OrderBy(x => x.HireDate).ToList(); break;
+                case "HireDateDesc": filterEmployees = filterEmployees.OrderByDescending(x => x.HireDate).ToList(); break;
+
+                case "ProjectTitleAsc": filterEmployees = filterEmployees.OrderBy(x => x.Project.Title).ToList(); break;
+                case "ProjectTitleDesc": filterEmployees = filterEmployees.OrderByDescending(x => x.Project.Title).ToList(); break;
+
+                default: filterEmployees = filterEmployees.OrderBy(x => x.Name).ToList(); break;
+            }
+
+            // Pagination 
+            int pageSize = pSize ?? 3;// if pSize is null -> 3
+            int pageNumber = page ?? 1;// if page is null -> 1
+
+            return View(filterEmployees.ToPagedList(pageNumber,pageSize));
         }
 
         public ActionResult Details(int? id)

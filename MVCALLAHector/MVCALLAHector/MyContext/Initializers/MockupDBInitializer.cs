@@ -63,8 +63,27 @@ namespace MVCALLAHector.MyContext.Initializers
             e8.Project = p8;
             e9.Project = p9;
             e10.Project = p10;
-            
 
+            #region Seed Genres
+            Genre g1 = new Genre() { Kind = "Drama" };
+            Genre g2 = new Genre() { Kind = "Thriller" };
+            Genre g3 = new Genre() { Kind = "Adventure" };
+            Genre g4 = new Genre() { Kind = "Horror" };
+            Genre g5 = new Genre() { Kind = "Comedy" };
+            context.Genres.AddOrUpdate(g => g.Kind, g1, g2, g3, g4, g5);
+            context.SaveChanges();
+            #endregion
+
+            #region Seed Movies
+            Movie m1 = new Movie() { Title = "Spiderman 1", Price = 20.23, Rating = 7.3, Genre= g1 };
+            Movie m2 = new Movie() { Title = "Spiderman 2", Price = 20.23, Rating = 8.8, Genre= g1 };
+            Movie m3 = new Movie() { Title = "Spiderman 3", Price = 20.23, Rating = 9.1};
+            Movie m4 = new Movie() { Title = "Breaking Bad", Price = 20.23, Rating = 9.1, Genre=g3 };
+            context.Movies.AddOrUpdate(m => m.Title, m1, m2, m3, m4);
+            context.SaveChanges();
+            #endregion
+
+           
 
             // UPSERT Operation
             context.Employees.AddOrUpdate(e => e.Name, e1, e2, e3,e4,e5,e6,e7,e8,e9,e10);

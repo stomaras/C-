@@ -10,27 +10,35 @@ namespace Peirama
     {
         static void Main(string[] args)
         {
-            Employee e1 = new Employee() { Name = "Hector" };
-            Employee e2 = new Employee() { Name = "Hector" };
-            Employee e3 = new Employee() { Name = "Hector" };
+            Tuple<string, int> t1 = new Tuple<string, int>("Ektoras", 35);
+            Console.WriteLine(t1.Item2);
 
-            List<Employee> employees = new List<Employee> { e1, e2, e3 };
+            string name;
+            int age;
+            t1.Deconstruct(out name, out age);
 
-            Method(employees);
-            foreach (var item in employees)
-            {
-                Console.WriteLine(item.Name);
-            }
+            Tuple<int, bool, string> t2 = new Tuple<int, bool, string>(30,true,"Orestis");
+            
+
+            (double, int, string) t3 = (4.3, 35, "Makis");
+
+            
+
+            Console.WriteLine(t3.Item1);
+            Console.WriteLine(t3.Item2);
+            Console.WriteLine(t3.Item3);
+
+            Method(t2, t3.ToTuple());
+
         }
 
-        public static void Method(List<Employee> employees)
+        public static void Method(Tuple<int,bool,string> tuple, Tuple<double,int,string> moo)
         {
-            employees = employees.Where(e => e.Name == "Hector").ToList();
+            Console.WriteLine(tuple.Item1);
+            Console.WriteLine(tuple.Item2);
+            Console.WriteLine(tuple.Item3);
         }
     }
 
-    class Employee
-    {
-        public string Name { get; set; }
-    }
+    
 }

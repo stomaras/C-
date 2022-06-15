@@ -21,5 +21,8 @@ namespace MVCALLAHector.MyContext
         public DbSet<Employee> Employees { get; set; }
 
         public DbSet<Project> Projects { get; set; }
+
+        public DbSet<Movie> Movies { get; set; }
+        public DbSet<Genre> Genres { get; set; }
     }
 }

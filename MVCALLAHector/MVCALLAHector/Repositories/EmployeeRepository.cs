@@ -24,28 +24,35 @@ namespace MVCALLAHector.Repositories
             return db.Employees.ToList();
         }
 
-        public List<Employee> Filter(List<Employee> employees, EmployeeSearchQuery query)
+        public List<Employee> Filter(EmployeeFilterSettings filterSettings, out (int minAge, int maxAge) employeeAgeRange)
         {
+            List<Employee> employees = GetAllWithProjects();
+
+            int minAge = employees.Min(x => x.Age);
+            int maxAge = employees.Max(x => x.Age);
+            employeeAgeRange = (minAge, maxAge);
+            
+            
             //Filtering ....
-            if (!string.IsNullOrWhiteSpace(query.searchName))// null or "" or "  "
+            if (!string.IsNullOrWhiteSpace(filterSettings.searchName))// null or "" or "  "
             {
                 //employees = employees.Where(x => x.Name.ToUpper() == searchName.ToUpper()).ToList();
-                employees = employees.Where(x => x.Name.ToUpper().Contains(query.searchName.ToUpper())).ToList();
+                employees = employees.Where(x => x.Name.ToUpper().Contains(filterSettings.searchName.ToUpper())).ToList();
             }
 
-            if (!string.IsNullOrWhiteSpace(query.searchCountry))
+            if (!string.IsNullOrWhiteSpace(filterSettings.searchCountry))
             {
-                employees = employees.Where(x => x.Country.ToString() == query.searchCountry).ToList();
+                employees = employees.Where(x => x.Country.ToString() == filterSettings.searchCountry).ToList();
             }
 
-            if (!(query.searchMin == null))
+            if (!(filterSettings.searchMin == null))
             {
-                employees = employees.Where(x => x.Age >= query.searchMin).ToList();
+                employees = employees.Where(x => x.Age >= filterSettings.searchMin).ToList();
             }
 
-            if (!(query.searchMax == null))
+            if (!(filterSettings.searchMax == null))
             {
-                employees = employees.Where(x => x.Age <= query.searchMax).ToList();
+                employees = employees.Where(x => x.Age <= filterSettings.searchMax).ToList();
             }
 
             return employees;

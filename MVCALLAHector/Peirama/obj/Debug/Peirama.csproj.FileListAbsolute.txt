@@ -6,3 +6,6 @@ C:\Users\spyros\C-\MVCALLAHector\Peirama\obj\Debug\Peirama.csproj.SuggestedBindi
 C:\Users\spyros\C-\MVCALLAHector\Peirama\obj\Debug\Peirama.csproj.CoreCompileInputs.cache
 C:\Users\spyros\C-\MVCALLAHector\Peirama\obj\Debug\Peirama.exe
 C:\Users\spyros\C-\MVCALLAHector\Peirama\obj\Debug\Peirama.pdb
+C:\Users\spyros\C-\MVCALLAHector\Peirama\bin\Debug\System.ValueTuple.dll
+C:\Users\spyros\C-\MVCALLAHector\Peirama\bin\Debug\System.ValueTuple.xml
+C:\Users\spyros\C-\MVCALLAHector\Peirama\obj\Debug\Peirama.csproj.CopyComplete

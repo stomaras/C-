@@ -1,6 +1,7 @@
-﻿@model IEnumerable<MVCALLAHector.Models.Employee>
+﻿@model PagedList.IPagedList<MVCALLAHector.Models.Employee>               
 @using MVCALLAHector.Models.Enums;
-
+@using PagedList;
+@using PagedList.Mvc;
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -22,17 +23,37 @@
         }
         <select name="searchCountry">
 
-
-
-
-            <option value="">All</option>
-            @{foreach (var country in countries)
+            @if (ViewBag.currentCountry == null)
+            {
+                <option value="">All</option>
+                foreach (var country in countries)
                 {
 
                     <option>@country</option>
                 }
 
             }
+            else
+            {
+                <option value="">All</option>
+                foreach (var country in countries)
+                {
+                    if (ViewBag.currentCountry == country)
+                    {
+                        <option selected>@country</option>
+                    }
+                    else
+                    {
+                        <option>@country</option>
+                    }
+
+                }
+            }
+
+
+
+
+
         </select>
 
         <input type="number" name="searchMin" value="@(ViewBag.currentMin == null ? ViewBag.MinAge : ViewBag.currentMin)" placeholder="Give your min Age" min="@ViewBag.MinAge" max="@ViewBag.MaxAge" />
@@ -49,46 +70,67 @@
 <br />
 <a class="btn btn-primary" href="/Employee/Create">Create Employee</a>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Image</th>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Salary</th>
-            <th>Age</th>
-            <th>HireDate</th>
-            <th>Project</th>
-            <th>Country</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var emp in Model)
-        {
+
+@Model.PageCount
+
+@Model.PageNumber
+
+<div>
+    <strong>Page @(Model.PageCount<Model.PageNumber? 0 : Model.PageNumber) of @Model.PageCount</strong>
+</div>
+
+
+
+
+<div>
+    <table class="table">
+        <thead>
             <tr>
-                <td><img width="80" src="@emp.PhotoUrl" /></td>
-                <td>@emp.Id</td>
-                <td>@emp.Name</td>
-                <td>@emp.Salary</td>
-                <td>@emp.Age</td>
-                <td>@emp.HireDate.ToString("d")</td>
-                <td>@emp.Project.Title</td>
-                <td>@emp.Country</td>
-                <td>
-                    <a class="btn btn-primary" href="/Employee/Details?id=@emp.Id">Details</a>
-                    <a class="btn btn-success" href="/Employee/Edit?id=@emp.Id">Edit</a>
-                    @*<a class="btn btn-danger" href="/Employee/Delete?id=@emp.Id">Delete</a>*@
-
-                    <form action="/employee/delete" method="post">
-                        @Html.AntiForgeryToken()
-                        <input type="hidden" name="id" value="@emp.Id" />
-                        <input type="submit" value="Delete" />
-                    </form>
-                </td>
+                <th>Image</th>
+                <th>Id</th>
+                @*<th>@Html.ActionLink("Name","Index","Employee", new {  sortOrder=ViewBag.NameSortParam, searchName=ViewBag.currentName, searchCountry=ViewBag.currentCountry, searchMin=ViewBag.currentMin, searchMax = ViewBag. }, null)</th>*@
+                <th>Salary</th>
+                <th>@Html.ActionLink("Age", "Index", "Employee", new { sortOrder = ViewBag.AgeSortParam }, null)</th>
+                <th>@Html.ActionLink("Hire Date", "Index", "Employee", new { sortOrder = ViewBag.HireDateSortParam }, null)</th>
+                <th>@Html.ActionLink("Project", "Index", "Employee", new { sortOrder = ViewBag.ProjectTitleSortParam }, null)</th>
+                <th>Name</th>
+                <th>Country</th>
+                <th>Actions</th>
             </tr>
-        }
+        </thead>
+        <tbody>
+            @foreach (var emp in Model)
+            {
+                <tr>
+                    <td><img width="80" src="@emp.PhotoUrl" /></td>
+                    <td>@emp.Id</td>
+                    <td>@emp.Salary</td>
+                    <td>@emp.Age</td>
+                    <td>@emp.HireDate.ToString("d")</td>
+                    <td>@emp.Project.Title</td>
+                    <td>@emp.Name</td>
 
-    </tbody>
-</table>
+
+                    <td>@emp.Country</td>
+                    <td>
+                        <a class="btn btn-primary" href="/Employee/Details?id=@emp.Id">Details</a>
+                        <a class="btn btn-success" href="/Employee/Edit?id=@emp.Id">Edit</a>
+                        @*<a class="btn btn-danger" href="/Employee/Delete?id=@emp.Id">Delete</a>*@
+
+                        <form action="/employee/delete" method="post">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="id" value="@emp.Id" />
+                            <input type="submit" value="Delete" />
+                        </form>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+    <div>
+        @Html.PagedListPager(Model, x => Url.Action("Index", "Employee", new { page = x, pSize = 3 }),PagedListRenderOptions.Minimal)
+    </div>
+</div>
 
