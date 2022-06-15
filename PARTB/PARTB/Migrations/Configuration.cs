@@ -31,6 +31,18 @@
                 new Student { FirstName = "Anna", LastName = "Kallifoni", DateOfBirth =  new DateTime(2000, 11, 01), TuitionFees = 2100 },
                 new Student { FirstName = "Apostolis", LastName = "Papanikolaoy", DateOfBirth =  new DateTime(2000, 11, 01), TuitionFees = 2100 },
                 new Student { FirstName = "Xristoforos", LastName = "Kallifoni", DateOfBirth =  new DateTime(1995, 11, 01), TuitionFees = 2100 },
+                new Student { FirstName = "Chris", LastName = "Fragulis", DateOfBirth =  new DateTime(1995, 11, 01), TuitionFees = 2100 },
+                new Student { FirstName = "Kostas", LastName = "Fragulis", DateOfBirth =  new DateTime(1995, 11, 01), TuitionFees = 2100 },
+                new Student { FirstName = "George", LastName = "Zarmakoupes", DateOfBirth =  new DateTime(1995, 11, 01), TuitionFees = 2100 },
+                new Student { FirstName = "Bill", LastName = "Oikonomidis", DateOfBirth =  new DateTime(1995, 11, 01), TuitionFees = 2100 },
+                new Student { FirstName = "Xristos", LastName = "Kanoulas", DateOfBirth =  new DateTime(1995, 11, 01), TuitionFees = 2100 },
+                new Student { FirstName = "Yiannis", LastName = "Karakasis", DateOfBirth =  new DateTime(1995, 11, 01), TuitionFees = 2100 },
+                new Student { FirstName = "Mitsos", LastName = "Noulas", DateOfBirth =  new DateTime(1995, 11, 01), TuitionFees = 2100 },
+                new Student { FirstName = "Niki", LastName = "Kallifoni", DateOfBirth =  new DateTime(1995, 11, 01), TuitionFees = 2100 },
+                new Student { FirstName = "Natale", LastName = "Giannakopoyloy", DateOfBirth =  new DateTime(1995, 11, 01), TuitionFees = 2100 },
+                new Student { FirstName = "Kassiani", LastName = "Liokaytoy", DateOfBirth =  new DateTime(1995, 11, 01), TuitionFees = 2100 },
+                new Student { FirstName = "Eleanna", LastName = "Kakochristoy", DateOfBirth =  new DateTime(1995, 11, 01), TuitionFees = 2100 },
+                new Student { FirstName = "Georgia", LastName = "Silli", DateOfBirth =  new DateTime(1995, 11, 01), TuitionFees = 2100 },
             };
 
 
@@ -43,6 +55,10 @@
                 new Trainer() { FirstName = "George", LastName = "Pasparakis", Subject = "Java" },
                 new Trainer() { FirstName = "Periklis", LastName = "Aidinopoulos", Subject = "Python" },
                 new Trainer() { FirstName = "Panos", LastName = "Bozas", Subject = "Javascript" },
+                new Trainer() { FirstName = "Mark", LastName = "Zuckerberg", Subject = "c#" },
+                new Trainer() { FirstName = "Linus", LastName = "Torvalds", Subject = "Java" },
+                new Trainer() { FirstName = "Bill", LastName = "Gates", Subject = "Python" },
+                new Trainer() { FirstName = "Nikos", LastName = "Epaminondas", Subject = "Javascript" },
             };
 
             #endregion
@@ -60,14 +76,14 @@
             #region Seeding Courses
             var courses = new List<Course>
             {
-                new Course() { Title = "Full Time", Type = "Java", Start_Date = new DateTime(2022, 02, 28), End_Date = new DateTime(2022, 05, 28), Assigments = new List<Assigment>() },
-                new Course() { Title = "Part Time", Type = "Java", Start_Date = new DateTime(2022, 02, 28), End_Date = new DateTime(2022, 09, 28), Assigments = new List<Assigment>() },
-                new Course() { Title = "Full Time", Type = "C#", Start_Date = new DateTime(2022, 02, 28), End_Date = new DateTime(2022, 05, 28), Assigments = new List<Assigment>() },
-                new Course() { Title = "Part Time", Type = "C#", Start_Date = new DateTime(2022, 02, 28), End_Date = new DateTime(2022, 09, 28), Assigments = new List<Assigment>() },
-                new Course() { Title = "Full Time", Type = "Python", Start_Date = new DateTime(2022, 02, 28), End_Date = new DateTime(2022, 05, 28), Assigments = new List<Assigment>() },
-                new Course() { Title = "Part Time", Type = "Python", Start_Date = new DateTime(2022, 02, 28), End_Date = new DateTime(2022, 09, 28), Assigments = new List<Assigment>() },
-                new Course() { Title = "Full Time", Type = "Javascript", Start_Date = new DateTime(2022, 02, 28), End_Date = new DateTime(2022, 05, 28), Assigments = new List<Assigment>() },
-                new Course() { Title = "Part Time", Type = "Javascript", Start_Date = new DateTime(2022, 02, 28), End_Date = new DateTime(2022, 09, 28), Assigments = new List<Assigment>() },
+                new Course() { Title = "Full Time", Type = "Java", Start_Date = new DateTime(2022, 02, 28), End_Date = new DateTime(2022, 05, 28) },
+                new Course() { Title = "Part Time", Type = "Java", Start_Date = new DateTime(2022, 02, 28), End_Date = new DateTime(2022, 09, 28)},
+                new Course() { Title = "Full Time", Type = "C#", Start_Date = new DateTime(2022, 02, 28), End_Date = new DateTime(2022, 05, 28)},
+                new Course() { Title = "Part Time", Type = "C#", Start_Date = new DateTime(2022, 02, 28), End_Date = new DateTime(2022, 09, 28)},
+                new Course() { Title = "Full Time", Type = "Python", Start_Date = new DateTime(2022, 02, 28), End_Date = new DateTime(2022, 05, 28)},
+                new Course() { Title = "Part Time", Type = "Python", Start_Date = new DateTime(2022, 02, 28), End_Date = new DateTime(2022, 09, 28)},
+                new Course() { Title = "Full Time", Type = "Javascript", Start_Date = new DateTime(2022, 02, 28), End_Date = new DateTime(2022, 05, 28)},
+                new Course() { Title = "Part Time", Type = "Javascript", Start_Date = new DateTime(2022, 02, 28), End_Date = new DateTime(2022, 09, 28)},
             };
 
             #endregion
@@ -81,6 +97,19 @@
             students[5].Course = courses[5];
             students[6].Course = courses[6];
             students[7].Course = courses[7];
+            students[8].Course = courses[0];
+            students[9].Course = courses[0];
+            students[10].Course = courses[1];
+            students[11].Course = courses[1];
+            students[12].Course = courses[7];
+            students[13].Course = courses[7];
+            students[14].Course = courses[7];
+            students[15].Course = courses[0];
+            students[16].Course = courses[4];
+            students[17].Course = courses[4];
+            students[18].Course = courses[4];
+            students[19].Course = courses[5];
+
             #endregion
 
             #region Aggregation Courses With Trainers
@@ -88,6 +117,10 @@
             trainers[1].Course = courses[1];
             trainers[2].Course = courses[2];
             trainers[3].Course = courses[3];
+            trainers[4].Course = courses[2];
+            trainers[5].Course = courses[1];
+            trainers[6].Course = courses[0];
+            trainers[7].Course = courses[3];
             #endregion
 
             #region Aggregation Courses With Assigments

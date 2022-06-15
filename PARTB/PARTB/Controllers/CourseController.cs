@@ -1,6 +1,7 @@
 ﻿using PARTB.Database;
 using PARTB.Repositories.CourseRepository;
 using PARTB.View.CourseView;
+using PARTB.View.Per;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,10 +27,25 @@ namespace PARTB.Controllers
             {
                 PrintCourse printCourse = new PrintCourse();
                 var courses = courseRepository.GetAllCourses();
+                
                 printCourse.PrintAllCourses(courses);
 
             }
             catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+       
+        public void ReadStudentsPerCourse()
+        {
+            try
+            {
+                PrintPer printPer = new PrintPer();
+                var courses = courseRepository.GetAllCoursesWithStudents();
+                printPer.PrintAllStudentsPerCourse(courses);
+            }
+            catch(Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }

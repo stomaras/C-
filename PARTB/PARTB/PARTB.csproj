@@ -78,6 +78,8 @@
     <Compile Include="View\AssigmentView\PrintAssigment.cs" />
     <Compile Include="View\CourseView\IPrintCourse.cs" />
     <Compile Include="View\CourseView\PrintCourse.cs" />
+    <Compile Include="View\Per\IPrintPer.cs" />
+    <Compile Include="View\Per\PrintPer.cs" />
     <Compile Include="View\StudentView\IPrintStudent.cs" />
     <Compile Include="View\StudentView\PrintStudent.cs" />
     <Compile Include="View\TrainerView\IPrintTrainer.cs" />

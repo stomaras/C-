@@ -10,5 +10,7 @@ namespace PARTB.Repositories.CourseRepository
     public interface ICourseRepository
     {
         List<Course> GetAllCourses();
+
+        List<Course> GetAllCoursesWithStudents();
     }
 }

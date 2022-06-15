@@ -50,6 +50,7 @@ namespace PARTB
                     case Choice.ReadTrainers: trainerController.ReadingTrainers(); break;
                     case Choice.ReadAssigments: assigmentController.ReadingAssigments(); break;
                     case Choice.ReadCourses: courseController.ReadingCourses(); break;
+                    case Choice.StudentsPerCourse: courseController.ReadStudentsPerCourse();break;
                     default: studentController.ErrorService();break;
                 }
 

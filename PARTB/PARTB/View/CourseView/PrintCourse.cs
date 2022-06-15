@@ -18,7 +18,8 @@ namespace PARTB.View.CourseView
                 Console.WriteLine($"\t\t Course with title {course.Title} , with type {course.Type} ,with start date {course.Start_Date} , with end date {course.End_Date}\n");
             }
             Console.ResetColor();
-
         }
+
+       
     }
 }

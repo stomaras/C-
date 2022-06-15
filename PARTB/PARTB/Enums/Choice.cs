@@ -12,7 +12,8 @@ namespace PARTB.Enums
             ReadStudents=1,
             ReadTrainers,
             ReadAssigments,
-            ReadCourses
+            ReadCourses,
+            StudentsPerCourse
         }
     
 }

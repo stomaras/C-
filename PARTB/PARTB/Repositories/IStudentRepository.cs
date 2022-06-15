@@ -13,6 +13,8 @@ namespace PARTB.Repositories
         Student GetStudentById(int id);
 
         List<Student> GetAllStudents();
+
+        
         void ReadStudents(List<Student> students);
     }
 }
