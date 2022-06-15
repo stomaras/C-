@@ -1,5 +1,12 @@
-﻿@model IEnumerable<MVCALLAHector.Models.Employee> 
+﻿@model IEnumerable<MVCALLAHector.Models.Employee>
 @using MVCALLAHector.Models.Enums;
+
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
 @ViewBag.movie
 
 @if (@TempData["message"] != null)
@@ -21,25 +28,25 @@
             <option value="">All</option>
             @{foreach (var country in countries)
                 {
-                    
-                <option>@country</option>
-            }
+
+                    <option>@country</option>
+                }
 
             }
         </select>
-        
-        <input type="number" name="searchMin" value="@(ViewBag.currentMin == null ? ViewBag.MinAge : ViewBag.currentMin)" placeholder="Give your min Age" min="@ViewBag.MinAge" max="@ViewBag.MaxAge"/>
-        <input type="number" name="searchMax" value="@(ViewBag.currentMax == null ? ViewBag.MaxAge : ViewBag.currentMax)" placeholder="Give your max Age" min="@ViewBag.MinAge" max="@ViewBag.MaxAge"/>
-        <input type="number" name="searchMin" value="" placeholder="Give your min Age"/>
 
-        <input type="text" name="searchName" value="@ViewBag.currentName" placeholder="Search Name"/>
+        <input type="number" name="searchMin" value="@(ViewBag.currentMin == null ? ViewBag.MinAge : ViewBag.currentMin)" placeholder="Give your min Age" min="@ViewBag.MinAge" max="@ViewBag.MaxAge" />
+        <input type="number" name="searchMax" value="@(ViewBag.currentMax == null ? ViewBag.MaxAge : ViewBag.currentMax)" placeholder="Give your max Age" min="@ViewBag.MinAge" max="@ViewBag.MaxAge" />
+        <input type="number" name="searchMin" value="" placeholder="Give your min Age" />
+
+        <input type="text" name="searchName" value="@ViewBag.currentName" placeholder="Search Name" />
 
         <input type="submit" value="Search Employee" />
     </form>
 </div>
 
-<br/>
-<br/>
+<br />
+<br />
 <a class="btn btn-primary" href="/Employee/Create">Create Employee</a>
 
 <table class="table">
@@ -73,11 +80,11 @@
                     <a class="btn btn-success" href="/Employee/Edit?id=@emp.Id">Edit</a>
                     @*<a class="btn btn-danger" href="/Employee/Delete?id=@emp.Id">Delete</a>*@
 
-                <form action="/employee/delete" method="post">
-                    @Html.AntiForgeryToken()
-                    <input type="hidden" name="id" value="@emp.Id" />
-                    <input type="submit" value="Delete" />
-                </form>
+                    <form action="/employee/delete" method="post">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="id" value="@emp.Id" />
+                        <input type="submit" value="Delete" />
+                    </form>
                 </td>
             </tr>
         }

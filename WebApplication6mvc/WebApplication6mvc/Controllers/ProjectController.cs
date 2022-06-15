@@ -108,7 +108,7 @@ namespace WebApplication6mvc.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Project project = projectRepository.GetById(id);
+            Project project = projectRepository.GetByIdWithEmployees(id);
             if (project == null)
             {
                 return HttpNotFound();

@@ -1,4 +1,9 @@
 ﻿@model IEnumerable<WebApplication6mvc.Models.Employee>
+@using WebApplication6mvc.Models.Enums
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
 @if (TempData["message"] != null)
 {
@@ -6,7 +11,39 @@
         @TempData["message"]
     </div>
 }
+<br />
+<br />
 
+<div>
+    <form>
+
+        @{
+            var countries = Enum.GetNames(typeof(Country));
+        }
+        <select name="searchCountry">
+
+
+
+            <option value=""></option>
+            @foreach (var country in countries)
+            {
+
+                <option>@country</option>
+            }
+        </select>
+
+        <input type="number" name="searchMin" value="@(ViewBag.CurrentMin == null ? ViewBag.MinAge : ViewBag.CurrentMin)" placeholder="Give your min age" min="@ViewBag.MinAge" max="@ViewBag.MaxAge" />
+        <input type="number" name="searchMax" value="@(ViewBag.CurrentMax == null ? ViewBag.MaxAge : ViewBag.CurrentMax)" placeholder="Give your max age" min="@ViewBag.MinAge" max="@ViewBag.MaxAge" />
+
+
+        <input type="text" name="searchName" value="@ViewBag.CurrentSearchName" placeholder="Search Name" />
+
+        <input type="submit" value="Search Employee" />
+    </form>
+</div>
+
+<br />
+<br />
 <h2>Index Employees</h2>
 
 <table class="table">

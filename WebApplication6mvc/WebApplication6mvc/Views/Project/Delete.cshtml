@@ -7,6 +7,16 @@
 <h2>Delete</h2>
 
 <h3>Are you sure you want to delete this?</h3>
+<h3>All Employees associated with this project will be deleted</h3>
+
+
+<ul>
+    @foreach (var employee in Model.Employees)
+    {
+        <li>@employee.FirstName @employee.LastName</li>
+    }
+</ul>
+
 <div>
     <h4>Project</h4>
     <hr />

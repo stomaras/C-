@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using WebApplication6mvc.Data;
 using WebApplication6mvc.Models;
+using WebApplication6mvc.Models.Queries;
 
 namespace WebApplication6mvc.Repositories
 {
@@ -18,6 +19,33 @@ namespace WebApplication6mvc.Repositories
             db = context;
         }
 
+        public List<Employee> Filter(List<Employee> employees, EmployeeSearchQuery query)
+        {
+            //Filtering...
+            if (!string.IsNullOrWhiteSpace(query.searchName)) // null or "" or "  "
+            {
+                //employees = employees.Where(x => x.FirstName.ToUpper() == searchName.ToUpper()).ToList();
+
+                employees = employees.Where(x => x.FirstName.ToUpper().Contains(query.searchName.ToUpper())).ToList();
+            }
+
+            if (!string.IsNullOrWhiteSpace(query.searchCountry))
+            {
+                employees = employees.Where(x => x.Country.ToString() == query.searchCountry).ToList();
+            }
+
+            if (!(query.searchMin == null))
+            {
+                employees = employees.Where(x => x.Age >= query.searchMin).ToList();
+            }
+
+            if (!(query.searchMax == null))
+            {
+                employees = employees.Where(x => x.Age <= query.searchMax).ToList();
+            }
+
+            return employees;
+        }
 
         public List<Employee> GetAll()
         {

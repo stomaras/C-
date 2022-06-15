@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebApplication6mvc.Data;
 using WebApplication6mvc.Models;
+using WebApplication6mvc.Models.Queries;
 using WebApplication6mvc.Repositories;
 
 namespace WebApplication6mvc.Controllers
@@ -24,10 +25,28 @@ namespace WebApplication6mvc.Controllers
             projectRepository = new ProjectRepository(db);
         }
         // GET: Employee
-        public ActionResult Index()
+        public ActionResult Index(EmployeeSearchQuery query)
         {
-            var employees = employeeRepository.GetAllWithProjects(); 
-            return View(employees);
+            var employees = employeeRepository.GetAllWithProjects();
+
+            // Current State
+            ViewBag.CurrentSearchName = query.searchName;
+            ViewBag.CurrentCountry = query.searchCountry;
+            ViewBag.CurrentMin = query.searchMin;
+            ViewBag.CurrentMax = query.searchMax;
+
+            ViewBag.MinAge = employees.Min(x => x.Age);
+            ViewBag.MaxAge = employees.Max(x => x.Age);
+
+
+            // LINQ VALUE
+
+            var filterEmployees = employeeRepository.Filter(employees, query);
+
+
+
+
+            return View(filterEmployees);
         }
 
 

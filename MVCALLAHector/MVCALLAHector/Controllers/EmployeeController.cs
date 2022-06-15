@@ -28,7 +28,7 @@ namespace MVCALLAHector.Controllers
         {
             //ViewBag.movie = "Titanikos";
             //ViewBag["movie"] = "foufoutos";
-            var employees = employeeRepository.GetAllWithProjects();
+            List<Employee> employees = employeeRepository.GetAllWithProjects();
 
             // Current State
             ViewBag.currentName = query.searchName;
@@ -36,17 +36,12 @@ namespace MVCALLAHector.Controllers
             ViewBag.currentMin = query.searchMin;
             ViewBag.currentMax = query.searchMax;
 
-
-
-
-
-
             ViewBag.MinAge = employees.Min(x => x.Age);
             ViewBag.MaxAge = employees.Max(x => x.Age);
 
-            employeeRepository.Filter(employees, query);
+            var filterEmployees = employeeRepository.Filter(employees, query);
             
-            return View(employees);
+            return View(filterEmployees);
         }
 
         public ActionResult Details(int? id)

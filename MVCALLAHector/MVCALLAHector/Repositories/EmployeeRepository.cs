@@ -24,9 +24,9 @@ namespace MVCALLAHector.Repositories
             return db.Employees.ToList();
         }
 
-        public void Filter(List<Employee> employees, EmployeeSearchQuery query)
+        public List<Employee> Filter(List<Employee> employees, EmployeeSearchQuery query)
         {
-            //Filtering ...
+            //Filtering ....
             if (!string.IsNullOrWhiteSpace(query.searchName))// null or "" or "  "
             {
                 //employees = employees.Where(x => x.Name.ToUpper() == searchName.ToUpper()).ToList();
@@ -47,6 +47,8 @@ namespace MVCALLAHector.Repositories
             {
                 employees = employees.Where(x => x.Age <= query.searchMax).ToList();
             }
+
+            return employees;
 
         }
 

@@ -5,6 +5,8 @@ VisualStudioVersion = 17.2.32516.85
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCALLAHector", "MVCALLAHector\MVCALLAHector.csproj", "{F2F4355E-0E8B-4D73-9F99-C241D3EFC25D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Peirama", "Peirama\Peirama.csproj", "{B3D88B0A-89C0-4CC5-B0D2-E9C6B1D9D3BF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{F2F4355E-0E8B-4D73-9F99-C241D3EFC25D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2F4355E-0E8B-4D73-9F99-C241D3EFC25D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2F4355E-0E8B-4D73-9F99-C241D3EFC25D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3D88B0A-89C0-4CC5-B0D2-E9C6B1D9D3BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3D88B0A-89C0-4CC5-B0D2-E9C6B1D9D3BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3D88B0A-89C0-4CC5-B0D2-E9C6B1D9D3BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3D88B0A-89C0-4CC5-B0D2-E9C6B1D9D3BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

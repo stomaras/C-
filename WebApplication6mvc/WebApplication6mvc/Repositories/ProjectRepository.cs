@@ -31,13 +31,15 @@ namespace WebApplication6mvc.Repositories
             return projectsWithEmployees;
         }
 
-        
-
-       
-
         public Project GetById(int? id)
         {
             var project = db.Projects.Find(id);
+            return project;
+        }
+
+        public Project GetByIdWithEmployees(int? id)
+        {
+            var project = GetAllWithEmployees().Find(x=>x.ProjectId == id);
             return project;
         }
 
