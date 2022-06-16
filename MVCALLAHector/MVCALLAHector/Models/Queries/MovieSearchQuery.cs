@@ -9,5 +9,7 @@ namespace MVCALLAHector.Models.Queries
     {
         public string searchTitle { get; set; }
         public string searchGenre { get; set; }
+        public double? searchMinPrice { get; set; }
+        public double? searchMaxPrice { get; set; }
     }
 }

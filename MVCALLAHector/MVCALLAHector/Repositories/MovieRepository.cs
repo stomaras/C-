@@ -67,6 +67,17 @@ namespace MVCALLAHector.Repositories
                 movies = movies.Where(m => m.Genre.Kind.ToLower() == movieSearchQuery.searchGenre.ToLower()).ToList();
             }
 
+            if (!(movieSearchQuery.searchMinPrice == null))
+            {
+                movies = movies.Where(x => x.Price >= movieSearchQuery.searchMinPrice).ToList();
+            }
+
+            if (!(movieSearchQuery.searchMaxPrice == null))
+            {
+                movies = movies.Where(x => x.Price <= movieSearchQuery.searchMaxPrice).ToList();
+            }
+
+
             return movies;
         }
     }
