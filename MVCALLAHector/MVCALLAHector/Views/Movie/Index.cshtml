@@ -1,58 +1,92 @@
 ﻿@model IEnumerable<MVCALLAHector.Models.Movie>
+@using MVCALLAHector.Models
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index Views</h2>
+<h2>Index Movies</h2>
+@if (TempData["message"] != null)
+{
+    <div class="alert alert-success">
+        <strong></strong> @TempData["message"]
+    </div>
+}
+<br />
+<br />
 
-<table class="table">
+<div>
+    <form>
 
-    <thead>
-        <tr>
-            <th>
-               Id
-            </th>
-            <th>
-                Title
-            </th>
-            <th>Price</th>
-            <th>Rating</th>
-            <th>Genre</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var movie in Model)
-        {
+        <input type="number" step="any" name="searchMinRating" value="@ViewBag.MinPrice" placeholder="Give your Min Price" min="@ViewBag.MinPrice" max="@ViewBag.MaxPrice"/>
+        <input type="number" step="any" name="searchMaxRating" value="@ViewBag.MaxPrice" placeholder="Give your Max Price" min="@ViewBag.MinPrice" max="@ViewBag.MaxPrice"/>
+        
+        <input type="text" name="searchTitle" value="" placeholder="Search Name" />
+        <input type="text" name="searchGenre" value="" placeholder="Search Genre" />
+        <input type="submit" value="Search Movie" />
+    </form>
+</div>
+
+<br />
+<br />
+
+<div>
+    <table class="table">
+
+        <thead>
             <tr>
-                <td>
-                    @movie.Id
-                </td>
-                <td>
-                    @movie.Title
-                </td>
-                <td>
-                    @movie.Price
-                </td>
-                <td>@movie.Rating</td>
-                
-                    @if(movie.Genre == null)
+                <th>
+                    Id
+                </th>
+                <th>
+                    Title
+                </th>
+                <th>Price</th>
+                <th>Rating</th>
+                <th>Genre</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var movie in Model)
+            {
+                <tr>
+                    <td>
+                        @movie.Id
+                    </td>
+                    <td>
+                        @movie.Title
+                    </td>
+                    <td>
+                        @movie.Price
+                    </td>
+                    <td>@movie.Rating</td>
+
+                    @if (movie.Genre == null)
                     {
-                        <td>"Unknown"</td>
+                        <td>Unknown</td>
                     }
                     else
                     {
                         <td>@movie.Genre.Kind</td>
                     }
-               
-                <td>
-                   
-                </td>
-            </tr>
-        }
-    </tbody>
+
+                    <td>
+                        <a class="btn btn-primary" href="/Movie/Details?Id=@movie.Id">Details</a>
+                        <a class="btn btn-danger" href="/Movie/Delete?Id=@movie.Id">Delete</a>
+                        <a class="btn btn-info" href="/Movie/Edit?Id=@movie.Id">Edit</a>
+                    </td>
+                </tr>
+
+            }
+        </tbody>
 
 
 
-</table>
+    </table>
+
+</div>
+
+@Html.ActionLink("Create", "Create", null, null, new { @class = "btn btn-success" })
+
+
 

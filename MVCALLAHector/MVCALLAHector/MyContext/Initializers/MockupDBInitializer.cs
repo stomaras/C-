@@ -65,21 +65,30 @@ namespace MVCALLAHector.MyContext.Initializers
             e10.Project = p10;
 
             #region Seed Genres
-            Genre g1 = new Genre() { Kind = "Drama" };
-            Genre g2 = new Genre() { Kind = "Thriller" };
-            Genre g3 = new Genre() { Kind = "Adventure" };
-            Genre g4 = new Genre() { Kind = "Horror" };
-            Genre g5 = new Genre() { Kind = "Comedy" };
+
+
+            Genre g1 = new Genre() { Kind = "romance" };
+            Genre g2 = new Genre() { Kind = "thriller" };
+            Genre g3 = new Genre() { Kind = "action" };
+            Genre g4 = new Genre() { Kind = "horror" };
+            Genre g5 = new Genre() { Kind = "comedy" };
             context.Genres.AddOrUpdate(g => g.Kind, g1, g2, g3, g4, g5);
             context.SaveChanges();
             #endregion
 
             #region Seed Movies
             Movie m1 = new Movie() { Title = "Spiderman 1", Price = 20.23, Rating = 7.3, Genre= g1 };
-            Movie m2 = new Movie() { Title = "Spiderman 2", Price = 20.23, Rating = 8.8, Genre= g1 };
-            Movie m3 = new Movie() { Title = "Spiderman 3", Price = 20.23, Rating = 9.1};
-            Movie m4 = new Movie() { Title = "Breaking Bad", Price = 20.23, Rating = 9.1, Genre=g3 };
-            context.Movies.AddOrUpdate(m => m.Title, m1, m2, m3, m4);
+            Movie m2 = new Movie() { Title = "Spiderman 2", Price = 40.23, Rating = 8.8, Genre= g1 };
+            Movie m3 = new Movie() { Title = "Spiderman 3", Price = 60.23, Rating = 9.1, Genre=g2};
+            Movie m4 = new Movie() { Title = "Breaking Bad", Price = 70.23, Rating = 9.1, Genre=g3 };
+            Movie m5 = new Movie() { Title = "Prison Break", Price = 10.23, Rating = 8.4, Genre=g2 };
+            Movie m6 = new Movie() { Title = "Stranger Things", Price = 100.23, Rating = 10, Genre=g1 };
+            Movie m7 = new Movie() { Title = "Lacasa Depapel", Price = 123.23, Rating = 7.8, Genre=g3 };
+            Movie m8 = new Movie() { Title = "Mr Robot", Price = 150.23, Rating = 7.0, Genre=g4 };
+            Movie m9 = new Movie() { Title = "Office", Price = 167.23, Rating = 8.7, Genre=g5 };
+            Movie m10 = new Movie() { Title = "Hangover", Price = 200.23, Rating = 9.0, Genre=g5 };
+            
+            context.Movies.AddOrUpdate(m => m.Title, m1, m2, m3, m4, m5, m6, m7, m8, m9, m10);
             context.SaveChanges();
             #endregion
 

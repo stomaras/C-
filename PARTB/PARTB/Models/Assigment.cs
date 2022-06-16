@@ -20,6 +20,7 @@ namespace PARTB.Models
         public int OralMark { get; set; }
         public int TotalMark { get; set; }
 
+        // Navigation Properties
        public ICollection<Course> Courses { get; set; }
     }
 }

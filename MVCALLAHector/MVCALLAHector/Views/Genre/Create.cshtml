@@ -1,0 +1,24 @@
+﻿@model MVCALLAHector.Models.Genre
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create Genre</h2>
+
+<form method="post">
+
+    @Html.AntiForgeryToken()
+
+
+    <div class="form-group">
+        @Html.LabelFor(g => g.Kind)
+        @Html.EditorFor(g => g.Kind, new { htmlAttributes = new { @class = "form-control", placeholder = "Give Your Title" } })
+    </div>
+    @Html.ValidationMessageFor(g => g.Kind, "", new { @class = "text-danger" })
+
+    <br />
+
+    <input class="btn btn-success" type="submit" value="Create" />
+    <a class="btn btn-info" href="/Genre/Index">Go Back</a>
+</form>
+

@@ -11,6 +11,6 @@ namespace PARTB.View.Per
     {
         void PrintAllStudentsPerCourse(List<Course> Courses);
 
-        void PrintAllTrainersPerCourse(List<Trainer> Trainers);
+        void PrintAllTrainersPerCourse(List<Course> Courses);
     }
 }

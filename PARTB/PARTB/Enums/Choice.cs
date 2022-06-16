@@ -13,7 +13,9 @@ namespace PARTB.Enums
             ReadTrainers,
             ReadAssigments,
             ReadCourses,
-            StudentsPerCourse
+            StudentsPerCourse,
+            TrainersPerCourse,
+            AssigmentsPerStudentPerCourse
         }
     
 }

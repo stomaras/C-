@@ -37,5 +37,15 @@ namespace PARTB.Repositories.CourseRepository
             }
             return coursesWithStudents;
         }
+
+        public List<Course> GetAllCoursesWithTrainers()
+        {
+            var coursesWithTrainers = db.Courses.Include(x => x.Trainers).ToList();
+            if (coursesWithTrainers == null)
+            {
+                throw new NotImplementedException("Courses join with trainers can not implemented IIn Database!!!");
+            }
+            return coursesWithTrainers;
+        }
     }
 }

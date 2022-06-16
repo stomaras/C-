@@ -50,5 +50,19 @@ namespace PARTB.Controllers
                 Console.WriteLine(ex.Message);
             }
         }
+
+        public void ReadTrainersPerCourse()
+        {
+            try
+            {
+                PrintPer printPer = new PrintPer();
+                var courses = courseRepository.GetAllCoursesWithTrainers();
+                printPer.PrintAllTrainersPerCourse(courses);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
     }
 }

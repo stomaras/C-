@@ -31,9 +31,28 @@ namespace PARTB.View.Per
             }
         }
 
-        public void PrintAllTrainersPerCourse(List<Trainer> Trainers)
+        public void PrintAllTrainersPerCourse(List<Course> Courses)
         {
-            throw new NotImplementedException("Print All Trainers Per Course");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("-------------------------Trainers Per Course-------------------------");
+            Console.WriteLine("Courses:\n");
+            foreach (var course in Courses)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"\t\tCourse: with title {course.Title}, with type {course.Type}\n");
+                Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine($"\t\t\tTrainers:\n");
+                foreach (var trainer in course.Trainers)
+                {
+
+                    Console.WriteLine($"\t\t\t\t Trainer: {{ FullName: {trainer.FirstName} {trainer.LastName}}}\n");
+
+                }
+                Console.ResetColor();
+            }
         }
+
+        
     }
 }
