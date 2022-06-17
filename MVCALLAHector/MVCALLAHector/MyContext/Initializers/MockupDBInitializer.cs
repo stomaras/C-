@@ -64,6 +64,21 @@ namespace MVCALLAHector.MyContext.Initializers
             e9.Project = p9;
             e10.Project = p10;
 
+
+            Manager mn1 = new Manager() { Name = "Gkatsos" };
+            Manager mn2 = new Manager() { Name = "Pasparakis" };
+            Manager mn3 = new Manager() { Name = "Mpozas" };
+            Manager mn4 = new Manager() { Name = "Aidinopoulos" };
+            Manager mn5 = new Manager() { Name = "Fofi" };
+            Manager mn6 = new Manager() { Name = "Makis" };
+
+            e1.Managers.Add(mn1);
+            e1.Managers.Add(mn2);
+            e1.Managers.Add(mn3);
+
+            context.SaveChanges();
+          
+
             #region Seed Genres
 
 

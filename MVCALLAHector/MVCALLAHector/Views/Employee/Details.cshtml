@@ -23,6 +23,19 @@
 <strong>Country :</strong>
 <span>@Model.Country</span>
 
+<strong>Project :</strong>
+<span>@(Model.Project?.Title)</span>
+
+<strong>Managers :</strong>
+<ul>
+    <ul>
+        @foreach (var manager in Model.Managers)
+        {
+            <li>@manager.Name</li>
+        }
+    </ul>
+</ul>
+
 <a href="/Employee/Index">Go Back</a>
 
 

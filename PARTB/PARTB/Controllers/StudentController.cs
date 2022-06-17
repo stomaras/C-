@@ -36,6 +36,17 @@ namespace PARTB.Controllers
             }
         }
 
+        public void CreateStudents()
+        {
+            try
+            {
+                PrintStudent pr = new PrintStudent();
+            }catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
         public void ErrorService()
         {
             Console.WriteLine("This input does not exists try again or Press E (or) e to exit !!!");

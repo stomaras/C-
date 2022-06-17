@@ -2,6 +2,7 @@
 using PARTB.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,7 +18,8 @@ namespace PARTB.Repositories
         }
         public void Add(Student student)
         {
-            throw new NotImplementedException();
+            db.Entry(student).State = EntityState.Added;
+            db.SaveChanges();
         }
 
         public List<Student> GetAllStudents()

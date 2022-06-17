@@ -24,12 +24,22 @@ namespace MVCALLAHector.Repositories
             return db.Employees.ToList();
         }
 
-        public List<Employee> Filter(EmployeeFilterSettings filterSettings, out (int minAge, int maxAge) employeeAgeRange)
+        public List<Employee> GetAllWithProjects()
         {
-            List<Employee> employees = GetAllWithProjects();
+            return db.Employees.Include(x => x.Project).ToList();
+        }
 
-            int minAge = employees.Min(x => x.Age);
-            int maxAge = employees.Max(x => x.Age);
+        public List<Employee> GetAllWithProjectsAndManagers()
+        {
+            return db.Employees.Include(x => x.Project).Include(x=>x.Managers).ToList();
+        }
+
+        public List<Employee> Filter(EmployeeFilterSettings filterSettings, out (int? minAge, int? maxAge) employeeAgeRange)
+        {
+            List<Employee> employees = GetAllWithProjectsAndManagers();
+
+            int? minAge = employees?.Min(x => x?.Age);
+            int? maxAge = employees?.Max(x => x?.Age);
             employeeAgeRange = (minAge, maxAge);
             
             
@@ -59,14 +69,14 @@ namespace MVCALLAHector.Repositories
 
         }
 
-        public List<Employee> GetAllWithProjects()
-        {
-            return db.Employees.Include(x=>x.Project).ToList();
-        }
+        
 
         public Employee GetById(int? id)
         {
-            var employee = db.Employees.Find(id);
+            var employee = db.Employees
+                .Include(x => x.Project)
+                .Include(x => x.Managers)
+                .FirstOrDefault(x => x.Id == id);
             return employee;
         }
 
@@ -81,6 +91,26 @@ namespace MVCALLAHector.Repositories
             db.Entry(emp).State = EntityState.Added;
             db.SaveChanges();
         }
+
+        public void Add(Employee emp, List<int> managerIds)
+        {
+            
+            
+                foreach (var id in managerIds)
+                {
+                    var manager = db.Managers.Find(id);
+                    if (manager != null)
+                    {
+                        emp.Managers.Add(manager);
+                    }
+                }
+
+            
+
+            db.Entry(emp).State = EntityState.Added;
+            db.SaveChanges();
+        }
+
 
         public void Edit(Employee emp) // new Employee(){name="NewName"
         {

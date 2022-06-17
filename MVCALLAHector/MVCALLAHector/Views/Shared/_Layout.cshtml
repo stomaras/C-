@@ -7,6 +7,9 @@
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/mitsos")
     @Scripts.Render("~/bundles/modernizr")
+
+    @RenderSection("Omorfia",false)
+
 </head>
 <body>
     @Html.Partial("~/Views/Shared/Components/_NavigationBar.cshtml")
@@ -21,6 +24,12 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+
+
+
+
+
     @RenderSection("scripts", required: false)
+    @RenderSection("scripts2", required: false)
 </body>
 </html>

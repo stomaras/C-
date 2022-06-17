@@ -10,6 +10,7 @@ using System.Web;
 using System.Web.Mvc;
 using PagedList.Mvc;
 using PagedList;
+using MVCALLAHector.Models.Enums;
 
 namespace MVCALLAHector.Controllers
 {
@@ -19,11 +20,13 @@ namespace MVCALLAHector.Controllers
 
         private EmployeeRepository employeeRepository;
         private ProjectRepository projectRepository;
+        private ManagerRepository managerRepository;
 
         public EmployeeController()
         {
             employeeRepository = new EmployeeRepository(db);
             projectRepository = new ProjectRepository(db);
+            managerRepository = new ManagerRepository(db);
         }
         // GET: Employee
         public ActionResult Index(EmployeeFilterSettings filterSettings, string sortOrder, int? page, int? pSize)// same name as in input name attribute
@@ -39,7 +42,7 @@ namespace MVCALLAHector.Controllers
             ViewBag.currentMax = filterSettings.searchMax;
 
             // Filtering...
-            (int minAge, int maxAge) employeeAgeRange;
+            (int? minAge, int? maxAge) employeeAgeRange;
             var filterEmployees = employeeRepository.Filter(filterSettings, out employeeAgeRange);
 
             ViewBag.MinAge = employeeAgeRange.minAge;
@@ -91,21 +94,41 @@ namespace MVCALLAHector.Controllers
         {
 
             GetProjects();
-            return View();
+            GetManagers();
+
+            Employee testEmployee = new Employee()
+            {
+                Name = "Spy",
+                Age = 34,
+                Country = Country.France,
+                HireDate = DateTime.Now,
+                Salary = 4000
+            };
+
+            return View(testEmployee);
         }
 
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Employee emp) // new Employee(name="Remos" hiredate=null) with all payloads features we fill 
+        public ActionResult Create(Employee emp, List<int> managerIds) // new Employee(name="Remos" hiredate=null) with all payloads features we fill 
         {
             // Save in database a new Employee
             if (ModelState.IsValid)
             {
-                employeeRepository.Add(emp);
+                if (managerIds == null)
+                {
+                    employeeRepository.Add(emp);
+                }
+                else
+                {
+                    employeeRepository.Add(emp, managerIds);
+                }
+               
                 ShowAlert("You have successfully created employee" + emp.Name);
                 return RedirectToAction("Index");
             }
+            GetManagers();
             GetProjects();
             return View(emp);
         }
@@ -182,6 +205,13 @@ namespace MVCALLAHector.Controllers
         {
             var projects = projectRepository.GetAll();
             ViewBag.Projects = projects;
+        }
+
+        [NonAction]
+        public void GetManagers()
+        {
+            var managers = managerRepository.GetAll();
+            ViewBag.Managers = managers;
         }
 
         [NonAction]

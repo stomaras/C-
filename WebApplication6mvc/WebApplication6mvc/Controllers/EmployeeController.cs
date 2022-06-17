@@ -39,10 +39,11 @@ namespace WebApplication6mvc.Controllers
             ViewBag.MaxAge = employees.Max(x => x.Age);
 
 
-            // LINQ VALUE
+            // Filtering...
 
             var filterEmployees = employeeRepository.Filter(employees, query);
 
+            // Sorting ...
 
 
 

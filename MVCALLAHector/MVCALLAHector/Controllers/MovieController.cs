@@ -8,6 +8,8 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using PagedList.Mvc;
+using PagedList;
 
 namespace MVCALLAHector.Controllers
 {
@@ -24,23 +26,61 @@ namespace MVCALLAHector.Controllers
             genreRepository = new GenreRepository(db);
         }
         // GET: Movie
-        public ActionResult Index(MovieSearchQuery movieSearchQuery)
+        public ActionResult Index(MovieSearchQuery movieSearchQuery, string sortOrder, int? page, int? pSize)
         {
 
 
             //Filtering ...
-            var movies = GetAllWithGenres();
+            ViewBag.currentTitle = movieSearchQuery.searchTitle;
+            ViewBag.currentGenre = movieSearchQuery.searchGenre;
+            ViewBag.currentMinPrice = movieSearchQuery.searchMinPrice;
+            ViewBag.currentMaxPrice = movieSearchQuery.searchMaxPrice;
 
-            ViewBag.MinPrice = movies.Min(x => x.Price);
-            ViewBag.MaxPrice = movies.Max(x => x.Price);
+
+            (int minPrice, int maxPrice) movieMinMaxPrice;
+            var filterMovies = movieRepository.FilterMovies(movieSearchQuery, out movieMinMaxPrice);
+
+            ViewBag.MinPrice = movieMinMaxPrice.minPrice;
+            ViewBag.MaxPrice = movieMinMaxPrice.maxPrice;
+
+            // Sorting
+
+            ViewBag.TitleSortParam = String.IsNullOrEmpty(sortOrder) ? "TitleDesc" : "";
+            ViewBag.PriceSortParam = sortOrder == "PriceAsc" ? "PriceDesc" : "PriceAsc";
+            ViewBag.RatingSortParam = sortOrder == "RatingAsc" ? "RatingDesc" : "RatingAsc";
+            ViewBag.GenreKindParam = sortOrder == "GenreKindAsc" ? "GenreKindDesc" : "GenreKindAsc";
+
+
+            switch (sortOrder)
+            {
+                case "TitleAsc": filterMovies = filterMovies.OrderBy(x => x.Title).ToList();break;
+                case "TitleDesc": filterMovies = filterMovies.OrderByDescending(x => x.Title).ToList();break;
+
+                case "PriceAsc": filterMovies = filterMovies.OrderBy(x => x.Price).ToList(); break;
+                case "PriceDesc": filterMovies = filterMovies.OrderByDescending(x => x.Price).ToList(); break;
+
+                case "RatingAsc": filterMovies = filterMovies.OrderBy(x => x.Rating).ToList();break;
+                case "RatingDesc": filterMovies = filterMovies.OrderByDescending(x => x.Rating).ToList();break;
+
+                case "GenreKindAsc": filterMovies = filterMovies.OrderBy(x => x.Genre.Kind).ToList(); break;
+                case "GenreKindDesc": filterMovies = filterMovies.OrderByDescending(x => x.Genre.Kind).ToList(); break;
+
+
+                default: filterMovies = filterMovies.OrderBy(x => x.Title).ToList(); break;
+            }
+
+            // Pagination ...
+
+            int pageSize = pSize ?? 3; // if movies per page = null -> make pageSze = 3 else make pageSize = pSize
            
+            int pageNumber = page ?? 1;
+            if (pageNumber <= 0)
+            {
+                pageNumber = 1;
+            }
 
-            var filterMovies = movieRepository.FilterMovies(movieSearchQuery, movies);
-            
-
-            
             GetGenres();
-            return View(filterMovies);
+            return View(filterMovies.ToPagedList(pageNumber,pageSize));
         }
 
         // GET: Details
