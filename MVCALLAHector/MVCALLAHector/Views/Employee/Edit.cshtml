@@ -4,9 +4,9 @@
 
 
 
+<h2>Create Employee Works</h2>
 
-
-<h1>Edit Employee</h1>
+<h1>Create Employee</h1>
 
 <form method="post">
 
@@ -33,7 +33,7 @@
 
     <div class="form-group">
         @Html.LabelFor(m => m.HireDate)
-        @Html.EditorFor(m => m.HireDate, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.EditorFor(m => m.HireDate, new { htmlAttributes = new { @class = "form-control", type = "date" } })
     </div>
     @Html.ValidationMessageFor(m => m.HireDate, "", new { title = "Boom", id = "boomer", @class = "text-danger" })
 
@@ -43,7 +43,39 @@
     </div>
 
 
+    @*@{
+            var countries = Enum.GetNames(typeof(Country));
+        }
 
+        @{
+            int countryValue = 0;
+            if (!(Model == null))
+            {
+                countryValue = (int)Model?.Country;
+            }
+        }
+
+
+        <div class="form-group">
+            <label for="country">Country</label>
+            <select id="country" class="form-control" name="Country">
+
+
+                @for (int i = 0; i < countries.Length; i++)
+                {
+                    if (i == countryValue)
+                    {
+                        <option selected value="@i">@countries[i]</option>
+                    }
+                    else
+                    {
+                        <option value="@i">@countries[i]</option>
+                    }
+
+                }
+
+            </select>
+        </div>*@
     @Html.ValidationMessageFor(m => m.Country, "", new { title = "Boom", id = "boomer", @class = "text-danger" })
     <div class="form-group">
         @Html.LabelFor(m => m.PhotoUrl)
@@ -51,26 +83,44 @@
     </div>
     @Html.ValidationMessageFor(m => m.PhotoUrl, "", new { @class = "text-danger" })
 
-    <label for="project">Select Project</label>
+    
+
     <div class="form-group">
+        <label for="managers">Select Manager</label>
+        <select id="managers" name="managerIds" class="form-control" multiple>
+
+            @foreach (var manager in ViewBag.Managers as List<Manager>)
+            {
+
+               
+                <option value="@manager.Id" @(Model.Managers.Any(i=>i.Id==manager.Id) ? "selected": "")>@manager.Name</option>
+
+
+            }
+
+
+
+            
+        </select>
+    </div>
+
+
+    <div class="form-group">
+        <label for="project">Select Project</label>
+
         <select id="project" name="projectId" class="form-control">
 
-            @foreach (var pro in ViewBag.Projects as List<Project>)
+            @foreach (var item in ViewBag.Projects as List<Project>)
             {
-                if (pro.Id == Model.ProjectId)
-                {
-                    <option selected value="@pro.Id">@pro.Title</option>
-                }
-                else
-                {
-                    <option  value="@pro.Id">@pro.Title</option>
-                }
-
+                <option value="@item.Id">@item.Title</option>
             }
         </select>
     </div>
 
-    <input class="btn btn-primary" type="submit" value="Edit" />
+    <input class="btn btn-primary" type="submit" value="Create" />
     <input class="btn btn-success" type="reset" value="Clear" />
 </form>
 
+<a class="btn btn-success" href="/Employee/Index">Go Back</a>
+
+@Html.ActionLink("Go Back", "Index", null, new { @class = "btn btn-success" })

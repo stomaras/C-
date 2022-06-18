@@ -86,6 +86,9 @@ namespace MVCALLAHector.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.NotFound);
             }
+
+            GetProjects();
+            GetManagers();
             return View(employee);
         }
 
@@ -116,15 +119,8 @@ namespace MVCALLAHector.Controllers
             // Save in database a new Employee
             if (ModelState.IsValid)
             {
-                if (managerIds == null)
-                {
-                    employeeRepository.Add(emp);
-                }
-                else
-                {
-                    employeeRepository.Add(emp, managerIds);
-                }
-               
+
+                employeeRepository.Add(emp, managerIds);
                 ShowAlert("You have successfully created employee" + emp.Name);
                 return RedirectToAction("Index");
             }
@@ -162,26 +158,32 @@ namespace MVCALLAHector.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.NotFound);
             }
-
             GetProjects();
+            GetManagers();
 
             return View(emp);
         }
 
 
+        
+        [HandleError(ExceptionType = typeof(ArgumentException), View = "~Views/Shared/Error.cshtml")]
+        [HandleError(ExceptionType = typeof(ArgumentNullException), View = "~Views/Shared/Error2.cshtml")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Employee emp)
+        public ActionResult Edit(Employee emp, List<int> managerIds)
         {
             if (ModelState.IsValid)
             {
-                employeeRepository.Edit(emp);
+                
+                    employeeRepository.Edit(null, managerIds);
+                
+                
                 ShowAlert($"Employee with id {emp.Id} edited!!!");
                 return RedirectToAction("Index");
             }
 
             GetProjects();
-
+            GetManagers();
 
             return View(emp);
             

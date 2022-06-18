@@ -1,0 +1,64 @@
+﻿@model WebApplication8.Models.Employee
+@using WebApplication8.Models
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create New Employee</h2>
+
+<form method="post">
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.FirstName)
+        @Html.EditorFor(m => m.FirstName, new { htmlAttributes = new { @class = "form-control", placeholder = "Give Your First Name" } })
+
+    </div>
+    @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.LastName)
+        @Html.EditorFor(m => m.LastName, new { htmlAttributes = new { @class = "form-control", placeholder = "Give Your Last Name" } })
+    </div>
+    @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Age)
+        @Html.EditorFor(m => m.Age, new { htmlAttributes = new { @class = "form-control", placeholder = "Give Your Age" } })
+    </div>
+    @Html.ValidationMessageFor(m => m.Age, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.HireDate)
+        @Html.EditorFor(m => m.HireDate, new { htmlAttributes = new { @class = "form-control", type = "date", placeholder = "Give Your Hire Date" } })
+    </div>
+    @Html.ValidationMessageFor(m => m.HireDate, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Salary)
+        @Html.EditorFor(m => m.Salary, new { htmlAttributes = new { @class = "form-control", placeholder = "Give Your Salary" } })
+    </div>
+    @Html.ValidationMessageFor(m => m.Salary, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Country)
+        @Html.EnumDropDownListFor(m => m.Country, new { @class = "form-control"})
+    </div>
+    @Html.ValidationMessageFor(m => m.Country, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        <label for="project">Select Project</label>
+        <select id="project" name="projectId" class="form-control">
+            @foreach (var project in ViewBag.Projects as List<Project>)
+            {
+                <option value="@project.Id">@project.Title</option>
+            }  
+        </select>
+    </div>
+
+
+    <input class="btn btn-primary" type="submit" value="Create" />
+
+</form>
+<br />
+<a class="btn btn-info" href="/Employee/Index">Go Back</a>

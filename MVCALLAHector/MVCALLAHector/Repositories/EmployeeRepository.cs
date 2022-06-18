@@ -94,8 +94,7 @@ namespace MVCALLAHector.Repositories
 
         public void Add(Employee emp, List<int> managerIds)
         {
-            
-            
+
                 foreach (var id in managerIds)
                 {
                     var manager = db.Managers.Find(id);
@@ -104,8 +103,6 @@ namespace MVCALLAHector.Repositories
                         emp.Managers.Add(manager);
                     }
                 }
-
-            
 
             db.Entry(emp).State = EntityState.Added;
             db.SaveChanges();
@@ -118,7 +115,60 @@ namespace MVCALLAHector.Repositories
             db.Entry(emp).State = EntityState.Modified;
             db.SaveChanges();
             // ask sql server : do you have someone employee with id=55??
+        }
+
+        public void Edit(Employee emp, List<int> managerIds)
+        {
+            if (emp == null)
+            {
+                throw new ArgumentException("Emp Not Found");
+            }
+            //Step 1 , Question in db , do you have this employee??? with this id? and come with as many tables you want
+            // Attached Mode This Object
+            var employee = db.Employees 
+                .Include(x=>x.Project)
+                .Include(x=>x.Managers)
+                .FirstOrDefault(x=>x.Id == emp.Id);
+
+
+            //db.Entry(employee).State = EntityState.Detached; // stop to ignore this with Detached
+            if (employee == null)
+            {
+                throw new ArgumentNullException("Employee Not Found");
+            }
+
             
+            //Step 2.a Mapping
+            employee.Name = emp.Name;
+            employee.Salary = emp.Salary;
+            employee.Salary = emp.Salary;
+            employee.HireDate = emp.HireDate;
+            employee.ProjectId = emp.ProjectId;
+            employee.Country = emp.Country;
+            employee.PhotoUrl = emp.PhotoUrl;
+
+
+
+
+            // Step 2.b Clear old managers from employee table
+            employee.Managers.Clear();
+            db.SaveChanges();
+
+            // Step 3 Update with the news , make use of managerIds
+            if (managerIds != null)
+            {
+                foreach (var id in managerIds)
+                {
+                    var manager = db.Managers.Find(id);
+                    if (manager != null)
+                    {
+                        employee.Managers.Add(manager);
+                    }
+                }
+            }
+            
+            db.Entry(employee).State = EntityState.Modified;
+            db.SaveChanges();
         }
     }
 }

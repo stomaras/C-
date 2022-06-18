@@ -1,0 +1,39 @@
+﻿@model WebApplication8.Models.Employee
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details Of Employee</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+            <th>Hire Date</th>
+            <th>Salary</th>
+            <th>Project</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.Id</td>
+            <td>@Model.FirstName</td>
+            <td>@Model.LastName</td>
+            <td>@Model.Age</td>
+            <td>@Model.HireDate.ToString("d")</td>
+            <td>@Model.Salary</td>
+            <td>@(Model.Project != null ? Model.Project.Title : "No Project")</td>
+
+
+            <td><a class="btn btn-info" href="/Employee/Index">Go Back</a></td>
+        </tr>
+    </tbody>
+
+</table>
+
+
+

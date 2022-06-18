@@ -1,0 +1,64 @@
+﻿@model IEnumerable<WebApplication8.Models.Employee>
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["Message"]
+    </div>
+}
+
+<h2>Index Employees</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+            <th>Hire Date</th>
+            <th>Salary</th>
+            <th>Country</th>
+            <th>Project</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var emp in Model)
+        {
+            <tr>
+                <td>@emp.Id</td>
+                <td>@emp.FirstName</td>
+                <td>@emp.LastName</td>
+                <td>@emp.Age</td>
+                <td>@emp.HireDate.ToString("d")</td>
+                <td>@emp.Country</td>
+                <td>@emp.Salary</td>
+                @if (emp.Project == null)
+                {
+                    <td>No Project</td>
+                }
+                else
+                {
+                    <td>@emp.Project.Title</td>
+                }
+
+                <td>
+                    <a class="btn btn-info" href="/Employee/Details?Id=@emp.Id">Details</a>
+                    <a class="btn btn-primary" href="/Employee/Edit?Id=@emp.Id">Edit</a>
+                    <a class="btn btn-danger" href="/Employee/Delete?Id=@emp.Id">Delete</a>
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+
+<a class="btn btn-primary" href="/Employee/Create">Create Employee</a>
+

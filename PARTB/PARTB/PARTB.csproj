@@ -98,6 +98,7 @@
     <Compile Include="View\AssigmentView\PrintAssigment.cs" />
     <Compile Include="View\CourseView\IPrintCourse.cs" />
     <Compile Include="View\CourseView\PrintCourse.cs" />
+    <Compile Include="View\ErrorMessages\ErrorMessage.cs" />
     <Compile Include="View\Menu\Menu.cs" />
     <Compile Include="View\Per\IPrintPer.cs" />
     <Compile Include="View\Per\PrintPer.cs" />
