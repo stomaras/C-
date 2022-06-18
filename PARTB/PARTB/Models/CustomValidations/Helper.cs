@@ -5,11 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PARTB.View.ErrorMessages;
+using System.Text.RegularExpressions;
 
 namespace PARTB.Models.CustomValidations
 {
     public class Helper
     {
+        private int numericValue;
         #region General Validations
         /// <summary>
         /// Check if an input string contains characters
@@ -37,30 +39,104 @@ namespace PARTB.Models.CustomValidations
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public string ValidName(string input)
+        public string CheckValidFirstName(string nameInput)
         {
-            bool containsNumbers = input.All(char.IsDigit);
-            int length = input.Length;
-
-            while (containsNumbers || length <= 2 || length > 100)
+            
+            bool isValid = false;
+            bool containsRegularDigits = false;
+            while (!isValid || !containsRegularDigits)
             {
-                if (containsNumbers)
+
+                if (string.IsNullOrEmpty(nameInput))
                 {
-                    ErrorMessage.InvalidNameMessage1();
-                    input = Console.ReadLine();
+                    isValid = false;
+                    ErrorMessage.FirstNameCannotBeNull();
+                    nameInput = Console.ReadLine();
                 }
                 else
                 {
-                    if (length <= 2 || length > 100)
+
+                    //process 1
+                    containsRegularDigits = Regex.IsMatch(nameInput, @"^[a-zA-Z]+$");
+                    if (!containsRegularDigits)
                     {
-                        ErrorMessage.InvalidNameMessage2();
-                        input = Console.ReadLine();
+                        ErrorMessage.FirstNameCannotContainNumbersOrSpecialCharacters();
+                        nameInput = Console.ReadLine();
                     }
-                }   
+                    else
+                    {
+                        containsRegularDigits = true;
+                        if (nameInput.Length < 2 || nameInput.Length > 50)
+                        {
+                            isValid = false;
+                            ErrorMessage.FirstNameMustBeInRange();
+                            nameInput = Console.ReadLine();
+                        }
+                        else
+                        {
+                            isValid = true;
+                        }
+                    }
+                }
             }
-            return input;
-            
+            return nameInput;
         }
-        #endregion
+
     }
+
+    //    public int CheckDay(string day)
+    //    {
+    //        int numericValue;
+    //        bool isNumber = false;
+    //        bool isValidRange = false;
+    //        int InputDay = -1;
+    //        while (!isNumber || !isValidRange)
+    //        {
+    //            isNumber = int.TryParse(day, out numericValue);
+
+    //            if (isNumber)
+    //            {
+    //                InputDay = numericValue;
+    //                Func<int, bool> ValidDayRange = null;
+    //                Func<int, bool> IsInValidDay = ValidDayRange;
+    //                bool IsInValidDayRange = IsInValidDay.Invoke(InputDay);
+    //                if (IsInValidDayRange)
+    //                {
+    //                    isValidRange = true;
+    //                }
+    //                else
+    //                {
+    //                    isValidRange = false;
+    //                    ErrorMessage.PrintDayMustBeInRange();
+    //                    day = Console.ReadLine();
+    //                }
+    //            }
+    //            else
+    //            {
+    //                ErrorMessage.PrintDayMustBeInteger();
+    //                day = Console.ReadLine();
+    //            }
+    //        }
+    //        return InputDay;
+    //    }
+    //    public static bool ValidDayRange(int day)
+    //    {
+    //        bool LowestDayRange = day >= 1;
+    //        bool HighestDayRange = day <= 30;
+    //        if (LowestDayRange && HighestDayRange)
+    //        {
+    //            return true;
+    //        }
+    //        else
+    //        {
+    //            return false;
+    //        }
+    //    }
+    //#endregion
+
+
+
+
+
+    #endregion
 }

@@ -11,7 +11,7 @@ namespace PARTB.View.StudentView
     {
         void PrintStudents(List<Student> students);
 
-        Student EnterStudentDetailsToCreate();
+        void EnterStudentDetailsToCreate();
 
     }
 }

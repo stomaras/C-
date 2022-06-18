@@ -16,6 +16,7 @@ namespace PARTB.Enums
             StudentsPerCourse,
             TrainersPerCourse,
             AssigmentsPerStudentPerCourse,
+            CreateStudent,
             ExitTheProgram
         }
     

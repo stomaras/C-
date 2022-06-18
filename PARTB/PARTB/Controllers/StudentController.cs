@@ -41,6 +41,7 @@ namespace PARTB.Controllers
             try
             {
                 PrintStudent pr = new PrintStudent();
+                pr.EnterStudentDetailsToCreate();
             }catch(Exception ex)
             {
                 Console.WriteLine(ex.Message);

@@ -11,17 +11,20 @@ namespace PARTB.View.StudentView
     public class PrintStudent : IPrintStudent
     {
         Helper helper = new Helper();
-        public Student EnterStudentDetailsToCreate()
+        public void EnterStudentDetailsToCreate()
         {
             Console.ForegroundColor = ConsoleColor.Green;
 
             Console.WriteLine("Enter Student Details:\n");
 
             Console.WriteLine("Enter Student First Name:\n");
-            string firstName = helper.ValidName(Console.ReadLine());
+            string firstName = helper.CheckValidFirstName(Console.ReadLine());
 
-            Console.WriteLine("Enter Student Last Name:\n");
-            string lastName = helper.ValidName(Console.ReadLine());
+            //Console.WriteLine("Enter Student Last Name:\n");
+            //string lastName = helper.ValidName(Console.ReadLine());
+
+            //Console.WriteLine("Enter Student Date Of Birth:\n");
+            //int dayOfBirth = helper.CheckDay(Console.ReadLine());
         }
 
         public void PrintStudents(List<Student> students)

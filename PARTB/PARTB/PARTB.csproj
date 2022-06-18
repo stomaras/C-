@@ -83,6 +83,7 @@
     <Compile Include="Models\CustomValidations\Helper.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\Trainer.cs" />
+    <Compile Include="ObjectFactory\Factory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AssigmentRepository\AssigmentRepository.cs" />
