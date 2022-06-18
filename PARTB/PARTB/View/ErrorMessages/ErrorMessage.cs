@@ -56,5 +56,47 @@ namespace PARTB.View.ErrorMessages
             Console.WriteLine("First Name Must Be Between 2 and 50 characters long!!!");
             Console.ResetColor();
         }
+
+        public static void LastNameCannotContainNumbersOrSpecialCharacters()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Last Name Cannot Contains Numbers Or Special Characters!!!");
+            Console.ResetColor();
+        }
+
+        public static void LastNameMustBeInRange()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Last Name Must Be Between 2 and 50 characters long!!!");
+            Console.ResetColor();
+        }
+
+        public static void DayMustBeInteger()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Day Must Be Integer!!!");
+            Console.ResetColor();
+        }
+
+        public static void DayMustBeInValidRange()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Day Must Be A Number between 1 and 30!!!");
+            Console.ResetColor();
+        }
+
+        public static void MonthMustBeInValidRange()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Month Must Be A Number between 1 and 12!!!");
+            Console.ResetColor();
+        }
+
+        public static void MonthMustBeInteger()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Month Must Be A Number!!!");
+            Console.ResetColor();
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using PARTB.Models;
 using PARTB.Models.CustomValidations;
+using PARTB.ObjectFactory;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace PARTB.View.StudentView
 {
     public class PrintStudent : IPrintStudent
     {
-        Helper helper = new Helper();
+        Helper helper = Factory.CreateHelperObject();
         public void EnterStudentDetailsToCreate()
         {
             Console.ForegroundColor = ConsoleColor.Green;
@@ -20,11 +21,29 @@ namespace PARTB.View.StudentView
             Console.WriteLine("Enter Student First Name:\n");
             string firstName = helper.CheckValidFirstName(Console.ReadLine());
 
-            //Console.WriteLine("Enter Student Last Name:\n");
-            //string lastName = helper.ValidName(Console.ReadLine());
+            Console.WriteLine("Enter Student Last Name:\n");
+            string lastName = helper.CheckValidLastName(Console.ReadLine());
 
-            //Console.WriteLine("Enter Student Date Of Birth:\n");
-            //int dayOfBirth = helper.CheckDay(Console.ReadLine());
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Enter Student Date Of Birth:\n");
+            Console.WriteLine("Enter Student Day Of Birth");
+            Console.ResetColor();
+
+            string dayOfBirthString = helper.CheckDay(Console.ReadLine());
+            int dayOfBirthInt = Convert.ToInt32(dayOfBirthString);
+
+            Console.ForegroundColor= ConsoleColor.Green;
+            Console.WriteLine("Enter Student Month Of Birth:\n");
+            Console.ResetColor();
+
+            string monthOfBirthString = helper.CheckMonth(Console.ReadLine());
+            int monthOfBirthInt = Convert.ToInt32(monthOfBirthString);
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Enter Student Year Of Birth:\n");
+            Console.ResetColor();
+
+            
         }
 
         public void PrintStudents(List<Student> students)

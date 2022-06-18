@@ -82,61 +82,132 @@ namespace PARTB.Models.CustomValidations
             return nameInput;
         }
 
+        public string CheckValidLastName(string nameInput)
+        {
+
+            bool isValid = false;
+            bool containsRegularDigits = false;
+            while (!isValid || !containsRegularDigits)
+            {
+
+                if (string.IsNullOrEmpty(nameInput))
+                {
+                    isValid = false;
+                    ErrorMessage.FirstNameCannotBeNull();
+                    nameInput = Console.ReadLine();
+                }
+                else
+                {
+
+                    //process 1
+                    containsRegularDigits = Regex.IsMatch(nameInput, @"^[a-zA-Z]+$");
+                    if (!containsRegularDigits)
+                    {
+                        ErrorMessage.LastNameCannotContainNumbersOrSpecialCharacters();
+                        nameInput = Console.ReadLine();
+                    }
+                    else
+                    {
+                        containsRegularDigits = true;
+                        if (nameInput.Length < 2 || nameInput.Length > 50)
+                        {
+                            isValid = false;
+                            ErrorMessage.LastNameMustBeInRange();
+                            nameInput = Console.ReadLine();
+                        }
+                        else
+                        {
+                            isValid = true;
+                        }
+                    }
+                }
+            }
+            return nameInput;
+        }
+        public string CheckDay(string day)
+        {
+            int numericValue;
+            bool isNumber = false;
+            bool isValidRange = false;
+            int InputDay = -1;
+
+            while (!isNumber || !isValidRange)
+            {
+                isNumber = int.TryParse(day, out numericValue);
+
+                if (isNumber)
+                {
+                    InputDay = numericValue;
+
+                    bool IsInValidDayRange = (InputDay >= 1 && InputDay <= 30);
+                    if (IsInValidDayRange)
+                    {
+                        isValidRange = true;
+                    }
+                    else
+                    {
+                        isValidRange = false;
+                        ErrorMessage.DayMustBeInValidRange();
+                        day = Console.ReadLine();
+                    }
+                }
+                else
+                {
+                    isNumber = false;
+                    ErrorMessage.DayMustBeInteger();
+                    day = Console.ReadLine();
+
+                }
+            }
+            return day;
+        }
+
+        public string CheckMonth(string month)
+        {
+            int numericValue;
+            bool isNumber = false;
+            bool isValidRange = false;
+            int InputMonth = -1;
+
+            while (!isNumber || !isValidRange)
+            {
+                isNumber = int.TryParse(month, out numericValue);
+
+                if (isNumber)
+                {
+                    InputMonth = numericValue;
+
+                    bool IsInValidMonthRange = (InputMonth >= 1 && InputMonth <= 12);
+                    if (IsInValidMonthRange)
+                    {
+                        isValidRange = true;
+                    }
+                    else
+                    {
+                        isValidRange = false;
+                        ErrorMessage.MonthMustBeInValidRange();
+                        month = Console.ReadLine();
+                    }
+                }
+                else
+                {
+                    isNumber = false;
+                    ErrorMessage.MonthMustBeInteger();
+                    month = Console.ReadLine();
+
+                }
+            }
+            return month;
+        }
+
     }
-
-    //    public int CheckDay(string day)
-    //    {
-    //        int numericValue;
-    //        bool isNumber = false;
-    //        bool isValidRange = false;
-    //        int InputDay = -1;
-    //        while (!isNumber || !isValidRange)
-    //        {
-    //            isNumber = int.TryParse(day, out numericValue);
-
-    //            if (isNumber)
-    //            {
-    //                InputDay = numericValue;
-    //                Func<int, bool> ValidDayRange = null;
-    //                Func<int, bool> IsInValidDay = ValidDayRange;
-    //                bool IsInValidDayRange = IsInValidDay.Invoke(InputDay);
-    //                if (IsInValidDayRange)
-    //                {
-    //                    isValidRange = true;
-    //                }
-    //                else
-    //                {
-    //                    isValidRange = false;
-    //                    ErrorMessage.PrintDayMustBeInRange();
-    //                    day = Console.ReadLine();
-    //                }
-    //            }
-    //            else
-    //            {
-    //                ErrorMessage.PrintDayMustBeInteger();
-    //                day = Console.ReadLine();
-    //            }
-    //        }
-    //        return InputDay;
-    //    }
-    //    public static bool ValidDayRange(int day)
-    //    {
-    //        bool LowestDayRange = day >= 1;
-    //        bool HighestDayRange = day <= 30;
-    //        if (LowestDayRange && HighestDayRange)
-    //        {
-    //            return true;
-    //        }
-    //        else
-    //        {
-    //            return false;
-    //        }
-    //    }
-    //#endregion
-
-
-
 
 
     #endregion
+
+
+
+
+
+
 }

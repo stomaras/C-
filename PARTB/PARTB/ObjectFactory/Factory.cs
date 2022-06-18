@@ -1,4 +1,5 @@
-﻿using PARTB.View.ErrorMessages;
+﻿using PARTB.Models.CustomValidations;
+using PARTB.View.ErrorMessages;
 using PARTB.View.StudentView;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,9 @@ namespace PARTB.ObjectFactory
             return new PrintStudent();
         }
 
-        
+        public static Helper CreateHelperObject()
+        {
+            return new Helper();
+        }
     }
 }

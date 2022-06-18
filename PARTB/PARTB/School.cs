@@ -19,13 +19,10 @@ namespace PARTB
 
             Helper helper = new Helper();
             bool isNumber = false;
+
             while (input != "e" && input != "E")
             {
-
-
-
                 Menu.ShowMenu();
-
 
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("Choose an option");
