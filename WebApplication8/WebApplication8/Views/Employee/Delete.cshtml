@@ -29,6 +29,23 @@
         <dd>
             @Html.DisplayNameFor(model => model.Project.Title) : @(Model.Project != null ? Model.Project.Title : "No Project")
         </dd>
+        <dd>
+            @Html.DisplayNameFor(model => model.Managers) : 
+            <ul>
+                @foreach (var manager in Model.Managers)
+                {
+                    if (manager == null)
+                    {
+                        <li>No Managers</li>
+                    }
+                    else
+                    {
+                        <li>@manager.FullName</li>
+                    }
+                }
+            </ul>
+           
+        </dd>
 
     </dl>
 

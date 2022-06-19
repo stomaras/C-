@@ -15,6 +15,7 @@
             <th>Hire Date</th>
             <th>Salary</th>
             <th>Project</th>
+            <th>Managers</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -27,7 +28,21 @@
             <td>@Model.HireDate.ToString("d")</td>
             <td>@Model.Salary</td>
             <td>@(Model.Project != null ? Model.Project.Title : "No Project")</td>
-
+            <td>
+                <ul>
+                    @if (Model == null)
+                    {
+                        <li>No Managers</li>
+                    }
+                    else
+                    {
+                        foreach (var manager in Model.Managers)
+                        {
+                            <li>@manager.FirstName</li>
+                        }
+                    }
+                </ul>
+            </td>
 
             <td><a class="btn btn-info" href="/Employee/Index">Go Back</a></td>
         </tr>

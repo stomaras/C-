@@ -17,7 +17,7 @@ namespace WebApplication8.MyDatabase
         public DbSet<Employee> Employees { get; set; }
 
         public DbSet<Project> Projects { get; set; }
-        //    public DbSet<Manager> Managers { get; set; }
-        //}
+        
+        public DbSet<Manager> Managers { get; set; }
     }
 }

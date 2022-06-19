@@ -24,6 +24,7 @@
             <th>Salary</th>
             <th>Country</th>
             <th>Project</th>
+            <th>Managers</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -46,7 +47,21 @@
                 {
                     <td>@emp.Project.Title</td>
                 }
-
+                <td>
+                    <ul>
+                        @foreach (var manager in emp.Managers)
+                        {
+                            if (manager == null)
+                            {
+                                <li>No Manager</li>
+                            }
+                            else
+                            {
+                                <li>@manager.FullName</li>
+                            }
+                        }
+                    </ul>
+                </td>
                 <td>
                     <a class="btn btn-info" href="/Employee/Details?Id=@emp.Id">Details</a>
                     <a class="btn btn-primary" href="/Employee/Edit?Id=@emp.Id">Edit</a>

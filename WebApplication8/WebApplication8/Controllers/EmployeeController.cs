@@ -16,18 +16,20 @@ namespace WebApplication8.Controllers
 
         private EmployeeRepository employeeRepository;
         private ProjectRepository projectRepository;
+        private ManagerRepository managerRepository;
 
         public EmployeeController()
         {
             employeeRepository = new EmployeeRepository(db);
             projectRepository = new ProjectRepository(db);
+            managerRepository = new ManagerRepository(db);
         }
 
 
         // GET: Employee
         public ActionResult Index()
         {
-            var employees = employeeRepository.GetAllWithProjects();
+            var employees = employeeRepository.GetAllWithProjectsWithManagers();
             return View(employees);
         }
 
@@ -38,7 +40,7 @@ namespace WebApplication8.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var employee = employeeRepository.GetByIdProjects(id);
+            var employee = employeeRepository.GetByIdWithProjectWithEmployees(id);
             
             return View(employee);
         }
@@ -46,22 +48,32 @@ namespace WebApplication8.Controllers
         // GET : Create
         public ActionResult Create()
         {
+            GetManagers();
             GetProjects();
-            return View();
+            Employee employee = new Employee()
+            {
+                FirstName = "Spyros",
+                LastName = "Tom",
+                Age = 24,
+                HireDate = DateTime.Now,
+                Salary = 1000
+            };
+            return View(employee);
         }
 
         // POST : Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Employee employee)
+        public ActionResult Create(Employee employee, List<int> managerIds)
         {
             if (ModelState.IsValid)
             {
-                employeeRepository.Add(employee);
+                employeeRepository.Add(employee, managerIds);
                 ShowAlert($"You have successfully created employee with first name {employee.FirstName}, with last name {employee.LastName}");
                 return RedirectToAction("Index");
             }
 
+            GetManagers();
             GetProjects();
             return View(employee);
 
@@ -99,7 +111,7 @@ namespace WebApplication8.Controllers
         // GET DELETE
         public ActionResult Delete(int? id)
         {
-            var employee = employeeRepository.GetByIdProjects(id);
+            var employee = employeeRepository.GetByIdWithProjectWithEmployees(id);
             if (employee == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -140,6 +152,13 @@ namespace WebApplication8.Controllers
         {
             var projects = projectRepository.GetAll();
             ViewBag.Projects = projects;
+        }
+
+        [NonAction]
+        public void GetManagers()
+        {
+            var managers = managerRepository.GetAll();
+            ViewBag.Managers = managers;
         }
 
         #endregion

@@ -28,6 +28,11 @@ namespace WebApplication8.Models
         [Required(ErrorMessage ="Country Required")]
         public Country Country { get; set; }
 
+        public Employee()
+        {
+            Managers = new HashSet<Manager>();
+        }
+
 
 
         // Foreign Keys 
@@ -35,6 +40,8 @@ namespace WebApplication8.Models
 
         // Navigation Properties
         public Project Project { get; set; }
+
+        public ICollection<Manager> Managers { get; set; }
 
 
     }

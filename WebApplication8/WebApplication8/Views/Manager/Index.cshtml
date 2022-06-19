@@ -1,0 +1,60 @@
+﻿@model IEnumerable<WebApplication8.Models.Manager>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index Of Managers</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            Employees
+        </th>
+        <th>
+            Actions
+        </th>
+    </tr>
+
+    @foreach (var manager in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => manager.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => manager.LastName)
+            </td>
+            <td>
+                <ul>
+                    @foreach (var employee in manager.Employees)
+                    {
+                        if (employee == null)
+                        {
+                            <li>No Employees</li>
+                        }
+                        else
+                        {
+                            <li>@employee.FirstName</li>
+                        }
+                    }
+                </ul>
+
+            </td>
+            <td>
+                <a class="btn btn-info" href="/Manager/Details?Id=@manager.Id">Details</a>
+                <a class="btn btn-primary" href="/Manager/Edit?Id=@manager.Id">Edit</a>
+                <a class="btn btn-danger" href="/Manager/Delete?Id=@manager.Id">Delete</a>
+            </td>
+        </tr>
+    }
+
+</table>
+<a class="btn btn-success" href="/Manager/Create">Create</a>
+
+

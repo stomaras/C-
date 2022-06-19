@@ -31,11 +31,29 @@ namespace WebApplication8.Repositories
             return employeesWithProjects;
         }
 
+        public List<Employee> GetAllWithProjectsWithManagers()
+        {
+            var employeesWithProjectWithManagers = db.Employees
+                .Include(x => x.Project)
+                .Include(x => x.Managers)
+                .ToList();
+            return employeesWithProjectWithManagers;
+        }
+
         
 
         public Employee GetById(int? id)
         {
             var employee = db.Employees.Find(id);
+            return employee;
+        }
+
+        public Employee GetByIdWithProjectWithEmployees(int? id)
+        {
+            var employee = db.Employees
+                .Include(x => x.Project)
+                .Include(x => x.Managers)
+                .FirstOrDefault(x => x.Id == id);
             return employee;
         }
 
@@ -51,6 +69,23 @@ namespace WebApplication8.Repositories
             db.Entry(emp).State = EntityState.Added;
             db.SaveChanges();
         }
+
+        public void Add(Employee emp, List<int> managerIds)
+        {
+            foreach (var id in managerIds)
+            {
+                var manager = db.Managers.Find(id);
+                if (manager != null)
+                {
+                    emp.Managers.Add(manager);
+                }
+            }
+
+            db.Entry(emp).State = EntityState.Added;
+            db.SaveChanges();
+        }
+
+
 
         public void Edit(Employee emp)
         {
