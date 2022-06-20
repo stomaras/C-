@@ -200,6 +200,169 @@ namespace PARTB.Models.CustomValidations
             return month;
         }
 
+        public string CheckYear(string year)
+        {
+            int numericValue;
+            bool isNumber = false;
+            bool isValidRange = false;
+            int InputYear = -1;
+
+            while (!isNumber || !isValidRange)
+            {
+                isNumber = int.TryParse(year, out numericValue);
+
+                if (isNumber)
+                {
+                    InputYear = numericValue;
+
+                    Func<int, bool> IsInValidYear = ValidYearRange;
+                    bool IsInValidYearRange = IsInValidYear.Invoke(InputYear);
+
+                    if (IsInValidYearRange)
+                    {
+                        isValidRange = true;
+                    }
+                    else
+                    {
+                        isValidRange = false;
+                        ErrorMessage.YearMustBeInValidRange();
+                        year = Console.ReadLine();
+                    }
+                }
+                else
+                {
+                    isNumber = false;
+                    ErrorMessage.YearMustBeInteger();
+                    year = Console.ReadLine();
+
+                }
+            }
+            return year;
+
+        }
+
+        public int CheckTuitionFees(string tuitionFees)
+        {
+            int numericValue;
+            bool isNumber = false;
+            bool isValidRange = false;
+            int InputTuitionFees = -1;
+            while (!isNumber || !isValidRange)
+            {
+                isNumber = int.TryParse(tuitionFees, out numericValue);
+
+                if (isNumber)
+                {
+                    InputTuitionFees = numericValue;
+                    Func<int, bool> isValidTuitionRange = ValidTuitonRange;
+                    bool IsInValidTuitionFeesRange = isValidTuitionRange.Invoke(InputTuitionFees);
+
+                    if (IsInValidTuitionFeesRange)
+                    {
+                        isValidRange = true;
+                    }
+                    else
+                    {
+                        isValidRange = false;
+                        int LowerTuition = 2100;
+                        int HigherTuition = 2500;
+                        ErrorMessage.TuitionFeesMustBeInRange(LowerTuition, HigherTuition);
+                        tuitionFees = Console.ReadLine();
+                    }
+                }
+                else
+                {
+                    ErrorMessage.TuitionMustBeANumber();
+                    tuitionFees = Console.ReadLine();
+                }
+            }
+            return InputTuitionFees;
+        }
+
+        public string CourseTypeValidation(string type)
+        {
+            bool isValidType = false;
+            bool isValidRegex = Regex.IsMatch(type, @"^[a-zA-Z]+$");
+            Func<string, bool> isValidCourseType = IsValidCourseType;
+            isValidType = isValidCourseType.Invoke(type);
+            while (!isValidRegex || !isValidType)
+            {
+
+                if (isValidRegex)
+                {
+                    isValidRegex = true;
+                    if (isValidType)
+                    {
+                        isValidType = true;
+                    }
+                    else
+                    {
+                        isValidType = false;
+                        ErrorMessage.TypeOfCourseErrorMessage1();
+                        type = Console.ReadLine();
+                    }
+
+                }
+                else
+                {
+                    isValidRegex = false;
+                    ErrorMessage.TypeOfCourseErrorMessage2();
+                    type = Console.ReadLine();
+                }
+            }
+            return type;
+        }
+
+        public int GetValidNumber(string number)
+        {
+            bool isNumber = Regex.IsMatch(number, @"^[0-9]+$");
+            while (!isNumber)
+            {
+                ErrorMessage.CourseIdMustBeNumber();
+                number = Console.ReadLine();
+                isNumber = Regex.IsMatch(number, @"^[0-9]+$");
+            }
+            int courseId = Convert.ToInt32(number);
+            return courseId;
+        }
+
+
+
+
+        public bool IsValidCourseType(string type)
+        {
+            bool isValidCourseType = ((type.ToLower().Equals("java")) || (type.ToLower().Equals("python")) || (type.ToLower().Equals("javascript")) || (type.ToLower().Equals("csharp")));
+            return isValidCourseType;
+        }
+
+
+        public bool ValidYearRange(int inputYear)
+        {
+            bool isValidYear = (inputYear >= 1960 && 18 <= DateTime.Now.Year - inputYear);
+            return isValidYear;
+        }
+
+        public static string YearOfBirthValidRangeMessage(string message)
+        {
+            message = $"Year Must be between 1960 and {DateTime.Now.Year - 18}";
+            return message;
+        }
+
+        public static bool ValidTuitonRange(int TuitionFees)
+        {
+            bool LowerTuition = (TuitionFees == 2100);
+            bool HigherTuition = (TuitionFees == 2500);
+
+            if (LowerTuition || HigherTuition)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
     }
 
 

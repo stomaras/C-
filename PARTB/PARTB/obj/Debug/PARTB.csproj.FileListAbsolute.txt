@@ -40,3 +40,5 @@ C:\Users\spyros\C-\PARTB\PARTB\bin\Debug\NPOI.OOXML.xml
 C:\Users\spyros\C-\PARTB\PARTB\bin\Debug\NPOI.OpenXml4Net.pdb
 C:\Users\spyros\C-\PARTB\PARTB\bin\Debug\NPOI.OpenXml4Net.xml
 C:\Users\spyros\C-\PARTB\PARTB\bin\Debug\NPOI.OpenXmlFormats.pdb
+C:\Users\spyros\C-\PARTB\PARTB\bin\Debug\System.ValueTuple.dll
+C:\Users\spyros\C-\PARTB\PARTB\bin\Debug\System.ValueTuple.xml

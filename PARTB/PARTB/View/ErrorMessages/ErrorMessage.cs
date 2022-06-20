@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PARTB.Models.CustomValidations;
 
 namespace PARTB.View.ErrorMessages
 {
@@ -98,5 +99,70 @@ namespace PARTB.View.ErrorMessages
             Console.WriteLine("Month Must Be A Number!!!");
             Console.ResetColor();
         }
+
+        public static void YearMustBeInValidRange()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+
+            string message = "";
+            Func<string, string> yearRange = Helper.YearOfBirthValidRangeMessage;
+            string yearsOfBirthRange = yearRange.Invoke(message);
+            Console.WriteLine(yearsOfBirthRange);
+            Console.ResetColor();
+        }
+
+        public static void YearMustBeInteger()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Year Must Be Number");
+            Console.ResetColor();
+        }
+
+        public static void TuitionFeesMustBeInRange(int lowRange, int highRange)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"Tuition fees must be {lowRange} or {highRange}");
+            Console.ResetColor();
+        }
+
+        public static void TuitionMustBeANumber()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"Tuition fees must be a number");
+            Console.ResetColor();
+        }
+
+        public static void TypeOfCourseErrorMessage1()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"Type of course must be java <or> python <or> javascript <or> csharp!");
+            Console.ResetColor();
+        }
+
+        public static void TypeOfCourseErrorMessage2()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"Type of course can not contains numbers or special characters!");
+            Console.ResetColor();
+        }
+
+        public static void CourseIdMustBeNumber()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"Course Id must be a number try again:\n");
+            Console.ResetColor();
+        }
+
+        public static void InValidCourseIdRange(int upperBound, int lowerBound)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"Course Id must be in range {lowerBound} - {upperBound} please try again!");
+            Console.ResetColor();
+        }
+
+
+
+
+
     }
 }
