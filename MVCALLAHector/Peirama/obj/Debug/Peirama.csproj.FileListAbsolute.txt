@@ -1,0 +1,15 @@
+C:\Users\spyros\C-\MVCALLAHector\Peirama\bin\Debug\Peirama.exe.config
+C:\Users\spyros\C-\MVCALLAHector\Peirama\bin\Debug\Peirama.exe
+C:\Users\spyros\C-\MVCALLAHector\Peirama\bin\Debug\Peirama.pdb
+C:\Users\spyros\C-\MVCALLAHector\Peirama\obj\Debug\Peirama.csproj.AssemblyReference.cache
+C:\Users\spyros\C-\MVCALLAHector\Peirama\obj\Debug\Peirama.csproj.SuggestedBindingRedirects.cache
+C:\Users\spyros\C-\MVCALLAHector\Peirama\obj\Debug\Peirama.csproj.CoreCompileInputs.cache
+C:\Users\spyros\C-\MVCALLAHector\Peirama\obj\Debug\Peirama.exe
+C:\Users\spyros\C-\MVCALLAHector\Peirama\obj\Debug\Peirama.pdb
+C:\Users\spyros\C-\MVCALLAHector\Peirama\bin\Debug\System.ValueTuple.dll
+C:\Users\spyros\C-\MVCALLAHector\Peirama\bin\Debug\System.ValueTuple.xml
+C:\Users\spyros\C-\MVCALLAHector\Peirama\obj\Debug\Peirama.csproj.CopyComplete
+C:\Users\spyros\C-\MVCALLAHector\Peirama\bin\Debug\PagedList.dll
+C:\Users\spyros\C-\MVCALLAHector\Peirama\bin\Debug\PagedList.Mvc.dll
+C:\Users\spyros\C-\MVCALLAHector\Peirama\bin\Debug\PagedList.xml
+C:\Users\spyros\C-\MVCALLAHector\Peirama\bin\Debug\PagedList.Mvc.xml

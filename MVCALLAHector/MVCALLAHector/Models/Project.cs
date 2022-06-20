@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using MVCALLAHector.Models.CustomValidations;
 
 namespace MVCALLAHector.Models
 {
@@ -11,7 +12,9 @@ namespace MVCALLAHector.Models
     {
         public int Id { get; set; }
 
-        
+        [Display(Name ="Title")]
+        [Required(ErrorMessage ="You must give title")]
+        [CustomValidation(typeof(MyValidationMethods), "ValidateFirstCapitalLetter")]
         public string Title { get; set; }
 
         public Project()

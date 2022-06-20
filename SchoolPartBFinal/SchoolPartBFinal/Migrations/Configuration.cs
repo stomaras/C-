@@ -30,8 +30,7 @@
             };
 
             // Upsert
-            students.ForEach(s => context.Students.AddOrUpdate(p => p.FirstName, s));
-            context.SaveChanges();
+           
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method
             //  to avoid creating duplicate seed data.
             #endregion
@@ -53,6 +52,29 @@
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method
             //  to avoid creating duplicate seed data.
             #endregion
+
+            #region Seeding Courses
+
+            Course c1 = new Course { Type = "Java", Stream = "CB16", Start_Date = new DateTime(2022, 02, 28), End_Date = new DateTime(2022, 09, 28) };
+            Course c2 = new Course { Type = "C#", Stream = "CB16", Start_Date = new DateTime(2022, 02, 28), End_Date = new DateTime(2022, 09, 28) };
+            Course c3 = new Course { Type = "Python", Stream = "CB16", Start_Date = new DateTime(2022, 02, 28), End_Date = new DateTime(2022, 09, 28) };
+            Course c4 = new Course { Type = "Javascript", Stream = "CB16", Start_Date = new DateTime(2022, 02, 28), End_Date = new DateTime(2022, 09, 28) };
+
+
+            #endregion
+
+            #region Aggregation Students With Courses
+            students[0].Course = c1;
+            students[1].Course = c2;
+            students[2].Course = c3;
+            students[3].Course = c4;
+
+
+            #endregion
+
+            students.ForEach(s => context.Students.AddOrUpdate(p => p.FirstName, s));
+            context.SaveChanges();
+            
 
         }
     }

@@ -1,0 +1,63 @@
+﻿@model WebApplication8.Models.Employee
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete Employee</h2>
+
+<hr/>
+<div>
+    <dl class="dl-horizontal">
+        <dd>
+            @Html.DisplayNameFor(model => model.FirstName) : @Model.FirstName
+        </dd>
+        <dd>
+            @Html.DisplayNameFor(model => model.LastName) : @Model.LastName
+        </dd>
+        <dd>
+            @Html.DisplayNameFor(model => model.Age) : @Model.Age
+        </dd>
+        <dd>
+            @Html.DisplayNameFor(model => model.HireDate) : @Model.HireDate.ToString("d")
+        </dd>
+        <dd>
+            @Html.DisplayNameFor(model => model.Salary) : @Model.Salary
+        </dd>
+        <dd>
+            @Html.DisplayNameFor(model => model.Country) : @Model.Country
+        </dd>
+        <dd>
+            @Html.DisplayNameFor(model => model.Project.Title) : @(Model.Project != null ? Model.Project.Title : "No Project")
+        </dd>
+        <dd>
+            @Html.DisplayNameFor(model => model.Managers) : 
+            <ul>
+                @foreach (var manager in Model.Managers)
+                {
+                    if (manager == null)
+                    {
+                        <li>No Managers</li>
+                    }
+                    else
+                    {
+                        <li>@manager.FullName</li>
+                    }
+                }
+            </ul>
+           
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" />
+            @Html.ActionLink("Back To List", "Index", "" ,new {@class = "btn btn-info"})
+        </div>
+
+    }
+</div>
+

@@ -1,0 +1,83 @@
+﻿@model IEnumerable<WebApplication6mvc.Models.Employee>
+@using WebApplication6mvc.Models.Enums
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (TempData["message"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["message"]
+    </div>
+}
+<br />
+<br />
+
+<div>
+    <form>
+
+        @{
+            var countries = Enum.GetNames(typeof(Country));
+        }
+        <select name="searchCountry">
+
+
+
+            <option value=""></option>
+            @foreach (var country in countries)
+            {
+
+                <option>@country</option>
+            }
+        </select>
+
+        <input type="number" name="searchMin" value="@(ViewBag.CurrentMin == null ? ViewBag.MinAge : ViewBag.CurrentMin)" placeholder="Give your min age" min="@ViewBag.MinAge" max="@ViewBag.MaxAge" />
+        <input type="number" name="searchMax" value="@(ViewBag.CurrentMax == null ? ViewBag.MaxAge : ViewBag.CurrentMax)" placeholder="Give your max age" min="@ViewBag.MinAge" max="@ViewBag.MaxAge" />
+
+
+        <input type="text" name="searchName" value="@ViewBag.CurrentSearchName" placeholder="Search Name" />
+
+        <input type="submit" value="Search Employee" />
+    </form>
+</div>
+
+<br />
+<br />
+<h2>Index Employees</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+            <th>Hire Date</th>
+            <th>Country</th>
+            <th>Project</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+        {
+            <tr>
+                <td>@employee.FirstName</td>
+                <td>@employee.LastName</td>
+                <td>@employee.Age</td>
+                <td>@employee.HireDate</td>
+                <td>@employee.Country</td>
+                <td>@employee.Project.Title</td>
+                <td>
+                    <a class="btn btn-primary" href="/Employee/Details?Id=@employee.Id">Details</a>
+                    <a class="btn btn-danger" href="/Employee/Delete?Id=@employee.Id">Delete</a>
+                    <a class="btn btn-info" href="/Employee/Edit?Id=@employee.Id">Edit</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+<a class="btn btn-info" href="/Employee/Create">Create</a>
+

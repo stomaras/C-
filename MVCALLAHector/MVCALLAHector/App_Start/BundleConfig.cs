@@ -25,6 +25,15 @@ namespace MVCALLAHector
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/mitsos")
+                .Include(
+                    "~/Content/bootstrap.css",
+                    "~/Content/site.css",
+                    "~/Content/MyCss.css"
+
+                    )
+                );
         }
     }
 }

@@ -1,0 +1,50 @@
+﻿@model WebApplication8.Models.Manager
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details of Manager</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            Employees
+        </th>
+        <th>
+            Actions
+        </th>
+    </tr>
+
+    <tr>
+        <td>@Model.FirstName</td>
+        <td>@Model.LastName</td>
+        <td>
+            <ul>
+                @foreach (var employee in Model.Employees)
+                {
+                    if (employee == null)
+                    {
+                        <li>No Employees</li>
+                    }
+                    else
+                    {
+                        <li>@employee.FirstName</li>
+                    }
+                }
+                </ul>
+            </td>
+        <td>
+            <a class="btn btn-primary" href="/Manager/Index">Go Back</a>
+        </td>
+    </tr>
+
+</table>
+
+
+

@@ -1,0 +1,59 @@
+﻿@model MVCALLAHector.Models.Movie
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details Of Movie</h2>
+
+<div>
+    <table class="table">
+
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Title
+                </th>
+                <th>Price</th>
+                <th>Rating</th>
+                <th>Genre</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr>
+                <td>
+                    @Model.Id
+                </td>
+                <td>
+                    @Model.Title
+                </td>
+                <td>
+                    @Model.Price
+                </td>
+                <td>@Model.Rating</td>
+                @if (Model.Genre == null)
+                {
+                    <td>Unknown</td>
+                }
+                else
+                {
+                    <td>@Model.Genre.Kind</td>
+                }
+
+
+                <td>
+                    <a class="btn btn-primary" href="/Movie/Index">Go Back</a>
+                </td>
+            </tr>
+            
+        </tbody>
+
+
+
+    </table>
+</div>
+

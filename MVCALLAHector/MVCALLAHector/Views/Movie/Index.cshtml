@@ -1,0 +1,105 @@
+﻿@model PagedList.IPagedList<MVCALLAHector.Models.Movie>
+@using MVCALLAHector.Models
+@using PagedList;
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index Movies</h2>
+@if (TempData["message"] != null)
+{
+    <div class="alert alert-success">
+        <strong></strong> @TempData["message"]
+    </div>
+}
+<br />
+<br />
+
+<div>
+    <form>
+
+        <input type="number" step="any" name="searchMinPrice" value="@(ViewBag.currentMinPrice == null ? ViewBag.MinPrice :ViewBag.currentMinPrice )" placeholder="Give your Min Price" min="@ViewBag.MinPrice" max="@ViewBag.MaxPrice" />
+        <input type="number" step="any" name="searchMaxPrice" value="@(ViewBag.currentMaxPrice == null ? ViewBag.MaxPrice :ViewBag.currentMaxPrice)" placeholder="Give your Max Price" min="@ViewBag.MinPrice" max="@ViewBag.MaxPrice" />
+
+        <input type="text" name="searchTitle" value="@ViewBag.currentTitle" placeholder="Search Movie Title" />
+        <input type="text" name="searchGenre" value="@ViewBag.currentGenre" placeholder="Search Movie Genre" />
+        <input type="submit" value="Search Movie" />
+    </form>
+</div>
+
+<br />
+<br />
+
+
+
+
+<div>
+    <strong>Page @(Model.PageCount < Model.PageNumber? 0 : Model.PageNumber) of @Model.PageCount</strong>
+</div>
+
+
+<div>
+    <table class="table">
+
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>@Html.ActionLink("Title", "Index", "Movie", new { sortOrder = ViewBag.TitleSortParam, searchTitle = ViewBag.currentTitle, searchGenre = ViewBag.currentGenre, searchMinPrice = ViewBag.currentMinPrice, searchMaxPrice = ViewBag.currentMaxPrice }, null)</th>
+                <th>@Html.ActionLink("Price", "Index", "Movie", new { sortOrder = ViewBag.PriceSortParam, searchTitle = ViewBag.currentTitle, searchGenre = ViewBag.currentGenre, searchMinPrice = ViewBag.currentMinPrice, searchMaxPrice = ViewBag.currentMaxPrice }, null)</th>
+                <th>@Html.ActionLink("Rating", "Index", "Movie", new { sortOrder = ViewBag.RatingSortParam, searchTitle = ViewBag.currentTitle, searchGenre = ViewBag.currentGenre, searchMinPrice = ViewBag.currentMinPrice, searchMaxPrice = ViewBag.currentMaxPrice }, null)</th>
+                <th>@Html.ActionLink("Genre", "Index", "Movie", new { sortOrder = ViewBag.GenreKindParam, searchTitle = ViewBag.currentTitle, searchGenre = ViewBag.currentGenre, searchMinPrice = ViewBag.currentMinPrice, searchMaxPrice = ViewBag.currentMaxPrice }, null)</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var movie in Model)
+            {
+                <tr>
+                    <td>
+                        @movie.Id
+                    </td>
+                    <td>
+                        @movie.Title
+                    </td>
+                    <td>
+                        @movie.Price
+                    </td>
+                    <td>@movie.Rating</td>
+
+                    @if (movie.Genre == null)
+                    {
+                        <td>Unknown</td>
+                    }
+                    else
+                    {
+                        <td>@movie.Genre.Kind</td>
+                    }
+
+                    <td>
+                        <a class="btn btn-primary" href="/Movie/Details?Id=@movie.Id">Details</a>
+                        <a class="btn btn-danger" href="/Movie/Delete?Id=@movie.Id">Delete</a>
+                        <a class="btn btn-info" href="/Movie/Edit?Id=@movie.Id">Edit</a>
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+
+
+
+    </table>
+
+</div>
+
+<div>@Html.PagedListPager(Model, x => Url.Action("Index", "Movie", new { page = x, pSize = 2 }))</div>
+
+@Html.ActionLink("Create", "Create", null, null, new { @class = "btn btn-success" })
+
+
+
+
+
+

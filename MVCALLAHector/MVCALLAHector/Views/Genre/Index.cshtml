@@ -1,0 +1,55 @@
+﻿@model IEnumerable<MVCALLAHector.Models.Genre>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index Genres</h2>
+
+@if (TempData["message"] != null)
+{
+    <div class="alert alert-success">
+        <strong></strong>@TempData["message"]
+    </div>
+}
+
+<div>
+    <table class="table">
+
+        <thead>
+            <tr>
+                <th>Kind</th>
+                <th>Movies</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var genre in Model)
+            {
+                <tr>
+                    <td>@genre.Kind</td>
+                    <td>
+                        <ul>
+                            @foreach (var movie in genre.Movies)
+                            {
+                                <li>@movie.Title</li>
+                            }
+                        </ul>
+                    </td>
+                    <td>
+                        <a class="btn btn-primary" href="/Genre/Details?Id=@genre.GenreId">Details</a>
+                        <a class="btn btn-danger" href="/Genre/Delete?Id=@genre.GenreId">Delete</a>
+                        <a class="btn btn-info" href="/Genre/Edit?Id=@genre.GenreId">Edit</a>
+                    </td>
+                </tr>
+            }
+
+
+        </tbody>
+
+
+
+    </table>
+    <a class="btn btn-success" href="/Genre/Create">Create</a>
+
+</div>
+

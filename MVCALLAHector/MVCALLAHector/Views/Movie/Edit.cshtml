@@ -1,0 +1,58 @@
+﻿@model MVCALLAHector.Models.Movie
+@using MVCALLAHector.Models
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit Movie</h2>
+
+<form method="post" action="/Movie/Edit">
+
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.Id)
+    <div class="form-group">
+        @Html.LabelFor(m => m.Title)
+        @Html.EditorFor(m => m.Title, new { htmlAttributes = new { @class = "form-control", placeholder = "Give Your Title" } })
+    </div>
+    @Html.ValidationMessageFor(m => m.Title, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Price)
+        @Html.EditorFor(m => m.Price, new { htmlAttributes = new { @class = "form-control", placeholder = "Give Your Price" } })
+    </div>
+    @Html.ValidationMessageFor(m => m.Price, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Rating)
+        @Html.EditorFor(m => m.Rating, new { htmlAttributes = new { @class = "form-control", placeholder = "Give Your Rating" } })
+    </div>
+    @Html.ValidationMessageFor(m => m.Rating, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @if (Model.Genre == null)
+        {
+            @Html.LabelFor(m => m.Genre.Kind)
+            @Html.EditorFor(m => m.Genre.Kind, new { htmlAttributes = new { @class = "form-control", value = "", placeholder = "Give Your Genre" } })
+            @Html.ValidationMessageFor(m => m.Rating, "", new { @class = "text-danger" })
+        }
+        else
+        {
+            foreach (var genre in ViewBag.Genres as List<Genre>)
+            {
+                if (genre.Kind == Model.Genre.Kind)
+                {
+                    @Html.LabelFor(m => m.Genre.Kind)
+                    @Html.EditorFor(m => m.Genre.Kind, new { htmlAttributes = new { @class = "form-control", value = genre.Kind, placeholder = "Give Your Genre" } })
+                    @Html.ValidationMessageFor(m => m.Rating, "", new { @class = "text-danger" })
+                }
+            }
+        }
+    </div>
+
+
+    <input class="btn btn-success" type="submit" value="Edit" />
+    @Html.ActionLink("Go Back", "Index", "Movie", null, new { @class = "btn btn-primary" })
+
+</form>
+

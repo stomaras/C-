@@ -1,1 +1,30 @@
-﻿
+﻿@model MVCALLAHector.Models.ViewModels.MovieGenres
+
+@Model.Title
+
+<hr/>
+
+@foreach (var movie in Model.Movies)
+{
+    <h1>@movie.Title</h1>
+}
+
+@foreach (var genre in Model.Genres)
+{
+    <h1>@genre.Kind</h1>
+}
+
+
+<hr/>
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            @{Html.RenderAction("Index", "Employee", new { sortOrder = "AgeAsc" });}
+        </div>
+        <div class="col-6">
+            @{Html.RenderAction("Index", "Movie");}
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<MVCDAY5Web.Models.Employee>
+
+@if (TempData["message"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["message"]
+    </div>
+}
+
+
+<h2>Index of Employees</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Photo</td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Age</td>
+            <td>Hire Date</td>
+            <td>Country</td>
+            <td>Project</td>
+            <td>Actions</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var emp in Model)
+        {
+            <tr>
+                <td><img width="100" src="@emp.Photo" /></td>
+                <td>@emp.FirstName</td>
+                <td>@emp.LastName</td>
+                <td>@emp.Age</td>
+                <td>@emp.HireDate.ToString("d")</td>
+                <td>@emp.Country</td>
+                <td>@emp.Project.Title</td>
+                <td>
+                    <a class="btn btn-primary" href="/Employee/Details?id=@emp.Id">Details</a>
+                    <a class="btn btn-danger" href="/Employee/Delete?id=@emp.Id">Delete</a>
+                    <a class="btn btn-info" href="/Employee/Edit?id=@emp.Id">Edit</a>
+                </td>
+            </tr>
+        }
+        
+
+    </tbody>
+
+
+</table>
+
+<a class="btn btn-info" href="/Employee/Create">Create</a>
+

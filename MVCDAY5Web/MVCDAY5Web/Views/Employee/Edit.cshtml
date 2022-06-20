@@ -1,0 +1,74 @@
+﻿@model MVCDAY5Web.Models.Employee
+@using MVCDAY5Web.Models.Enums
+@using MVCDAY5Web.Models
+<h2>Edit Employee</h2>
+
+<form method="post">
+
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.HiddenFor(Model => Model.Id)
+        @Html.LabelFor(m => m.FirstName)
+        @Html.EditorFor(m => m.FirstName, new { htmlAttributes = new { @class = "form-control", placeholder = "Give your First Name" } })
+    </div>
+    @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.LastName)
+        @Html.EditorFor(m => m.LastName, new { htmlAttributes = new { @class = "form-control", placeholder = "Give your Last Name" } })
+    </div>
+    @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Age)
+        @Html.EditorFor(m => m.Age, new { htmlAttributes = new { @class = "form-control", placeholder = "Give your Age" } })
+    </div>
+    @Html.ValidationMessageFor(m => m.Age, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.HireDate)
+        @Html.EditorFor(m => m.HireDate, new { htmlAttributes = new { @class = "form-control", type = "text", placeholder = "Give Hire Date" } })
+    </div>
+    @Html.ValidationMessageFor(m => m.HireDate, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Photo)
+        @Html.EditorFor(m => m.Photo, new { htmlAttributes = new { @class = "form-control", type = "url", placeholder = "Give Photo" } })
+    </div>
+    @Html.ValidationMessageFor(m => m.Photo, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Country)
+        @Html.DropDownListFor(m => m.Country, new SelectList(Enum.GetValues(typeof(Country))), new { @class = "form-control" })
+    </div>
+
+    <label for="project">Select Project</label>
+    <div class="form-group">
+        <select id="project" name="projectId" class="form-control">
+            @foreach (var project in ViewBag.Projects as List<Project>)
+            {
+                if (project.Id == Model.ProjectId)
+                {
+                    <option selected value="@project.Id">@project.Title</option>
+                }
+                else
+                {
+                    <option value="@project.Id">@project.Title</option>
+                }
+
+            }
+
+
+        </select>
+    </div>
+
+    @Html.ValidationMessageFor(m => m.Country, "", new { @class = "text-danger" })
+    <input class="btn btn-primary" type="submit" value="Edit" />
+    @Html.ActionLink("Go Back", "Index", "Employee", new { @class = "btn btn-info" })
+
+
+</form>
+
+
+

@@ -25,15 +25,27 @@ namespace MVCALLAHector.Models
         public int Age { get; set; }
 
         [Display(Name = "Hire Date")]
+        [DisplayFormat(ApplyFormatInEditMode =true, DataFormatString ="{0:yyyy-MM-dd}")]
         public DateTime HireDate { get; set; }
         public Country Country { get; set; }
 
         public string PhotoUrl { get; set; }
+
+
+        public Employee()
+        {
+            Managers = new HashSet<Manager>();
+        }
+
+
+
 
         // Foreign Keys
         public int ProjectId { get; set; }
 
         // Navigation Properties
         public Project Project { get; set; }
+
+        public ICollection<Manager> Managers { get; set; }
     }
 }

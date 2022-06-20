@@ -1,0 +1,32 @@
+﻿@model MVCDAY5Web.Models.Employee
+
+
+<h2>Details of Employee</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <td>Photo</td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Age</td>
+            <td>Hire Date</td>
+            <td>Country</td>
+            <td>Actions</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td><img width="100" src="@Model.Photo" /></td>
+            <td>@Model.FirstName</td>
+            <td>@Model.LastName</td>
+            <td>@Model.Age</td>
+            <td>@Model.HireDate.ToString("d")</td>
+            <td>@Model.Country</td>
+            <td>
+                <a class="btn btn-primary" href="/Employee/Index">Go Back</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
