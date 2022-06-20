@@ -28,6 +28,18 @@ namespace PARTB.Repositories.CourseRepository
             return courses;
         }
 
+        public List<int> GetAllCoursesIds()
+        {
+            List<int> courseIds = new List<int>();
+            var courses = GetAllCourses();
+            foreach (var course in courses)
+            {
+                courseIds.Add(course.CourseId);
+            }
+            return courseIds;
+
+        }
+
         public List<Course> GetAllCoursesWithStudents()
         {
             var coursesWithStudents = db.Courses.Include(x => x.Students).ToList();
@@ -43,7 +55,7 @@ namespace PARTB.Repositories.CourseRepository
             var coursesWithTrainers = db.Courses.Include(x => x.Trainers).ToList();
             if (coursesWithTrainers == null)
             {
-                throw new NotImplementedException("Courses join with trainers can not implemented IIn Database!!!");
+                throw new NotImplementedException("Courses join with trainers can not implemented In Database!!!");
             }
             return coursesWithTrainers;
         }

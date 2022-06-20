@@ -33,6 +33,12 @@ namespace PARTB.Repositories
 
         }
 
+        public List<Student> GetAllStudentsWithProjects()
+        {
+            var students = db.Students.Include(x => x.Course).ToList();
+            return students;
+        }
+
        
 
         public Student GetStudentById(int id)
