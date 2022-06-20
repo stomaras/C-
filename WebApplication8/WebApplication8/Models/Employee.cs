@@ -10,16 +10,18 @@ namespace WebApplication8.Models
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage="First Name Required")]
+        [Required(ErrorMessage = "First Name Required")]
         public string FirstName { get; set; }
 
         [Required(ErrorMessage = "Last Name Required")]
         public string LastName { get; set; }
 
-        [Required(ErrorMessage ="Age Required")]
+        [Required(ErrorMessage = "Age Required")]
         public int Age { get; set; }
 
-        [Required(ErrorMessage ="Hire Date Required")]
+        [Required(ErrorMessage = "Hire Date Required")]
+        [Display(Name = "Hire Date")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime HireDate { get; set; }
 
         [Required(ErrorMessage ="Salary Required")]

@@ -5,6 +5,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication8.Models;
+using WebApplication8.Models.FilterEmployee;
 using WebApplication8.MyDatabase;
 using WebApplication8.Repositories;
 
@@ -30,6 +31,11 @@ namespace WebApplication8.Controllers
         public ActionResult Index()
         {
             var employees = employeeRepository.GetAllWithProjectsWithManagers();
+
+            // Filtering...
+
+            
+
             return View(employees);
         }
 
@@ -40,7 +46,7 @@ namespace WebApplication8.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var employee = employeeRepository.GetByIdWithProjectWithEmployees(id);
+            var employee = employeeRepository.GetByIdWithProjectWithManagers(id);
             
             return View(employee);
         }
@@ -68,7 +74,15 @@ namespace WebApplication8.Controllers
         {
             if (ModelState.IsValid)
             {
-                employeeRepository.Add(employee, managerIds);
+                if (managerIds == null)
+                {
+                    employeeRepository.Add(employee);
+                }
+                else
+                {
+                    employeeRepository.Add(employee, managerIds);
+                }
+                
                 ShowAlert($"You have successfully created employee with first name {employee.FirstName}, with last name {employee.LastName}");
                 return RedirectToAction("Index");
             }
@@ -82,36 +96,40 @@ namespace WebApplication8.Controllers
         // GET : Edit
         public ActionResult Edit(int? id)
         {
-            var employee = employeeRepository.GetByIdProjects(id);
-            if (employee == null)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            var employee = employeeRepository.GetByIdWithProjectWithManagers(id);
+            if (employee == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+            }
+            GetManagers();
             GetProjects();
             return View(employee);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Employee employee)
+        public ActionResult Edit(Employee employee, List<int> managerIds)
         {
             if (ModelState.IsValid)
             {
-                employeeRepository.Edit(employee);
+                employeeRepository.Edit(employee, managerIds);
                 ShowAlert($"Employee with first name {employee.FirstName}, with Last name {employee.LastName} edited successfully!!!");
                 return RedirectToAction("Index");
             }
+            GetManagers();
             GetProjects();
             return View(employee);
-
-            
         }
 
 
         // GET DELETE
         public ActionResult Delete(int? id)
         {
-            var employee = employeeRepository.GetByIdWithProjectWithEmployees(id);
+            var employee = employeeRepository.GetByIdWithProjectWithManagers(id);
             if (employee == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -122,10 +140,15 @@ namespace WebApplication8.Controllers
         // POST DELETE
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int id, List<int> managerIds)
         {
             Employee employee = employeeRepository.GetById(id);
-            employeeRepository.Delete(employee);
+            
+                employeeRepository.Delete(employee);
+            
+               
+            
+            
             ShowAlert($"Employee with first name {employee.FirstName}, with last name {employee.LastName} deleted successfully!!!");
             return RedirectToAction("Index");
         }
