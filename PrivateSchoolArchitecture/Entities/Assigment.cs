@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    public class Assigment
-    {
+    public class Assigment : SchoolEntity
+    { 
 
         public Assigment()
         {
@@ -17,7 +17,6 @@ namespace Entities
         public int AssigmentId { get; set; }
         public string Description { get; set; }
         public DateTime SubDateTime { get; set; }
-        public int OralMark { get; set; }
         public int TotalMark { get; set; }
 
         //Navigation Properties

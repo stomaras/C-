@@ -160,6 +160,52 @@ namespace PARTB.View.ErrorMessages
             Console.ResetColor();
         }
 
+        public static void ValidTrainerSubject()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("$ Subject must be <<java>> or <<python>> or <<javascript>> or <<csharp>>!");
+            Console.ResetColor();
+        }
+
+        public static void ValidCourseTitles(List<string> validTitles)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"Valid course title must be:\n");
+            foreach (var title in validTitles)
+            {
+                Console.WriteLine(title + " ");
+            }
+            Console.WriteLine();
+            Console.WriteLine("Try again:\n");
+            Console.ResetColor();
+        }
+
+        public static void AllValidCourseTypes(List<string> validTypes)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"Valid course type must be:\n");
+            foreach (var type in validTypes)
+            {
+                Console.WriteLine(type + " ");
+            }
+            Console.WriteLine();
+            Console.WriteLine("Try again:\n");
+            Console.ResetColor();
+        }
+
+        public static void StartMonthMustBeInValidRange(List<int> allValidStartMonths)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"All Valid Start Course Months must be : \n");
+            foreach (var start_Month in allValidStartMonths)
+            {
+                Console.WriteLine(start_Month + " ");
+            }
+            Console.WriteLine();
+            Console.WriteLine("Try again:\n");
+            Console.ResetColor();
+        }
+
 
 
 

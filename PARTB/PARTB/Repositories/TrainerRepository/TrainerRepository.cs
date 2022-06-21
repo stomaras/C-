@@ -2,6 +2,7 @@
 using PARTB.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,21 @@ namespace PARTB.Repositories.TrainerRepository
         {
             db = context;
         }
+
+        public void AddTrainer(Trainer trainer)
+        {
+            if (trainer == null)
+            {
+                throw new ArgumentNullException();
+            }
+            else
+            {
+                db.Entry(trainer).State = EntityState.Added;
+                db.SaveChanges();
+            }
+           
+        }
+
         public List<Trainer> GetAllTrainers()
         {
             var trainers = db.Trainers.ToList();

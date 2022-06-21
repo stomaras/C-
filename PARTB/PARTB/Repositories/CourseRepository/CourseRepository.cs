@@ -18,6 +18,11 @@ namespace PARTB.Repositories.CourseRepository
             db = context;
         }
 
+        public void EnterCourseDetailsToCreate()
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Course> GetAllCourses()
         {
             var courses = db.Courses.ToList();

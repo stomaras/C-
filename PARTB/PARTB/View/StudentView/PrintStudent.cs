@@ -15,7 +15,7 @@ namespace PARTB.View.StudentView
         Helper helper = Factory.CreateHelperObject();
         public void EnterStudentDetailsToCreate(out (string firstName, string lastName, DateTime DateOfBirth, int TuitionFees) student)
         {
-            Console.ForegroundColor = ConsoleColor.Green;
+           
 
             Console.WriteLine("Enter Student Details:\n");
 
@@ -25,7 +25,7 @@ namespace PARTB.View.StudentView
             Console.WriteLine("Enter Student Last Name:\n");
             string lastName = helper.CheckValidLastName(Console.ReadLine());
 
-            Console.ForegroundColor = ConsoleColor.Green;
+            
             Console.WriteLine("Enter Student Date Of Birth:\n");
             Console.WriteLine("Enter Student Day Of Birth");
             Console.ResetColor();
@@ -33,32 +33,32 @@ namespace PARTB.View.StudentView
             string dayOfBirthString = helper.CheckDay(Console.ReadLine());
             int dayOfBirthInt = Convert.ToInt32(dayOfBirthString);
 
-            Console.ForegroundColor= ConsoleColor.Green;
+            
             Console.WriteLine("Enter Student Month Of Birth:\n");
-            Console.ResetColor();
+      
 
             string monthOfBirthString = helper.CheckMonth(Console.ReadLine());
             int monthOfBirthInt = Convert.ToInt32(monthOfBirthString);
 
-            Console.ForegroundColor = ConsoleColor.Green;
+           
             Console.WriteLine("Enter Student Year Of Birth:\n");
-            Console.ResetColor();
+            
 
             string yearOfBirth = helper.CheckYear(Console.ReadLine());
             int yearOfBirthInt = Convert.ToInt32(yearOfBirth);
 
             DateTime dateOfBirth = new DateTime(yearOfBirthInt, monthOfBirthInt, dayOfBirthInt);
 
-            Console.ForegroundColor = ConsoleColor.Green;
+           
             Console.WriteLine("Enter Student Tuition Fees:\n");
-            Console.ResetColor();
+            
 
             int tuitionFees = helper.CheckTuitionFees(Console.ReadLine());
 
 
-            Console.ForegroundColor = ConsoleColor.Green;
+            
             Console.WriteLine("Enter Student Course Id :\n");
-            Console.ResetColor();
+            
 
             student = (firstName, lastName, dateOfBirth, tuitionFees);
         }
@@ -111,5 +111,7 @@ namespace PARTB.View.StudentView
             Console.WriteLine($"New Student {{ with first name {student.FirstName} , with last name {student.LastName}, with date of birth {student.DateOfBirth}, with tuition fees {student.TuitionFees}, with course title {student.Course.Title}, with course type {student.Course.Type} created successdully }}");
             Console.ResetColor();
         }
+
+        
     }
 }

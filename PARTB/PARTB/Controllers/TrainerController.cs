@@ -1,4 +1,6 @@
 ﻿using PARTB.Database;
+using PARTB.Models;
+using PARTB.Repositories.CourseRepository;
 using PARTB.Repositories.TrainerRepository;
 using PARTB.View.TrainerView;
 using System;
@@ -14,9 +16,11 @@ namespace PARTB.Controllers
         private ApplicationContext db = new ApplicationContext();
 
         private TrainerRepository trainerRepository;
+        private CourseRepository courseRepository;
         public TrainerController()
         {
             trainerRepository = new TrainerRepository(db);
+            courseRepository = new CourseRepository(db);
         }
 
         public void ReadingTrainers()
@@ -26,10 +30,40 @@ namespace PARTB.Controllers
                PrintTrainer pr = new PrintTrainer();
                var trainers =  trainerRepository.GetAllTrainers();
                pr.PrintTrainers(trainers);
+               
 
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        public void CreateTrainers()
+        {
+            try
+            {
+                PrintTrainer pr = new PrintTrainer();
+                (string firstName, string lastName, string subject) trainerDetails = ("", "", "");
+                pr.EnterTrainerDetailsToCreate(out trainerDetails);
+                List<int> courseIds = courseRepository.GetAllCoursesIds();
+                int trainerCourseId = pr.EnterCourseId(courseIds);
+                Trainer trainer = new Trainer()
+                {
+                    FirstName = trainerDetails.firstName,
+                    LastName = trainerDetails.lastName,
+                    Subject = trainerDetails.subject,
+                    CourseId = trainerCourseId
+                };
+                trainerRepository.AddTrainer(trainer);
+                pr.SuccessCreateMessageTrainer(trainer);
+                
+               
+            
+            }
+            catch (Exception ex)
+            {
+
                 Console.WriteLine(ex.Message);
             }
         }

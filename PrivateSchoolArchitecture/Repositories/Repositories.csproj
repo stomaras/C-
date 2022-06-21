@@ -51,13 +51,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\IGenericRepository.cs" />
+    <Compile Include="Core\IUnitOfWork.cs" />
+    <Compile Include="Core\Repositories\IAssigmentRepository.cs" />
+    <Compile Include="Core\Repositories\ICourseRepository.cs" />
+    <Compile Include="Core\Repositories\IStudentRepository.cs" />
+    <Compile Include="Core\Repositories\ITrainerRepository.cs" />
+    <Compile Include="Persistance\GenericRepository.cs" />
+    <Compile Include="Persistance\Repositories\AssigmentRepository.cs" />
+    <Compile Include="Persistance\Repositories\CourseRepository.cs" />
+    <Compile Include="Persistance\Repositories\StudentRepository.cs" />
+    <Compile Include="Persistance\Repositories\TrainerRepository.cs" />
+    <Compile Include="Persistance\UnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ConsoleExperiment\ConsoleExperiment.csproj">
-      <Project>{401973c5-5dfc-4545-b6a1-2099c95b2c8b}</Project>
-      <Name>ConsoleExperiment</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Entities\Entities.csproj">
       <Project>{7cd6ba23-2cbe-4acb-bbf4-5d450d9bbf71}</Project>
       <Name>Entities</Name>
@@ -71,6 +79,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

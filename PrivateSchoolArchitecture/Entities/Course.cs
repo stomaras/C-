@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    public class Course
+    public class Course : SchoolEntity
     {
         public Course()
         {

@@ -64,5 +64,20 @@ namespace PARTB.Controllers
                 Console.WriteLine(ex.Message);
             }
         }
+
+        public void CreateCourses()
+        {
+            try
+            {
+                PrintCourse pr = new PrintCourse();
+                (string title, string type, DateTime start_date, DateTime end_date) courseDetails = ("", "", new DateTime(), new DateTime());
+                var courses = courseRepository.GetAllCourses();
+                pr.EnterCourseDetailsToCreate(out courseDetails, courses);
+            }catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+        }
     }
 }

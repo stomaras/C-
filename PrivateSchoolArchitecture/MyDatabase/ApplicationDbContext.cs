@@ -1,4 +1,5 @@
 ﻿using Entities;
+using MyDatabase.Initializers;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -12,7 +13,8 @@ namespace MyDatabase
     {
         public ApplicationDbContext() : base("Sindesmos")
         {
-
+            Database.SetInitializer<ApplicationDbContext>(new MockupDbInitializer());
+            Database.Initialize(false);
         }
 
         public DbSet<Student> Students { get; set; }

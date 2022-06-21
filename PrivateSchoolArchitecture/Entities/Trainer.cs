@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    public class Trainer
+    public class Trainer : SchoolEntity
     {
         public int TrainerId { get; set; }
         public string FirstName { get; set; }
@@ -14,9 +14,9 @@ namespace Entities
         public string Subject { get; set; }
 
         // Foreign Keys
-        public int CourseId { get; set; }
+        
 
         // Navigation Properties
-        public Course Course { get; set; }  
+        public ICollection<Course> Courses { get; set; }
     }
 }

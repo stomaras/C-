@@ -14,5 +14,7 @@ namespace PARTB.Repositories.CourseRepository
         List<Course> GetAllCoursesWithStudents();
 
         List<int> GetAllCoursesIds();
+
+        
     }
 }

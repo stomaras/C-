@@ -10,3 +10,6 @@ C:\Users\spyros\source\repos\PrivateSchoolArchitecture\MyDatabase\obj\Debug\MyDa
 C:\Users\spyros\source\repos\PrivateSchoolArchitecture\MyDatabase\obj\Debug\MyDatabase.csproj.CopyComplete
 C:\Users\spyros\source\repos\PrivateSchoolArchitecture\MyDatabase\obj\Debug\MyDatabase.dll
 C:\Users\spyros\source\repos\PrivateSchoolArchitecture\MyDatabase\obj\Debug\MyDatabase.pdb
+C:\Users\spyros\source\repos\PrivateSchoolArchitecture\MyDatabase\bin\Debug\Entities.dll
+C:\Users\spyros\source\repos\PrivateSchoolArchitecture\MyDatabase\bin\Debug\Entities.pdb
+C:\Users\spyros\source\repos\PrivateSchoolArchitecture\MyDatabase\bin\Debug\Entities.dll.config
