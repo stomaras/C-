@@ -18,24 +18,33 @@ namespace PARTB.View.CourseView
             Console.WriteLine($"Enter Course Details :\n");
             Console.WriteLine($"Enter Course Title :\n");
             string title = Console.ReadLine();
-            string Validtitle = helper.CheckValidTitle(title,Courses);
+            string Validtitle = helper.CheckValidTitle(title, Courses);
+            Console.WriteLine(Validtitle);
 
             Console.WriteLine("Enter Course Type :\n");
             string type = Console.ReadLine();
             string ValidType = helper.CourseTypeValidation(type);
+            Console.WriteLine(ValidType);
 
             Console.WriteLine("Enter Course Start Date : \n");
             Console.WriteLine("Enter Course Start Day : \n");
             string startDay = Console.ReadLine();
-            string validStartDay = helper.CheckDay(startDay);
+            int validStartDay = helper.CheckDay(startDay);
 
 
             Console.WriteLine("Enter Course Start Month :\n ");
             string startMonth = Console.ReadLine();
             int validStartMonth = helper.CheckStartMonth(startMonth);
+
+            int startYear = DateTime.Now.Year + 1;
             
 
-            course = (Validtitle.Length > 20 ? null : ValidType, "", new DateTime(), new DateTime());
+            DateTime start_date = new DateTime(startYear, validStartMonth, validStartDay);
+
+            DateTime end_date = helper.InitializeEndDate(ValidType, start_date);
+            
+
+            course = (Validtitle.Length > 20 ? null : Validtitle ,ValidType, start_date, end_date);
 
         }
 
@@ -55,6 +64,11 @@ namespace PARTB.View.CourseView
             Console.ResetColor();
         }
 
-       
+        public void SuccessCourseCreateMessage(Course course)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"New Course Created Successfully with title {course.Title}, with type {course.Type}, with start date {course.Start_Date}, with end date {course.End_Date}:\n");
+            Console.ResetColor();
+        }
     }
 }

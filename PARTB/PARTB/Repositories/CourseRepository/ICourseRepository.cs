@@ -15,6 +15,8 @@ namespace PARTB.Repositories.CourseRepository
 
         List<int> GetAllCoursesIds();
 
+        void AddCourse(Course course);
+
         
     }
 }

@@ -30,7 +30,7 @@ namespace PARTB.View.StudentView
             Console.WriteLine("Enter Student Day Of Birth");
             Console.ResetColor();
 
-            string dayOfBirthString = helper.CheckDay(Console.ReadLine());
+            int dayOfBirthString = helper.CheckDay(Console.ReadLine());
             int dayOfBirthInt = Convert.ToInt32(dayOfBirthString);
 
             

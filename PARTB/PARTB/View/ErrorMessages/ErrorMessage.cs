@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PARTB.Models;
 using PARTB.Models.CustomValidations;
 
 namespace PARTB.View.ErrorMessages
@@ -203,6 +204,39 @@ namespace PARTB.View.ErrorMessages
             }
             Console.WriteLine();
             Console.WriteLine("Try again:\n");
+            Console.ResetColor();
+        }
+
+        public static void CourseErrorInsertMessage(Course course)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"Course with Title {course.Title} and type {course.Type} cannot insert into database");
+            Console.ResetColor();
+        }
+
+        public static void WrongAssigmentTitle(List<string> allAssigmentTitles)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Wrong Assigment Title !");
+            Console.WriteLine("Assigment Title must be something among :\n");
+            foreach (var assigment in allAssigmentTitles)
+            {
+                Console.WriteLine($"{assigment}\n");
+            }
+            Console.WriteLine("Please Try Again:\n");
+            Console.ResetColor();
+        }
+
+        public static void WrongAssigmentDescription(List<string> allDescriptions)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Wrong Assigment Description !");
+            Console.WriteLine("Assigment Description must be something among :\n");
+            foreach (var assigment in allDescriptions)
+            {
+                Console.WriteLine($"{assigment}\n");
+            }
+            Console.WriteLine("Please Try Again:\n");
             Console.ResetColor();
         }
 

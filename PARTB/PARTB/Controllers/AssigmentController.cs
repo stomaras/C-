@@ -21,6 +21,22 @@ namespace PARTB.Controllers
             assigmentRepository = new AssigmentRepository(db);
         }
 
+
+        public void CreateAssigments()
+        {
+            try
+            {
+                PrintAssigment printAssigment = new PrintAssigment();
+                (string tile, string description, DateTime subDateTime) assigmentDetails = ("", "", new DateTime());
+                printAssigment.EnterAssigmentDetails(out assigmentDetails);
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
         public void ReadingAssigments()
         {
             try

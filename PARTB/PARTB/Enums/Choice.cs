@@ -19,6 +19,7 @@ namespace PARTB.Enums
             CreateStudent,
             CreateTrainer,
             CreateCourse,
+            CreateAssigment,
             ExitTheProgram
         }
     

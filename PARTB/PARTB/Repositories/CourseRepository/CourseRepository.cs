@@ -18,6 +18,12 @@ namespace PARTB.Repositories.CourseRepository
             db = context;
         }
 
+        public void AddCourse(Course course)
+        {
+            db.Entry(course).State = EntityState.Added;
+            db.SaveChanges();
+        }
+
         public void EnterCourseDetailsToCreate()
         {
             throw new NotImplementedException();

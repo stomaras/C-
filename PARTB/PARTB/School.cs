@@ -54,6 +54,7 @@ namespace PARTB
                         case Choice.CreateStudent: studentController.CreateStudents(); break;
                         case Choice.CreateTrainer: trainerController.CreateTrainers();break;
                         case Choice.CreateCourse: courseController.CreateCourses(); break;
+                        case Choice.CreateAssigment: assigmentController.CreateAssigments(); break;
                         default: studentController.ErrorService(); break;
                     }
                 }

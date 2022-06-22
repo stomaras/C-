@@ -124,7 +124,7 @@ namespace PARTB.Models.CustomValidations
             }
             return nameInput;
         }
-        public string CheckDay(string day)
+        public int CheckDay(string day)
         {
             int numericValue;
             bool isNumber = false;
@@ -159,7 +159,7 @@ namespace PARTB.Models.CustomValidations
 
                 }
             }
-            return day;
+            return Convert.ToInt32(day);
         }
 
         public string CheckMonth(string month)
@@ -298,6 +298,21 @@ namespace PARTB.Models.CustomValidations
                 }
             }
             return subject;
+        }
+
+        public DateTime InitializeEndDate(string ValidType, DateTime start_date)
+        {
+            DateTime endDate = DateTime.MinValue;
+            Func<string, DateTime ,DateTime> InitializeEndDate = ConditionsOfEndDate;
+            if (ValidType.ToLower() == "part time")
+            {
+                endDate = InitializeEndDate.Invoke(ValidType, start_date);
+            }
+            else
+            {
+                endDate = InitializeEndDate.Invoke(ValidType, start_date);
+            }
+            return endDate;
         }
 
         public string CheckValidTitle(string title, List<Course> Courses)
@@ -524,6 +539,39 @@ namespace PARTB.Models.CustomValidations
             {
                 return false;
             }
+        }
+
+
+        public DateTime ConditionsOfEndDate(string ValidType, DateTime start_date)
+        {
+            int startDay = start_date.Day;
+            int startMonth = start_date.Month;
+            int startYear = start_date.Year;
+            DateTime EndDateTime = new DateTime();
+            if (ValidType.ToLower() == "part time" )
+            {
+                if (startMonth == 10)
+                {
+                    EndDateTime =  new DateTime(startYear + 1, startMonth - 6, startDay);
+                }
+                else
+                {
+                    EndDateTime = new DateTime(startYear, startMonth + 6, startDay);
+                }
+            }
+            else
+            {
+                if (startMonth == 10)
+                {
+                    EndDateTime = new DateTime(startYear + 1, startMonth - 8, startDay);
+                }
+                else
+                {
+                    EndDateTime = new DateTime(startYear, startMonth + 3, startDay);
+                }
+
+            }
+            return EndDateTime;
         }
 
     }

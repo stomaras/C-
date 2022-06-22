@@ -13,5 +13,7 @@ namespace PARTB.View.StudentView
 
         void EnterStudentDetailsToCreate(out (string firstName, string lastName, DateTime DateOfBirth, int TuitionFees) student);
 
+        
+
     }
 }
