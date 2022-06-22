@@ -58,6 +58,7 @@
     <Compile Include="SchoolEntity.cs" />
     <Compile Include="Student.cs" />
     <Compile Include="Trainer.cs" />
+    <Compile Include="Validations\Helper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -9,5 +9,9 @@ namespace Repositories.Core.Repositories
 {
     public interface ITrainerRepository : IGenericRepository<Trainer>
     {
+
+        IEnumerable<Trainer> GetTrainersByAscending();
+
+        
     }
 }

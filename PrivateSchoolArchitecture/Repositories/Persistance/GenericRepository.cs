@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -33,22 +34,42 @@ namespace Repositories.Persistance
 
         public T GetById(object id)
         {
-            throw new NotImplementedException();
+            if (id == null)
+            {
+                throw new ArgumentException();
+            }
+            T t = table.Find(id);
+            if (t == null)
+            {
+                throw new ArgumentException();
+            }
+            return t;
         }
 
         public void Insert(T obj)
         {
-            throw new NotImplementedException();
+            table.Add(obj);
         }
 
         public void Save()
         {
-            throw new NotImplementedException();
+            db.SaveChanges();
         }
 
         public void Update(T obj)
         {
-            throw new NotImplementedException();
+            table.Attach(obj);
+            db.Entry(obj).State = EntityState.Modified;
+        }
+
+        public IEnumerable<T> Find(Expression<Func<T, bool>> predicate)
+        {
+            return table.Where(predicate);
+        }
+
+        public T SingleOrDefault(Expression<Func<T, bool>> predicate)
+        {
+            return table.SingleOrDefault(predicate);
         }
     }
 }

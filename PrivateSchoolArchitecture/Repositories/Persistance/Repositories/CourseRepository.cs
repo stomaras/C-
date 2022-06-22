@@ -15,7 +15,20 @@ namespace Repositories.Persistance.Repositories
         public CourseRepository(ApplicationDbContext context) : base(context)
         {
 
-        } 
+        }
+
+        
+
+        public IEnumerable<Course> GetAllCoursesWithAssigments()
+        {
+            var coursesWithAssigments = table.Include(x => x.Assigments).ToList();
+            if (coursesWithAssigments == null)
+            {
+                throw new ArgumentNullException();
+            }
+            return coursesWithAssigments;
+            
+        }
 
         public IEnumerable<Course> GetAllCoursesWithStudents()
         {
@@ -26,5 +39,17 @@ namespace Repositories.Persistance.Repositories
             }
             return coursesWithStudents;
         }
+
+        public IEnumerable<Course> GetAllCoursesWithTrainers()
+        {
+            var coursesWithTrainers = table.Include(x => x.Trainers).ToList();
+            if (coursesWithTrainers == null)
+            {
+                throw new ArgumentNullException();
+            }
+            return coursesWithTrainers;
+        }
+
+       
     }
 }

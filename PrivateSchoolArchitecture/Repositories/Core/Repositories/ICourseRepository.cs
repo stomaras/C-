@@ -9,5 +9,12 @@ namespace Repositories.Core.Repositories
 {
     public interface ICourseRepository : IGenericRepository<Course>
     {
+
+        IEnumerable<Course> GetAllCoursesWithStudents();
+
+        IEnumerable<Course> GetAllCoursesWithTrainers();
+
+        IEnumerable<Course> GetAllCoursesWithAssigments();
+
     }
 }

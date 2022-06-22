@@ -12,5 +12,15 @@ namespace Repositories.Core.Repositories
     {
          IEnumerable<Student> GetStudentsByDescending();
          IQueryable<IGrouping<Country, Student>> GetStudentsGroupedByCountry();
+
+         IEnumerable<Student> GetStudentsByDateOfBirth();
+
+         int SumOfTuitionFees(IEnumerable<Student> students);
+
+         IEnumerable<Student> GetAllTuitionFees();
+
+        DateTime MinAgeOfSudents(IEnumerable<Student> students);
+
+     
     }
 }

@@ -15,5 +15,12 @@ namespace Repositories.Persistance.Repositories
         {
 
         }
+
+        public IEnumerable<Trainer> GetTrainersByAscending()
+        {
+            return table.OrderBy(x => x.FirstName).ToList();
+        }
+
+        
     }
 }

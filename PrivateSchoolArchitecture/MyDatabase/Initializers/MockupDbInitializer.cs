@@ -27,7 +27,7 @@ namespace MyDatabase.Initializers
             Student s7 = new Student() { FirstName = "Niki", LastName = "Kall", DateOfBirth = new DateTime(1994, 11, 01), TuitionFees = 2100, Country = Country.Portugal };
             Student s8 = new Student() { FirstName = "Kostantina", LastName = "Fragulis", DateOfBirth = new DateTime(1990, 11, 01), TuitionFees = 2100, Country = Country.Spain };
             Student s9 = new Student() { FirstName = "Kwstas", LastName = "Karaoulanis", DateOfBirth = new DateTime(1997, 11, 04), TuitionFees = 2100, Country = Country.Spain };
-            Student s10 = new Student() { FirstName = "Xristos", LastName = "Kanoulas", DateOfBirth = new DateTime(1997, 11, 01), TuitionFees = 2100, Country = Country.France };
+            Student s10 = new Student() { FirstName = "Xristos", LastName = "Kanoulas", DateOfBirth = new DateTime(1997, 11, 01), TuitionFees = 2100, Country = Country.England };
             Student s11 = new Student() { FirstName = "Nikolas", LastName = "Kanoulas", DateOfBirth = new DateTime(1990, 11, 07), TuitionFees = 2100, Country = Country.Greece };
             #endregion
 
