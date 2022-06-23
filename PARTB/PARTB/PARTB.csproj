@@ -84,6 +84,9 @@
     <Compile Include="Models\Assigment.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\CustomValidations\Helper.cs" />
+    <Compile Include="Models\CustomValidations\HelperAssigment.cs" />
+    <Compile Include="Models\CustomValidations\HelperCourse.cs" />
+    <Compile Include="Models\Random\RandomService.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\Trainer.cs" />
     <Compile Include="ObjectFactory\Factory.cs" />

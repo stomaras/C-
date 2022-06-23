@@ -124,7 +124,7 @@ namespace PARTB.Models.CustomValidations
             }
             return nameInput;
         }
-        public string CheckDay(string day)
+        public int CheckDay(string day)
         {
             int numericValue;
             bool isNumber = false;
@@ -159,7 +159,7 @@ namespace PARTB.Models.CustomValidations
 
                 }
             }
-            return day;
+            return Convert.ToInt32(day);
         }
 
         public string CheckMonth(string month)
@@ -279,34 +279,96 @@ namespace PARTB.Models.CustomValidations
             return InputTuitionFees;
         }
 
-        public string CourseTypeValidation(string type)
+        
+        public string CheckSubject(string subject)
         {
-            bool isValidType = false;
-            bool isValidRegex = Regex.IsMatch(type, @"^[a-zA-Z]+$");
-            Func<string, bool> isValidCourseType = IsValidCourseType;
-            isValidType = isValidCourseType.Invoke(type);
-            while (!isValidRegex || !isValidType)
+            bool isValidSubject = false;
+            while (!isValidSubject)
             {
-
-                if (isValidRegex)
+                if (subject.ToLower() == "java" || subject.ToLower() == "python" || subject.ToLower() == "javascript" || subject.ToLower() == "csharp")
                 {
-                    isValidRegex = true;
-                    if (isValidType)
-                    {
-                        isValidType = true;
-                    }
-                    else
-                    {
-                        isValidType = false;
-                        ErrorMessage.TypeOfCourseErrorMessage1();
-                        type = Console.ReadLine();
-                    }
-
+                    isValidSubject = true;
+                    break;
                 }
                 else
                 {
-                    isValidRegex = false;
-                    ErrorMessage.TypeOfCourseErrorMessage2();
+                    isValidSubject = false;
+                    ErrorMessage.ValidTrainerSubject();
+                    subject = Console.ReadLine();
+                }
+            }
+            return subject;
+        }
+
+        public DateTime InitializeEndDate(string ValidType, DateTime start_date)
+        {
+            DateTime endDate = DateTime.MinValue;
+            Func<string, DateTime ,DateTime> InitializeEndDate = ConditionsOfEndDate;
+            if (ValidType.ToLower() == "part time")
+            {
+                endDate = InitializeEndDate.Invoke(ValidType, start_date);
+            }
+            else
+            {
+                endDate = InitializeEndDate.Invoke(ValidType, start_date);
+            }
+            return endDate;
+        }
+
+        public string CheckValidTitle(string title, List<Course> Courses)
+        {
+            bool isValidTitle = false;
+            bool exists = false;
+            while (!isValidTitle)
+            {
+                Func<string, bool> validTitle = ValidCourseTitle;
+                isValidTitle = validTitle.Invoke(title);
+                if (isValidTitle)
+                {
+                   
+                }
+                else
+                {
+                    Func<List<string>> acceptableTitles = AcceptableTitles;
+                    List<string> AcceptableTitleCourses = acceptableTitles.Invoke();
+                    ErrorMessage.ValidCourseTitles(AcceptableTitleCourses);
+                    title = Console.ReadLine();
+                }
+            }
+            foreach (var course in Courses)
+            {
+                if (course.Title == title)
+                {
+                    exists = true;
+                }
+            }
+            if (!exists)
+            {
+                return title;
+            }
+            else
+            {
+                return $"Course with title {title} already exists!";
+            }
+           
+        }
+
+        public string CourseTypeValidation(string type)
+        {
+            bool isValidCourseType = false;
+            while (!isValidCourseType)
+            {
+                Func<string, bool> validCourseType = ValidCourseTypes;
+                Func<List<string>> types = ValidTypes;
+                List<string> typesValid = types.Invoke();
+                bool isValidTypeOfCourse = validCourseType.Invoke(type);
+                if (isValidTypeOfCourse)
+                {
+                    isValidCourseType = true;
+                }
+                else
+                {
+                    ErrorMessage.AllValidCourseTypes(typesValid);
                     type = Console.ReadLine();
                 }
             }
@@ -324,6 +386,46 @@ namespace PARTB.Models.CustomValidations
             }
             int courseId = Convert.ToInt32(number);
             return courseId;
+        }
+
+        public int CheckStartMonth(string month)
+        {
+            int numericValue;
+            bool isNumber = false;
+            bool isValidRange = false;
+            int InputMonth = -1;
+
+            while (!isNumber || !isValidRange)
+            {
+                isNumber = int.TryParse(month, out numericValue);
+
+                if (isNumber)
+                {
+                    InputMonth = numericValue;
+                    Func<int, bool> validStartMonth = ValidStartMonthCourse;
+                    Func<List<int>> allValidStartMonthsOfCourse = AllValidStartMonths;
+                    List<int> allValidSartMonthOfCourse = allValidStartMonthsOfCourse.Invoke();
+                    bool IsInValidMonthRange = validStartMonth.Invoke(InputMonth);
+                    if (IsInValidMonthRange)
+                    {
+                        isValidRange = true;
+                    }
+                    else
+                    {
+                        isValidRange = false;
+                        ErrorMessage.StartMonthMustBeInValidRange(allValidSartMonthOfCourse);
+                        month = Console.ReadLine();
+                    }
+                }
+                else
+                {
+                    isNumber = false;
+                    ErrorMessage.MonthMustBeInteger();
+                    month = Console.ReadLine();
+
+                }
+            }
+            return Convert.ToInt32(month);
         }
 
 
@@ -361,6 +463,115 @@ namespace PARTB.Models.CustomValidations
             {
                 return false;
             }
+        }
+
+        public bool ValidCourseTitle(string title)
+        {
+            if (title.ToLower() == "java" || title.ToLower() == "python" || title.ToLower() == "javascript" || title.ToLower() == "csharp" ||
+                title.ToLower() == "sql"  || title.ToLower() == "css3"    || title.ToLower() == "html5"     || title.ToLower() == "angular"||
+                title.ToLower() == "react" || title.ToLower() == "vue" || title.ToLower() == "django" || title.ToLower() == "mongodb" 
+                )
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public List<string> AcceptableTitles()
+        {
+            List<string> AcceptableTitles = new List<string>();
+            AcceptableTitles.Add("java");
+            AcceptableTitles.Add("python");
+            AcceptableTitles.Add("csharp");
+            AcceptableTitles.Add("css3");
+            AcceptableTitles.Add("sql");
+            AcceptableTitles.Add("javascript");
+            AcceptableTitles.Add("react");
+            AcceptableTitles.Add("angular");
+            AcceptableTitles.Add("django");
+            AcceptableTitles.Add("mongodb");
+            AcceptableTitles.Add("vue");
+            AcceptableTitles.Add("html5");
+
+            return AcceptableTitles;
+            
+        }
+
+        public bool ValidCourseTypes(string type)
+        {
+            if (type.ToLower() == "full time" || type.ToLower() == "part time")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public List<string> ValidTypes()
+        {
+            List<string> types = new List<string>();
+            types.Add("full time");
+            types.Add("part time");
+
+            return types;
+        }
+
+        public List<int> AllValidStartMonths()
+        {
+            List<int> allValidStartMonths = new List<int>();
+            allValidStartMonths.Add(2);
+            allValidStartMonths.Add(10);
+            return allValidStartMonths;
+        }
+
+        public bool ValidStartMonthCourse(int month)
+        {
+            if (month == 2 || month == 10)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+        public DateTime ConditionsOfEndDate(string ValidType, DateTime start_date)
+        {
+            int startDay = start_date.Day;
+            int startMonth = start_date.Month;
+            int startYear = start_date.Year;
+            DateTime EndDateTime = new DateTime();
+            if (ValidType.ToLower() == "part time" )
+            {
+                if (startMonth == 10)
+                {
+                    EndDateTime =  new DateTime(startYear + 1, startMonth - 6, startDay);
+                }
+                else
+                {
+                    EndDateTime = new DateTime(startYear, startMonth + 6, startDay);
+                }
+            }
+            else
+            {
+                if (startMonth == 10)
+                {
+                    EndDateTime = new DateTime(startYear + 1, startMonth - 8, startDay);
+                }
+                else
+                {
+                    EndDateTime = new DateTime(startYear, startMonth + 3, startDay);
+                }
+
+            }
+            return EndDateTime;
         }
 
     }

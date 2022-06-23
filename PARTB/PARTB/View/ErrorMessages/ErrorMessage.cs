@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PARTB.Models;
 using PARTB.Models.CustomValidations;
 
 namespace PARTB.View.ErrorMessages
@@ -157,6 +158,85 @@ namespace PARTB.View.ErrorMessages
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine($"Course Id must be in range {lowerBound} - {upperBound} please try again!");
+            Console.ResetColor();
+        }
+
+        public static void ValidTrainerSubject()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("$ Subject must be <<java>> or <<python>> or <<javascript>> or <<csharp>>!");
+            Console.ResetColor();
+        }
+
+        public static void ValidCourseTitles(List<string> validTitles)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"Valid course title must be:\n");
+            foreach (var title in validTitles)
+            {
+                Console.WriteLine(title + " ");
+            }
+            Console.WriteLine();
+            Console.WriteLine("Try again:\n");
+            Console.ResetColor();
+        }
+
+        public static void AllValidCourseTypes(List<string> validTypes)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"Valid course type must be:\n");
+            foreach (var type in validTypes)
+            {
+                Console.WriteLine(type + " ");
+            }
+            Console.WriteLine();
+            Console.WriteLine("Try again:\n");
+            Console.ResetColor();
+        }
+
+        public static void StartMonthMustBeInValidRange(List<int> allValidStartMonths)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"All Valid Start Course Months must be : \n");
+            foreach (var start_Month in allValidStartMonths)
+            {
+                Console.WriteLine(start_Month + " ");
+            }
+            Console.WriteLine();
+            Console.WriteLine("Try again:\n");
+            Console.ResetColor();
+        }
+
+        public static void CourseErrorInsertMessage(Course course)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"Course with Title {course.Title} and type {course.Type} cannot insert into database");
+            Console.ResetColor();
+        }
+
+        public static void WrongAssigmentTitle(List<string> allAssigmentTitles)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Wrong Assigment Title !");
+            Console.WriteLine("Assigment Title must be something among :\n");
+            foreach (var assigment in allAssigmentTitles)
+            {
+                Console.WriteLine($"{assigment}\n");
+            }
+            Console.WriteLine("Please Try Again:\n");
+            Console.ResetColor();
+        }
+
+        public static void WrongAssigmentDescription(List<string> allDescriptions)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Wrong Assigment Description !");
+            Console.WriteLine("Assigment Description must be something among :\n");
+            foreach (var assigment in allDescriptions)
+            {
+                Console.WriteLine($"{assigment}\n");
+            }
+            Console.WriteLine("Please Try Again:\n");
             Console.ResetColor();
         }
 

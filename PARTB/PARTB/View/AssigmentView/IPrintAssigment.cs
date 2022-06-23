@@ -10,5 +10,7 @@ namespace PARTB.View.AssigmentView
     public interface IPrintAssigment
     {
         void PrintAssigments(List<Assigment> students);
+
+        void EnterAssigmentDetails(out (string tile, string description, DateTime subDateTime) assigment);
     }
 }

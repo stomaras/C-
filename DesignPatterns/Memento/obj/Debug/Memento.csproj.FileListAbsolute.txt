@@ -1,0 +1,8 @@
+C:\Users\spyros\source\repos\DesignPatterns\Memento\bin\Debug\Memento.exe.config
+C:\Users\spyros\source\repos\DesignPatterns\Memento\bin\Debug\Memento.exe
+C:\Users\spyros\source\repos\DesignPatterns\Memento\bin\Debug\Memento.pdb
+C:\Users\spyros\source\repos\DesignPatterns\Memento\obj\Debug\Memento.csproj.AssemblyReference.cache
+C:\Users\spyros\source\repos\DesignPatterns\Memento\obj\Debug\Memento.csproj.SuggestedBindingRedirects.cache
+C:\Users\spyros\source\repos\DesignPatterns\Memento\obj\Debug\Memento.csproj.CoreCompileInputs.cache
+C:\Users\spyros\source\repos\DesignPatterns\Memento\obj\Debug\Memento.exe
+C:\Users\spyros\source\repos\DesignPatterns\Memento\obj\Debug\Memento.pdb

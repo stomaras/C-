@@ -10,5 +10,7 @@ namespace PARTB.Repositories.TrainerRepository
     public interface ITrainerRepository
     {
         List<Trainer> GetAllTrainers();
+
+        void AddTrainer(Trainer trainer);   
     }
 }

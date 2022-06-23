@@ -20,5 +20,15 @@ namespace PARTB.ObjectFactory
         {
             return new Helper();
         }
+
+        public static HelperCourse CreateHelperCourseObject()
+        {
+            return new HelperCourse();
+        }
+
+        public static HelperAssigment CreateHelperAssigmentObject()
+        {
+            return new HelperAssigment();
+        }
     }
 }

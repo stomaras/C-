@@ -10,5 +10,9 @@ namespace PARTB.View.CourseView
     public interface IPrintCourse
     {
         void PrintAllCourses(List<Course> Courses);
+
+        void EnterCourseDetailsToCreate(out (string title, string type, DateTime start_date, DateTime end_date) course);
+
+        void SuccessCourseCreateMessage(Course course);
     }
 }
