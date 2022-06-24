@@ -26,18 +26,18 @@ namespace Experiments
                 Console.WriteLine($"{group.Key,15}: {group.Count()}");
             }
 
-            Console.WriteLine("-------------");
+            //Console.WriteLine("-------------");
 
-            foreach (var group in groups)
-            {
-                Console.WriteLine($"{group.Key,15}");
+            //foreach (var group in groups)
+            //{
+            //    Console.WriteLine($"{group.Key,15}");
 
-                foreach (var actor in group)
-                {
-                    Console.WriteLine($"{"",15}:{actor.FirstName + " " + actor.LastName}");
-                }
+            //    foreach (var actor in group)
+            //    {
+            //        Console.WriteLine($"{"",15}:{actor.FirstName + " " + actor.LastName}");
+            //    }
 
-            }
+            //}
         }
     }
 }

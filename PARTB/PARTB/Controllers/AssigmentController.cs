@@ -1,5 +1,7 @@
 ﻿using PARTB.Database;
+using PARTB.Models;
 using PARTB.Repositories.AssigmentRepository;
+using PARTB.Repositories.CourseRepository;
 using PARTB.View.AssigmentView;
 using System;
 using System.Collections.Generic;
@@ -15,10 +17,12 @@ namespace PARTB.Controllers
         private ApplicationContext db = new ApplicationContext();
 
         private AssigmentRepository assigmentRepository;
+        private CourseRepository courseRepository;
 
         public AssigmentController()
         {
             assigmentRepository = new AssigmentRepository(db);
+            courseRepository = new CourseRepository(db);
         }
 
 
@@ -27,8 +31,11 @@ namespace PARTB.Controllers
             try
             {
                 PrintAssigment printAssigment = new PrintAssigment();
+                List<Course> Courses = courseRepository.GetAllCourses();
+                int cid = printAssigment.EnterCourseIdToAddAssigment(Courses);
                 (string tile, string description, DateTime subDateTime) assigmentDetails = ("", "", new DateTime());
-                printAssigment.EnterAssigmentDetails(out assigmentDetails);
+                printAssigment.EnterAssigmentDetails(out assigmentDetails, cid, Courses);
+                
             }
             catch (Exception ex)
             {

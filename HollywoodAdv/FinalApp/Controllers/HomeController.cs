@@ -12,7 +12,11 @@ namespace FinalApp.Controllers
         private MyDatabase.ApplicationDbContext hollywoodDb = new MyDatabase.ApplicationDbContext();
         private FinalApp.Models.ApplicationDbContext userDb = new FinalApp.Models.ApplicationDbContext();
 
-
+        public ActionResult Method()
+        {
+            var movies = hollywoodDb.Movies.ToList();
+            return View(movies);
+        }
 
         public ActionResult Index()
         {

@@ -22,6 +22,7 @@ namespace MyDatabase
         public DbSet<Director> Directors { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Photo> Photos { get; set; }
+        public DbSet<MovieUserOrders> MoviesUserOrders { get; set; }
 
     }
 }

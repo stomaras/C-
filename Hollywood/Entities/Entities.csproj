@@ -58,6 +58,7 @@
     <Compile Include="Genre.cs" />
     <Compile Include="HollywoodEntity.cs" />
     <Compile Include="Movie.cs" />
+    <Compile Include="MovieUserOrders.cs" />
     <Compile Include="Photo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -9,11 +9,16 @@ using System.Data.Entity.Migrations;
 
 namespace MyDatabase.Initializers
 {
-    internal class MockupDbInitilializer :DropCreateDatabaseAlways<ApplicationDbContext>
+    internal class MockupDbInitilializer : DropCreateDatabaseAlways<ApplicationDbContext>
     {
         protected override void Seed(ApplicationDbContext context)
         {
+            MovieUserOrders mu1 = new MovieUserOrders() { MovieId = 1, UserId= "1ba74f86-1f92-4b3a-aeb8-022654b73d18", OrderCompleted = DateTime.Now };
+            MovieUserOrders mu2 = new MovieUserOrders() { MovieId = 2, UserId= "acdec8b2-988a-4d3d-8aa9-510115ff72cd", OrderCompleted = DateTime.Now };
+            MovieUserOrders mu3 = new MovieUserOrders() { MovieId = 3, UserId= "acdec8b2-988a-4d3d-8aa9-510115ff72cd", OrderCompleted = DateTime.Now };
+            MovieUserOrders mu4 = new MovieUserOrders() { MovieId = 4, UserId= "3aa97f0a-7af0-4f66-830a-2f8865860af9", OrderCompleted = DateTime.Now };
 
+            context.MoviesUserOrders.AddOrUpdate(mu1, mu2, mu3, mu4);
 
             #region SEED MOVIES SYSTEM
 

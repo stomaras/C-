@@ -10,3 +10,15 @@ C:\Users\hecto\source\repos\Hollywood\Entities\obj\Debug\Entities.csproj.CoreCom
 C:\Users\hecto\source\repos\Hollywood\Entities\obj\Debug\Entities.csproj.CopyComplete
 C:\Users\hecto\source\repos\Hollywood\Entities\obj\Debug\Entities.dll
 C:\Users\hecto\source\repos\Hollywood\Entities\obj\Debug\Entities.pdb
+C:\Users\spyros\C-\HollywoodAdv\Entities\bin\Debug\Entities.dll.config
+C:\Users\spyros\C-\HollywoodAdv\Entities\bin\Debug\Entities.dll
+C:\Users\spyros\C-\HollywoodAdv\Entities\bin\Debug\Entities.pdb
+C:\Users\spyros\C-\HollywoodAdv\Entities\bin\Debug\EntityFramework.dll
+C:\Users\spyros\C-\HollywoodAdv\Entities\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\spyros\C-\HollywoodAdv\Entities\bin\Debug\EntityFramework.xml
+C:\Users\spyros\C-\HollywoodAdv\Entities\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\spyros\C-\HollywoodAdv\Entities\obj\Debug\Entities.csproj.AssemblyReference.cache
+C:\Users\spyros\C-\HollywoodAdv\Entities\obj\Debug\Entities.csproj.CoreCompileInputs.cache
+C:\Users\spyros\C-\HollywoodAdv\Entities\obj\Debug\Entities.csproj.CopyComplete
+C:\Users\spyros\C-\HollywoodAdv\Entities\obj\Debug\Entities.dll
+C:\Users\spyros\C-\HollywoodAdv\Entities\obj\Debug\Entities.pdb

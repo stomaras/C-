@@ -240,6 +240,23 @@ namespace PARTB.View.ErrorMessages
             Console.ResetColor();
         }
 
+        public static void InValidIdToRegister(List<Course> Courses)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            const int first = -45;
+            const int second = -50;
+            const int third = -45;
+
+            Console.WriteLine("Invalid Course Id Range:\n");
+            Console.WriteLine("Available options :\n");
+            Console.WriteLine(($"{"---------Course Ids---------",first}{"---------Course Titles---------",second}{"---------Course Types---------",third}"));
+            foreach (var course in Courses)
+            {
+                Console.WriteLine($"{$"{course.CourseId}",first}{$"{course.Title}",second}{$"{course.Type}",third}");
+            }
+            Console.ResetColor();
+        }
+
 
 
 

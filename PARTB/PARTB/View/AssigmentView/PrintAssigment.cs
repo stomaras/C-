@@ -24,7 +24,18 @@ namespace PARTB.View.AssigmentView
             Console.ResetColor();
         }
 
-        public void EnterAssigmentDetails(out (string tile, string description, DateTime subDateTime) assigment)
+        public int EnterCourseIdToAddAssigment(List<Course> Courses)
+        {
+            Console.WriteLine("Enter Course Id in order o register assigment:\n");
+
+            string courseId = Console.ReadLine();
+            int cid = helperAssigment.CheckCourseId(courseId, Courses);
+
+            return cid;
+
+        }
+
+        public void EnterAssigmentDetails(out (string tile, string description, DateTime subDateTime) assigment, int courseId, List<Course> courses)
         {
             Console.WriteLine("Enter Assigment Details:\n");
             Console.WriteLine($"Enter Assigment Title :\n");
@@ -35,7 +46,13 @@ namespace PARTB.View.AssigmentView
             string description = Console.ReadLine();
             description = helperAssigment.CheckDescription(description);
 
-            assigment = ("", "", new DateTime());
+            DateTime subDateTime = helperAssigment.CalculateSubDateTime(courseId, courses);
+
+            assigment = (title, description, subDateTime);
+
+           
         }
+
+
     }
 }

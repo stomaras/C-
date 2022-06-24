@@ -11,6 +11,6 @@ namespace PARTB.View.AssigmentView
     {
         void PrintAssigments(List<Assigment> students);
 
-        void EnterAssigmentDetails(out (string tile, string description, DateTime subDateTime) assigment);
+        void EnterAssigmentDetails(out (string tile, string description, DateTime subDateTime) assigment, int cid, List<Course> courses);
     }
 }

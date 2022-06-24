@@ -1,4 +1,5 @@
-﻿using PARTB.View.ErrorMessages;
+﻿using PARTB.Models.RandomServices;
+using PARTB.View.ErrorMessages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -60,6 +61,83 @@ namespace PARTB.Models.CustomValidations
             return description;
         }
 
+        public int CheckCourseId(string courseId, List<Course> Courses)
+        {
+            int numericValue;
+            bool isNumber = false;
+            bool isValidRange = false;
+            int cid = -1;
+            while (!isNumber || !isValidRange)
+            {
+                isNumber = int.TryParse(courseId, out numericValue);
+
+                if (isNumber)
+                {
+                    cid = numericValue;
+                    bool isFound = SearchForCourseId(cid, Courses);
+                    if (isFound)
+                    {
+                        isValidRange = true;
+                    }
+                    else
+                    {
+                        ErrorMessage.InValidIdToRegister(Courses);
+                        isValidRange = false;
+                        courseId = Console.ReadLine();
+                    }
+                }
+                else
+                {
+                    ErrorMessage.CourseIdMustBeNumber();
+                    isNumber = false;
+                    courseId = Console.ReadLine();
+                }
+            }
+            return cid;
+            
+        }
+
+        public DateTime CalculateSubDateTime(int courseId, List<Course> courses)
+        {
+            DateTime subDateTime = new DateTime();
+            foreach (var course in courses)
+            {
+                if (courseId == course.CourseId)
+                {
+                    DateTime start = course.Start_Date;
+                    DateTime end = course.End_Date;
+                    subDateTime = InitializeSubmissionDateTime(start, end);
+                }
+                
+            }
+            return subDateTime;
+        }
+        public bool SearchForCourseId(int cid, List<Course> Courses)
+        {
+            bool isFound = false;
+            foreach (var course in Courses)
+            {
+                if (course.CourseId == cid)
+                {
+                    isFound = true;
+                }
+            }
+            return isFound;
+        }
+
+
+        public DateTime InitializeSubmissionDateTime(DateTime start, DateTime end)
+        {
+            int year = start.Year + 1;
+            int month = start.Month + 1;// in next bootcamp
+            int day = RandomService.Number(1, 30);
+            if (month == 2)
+            {
+                day = RandomService.Number(1, 28);
+            }
+ 
+            return new DateTime(year,month,day);
+        }
         #endregion
 
         #region Helper Assigment Methods Which Used With Delegates

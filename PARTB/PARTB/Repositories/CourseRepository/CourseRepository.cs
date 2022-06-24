@@ -48,7 +48,17 @@ namespace PARTB.Repositories.CourseRepository
                 courseIds.Add(course.CourseId);
             }
             return courseIds;
+        }
 
+        public List<string> GetAllGourseTiles()
+        {
+            List<string> courseTitles = new List<string>();
+            var courses = GetAllCourses();
+            foreach (var course in courses)
+            {
+                courseTitles.Add(course.Title);
+            }
+            return courseTitles;
         }
 
         public List<Course> GetAllCoursesWithStudents()
