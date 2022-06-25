@@ -9,7 +9,7 @@ namespace Repositories.Core.Repostories
 {
     public interface IEmployeeRepository : IGenericRepository<Employee>
     {
-        List<Employee> EmployeesWithProjects();
+        IEnumerable<Employee> EmployeesWithProjects();
         
     }
 }

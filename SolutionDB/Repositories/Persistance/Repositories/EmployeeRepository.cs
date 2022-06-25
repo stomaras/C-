@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Repositories.Persistance.Repositories
 {
     public class EmployeeRepository : GenericRepository<Employee>, IEmployeeRepository
@@ -18,6 +19,10 @@ namespace Repositories.Persistance.Repositories
            
         }
 
-       
+        public IEnumerable<Employee> EmployeesWithProjects()
+        {
+            var groups = table.Include(x => x.Project).ToList();
+            return groups;
+        }
     }
 }

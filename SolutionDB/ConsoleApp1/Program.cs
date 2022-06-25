@@ -16,7 +16,7 @@ namespace ConsoleApp1
             MyDBContext dBContext = new MyDBContext();
             UnitOfWork CompanyUnit = new UnitOfWork(dBContext);
 
-            var employees = CompanyUnit.Employees.GetAll();
+            var employees = CompanyUnit.Employees.EmployeesWithProjects();
 
             foreach (var employee in employees)
             {
