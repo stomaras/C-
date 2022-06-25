@@ -1,4 +1,7 @@
-﻿using MyDatabase;
+﻿using ConsoleApp1.Controller;
+using ConsoleApp1.Enums;
+using ConsoleApp1.Validations;
+using MyDatabase;
 using Repositories.Persistance;
 using System;
 using System.Collections.Generic;
@@ -32,6 +35,54 @@ namespace ConsoleApp1
 
             //    }
             //}
+            string input = "";
+            bool isNumber = false;
+            ConsoleHelper consoleHelper = new ConsoleHelper();
+            while (input != "e" && input != "E")
+            {
+                Menu.ShowMenu();
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("Choose an option!");
+                Console.ResetColor();
+                input = Console.ReadLine();
+                isNumber = consoleHelper.CheckIfIsNumber(input);
+                if (isNumber)
+                {
+                    EmployeeController employeeController = new EmployeeController();
+
+
+
+                    int inputt = Convert.ToInt32(input);
+                    Console.Clear();
+
+                    Choice choice = (Choice)inputt;
+
+                    switch (choice)
+                    {
+                        case Choice.ReadEmployees: employeeController.ReadEmployees();break;
+                        default: employeeController.ErrorService();break;
+                    }
+
+
+
+
+
+
+
+
+
+                }
+                else
+                {
+                    if (input != "e" && input != "E")
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Press a <<number>> or <<e>> or <<E>> to exit the program...");
+                        Console.ResetColor();
+                    }
+                }
+            }
+            Console.WriteLine("Program Ends");
         }
     }
 }

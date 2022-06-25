@@ -8,5 +8,20 @@ namespace ConsoleApp1.Enums
 {
     public enum Choice
     {
+        ReadEmployees=1,
+        ReadProjects,
+        ReadManagers,
+        ReadEmployeesPerProject,
+        ReadingEmployeesPerProjectPerManager,
+        CreateEmployees,
+        CreateProjects,
+        CreateManagers,
+        DeleteEmployees,
+        DeleteProjects,
+        DeleteManagers,
+        UpdateEmployees,
+        UpdateProjects,
+        UpdateManagers,
+        Exit
     }
 }
