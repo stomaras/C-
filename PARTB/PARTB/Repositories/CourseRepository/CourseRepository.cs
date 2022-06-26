@@ -80,5 +80,15 @@ namespace PARTB.Repositories.CourseRepository
             }
             return coursesWithTrainers;
         }
+
+        public Course GetCourseById(int id)
+        {
+            var course = db.Courses.Find(id);
+            if (course ==null)
+            {
+                throw new ArgumentNullException();
+            }
+            return course;
+        }
     }
 }

@@ -24,5 +24,33 @@ namespace Repositories.Persistance.Repositories
             var groups = table.Include(x => x.Project).ToList();
             return groups;
         }
+
+        public IEnumerable<Employee> EmployeesWithProjectsWithManagers()
+        {
+            var groups = table.Include(x => x.Project).Include(x => x.Managers).ToList();
+            return groups;
+        }
+
+        public List<int> GetAllEmployeesIds(IEnumerable<Employee> employees)
+        {
+            List<int> employeeIds = new List<int>();
+            foreach (var employee in employees)
+            {
+                employeeIds.Add(employee.Id);
+            }
+            return employeeIds;
+        }
+
+        public Employee GetAllEmployeesPerProjectPerManagerById(int? id)
+        {
+            var employee = table.Include(x => x.Project).Include(x => x.Managers).FirstOrDefault(x => x.Id == id);
+            return employee;
+        }
+
+        public Employee GetEmployeesWithProjectWithManagersById(int? id)
+        {
+            var employee = table.Include(x => x.Project).Include(x => x.Managers).FirstOrDefault(x => x.Id == id);
+            return employee;
+        }
     }
 }

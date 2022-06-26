@@ -112,3 +112,12 @@ C:\Users\user\C-\SolutionDB\SolutionDBFinalApp\obj\Debug\SolutionDBFinalApp.cspr
 C:\Users\user\C-\SolutionDB\SolutionDBFinalApp\obj\Debug\SolutionDBFinalApp.csproj.CopyComplete
 C:\Users\user\C-\SolutionDB\SolutionDBFinalApp\obj\Debug\SolutionDBFinalApp.dll
 C:\Users\user\C-\SolutionDB\SolutionDBFinalApp\obj\Debug\SolutionDBFinalApp.pdb
+C:\Users\user\C-\SolutionDB\SolutionDBFinalApp\bin\Entities.dll
+C:\Users\user\C-\SolutionDB\SolutionDBFinalApp\bin\MyDatabase.dll
+C:\Users\user\C-\SolutionDB\SolutionDBFinalApp\bin\Repositories.dll
+C:\Users\user\C-\SolutionDB\SolutionDBFinalApp\bin\Entities.pdb
+C:\Users\user\C-\SolutionDB\SolutionDBFinalApp\bin\Entities.dll.config
+C:\Users\user\C-\SolutionDB\SolutionDBFinalApp\bin\MyDatabase.pdb
+C:\Users\user\C-\SolutionDB\SolutionDBFinalApp\bin\MyDatabase.dll.config
+C:\Users\user\C-\SolutionDB\SolutionDBFinalApp\bin\Repositories.pdb
+C:\Users\user\C-\SolutionDB\SolutionDBFinalApp\bin\Repositories.dll.config

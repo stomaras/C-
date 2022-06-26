@@ -57,10 +57,13 @@
     <Compile Include="Controller\ManagerController.cs" />
     <Compile Include="Controller\ProjectController.cs" />
     <Compile Include="Enums\Choice.cs" />
+    <Compile Include="ErrorMessages\ErrorMessage.cs" />
+    <Compile Include="Factory\Factory.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validations\ConsoleHelper.cs" />
+    <Compile Include="Validations\EmployeeValidations\EmployeeHelper.cs" />
     <Compile Include="View\EmployeeView\IPrintEmployee.cs" />
     <Compile Include="View\EmployeeView\PrintEmployee.cs" />
     <Compile Include="View\Manager\IPrintManager.cs" />
@@ -89,7 +92,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Validations\EmployeeValidations\" />
     <Folder Include="Validations\ManagerValidations\" />
     <Folder Include="Validations\ProjectValidations\" />
     <Folder Include="View\ErrorMessages\" />

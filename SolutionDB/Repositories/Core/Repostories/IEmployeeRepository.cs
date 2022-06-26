@@ -10,6 +10,15 @@ namespace Repositories.Core.Repostories
     public interface IEmployeeRepository : IGenericRepository<Employee>
     {
         IEnumerable<Employee> EmployeesWithProjects();
-        
+
+        IEnumerable<Employee> EmployeesWithProjectsWithManagers();
+
+        Employee GetEmployeesWithProjectWithManagersById(int? id);
+
+        List<int> GetAllEmployeesIds(IEnumerable<Employee> employees);
+
+        Employee GetAllEmployeesPerProjectPerManagerById(int? id);
+
+
     }
 }

@@ -172,11 +172,11 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Employee\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Employee\" />
     <Folder Include="Views\Manager\" />
     <Folder Include="Views\Project\" />
   </ItemGroup>
@@ -192,6 +192,20 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{6477CC24-A4CE-46DE-A54B-16C135D4ED1E}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyDatabase\MyDatabase.csproj">
+      <Project>{AF94BB9E-6EF0-408D-B94C-BBE24DB6EBD8}</Project>
+      <Name>MyDatabase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repositories\Repositories.csproj">
+      <Project>{30FFD53D-6F29-409E-BF5D-A21C7E3B38A1}</Project>
+      <Name>Repositories</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

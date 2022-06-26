@@ -10,5 +10,7 @@ namespace PARTB.Repositories.AssigmentRepository
     public interface IAssigmentRepository
     {
         List<Assigment> GetAllAssigments();
+
+        void AddAssigment(Assigment assigment);
     }
 }

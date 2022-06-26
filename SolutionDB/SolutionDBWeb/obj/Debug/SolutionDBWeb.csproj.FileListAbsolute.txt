@@ -81,3 +81,12 @@ C:\Users\user\C-\SolutionDB\SolutionDBWeb\obj\Debug\SolutionDBWeb.csproj.CoreCom
 C:\Users\user\C-\SolutionDB\SolutionDBWeb\obj\Debug\SolutionDBWeb.csproj.CopyComplete
 C:\Users\user\C-\SolutionDB\SolutionDBWeb\obj\Debug\SolutionDBWeb.dll
 C:\Users\user\C-\SolutionDB\SolutionDBWeb\obj\Debug\SolutionDBWeb.pdb
+C:\Users\user\C-\SolutionDB\SolutionDBWeb\bin\Entities.dll
+C:\Users\user\C-\SolutionDB\SolutionDBWeb\bin\MyDatabase.dll
+C:\Users\user\C-\SolutionDB\SolutionDBWeb\bin\Repositories.dll
+C:\Users\user\C-\SolutionDB\SolutionDBWeb\bin\Entities.pdb
+C:\Users\user\C-\SolutionDB\SolutionDBWeb\bin\Entities.dll.config
+C:\Users\user\C-\SolutionDB\SolutionDBWeb\bin\MyDatabase.pdb
+C:\Users\user\C-\SolutionDB\SolutionDBWeb\bin\MyDatabase.dll.config
+C:\Users\user\C-\SolutionDB\SolutionDBWeb\bin\Repositories.pdb
+C:\Users\user\C-\SolutionDB\SolutionDBWeb\bin\Repositories.dll.config

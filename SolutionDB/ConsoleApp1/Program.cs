@@ -13,10 +13,11 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+            MyDBContext myDBContext = new MyDBContext();
             Company company = new Company();
             company.Start();
-            
-            
+
+
         }
     }
 }

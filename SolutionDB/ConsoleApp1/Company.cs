@@ -60,6 +60,9 @@ namespace ConsoleApp1
                     switch (choice)
                     {
                         case Choice.ReadEmployees: employeeController.ReadEmployees();break;
+                        case Choice.ReadEmployeesPerProject: employeeController.ReadEmployeesPerProject();break;
+                        case Choice.ReadingEmployeesPerProjectPerManager: employeeController.ReadEmployeesPerProjectPerManager();break;
+                        case Choice.EmployeeDetails: employeeController.ReadEmployeeDetails();break;
                         default: employeeController.ErrorService();break;
                     }
 

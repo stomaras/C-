@@ -8,8 +8,12 @@ namespace SolutionDBFinalApp.Controllers
 {
     public class HomeController : Controller
     {
+        private MyDatabase.MyDBContext myDBContext = new MyDatabase.MyDBContext();
+        private SolutionDBFinalApp.Models.ApplicationDbContext userDb = new Models.ApplicationDbContext();
+
         public ActionResult Index()
         {
+            var assigmentsPerUser = myDBContext.ProjectUser.ToList();
             return View();
         }
 

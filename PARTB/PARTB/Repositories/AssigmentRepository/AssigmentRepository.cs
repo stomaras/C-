@@ -2,6 +2,7 @@
 using PARTB.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,13 @@ namespace PARTB.Repositories.AssigmentRepository
         {
             db = context;
         }
+
+        public void AddAssigment(Assigment assigment)
+        {
+            db.Entry(assigment).State = EntityState.Added;
+            db.SaveChanges();
+        }
+
         public List<Assigment> GetAllAssigments()
         {
             var assigments = db.Assigments.ToList();
