@@ -17,27 +17,59 @@ namespace Experiments
         {
             ApplicationDbContext db = new ApplicationDbContext();
 
-            UnitOfWork hollywoodUnit = new UnitOfWork(db);
+            //var objects = db.Movies.ToList()
+            //    .Select(x => new
+            //    {
+            //        titlos = x.Title,
+            //        bathmos = x.Rating,
+            //        skinothetis = new { onoma = x.Director.FirstName, epitheto = x.Director.LastName },
+            //        ithopoioi = x.Actors
+            //        .Select(y => new
+            //        {
+            //            onoma = y.FirstName,
+            //            epitheto = y.LastName
+            //        }),
+            //        missingRating = 10 - x.Rating,
+            //        years = DateTime.Now.Year - x.ProductionYear.Year
+            //    });
 
-            var groups = hollywoodUnit.Actors.GetActorsGroupedByCountry();
 
-            foreach (var group in groups)
+            //foreach (var item in objects)
+            //{
+            //    Console.WriteLine(item.years);
+            //}
+
+            ////Querry
+
+            //var objects3 = from movie in db.Movies.ToList()
+            //               select new
+            //               {
+            //                   titlos = movie.Title,
+            //               };
+
+
+            //Groups
+            var tainies = db.Movies.ToList();
+
+            var groups = from movie in tainies
+                         group movie by movie.DirectorId into lista
+                         select new
+                         {
+                             onoma = tainies.FirstOrDefault(x => x.DirectorId == lista.Key).Director.FirstName,
+                             movies = lista.Select(x => new { x.Title })
+                         };
+
+
+
+            foreach (var item in groups)
             {
-                Console.WriteLine($"{group.Key,15}: {group.Count()}");
+                Console.WriteLine(item.onoma);
+                foreach (var movie in item.movies)
+                {
+                    Console.WriteLine("\t\t" + movie.Title);
+                }
             }
 
-            //Console.WriteLine("-------------");
-
-            //foreach (var group in groups)
-            //{
-            //    Console.WriteLine($"{group.Key,15}");
-
-            //    foreach (var actor in group)
-            //    {
-            //        Console.WriteLine($"{"",15}:{actor.FirstName + " " + actor.LastName}");
-            //    }
-
-            //}
         }
     }
 }

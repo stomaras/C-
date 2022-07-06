@@ -37,13 +37,18 @@ namespace Entities
         [NotMapped]
         public int Age
         {
-            get { return DateTime.Now.Year - this.DateOfBirth.Year; }
+            get {
+                if (DateOfDeath.HasValue)
+                {
+                    return DateOfDeath.Value.Year - DateOfBirth.Year;
+                }
+                else
+                {
+                    return DateTime.Now.Year - DateOfBirth.Year;
+                }
+            }
         }
 
-        public void Xoreuo()
-        {
-            Console.WriteLine("tora xoreuo");
-        }
 
 
         //Navigation Properties

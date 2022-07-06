@@ -10,5 +10,6 @@ namespace RepositoryServices.Core.Repositories
     public interface IActorRepository : IGenericRepository<Actor>
     {
         IQueryable<IGrouping<Country, Actor>> GetActorsGroupedByCountry();
+
     }
 }

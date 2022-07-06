@@ -27,7 +27,20 @@ namespace Entities
         [Display(Name = "Date of Death")]
         public DateTime? DateOfDeath { get; set; }
         [NotMapped]
-        public int Age { get; set; }
+        public int Age
+        {
+            get
+            {
+                if (DateOfDeath.HasValue)
+                {
+                    return DateOfDeath.Value.Year - DateOfBirth.Year;
+                }
+                else
+                {
+                    return DateTime.Now.Year - DateOfBirth.Year;
+                }
+            }
+        }
         [EmailAddress]
         public string Email { get; set; }
 

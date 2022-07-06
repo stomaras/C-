@@ -14,7 +14,10 @@ namespace RepositoryServices.Core
         IPhotoRepository Photos { get; }
         IActorRepository Actors { get; }
         IDirectorRepository Directors { get; }
-
+        IStudentRepository Students { get; }
+        ITrainerRepository Trainers { get; }
+        IPersonRepository Persons { get; }
+        IPeopleRepository Peoples { get; }
         int Complete();
     }
 }

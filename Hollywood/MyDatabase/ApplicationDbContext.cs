@@ -22,7 +22,14 @@ namespace MyDatabase
         public DbSet<Director> Directors { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Photo> Photos { get; set; }
-        public DbSet<MovieUserOrders> MoviesUserOrders { get; set; }
+
+        public DbSet<Student> Students { get; set; }
+        public DbSet<MovieUserOrders> MovieUserOrders { get; set; }
+
+        public DbSet<Person> Persons { get; set; }
+        public DbSet<Trainer> Trainers { get; set; }
+
+        public DbSet<People> People { get; set; }
 
     }
 }

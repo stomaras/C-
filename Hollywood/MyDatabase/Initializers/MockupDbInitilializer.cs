@@ -13,12 +13,26 @@ namespace MyDatabase.Initializers
     {
         protected override void Seed(ApplicationDbContext context)
         {
-            MovieUserOrders mu1 = new MovieUserOrders() { MovieId = 1, UserId= "1ba74f86-1f92-4b3a-aeb8-022654b73d18", OrderCompleted = DateTime.Now };
-            MovieUserOrders mu2 = new MovieUserOrders() { MovieId = 2, UserId= "acdec8b2-988a-4d3d-8aa9-510115ff72cd", OrderCompleted = DateTime.Now };
-            MovieUserOrders mu3 = new MovieUserOrders() { MovieId = 3, UserId= "acdec8b2-988a-4d3d-8aa9-510115ff72cd", OrderCompleted = DateTime.Now };
-            MovieUserOrders mu4 = new MovieUserOrders() { MovieId = 4, UserId= "3aa97f0a-7af0-4f66-830a-2f8865860af9", OrderCompleted = DateTime.Now };
+            MovieUserOrders moo1 = new MovieUserOrders() { MovieId = 1, UserId = "244c64bd-1530-4f05-b5b3-faf00adfca0a", OrderCompleted = DateTime.Now };
+            MovieUserOrders moo2 = new MovieUserOrders() { MovieId = 2, UserId = "498654ce-c903-461c-aa76-6f50e3f7b9dd", OrderCompleted = DateTime.Now };
+            MovieUserOrders moo3 = new MovieUserOrders() { MovieId = 3, UserId = "244c64bd-1530-4f05-b5b3-faf00adfca0a", OrderCompleted = DateTime.Now };
+            MovieUserOrders moo4 = new MovieUserOrders() { MovieId = 4, UserId = "98de0536-f1af-4f92-9fb0-4bf7edff3999", OrderCompleted = DateTime.Now };
 
-            context.MoviesUserOrders.AddOrUpdate(mu1, mu2, mu3, mu4);
+            context.MovieUserOrders.AddOrUpdate( moo1,moo2,moo3,moo4);
+
+            Student s1 = new Student(){ Name = "Hector", Score = 99 };
+            Student s2 = new Student(){ Name = "Marios", Score = 89 };
+            Student s3 = new Student(){ Name = "Danis", Score = 90 };
+            Student s4 = new Student(){ Name = "Lakis", Score = 49 };
+
+            context.Students.AddOrUpdate(s1, s2, s3, s4);
+
+            Trainer t1 = new Trainer() { Name = "Hector", Salary = 5000 };
+            Trainer t2 = new Trainer() { Name = "George", Salary = 5000 };
+            Trainer t3 = new Trainer() { Name = "Periklis", Salary = 5000 };
+            Trainer t4 = new Trainer() { Name = "Lakis", Salary = 5000 };
+
+            context.Trainers.AddOrUpdate(t1, t2, t3, t4);
 
             #region SEED MOVIES SYSTEM
 
@@ -130,11 +144,11 @@ namespace MyDatabase.Initializers
             Actor a10 = new Actor() { FirstName = "Sigourney", LastName = "Weaver", DateOfBirth = new DateTime(1949, 10, 8), DateOfDeath = null, PhotoUrl = "https://m.media-amazon.com/images/M/MV5BMTk1MTcyNTE3OV5BMl5BanBnXkFtZTcwMTA0MTMyMw@@._V1_UY317_CR12,0,214,317_AL_.jpg", Salary = 4000000, Country = Country. United_States_of_America };
             a10.Movies = new List<Movie>() { m4 };
 
-            Actor a11 = new Actor() { FirstName = "Ed", LastName = "Harris", DateOfBirth = new DateTime(1950, 11, 28), DateOfDeath = null, PhotoUrl = "", Salary = 400000, Country = Country. United_States_of_America };
+            Actor a11 = new Actor() { FirstName = "Ed", LastName = "Harris", DateOfBirth = new DateTime(1950, 11, 28), DateOfDeath = null, PhotoUrl = "https://m.media-amazon.com/images/M/MV5BMjE4NDM4ODc2OV5BMl5BanBnXkFtZTcwNzA5NjQ5MQ@@._V1_UY317_CR7,0,214,317_AL_.jpg", Salary = 400000, Country = Country. United_States_of_America };
             a11.Movies = new List<Movie>() { m5, m6 };
-            Actor a12 = new Actor() { FirstName = "Michael", LastName = "Biehn", DateOfBirth = new DateTime(1956, 6, 30), DateOfDeath = null, PhotoUrl = "", Salary = 500000, Country = Country. United_States_of_America };
+            Actor a12 = new Actor() { FirstName = "Michael", LastName = "Biehn", DateOfBirth = new DateTime(1956, 6, 30), DateOfDeath = null, PhotoUrl = "https://m.media-amazon.com/images/M/MV5BMTM2OTI1MTEyOV5BMl5BanBnXkFtZTcwMzM5NTQ4NA@@._V1_UX214_CR0,0,214,317_AL_.jpg", Salary = 500000, Country = Country. United_States_of_America };
             a12.Movies = new List<Movie>() { m5 };
-            Actor a13 = new Actor() { FirstName = "Mary", LastName = "Mastrantonio", DateOfBirth = new DateTime(1958, 11, 17), DateOfDeath = null, PhotoUrl = "", Salary = 456000, Country = Country. United_States_of_America };
+            Actor a13 = new Actor() { FirstName = "Mary", LastName = "Mastrantonio", DateOfBirth = new DateTime(1958, 11, 17), DateOfDeath = null, PhotoUrl = "https://m.media-amazon.com/images/M/MV5BMTk0Mzc5MzIxN15BMl5BanBnXkFtZTYwODUwNjc1._V1_UX214_CR0,0,214,317_AL_.jpg", Salary = 456000, Country = Country. United_States_of_America };
             a13.Movies = new List<Movie>() { m5 };
 
 
@@ -179,7 +193,7 @@ namespace MyDatabase.Initializers
 
 
 
-            Actor a20 = new Actor() { FirstName = "Shailene", LastName = "Woodley", DateOfBirth = new DateTime(1991, 11, 15), DateOfDeath = null, PhotoUrl = "https://m.media-amazon.com/images/M/MV5BOTIxNTE2NTQ3Nl5BMl5BanBnXkFtZTcwMzMwOTk2Nw@@._V1_UX214_CR0,0,214,317_AL_.jpg", Salary = 146000, Country = Country. United_States_of_America };
+            Actor a20 = new Actor() { FirstName = "Shailene", LastName = "Woodley", DateOfBirth = new DateTime(1991, 11, 15), DateOfDeath = null, PhotoUrl = "https://m.media-amazon.com/images/M/MV5BYmI4YzcwNDUtZDcyNS00Njk2LTk5OGQtN2VkZjdmMTk3NTRlXkEyXkFqcGdeQXVyMzAzMzk5NDg@._V1_UY317_CR51,0,214,317_AL_.jpg", Salary = 146000, Country = Country. United_States_of_America };
             a20.Movies = new List<Movie>() { m8 };
             Actor a21 = new Actor() { FirstName = "Melissa", LastName = "Leo", DateOfBirth = new DateTime(1960, 9, 14), DateOfDeath = null, PhotoUrl = "https://m.media-amazon.com/images/M/MV5BMTc3MDAxOTkyOF5BMl5BanBnXkFtZTcwOTg1MDIzNA@@._V1_UY317_CR8,0,214,317_AL_.jpg", Salary = 4567000, Country = Country. United_States_of_America };
             a21.Movies = new List<Movie>() { m8 };
@@ -300,7 +314,7 @@ namespace MyDatabase.Initializers
                 LastName = "Waterston",
                 DateOfBirth = new DateTime(1980, 3, 3),
                 DateOfDeath = null,
-                PhotoUrl = "https://m.media-amazon.com/images/M/MV5BMTczMTI1MjQzN15BMl5BanBnXkFtZTgwNjY2ODY2NDE@._V1_UY317_CR194,0,214,317_AL_.jpg",
+                PhotoUrl = "https://m.media-amazon.com/images/M/MV5BMTU0OTIzNTY1OV5BMl5BanBnXkFtZTgwNjk4MzE2MDI@._V1_UX214_CR0,0,214,317_AL_.jpg",
                 Salary = 2576000,
                 Country = Country. United_Kingdom };
             a31.Movies = new List<Movie>() { m13 };
@@ -393,7 +407,7 @@ namespace MyDatabase.Initializers
 
 
 
-            Actor a45 = new Actor() { FirstName = "Elle", LastName = "Fanning", DateOfBirth = new DateTime(1998, 4, 9), DateOfDeath = null, PhotoUrl = "https://m.media-amazon.com/images/M/MV5BN2I3N2UwMzQtNjhlYy00NmEwLTgwMDgtNmY5MzNlOGE4NDQxXkEyXkFqcGdeQXVyNDIzOTc1MDY@._V1_UY317_CR131,0,214,317_AL_.jpg", Salary = 764000, Country = Country. United_States_of_America };
+            Actor a45 = new Actor() { FirstName = "Elle", LastName = "Fanning", DateOfBirth = new DateTime(1998, 4, 9), DateOfDeath = null, PhotoUrl = "https://m.media-amazon.com/images/M/MV5BOTM3ODNjNTYtNjBhOC00ZTNkLTg4YjAtMzU3M2EyMDhkM2EyXkEyXkFqcGdeQXVyMTk2ODc0MjY@._V1_UX214_CR0,0,214,317_AL_.jpg", Salary = 764000, Country = Country. United_States_of_America };
             a45.Movies = new List<Movie>() { m19 };
 
 
@@ -404,7 +418,7 @@ namespace MyDatabase.Initializers
                 LastName = "Copley",
                 DateOfBirth = new DateTime(1973, 11, 27),
                 DateOfDeath = null,
-                PhotoUrl = "https://m.media-amazon.com/images/M/MV5BY2Q5ZDlmYmMtYTdhMy00MDIzLTkyNmUtMTM0MzU3YmI4NTIxXkEyXkFqcGdeQXVyNTU5ODEyOTE@._V1_UX214_CR0,0,214,317_AL_.jpg",
+                PhotoUrl = "https://m.media-amazon.com/images/M/MV5BMTU1MjU2MzkzNF5BMl5BanBnXkFtZTgwNDIzMjIwMjI@._V1_UY317_CR10,0,214,317_AL_.jpg",
                 Salary = 764000,
                 Country = Country.South_Africa };
             a46.Movies = new List<Movie>() { m19 };
@@ -467,7 +481,7 @@ namespace MyDatabase.Initializers
                 LastName = "Vikander",
                 DateOfBirth = new DateTime(1988, 10, 3),
                 DateOfDeath = null,
-                PhotoUrl = "https://m.media-amazon.com/images/M/MV5BZmMxYzk1OWEtMjE0MC00NTRlLTgwNTEtMGQ1YjA1Yzg1Nzc3XkEyXkFqcGdeQXVyMjQwMDg0Ng@@._V1_UY317_CR3,0,214,317_AL_.jpg",
+                PhotoUrl = "https://m.media-amazon.com/images/M/MV5BMzg1MzQyYTktN2U3Ni00ZTQ2LThkMjEtODcxY2UyNmM5ZDBhXkEyXkFqcGdeQXVyMTExNzQ3MzAw._V1_UY317_CR43,0,214,317_AL_.jpg",
                 Salary = 3578000,
                 Country = Country.Sweden };
             a55.Movies = new List<Movie>() { m23 };
@@ -481,7 +495,7 @@ namespace MyDatabase.Initializers
             {
                 FirstName = "Felicity",
                 LastName = "Jones",
-                DateOfBirth = new DateTime(1958, 11, 17),
+                DateOfBirth = new DateTime(1983, 11, 17),
                 DateOfDeath = null,
                 PhotoUrl = "https://m.media-amazon.com/images/M/MV5BMjA0MTIwMzIyN15BMl5BanBnXkFtZTgwNDEyMzg1NDE@._V1_UX214_CR0,0,214,317_AL_.jpg",
                 Salary = 1343000,
@@ -583,7 +597,7 @@ namespace MyDatabase.Initializers
                 Salary = 3567000,
                 Country = Country. United_Kingdom };
             a72.Movies = new List<Movie>() { m30, m31 };
-            Actor a73 = new Actor() { FirstName = "Shirley", LastName = "MacLaine", DateOfBirth = new DateTime(1958, 11, 17), DateOfDeath = new DateTime(1934, 4, 24), PhotoUrl = "https://m.media-amazon.com/images/M/MV5BMTI0MTE5MjQ1MF5BMl5BanBnXkFtZTYwMzU2MDg1._V1_UY317_CR2,0,214,317_AL_.jpg", Salary = 4567000, Country = Country. United_States_of_America };
+            Actor a73 = new Actor() { FirstName = "Shirley", LastName = "MacLaine", DateOfBirth = new DateTime(1934, 11, 17), DateOfDeath = new DateTime(1958, 4, 24), PhotoUrl = "https://m.media-amazon.com/images/M/MV5BMTI0MTE5MjQ1MF5BMl5BanBnXkFtZTYwMzU2MDg1._V1_UY317_CR2,0,214,317_AL_.jpg", Salary = 4567000, Country = Country. United_States_of_America };
             a73.Movies = new List<Movie>() { m30 };
             Actor a74 = new Actor() { FirstName = "Melvyn", LastName = "Douglas", DateOfBirth = new DateTime(1901, 4, 5), DateOfDeath = new DateTime(1981, 8, 4), PhotoUrl = "https://m.media-amazon.com/images/M/MV5BMjA5MDMxMDAxMV5BMl5BanBnXkFtZTYwODg1NDQ2._V1_UY317_CR16,0,214,317_AL_.jpg", Salary = 1575000, Country = Country. United_States_of_America };
             a74.Movies = new List<Movie>() { m30 };

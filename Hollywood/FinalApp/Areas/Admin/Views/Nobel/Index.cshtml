@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+
+
+@section MyScripts{
+    
+    
+    <script>
+
+        // Nobel Api --- GetAllPrizes
+        // map (laurate id,name)
+        // Nobel Api --- for every laureate id i get country
+
+        let persons = [
+            {
+                name: "Mpampis",
+                country: "Greece"
+            },
+            {
+                name: "Giorgos",
+                country: "France"
+            }
+        ]
+
+
+
+
+
+
+        var settings = {
+            "url": "https://localhost:44372/admin/PersonAPI/CreatePersons",
+            "method": "GET",
+            "timeout": 0,
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "data": JSON.stringify(persons),
+        };
+
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+        });
+    </script>    
+    
+}

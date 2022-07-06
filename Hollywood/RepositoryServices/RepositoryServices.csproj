@@ -57,8 +57,16 @@
     <Compile Include="Core\Repositories\IDirectorRepository.cs" />
     <Compile Include="Core\Repositories\IGenreRepository.cs" />
     <Compile Include="Core\Repositories\IMovieRepository.cs" />
+    <Compile Include="Core\Repositories\IPeopleRepository.cs" />
+    <Compile Include="Core\Repositories\IPersonRepository.cs" />
     <Compile Include="Core\Repositories\IPhotoRepository.cs" />
+    <Compile Include="Core\Repositories\IStudentRepository.cs" />
+    <Compile Include="Core\Repositories\ITrainerRepository.cs" />
     <Compile Include="Persistance\GenericRepository.cs" />
+    <Compile Include="Persistance\Repositories\PeopleRepository.cs" />
+    <Compile Include="Persistance\Repositories\PersonRepository.cs" />
+    <Compile Include="Persistance\Repositories\StudentRepository.cs" />
+    <Compile Include="Persistance\Repositories\TrainerRepository.cs" />
     <Compile Include="Persistance\UnitOfWork.cs" />
     <Compile Include="Persistance\Repositories\PhotoRepository.cs" />
     <Compile Include="Persistance\Repositories\DirectorRepository.cs" />
