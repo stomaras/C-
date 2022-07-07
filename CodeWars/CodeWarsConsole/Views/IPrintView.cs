@@ -15,5 +15,9 @@ namespace CodeWarsConsole.Views
 
         void EnterNumericValueMessage();
         void EnterStringValueNotNullAndBetween1And10CharsLong();
+
+        string ConvertBooleanToString(bool b);
+
+        void OutPutBoolean(string n);
     }
 }

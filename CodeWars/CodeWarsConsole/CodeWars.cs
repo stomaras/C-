@@ -42,6 +42,7 @@ namespace CodeWarsConsole
                     {
                         case Choice.ConvertStringToNumber:codeWarsController.ConvertStringToNummber();break;
                         case Choice.CapitalizeWord:codeWarsController.CapitalizeWord();break;
+                        case Choice.ConvertBooleanToString:codeWarsController.ConvertBooleanToString();break;
                         default:codeWarsController.ErrorService();
                             break;
                     }

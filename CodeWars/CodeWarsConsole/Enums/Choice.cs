@@ -9,6 +9,7 @@ namespace CodeWarsConsole.Enums
     public enum Choice
     {
         ConvertStringToNumber = 1,
-        CapitalizeWord
+        CapitalizeWord,
+        ConvertBooleanToString
     }
 }

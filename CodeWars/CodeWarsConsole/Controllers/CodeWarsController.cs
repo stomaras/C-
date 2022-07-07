@@ -33,6 +33,13 @@ namespace CodeWarsConsole.Controllers
 
         }
 
+        public void ConvertBooleanToString()
+        {
+            PrintView pr = Factory.Factory.CreatePrintView();
+            string booleanToString = pr.ConvertBooleanToString(false);
+            pr.OutPutBoolean(booleanToString);
+        }
+
         public void ErrorService()
         {
             Console.WriteLine("Wrong Number Try again!");

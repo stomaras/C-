@@ -10,6 +10,11 @@ namespace CodeWarsConsole.Views
 {
     public class PrintView : IPrintView
     {
+        public string ConvertBooleanToString(bool b)
+        {
+            return b.ToString();
+        }
+
         public int EnterANumber()
         {
             Console.WriteLine("Enter a number:\n");
@@ -41,6 +46,11 @@ namespace CodeWarsConsole.Views
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Enter a string not null and between 1 and 10 characters long");
             Console.ResetColor();
+        }
+
+        public void OutPutBoolean(string s)
+        {
+            Console.WriteLine(s);
         }
     }
 }
