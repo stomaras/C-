@@ -18,7 +18,7 @@ namespace WebFinal.Controllers.APIControllers
             return Json(products, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpDelete]
+        [HttpPost]
         public ActionResult DeleteProduct(int? id)
         {
             if (id == null)
@@ -27,14 +27,17 @@ namespace WebFinal.Controllers.APIControllers
             }
 
             var product = superMarket.Products.GetById(id);
-            //if (product == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.NotFound);
-            //}
-            //superMarket.Products.Delete(product);
-            //superMarket.Complete();
-            return Json(product, JsonRequestBehavior.AllowGet);
 
+            if (product == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+            }
+
+            superMarket.Products.Delete(id);
+            superMarket.Complete();
+
+            return Json(product, JsonRequestBehavior.AllowGet);
+;
         }
 
         [HttpPost]
@@ -67,7 +70,7 @@ namespace WebFinal.Controllers.APIControllers
             return Json(product, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPut]
+        [HttpPost]
         public ActionResult UpdateProduct(int? id, Product product)
         {
             if (id == null)

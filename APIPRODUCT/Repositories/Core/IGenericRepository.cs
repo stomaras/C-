@@ -13,7 +13,7 @@ namespace Repositories.Core
         T GetById(object id);
         void Insert(T obj);
         void Update(T obj);
-        void Delete(T obj);
+        void Delete(object obj);
         void Save();
     }
 }

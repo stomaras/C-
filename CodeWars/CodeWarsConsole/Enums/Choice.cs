@@ -10,6 +10,8 @@ namespace CodeWarsConsole.Enums
     {
         ConvertStringToNumber = 1,
         CapitalizeWord,
-        ConvertBooleanToString
+        ConvertBooleanToString,
+        FriendOrFoe,
+        VowelCount
     }
 }

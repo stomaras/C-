@@ -5,3 +5,11 @@ C:\Users\user\source\repos\CodeWars\CodeWarsConsole\obj\Debug\CodeWarsConsole.cs
 C:\Users\user\source\repos\CodeWars\CodeWarsConsole\obj\Debug\CodeWarsConsole.csproj.CoreCompileInputs.cache
 C:\Users\user\source\repos\CodeWars\CodeWarsConsole\obj\Debug\CodeWarsConsole.exe
 C:\Users\user\source\repos\CodeWars\CodeWarsConsole\obj\Debug\CodeWarsConsole.pdb
+C:\Users\spyros\C-\CodeWars\CodeWarsConsole\obj\Debug\CodeWarsConsole.csproj.AssemblyReference.cache
+C:\Users\spyros\C-\CodeWars\CodeWarsConsole\obj\Debug\CodeWarsConsole.csproj.SuggestedBindingRedirects.cache
+C:\Users\spyros\C-\CodeWars\CodeWarsConsole\obj\Debug\CodeWarsConsole.csproj.CoreCompileInputs.cache
+C:\Users\spyros\C-\CodeWars\CodeWarsConsole\obj\Debug\CodeWarsConsole.exe
+C:\Users\spyros\C-\CodeWars\CodeWarsConsole\obj\Debug\CodeWarsConsole.pdb
+C:\Users\spyros\C-\CodeWars\CodeWarsConsole\bin\Debug\CodeWarsConsole.exe.config
+C:\Users\spyros\C-\CodeWars\CodeWarsConsole\bin\Debug\CodeWarsConsole.exe
+C:\Users\spyros\C-\CodeWars\CodeWarsConsole\bin\Debug\CodeWarsConsole.pdb

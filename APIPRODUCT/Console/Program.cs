@@ -18,19 +18,19 @@ namespace Console
             foreach (var pro in products)
             {
                 System.Console.WriteLine(pro.Price);
-                
+
             }
-            
+
             var productsn = unit.Products.GetAll();
             foreach (var pro in productsn)
             {
                 System.Console.WriteLine(pro.Price);
             }
 
-            
-     
 
-            
+
+
+
         }
     }
 }
