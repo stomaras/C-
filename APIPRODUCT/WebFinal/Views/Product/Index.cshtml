@@ -7,7 +7,7 @@
 <h2>Index</h2>
 <div>
     <button id="loadBtn" class="btn btn-info">Load Data...</button>
-    <button id="createBtn" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Create Product</button>
+    <button id="createBtn" class="btn btn-primary" data-toggle="modal" data-target="#CreateModal">Create Product</button>
 </div>
 <table class="table" id="myTable">
     <thead>
@@ -33,8 +33,8 @@
     </tbody>
 </table>
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" role="dialog">
+<!--Create Modal -->
+<div class="modal fade" id="CreateModal" role="dialog">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -43,22 +43,62 @@
             </div>
             <div class="modal-body">
 
-                <div class="form-group">
-                    <label for="productName">Product Name</label>
-                    <input id="productName" class="form-control" type="text" value="" placeholder="Give Product Name" />
-                </div>
-                <div class="form-group">
-                    <label for="productPrice">Product Price</label>
-                    <input id="productPrice" class="form-control" type="number" value="" placeholder="Give Product Price" />
-                </div>
-                <div class="form-group">
-                    <label for="productQuantity">Product Quantity</label>
-                    <input id="productQuantity" class="form-control" type="number" value="" placeholder="Give Product Quantity" />
-                </div>
+                <form id="form">
+                    <div class="form-group">
+                        <label for="productName">Product Name</label>
+                        <input id="productName" class="form-control" type="text" value="" placeholder="Give Product Name" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="productPrice">Product Price</label>
+                        <input id="productPrice" class="form-control" type="number" value="" placeholder="Give Product Price" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="productQuantity">Product Quantity</label>
+                        <input id="productQuantity" class="form-control" type="number" value="" placeholder="Give Product Quantity" required />
+                    </div>
+                    <input type="submit" id="createFormBtn" class="btn btn-primary" value="Create Product" />
+                </form>
 
             </div>
             <div class="modal-footer">
-                <button id="createFormBtn" class="btn btn-primary">Create Product</button>
+
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Edit Modal -->
+<div class="modal" id="EditModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Edit Product</h4>
+            </div>
+            <div class="modal-body">
+
+                <form id="Editform">
+
+                    <input id="EditProductId" type="hidden" value="" />
+                    <div class="form-group">
+                        <label for="EditproductName">Edit Product Name</label>
+                        <input id="EditproductName" class="form-control" type="text" value="" placeholder="Give Product Name" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="EditproductPrice">Edit Product Price</label>
+                        <input id="EditproductPrice" class="form-control" type="number" value="" placeholder="Give Product Price" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="EditproductQuantity">Edit Product Quantity</label>
+                        <input id="EditproductQuantity" class="form-control" type="number" value="" placeholder="Give Product Quantity" required />
+                    </div>
+                    <input type="submit" id="EditFormBtn" class="btn btn-primary" value="Edit Product" />
+                </form>
+
+            </div>
+            <div class="modal-footer">
+
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
@@ -71,12 +111,17 @@
 
     <script>
 
-        $("#createFormBtn").on("click", function onCreateProductHandler() {
+        $("#form").on("submit", function onCreateProductHandler(event) {
+            event.preventDefault();
+            $("#form").off("submit", onCreateProductHandler);
+            $("#form").find("#createFormBtn").attr('disabled', true);
             let name = $("#productName").val();
             let price = $("#productPrice").val();
             let quantity = $("#productQuantity").val();
 
             let product = { name, price, quantity };
+
+            console.log(product);
 
             let requestObject = JSON.stringify(product);
 
@@ -90,10 +135,21 @@
                 data: requestObject //json....,
             };
 
-            $.ajax(settings).done(function (response) {
-                console.log(response);
+            $.ajax(settings).done(function (product) {
+                // give again the abilty to press submit button
+                $("#form").on("submit", onCreateProductHandler);
+                $('#CreateModal').modal('hide');
+                onLoadDataHandler();
+                let template = ShowAlertMessage("alert-success", "Success", `You have successfully created product with name ${product.Name}`);
+                $("body").append(template);
+                $("#form").find("#createFormBtn").attr('disabled', false);
+            }).fail(function () {
+                let template = ShowAlertMessage("alert-danger", "Fail!", "Unable to create product ...server...issues");
+                $("body").append(template);
+                $("#form").on("submit", onCreateProductHandler);
+                $("#form").find("#createFormBtn").attr('disabled', false);
             });
-            
+
         })
 
 
@@ -122,19 +178,19 @@
 
         function CreateRow(pro) {
             let template = `
-                                            <tr>
-                                                <td class="productId">${pro.Id}</td>
-                                                <td class="productName" contenteditable="false">${pro.Name}</td>
-                                                <td class="productPrice"><input type="number" value=${pro.Price} disabled /></td>
-                                                <td class="productQuantity"><input type="number" value=${pro.Quantity} disabled/></td>
-                                                <td class="productTotal">${CalculateTotal(pro.Price, pro.Quantity)}</td>
-                                                <td>
-                                                    <button class="productEdit btn btn-success">Edit</button>
-                                                    <button onclick="onDeleteProductHandler(this,${pro.Id})" class="productDelete btn btn-danger">Delete</button>
+                                                <tr>
+                                                    <td class="productId">${pro.Id}</td>
+                                                    <td class="productName" contenteditable="false">${pro.Name}</td>
+                                                    <td class="productPrice"><input type="number" value=${pro.Price} disabled /></td>
+                                                    <td class="productQuantity"><input type="number" value=${pro.Quantity} disabled/></td>
+                                                    <td class="productTotal">${CalculateTotal(pro.Price, pro.Quantity)}</td>
+                                                    <td>
+                                                        <button onclick="onEditProductHandler(this,${pro.Id})" class="productEdit btn btn-success">Edit</button>
+                                                        <button onclick="onDeleteProductHandler(this,${pro.Id})" class="productDelete btn btn-danger">Delete</button>
 
-                                                </td>
-                                            </tr>
-                                            `
+                                                    </td>
+                                                </tr>
+                                                `
             // add template in dom
             let ele = $(template);
 
@@ -174,6 +230,93 @@
         }
 
 
+        function onEditProductHandler(e, id) {
+
+            var settings = {
+                "url": "https://localhost:44336/ProductAPI/GetProductById?id=" + id,
+                "method": "GET",
+                "timeout": 0,
+            };
+
+            $.ajax(settings).done(function (product) {
+                console.log(product);
+                
+                $("#EditproductName").val(product.Name);
+                $("#EditproductPrice").val(product.Price);
+                $("#EditproductQuantity").val(product.Quantity);
+                $("#EditProductId").val(product.Id);
+
+
+                $('#EditModal').modal('show');
+            }).fail(function () {
+                ShowAlertMessage("alert-danger", "Fail!", "Unable to Get product Details... Server Problem ...");
+            });
+        }
+
+        $("#Editform").on("submit", function onEditFormProductHandler(event) {
+            event.preventDefault();
+            $("#Editform").off("submit", onEditFormProductHandler);
+            $("#Editform").find("#EditFormBtn").attr('disabled', true);
+            let name = $("#EditproductName").val();
+            let price = $("#EditproductPrice").val();
+            let quantity = $("#EditproductQuantity").val();
+            let id = $("#EditProductId").val();
+
+            let product = { name, price, quantity };
+
+            console.log(product);
+
+            let requestObject = JSON.stringify(product);
+
+            var settings = {
+                "url": "https://localhost:44336/ProductAPI/UpdateProduct?id="+id,
+                "method": "POST",
+                "timeout": 0,
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "data": requestObject
+            };
+
+            $.ajax(settings).done(function (response) {
+                $("#Editform").on("submit", onEditFormProductHandler);
+                $('#EditModal').modal('hide');
+                onLoadDataHandler();
+                $("#Editform").find("#EditFormBtn").attr('disabled', false);
+            }).fail(function (){
+                ShowAlertMessage("alert-danger", "Fail!", "Unable to edit product ...server...issues");
+                $("#Editform").on("submit", onCreateProductHandler);
+                $("#Editform").find("#EditFormBtn").attr('disabled', false);
+            });
+
+            //let settings = {
+            //    url: "https://localhost:44336/ProductAPI/CreateProduct",
+            //    method: "POST",
+            //    timeout: 0,
+            //    headers: {
+            //        "Content-Type": "application/json"
+            //    },
+            //    data: requestObject //json....,
+            //};
+
+            //$.ajax(settings).done(function (product) {
+            //    // give again the abilty to press submit button
+            //    $("#form").on("submit", onCreateProductHandler);
+            //    $('#CreateModal').modal('hide');
+            //    onLoadDataHandler();
+            //    let template = ShowAlertMessage("alert-success", "Success", `You have successfully created product with name ${product.Name}`);
+            //    $("body").append(template);
+            //    $("#form").find("#createFormBtn").attr('disabled', false);
+            //}).fail(function () {
+            //    let template = ShowAlertMessage("alert-danger", "Fail!", "Unable to create product ...server...issues");
+            //    $("body").append(template);
+            //    $("#form").on("submit", onCreateProductHandler);
+            //    $("#form").find("#createFormBtn").attr('disabled', false);
+            //});
+
+        })
+
+
 
 
 
@@ -185,12 +328,20 @@
 
         function ShowAlertMessage(status, title, message) {
             let template = `
-                                         <div class="alert ${status} alert-dismissible">
-                                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                            <strong>${title}</strong> ${message}
-                                        </div>
-                                        `;
+                                             <div class="alert ${status} alert-dismissible">
+                                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                                <strong>${title}</strong> ${message}
+                                            </div>
+                                            `;
             $("body").append(template);
+        }
+
+
+        function ClearForm() {
+            $("#productName").val("");
+            $("#productPrice").val("");
+            $("#productQuantity").val("");
+
         }
 
 
