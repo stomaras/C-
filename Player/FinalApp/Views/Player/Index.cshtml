@@ -1,0 +1,161 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index of Player</h2>
+<div>
+    <button id="loadData" class="btn btn-info">Load Data</button>
+    <button id="createPlayer" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Create Player</button>
+</div>
+<table class="table" id="myTable">
+    <thead>
+        <tr>
+            <td>Photo</td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Age</td>
+            <td>Total Points</td>
+            <td>Total Assists</td>
+            <td>Life Status</td>
+            <td>Actions</td>
+        </tr>
+    </thead>
+    <tbody>
+        @*<td class="playerFirstName contenteditable="false">$}</td>
+            <td class="playerLastName" contenteditable="false">${}</td>
+            <td class="playerDateOfBirth"><input type="date" id="birthday" name="birthday"></td>
+            <td class="playerTotalPoints"><input type="number" value="300" disabled /></td>
+            <td class="playerTotalAssists"><input type="number" value="200" disabled /></td>
+            <td class="playerLifeStatus">${} </td>*@
+    </tbody>
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Create Product</h4>
+            </div>
+            <div class="modal-body">
+
+                <form id="form">
+                    <div class="form-group">
+                        <label for="productName">Product Name</label>
+                        <input id="productName" class="form-control" type="text" value="" placeholder="Give Product Name" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="productPrice">Product Price</label>
+                        <input id="productPrice" class="form-control" type="number" value="" placeholder="Give Product Price" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="productQuantity">Product Quantity</label>
+                        <input id="productQuantity" class="form-control" type="number" value="" placeholder="Give Product Quantity" required />
+                    </div>
+                    <input type="submit" id="createFormBtn" class="btn btn-primary" value="Create Product" />
+                </form>
+
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section MyScripts{
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+        $("#loadData").on("click", function onLoadData() {
+
+
+
+            var settings = {
+                "url": "https://localhost:44310/PlayerAPI/GetAllPlayers",
+                "method": "GET",
+                "timeout": 0,
+            };
+
+            $.ajax(settings).done(function (players) {
+                console.log(players);
+                $("table > tbody").empty();
+                players.forEach(CreateRow);
+            }).fail(function () {
+                console.log("df");
+                let template = ShowAlertMessage("alert-danger", "Danger", "Cannot load players ... server error...");
+                let ele = $(template);
+                $("body").append(ele);
+            });
+        });
+
+
+        function onDeletePlayerHandler(e, id) {
+            var settings = {
+                "url": "https://localhost:44310/PlayerAPI/DeletePlayer?id=" + id,
+                "method": "POST",
+                "timeout": 0,
+            };
+
+            $.ajax(settings).done(function (player) {
+                $(e).parent().parent().remove();
+                let template = ShowAlertMessage("alert-success", "Success", `Successfully deleted Player with name ${player.FirstName} `);
+                let ele = $(template);
+                $("body").append(ele);
+            }).fail(function () {
+                let template = ShowAlertMessage("alert-danger", "Danger", "Cannot delete player ... server error...");
+                let ele = $(template);
+                $("body").append(ele);
+            });
+        }
+
+
+
+        function CreateRow(player) {
+            let template = `
+                                             <tr>
+                                                <td class="playerPhoto"><img src= "${player.PhotoUrl}" width = "80" height = "80" /></td>
+                                                <td class="playerFirstName contenteditable="false">${player.FirstName}</td>
+                                                <td class="playerLastName" contenteditable="false">${player.LastName}</td>
+                                                <td class="playerDateOfBirth"><input type="date" id="birthday" name="birthday"></td>
+                                                <td class="playerTotalPoints"><input type="number" value="${player.TotalPoints}" disabled /></td>
+                                                <td class="playerTotalAssists"><input type="number" value="${player.TotalAsists}" disabled /></td>
+                                                <td class="playerLifeStatus">${player.StatusOfLife ? "Alive" : "Dead"}</td>
+                                                <td>
+                                                    <button class="playerEdit btn btn-success btn-sm">Edit</button><br/>
+                                                    <button onclick="onDeletePlayerHandler(this,${player.PlayerId})" class="playerDelete btn btn-danger btn-sm">Delete</button>
+                                                </td>
+                                             </tr>
+                                            `;
+
+            let ele = $(template);
+
+            $("table > tbody").append(ele);
+        }
+
+
+
+
+
+
+
+        function ShowAlertMessage(status, title, message) {
+            let template = `
+                                            <div class="alert ${status} alert-dismissible">
+                                                <a href="#" class="close" data-dismiss="alert"  aria-label="close">&times;</a>
+                                                <strong>${title}</strong> ${message}
+                                            </div>
+                                            `
+            $("body").append(template);
+        }
+
+    </script>
+
+
+}
