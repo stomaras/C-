@@ -17,6 +17,7 @@
             <th>Price</th>
             <th>Quantity</th>
             <th>Total</th>
+            <th>Shops</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -184,6 +185,11 @@
                                                     <td class="productPrice"><input type="number" value=${pro.Price} disabled /></td>
                                                     <td class="productQuantity"><input type="number" value=${pro.Quantity} disabled/></td>
                                                     <td class="productTotal">${CalculateTotal(pro.Price, pro.Quantity)}</td>
+                                                    <td>
+                                                            <ul>
+                                                                <li>${pro.Title}</li>
+                                                            </ul>
+                                                    </td>
                                                     <td>
                                                         <button onclick="onEditProductHandler(this,${pro.Id})" class="productEdit btn btn-success">Edit</button>
                                                         <button onclick="onDeleteProductHandler(this,${pro.Id})" class="productDelete btn btn-danger">Delete</button>

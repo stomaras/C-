@@ -18,9 +18,12 @@ namespace Repositories.Persistance
         {
             db = context;
             Products = new ProductRepository(context);
+            Shops = new ShopRepository(context);
         }
 
         public IProductRepository Products { get; private set; }
+
+        public IShopRepository Shops { get; private set; }
 
         public int Complete()
         {

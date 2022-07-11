@@ -14,6 +14,34 @@ namespace WebFinal.Controllers
             return View();
         }
 
+        public ActionResult ProductChartBar()
+        {
+            return View();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         [ChildActionOnly]
         public ActionResult MyPartialViewAction()
         {

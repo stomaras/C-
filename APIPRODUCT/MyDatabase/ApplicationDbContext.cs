@@ -18,5 +18,6 @@ namespace MyDatabase
         }
 
         public DbSet<Product> Products { get; set; }
+        public DbSet<Shop> Shops { get; set; }
     }
 }
