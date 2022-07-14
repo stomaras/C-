@@ -22,5 +22,16 @@ namespace Repositories.Persistance.Repositories
             var productsWithShops = db.Products.Include(x => x.Shop);
             return productsWithShops;
         }
+
+        public IQueryable<Product> GetProductsWithShopDetails(int id)
+        {
+            var products = db.Products.Include(x => x.Shop);
+
+            var productDetails = from pro in products
+                                 where pro.Id == id
+                                 select pro;
+            return productDetails;
+
+        }
     }
 }

@@ -60,6 +60,17 @@ namespace WebFinal.Controllers.APIControllers
             return Json(products, JsonRequestBehavior.AllowGet);// Name, Price, Quantity
         }
 
+        [HttpGet]
+        public ActionResult GetProductDetails(int Id)
+        {
+            var product = superMarket.Products.GetById(Id);
+
+            return Json(product, JsonRequestBehavior.AllowGet);
+        }
+
+
+
+
         [HttpPost]
         public ActionResult DeleteProduct(int? id)
         {
