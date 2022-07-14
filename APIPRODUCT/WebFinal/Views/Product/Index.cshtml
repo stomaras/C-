@@ -112,6 +112,8 @@
 
     <script>
 
+        $(window).on("load", onLoadDataHandler);
+
         $("#form").on("submit", function onCreateProductHandler(event) {
             event.preventDefault();
             $("#form").off("submit", onCreateProductHandler);
@@ -156,7 +158,7 @@
 
 
 
-        $("#loadBtn").on("click", function onLoadDataHandler(event) {
+        function onLoadDataHandler(event) {
 
             LoadSpinner();
             var settings = {
@@ -173,11 +175,12 @@
                 $("body").append(template);
 
             });
-        });
+        };
 
 
 
         function CreateRow(pro) {
+            console.log(pro);
             let template = `
                                                 <tr>
                                                     <td class="productId">${pro.Id}</td>
@@ -187,7 +190,7 @@
                                                     <td class="productTotal">${CalculateTotal(pro.Price, pro.Quantity)}</td>
                                                     <td>
                                                             <ul>
-                                                                <li>${pro.Title}</li>
+                                                                <li>${pro.Shop.Title}</li>
                                                             </ul>
                                                     </td>
                                                     <td>

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace Repositories.Persistance.Repositories
 {
@@ -16,6 +17,10 @@ namespace Repositories.Persistance.Repositories
 
         }
 
-        
+        public IEnumerable<Product> GetAllProductsWithShops()
+        {
+            var productsWithShops = db.Products.Include(x => x.Shop);
+            return productsWithShops;
+        }
     }
 }

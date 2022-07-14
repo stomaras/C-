@@ -10,6 +10,6 @@ namespace Repositories.Core.Repositories
     public interface IProductRepository : IGenericRepository<Product>
     {
 
-        
+        IEnumerable<Product> GetAllProductsWithShops();
     }
 }

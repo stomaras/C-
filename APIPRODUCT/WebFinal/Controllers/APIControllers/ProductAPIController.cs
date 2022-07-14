@@ -48,14 +48,15 @@ namespace WebFinal.Controllers.APIControllers
         [HttpGet]
         public ActionResult GetAllProducts()
         {
-            var products = superMarket.Products.GetAll().Select(x => new ProductDTO 
-            { 
+            var products = superMarket.Products.GetAllProductsWithShops().Select(x => new ProductDTO
+            {
                 Id = x.Id,
                 Name = x.Name,
                 Price = x.Price,
                 Quantity = x.Quantity,
-                Shop = new { Title = x.Shop.Title },
+                Shop = new { x.Shop?.Title}
             });
+
             return Json(products, JsonRequestBehavior.AllowGet);// Name, Price, Quantity
         }
 
