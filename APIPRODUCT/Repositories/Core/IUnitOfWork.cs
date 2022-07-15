@@ -13,6 +13,9 @@ namespace Repositories.Core
 
         IShopRepository Shops { get; }
 
+        IEmployeeRepository Employees { get; }
+
+
         int Complete();
     }
 }

@@ -53,9 +53,11 @@
   <ItemGroup>
     <Compile Include="Core\IGenericRepository.cs" />
     <Compile Include="Core\IUnitOfWork.cs" />
+    <Compile Include="Core\Repositories\IEmployeeRepository.cs" />
     <Compile Include="Core\Repositories\IProductRepository.cs" />
     <Compile Include="Core\Repositories\IShopRepository.cs" />
     <Compile Include="Persistance\GenericRepository.cs" />
+    <Compile Include="Persistance\Repositories\EmployeeRepository.cs" />
     <Compile Include="Persistance\Repositories\ProductRepository.cs" />
     <Compile Include="Persistance\Repositories\ShopRepository.cs" />
     <Compile Include="Persistance\UnitOfWork.cs" />

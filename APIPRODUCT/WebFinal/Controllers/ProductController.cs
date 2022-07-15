@@ -21,27 +21,6 @@ namespace WebFinal.Controllers
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         [ChildActionOnly]
         public ActionResult MyPartialViewAction()
         {

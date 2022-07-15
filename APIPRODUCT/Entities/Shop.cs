@@ -15,9 +15,11 @@ namespace Entities
         public Shop()
         {
             Products = new HashSet<Product>();  
+            Employees = new HashSet<Employee>();
         }
 
-
+        // Navigation Properties
         public virtual ICollection<Product> Products { get; set; }
+        public virtual ICollection<Employee> Employees { get; set; }
     }
 }

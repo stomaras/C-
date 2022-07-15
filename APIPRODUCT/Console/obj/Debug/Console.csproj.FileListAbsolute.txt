@@ -40,3 +40,6 @@ C:\Users\spyros\C-\APIPRODUCT\Console\obj\Debug\Console.csproj.CoreCompileInputs
 C:\Users\spyros\C-\APIPRODUCT\Console\obj\Debug\Console.csproj.CopyComplete
 C:\Users\spyros\C-\APIPRODUCT\Console\obj\Debug\Console.exe
 C:\Users\spyros\C-\APIPRODUCT\Console\obj\Debug\Console.pdb
+C:\Users\spyros\C-\APIPRODUCT\Console\bin\Debug\Patterns.dll
+C:\Users\spyros\C-\APIPRODUCT\Console\bin\Debug\Patterns.pdb
+C:\Users\spyros\C-\APIPRODUCT\Console\bin\Debug\Patterns.dll.config

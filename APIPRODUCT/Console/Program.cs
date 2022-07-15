@@ -1,4 +1,6 @@
 ﻿using MyDatabase;
+using Patterns.StrategyPatterns.TaxOfficeContext;
+using Patterns.StrategyPatterns.TaxOfficeManager;
 using Repositories.Persistance;
 using System;
 using System.Collections.Generic;
@@ -27,9 +29,12 @@ namespace Console
             //    System.Console.WriteLine(pro.Price);
             //}
 
+            TaxContext tax = new TaxContext(new MediumTaxStrategy());
+
+            int eforia = tax.CalculateTaxs();
 
 
-
+            System.Console.WriteLine(eforia);
 
         }
     }

@@ -1,0 +1,2 @@
+C:\Users\spyros\C-\APIPRODUCT\DesignPatterns\obj\Debug\DesignPatterns.csproj.AssemblyReference.cache
+C:\Users\spyros\C-\APIPRODUCT\DesignPatterns\obj\Debug\DesignPatterns.csproj.CoreCompileInputs.cache

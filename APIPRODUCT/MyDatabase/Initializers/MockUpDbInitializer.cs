@@ -33,8 +33,29 @@ namespace MyDatabase.Initializers
             Shop s2 = new Shop() { Address = "USA", Title = "Amazon" };
             Shop s3 = new Shop() { Address = "France", Title = "le coq sportif" };
 
-           
 
+            Employee e1 = new Employee() { FirstName = "Spyros", LastName = "Tomaras", NumOfKids = 0, AnnualIncome = 12000 };
+            Employee e2 = new Employee() { FirstName = "Agathi", LastName = "Tomara", NumOfKids = 0, AnnualIncome = 8000 };
+            Employee e3 = new Employee() { FirstName = "Nikos", LastName = "Papanikos", NumOfKids = 2, AnnualIncome = 18000 };
+            Employee e4 = new Employee() { FirstName = "Niki", LastName = "Kni", NumOfKids = 2, AnnualIncome = 12000 };
+            Employee e5 = new Employee() { FirstName = "Eleni", LastName = "Kallifoni", NumOfKids = 2, AnnualIncome = 6000 };
+            Employee e6 = new Employee() { FirstName = "Georgia", LastName = "Kallifoni", NumOfKids = 2, AnnualIncome = 6000 };
+            Employee e7 = new Employee() { FirstName = "Giorgos", LastName = "Kallifonis", NumOfKids = 10, AnnualIncome = 12000 };
+            Employee e8 = new Employee() { FirstName = "Areti", LastName = "Kallifoni", NumOfKids = 10, AnnualIncome = 10000 };
+            Employee e9 = new Employee() { FirstName = "Garifalia", LastName = "Kallifoni", NumOfKids = 0, AnnualIncome = 100000 };
+            Employee e10 = new Employee() { FirstName = "Eirini", LastName = "Kallifoni", NumOfKids = 0, AnnualIncome = 10000 };
+            Employee e11 = new Employee() { FirstName = "Apostolis", LastName = "Papanikolaoy", NumOfKids = 0, AnnualIncome = 10000 };
+            Employee e12 = new Employee() { FirstName = "Maranthi", LastName = "Papanikolaoy", NumOfKids = 0, AnnualIncome = 5000 };
+            Employee e13 = new Employee() { FirstName = "Ilias", LastName = "Raptis", NumOfKids = 4, AnnualIncome = 40000 };
+            Employee e14 = new Employee() { FirstName = "Nikos", LastName = "Chalimoyrdas", NumOfKids = 1, AnnualIncome = 100000 };
+            Employee e15 = new Employee() { FirstName = "Kyriakos", LastName = "Mitsotakis", NumOfKids = 3, AnnualIncome = 2000000 };
+            Employee e16 = new Employee() { FirstName = "Jeff", LastName = "Bezos", NumOfKids = 2, AnnualIncome = 1000000000 };
+            Employee e17 = new Employee() { FirstName = "Kostas", LastName = "Fragulis", NumOfKids = 2, AnnualIncome = 3000 };
+            Employee e18 = new Employee() { FirstName = "Tisiano", LastName = "Bala", NumOfKids = 0, AnnualIncome = 6000 };
+            Employee e19 = new Employee() { FirstName = "Natalia", LastName = "Zacharaki", NumOfKids = 0, AnnualIncome = 9000 };
+            Employee e20 = new Employee() { FirstName = "Nikos", LastName = "Karanukas", NumOfKids = 2, AnnualIncome = 15000 };
+            
+            
             //p1.Shop = s1;
             //p2.Shop = s1;
             //p3.Shop = s1;
@@ -56,6 +77,27 @@ namespace MyDatabase.Initializers
             s3.Products.Add(p10);
             s3.Products.Add(p11);
             s3.Products.Add(p12);
+
+            s1.Employees.Add(e1);
+            s2.Employees.Add(e2);
+            s1.Employees.Add(e3);
+            s2.Employees.Add(e4);
+            s3.Employees.Add(e5);
+            s3.Employees.Add(e6);
+            s3.Employees.Add(e7);
+            s3.Employees.Add(e8);
+            s3.Employees.Add(e9);
+            s1.Employees.Add(e10);
+            s1.Employees.Add(e11);
+            s1.Employees.Add(e12);
+            s1.Employees.Add(e13);
+            s2.Employees.Add(e14);
+            s3.Employees.Add(e15);
+            s2.Employees.Add(e16);
+            s3.Employees.Add(e17);
+            s3.Employees.Add(e18);
+            s1.Employees.Add(e19);
+            s2.Employees.Add(e20);
 
 
             context.Shops.AddOrUpdate(s1, s2, s3);
