@@ -23,14 +23,13 @@ namespace Repositories.Persistance.Repositories
             return productsWithShops;
         }
 
-        public IQueryable<Product> GetProductsWithShopDetails(int id)
+        public Product GetProductWithShopDetails(int? id)
         {
-            var products = db.Products.Include(x => x.Shop);
+            var products = GetAllProductsWithShops().ToList();
 
-            var productDetails = from pro in products
-                                 where pro.Id == id
-                                 select pro;
-            return productDetails;
+            var pro = products.Find(x=>x.Id == id);
+
+            return pro;
 
         }
     }

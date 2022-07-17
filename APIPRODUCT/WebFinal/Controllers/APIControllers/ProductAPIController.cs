@@ -129,7 +129,7 @@ namespace WebFinal.Controllers.APIControllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var product = superMarket.Products.GetById(id);
+            var product = superMarket.Products.GetProductWithShopDetails(id);
             if (product == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.NotFound);
@@ -141,6 +141,7 @@ namespace WebFinal.Controllers.APIControllers
                 Name = product.Name,
                 Quantity = product.Quantity,
                 Price = product.Price,
+                Shop = new { product.Shop?.Title },
             };
 
             return Json(productDTO, JsonRequestBehavior.AllowGet);

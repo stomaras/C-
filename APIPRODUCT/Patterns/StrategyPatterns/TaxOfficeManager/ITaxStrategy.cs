@@ -9,6 +9,6 @@ namespace Patterns.StrategyPatterns.TaxOfficeManager
 {
     public interface ITaxStrategy
     {
-        List<int> CalculateTaxs(List<Employee> employees);
+        List<double> CalculateTaxs(List<Employee> employees);
     }
 }

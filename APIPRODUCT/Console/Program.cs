@@ -1,4 +1,5 @@
-﻿using MyDatabase;
+﻿using Entities;
+using MyDatabase;
 using Patterns.StrategyPatterns.TaxOfficeContext;
 using Patterns.StrategyPatterns.TaxOfficeManager;
 using Repositories.Persistance;
@@ -29,13 +30,21 @@ namespace Console
             //    System.Console.WriteLine(pro.Price);
             //}
 
-            TaxContext tax = new TaxContext(new MediumTaxStrategy());
+            List<Employee> employees = (List<Employee>)unit.Employees.GetAll();
+            System.Console.WriteLine(employees.Count);
 
-            int eforia = tax.CalculateTaxs();
+            TaxContext context = new TaxContext(new HighTaxStrategy());
+
+            List<double> tasks = context.CalculateTaxs();
+            System.Console.WriteLine(tasks.Count);
+
+            //foreach (var item in tasks)
+            //{
+            //    System.Console.WriteLine(item);
+            //}
 
 
-            System.Console.WriteLine(eforia);
-
+          
         }
     }
 }

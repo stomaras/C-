@@ -5,6 +5,9 @@
 }
 
 <h2>Index</h2>
+<div id="messages">
+
+</div>
 <div>
     <button id="loadBtn" class="btn btn-info">Load Data...</button>
     <button id="createBtn" class="btn btn-primary" data-toggle="modal" data-target="#CreateModal">Create Product</button>
@@ -161,6 +164,7 @@
         function onLoadDataHandler(event) {
 
             LoadSpinner();
+            alert("s");
             var settings = {
                 "url": "https://localhost:44336/ProductAPI/GetAllProducts",
                 "method": "GET",
@@ -200,10 +204,10 @@
 
                                                     </td>
                                                 </tr>
-                                                `
+                                                `;
             // add template in dom
             let ele = $(template);
-
+            
             $("table > tbody").append(ele);
 
 
@@ -215,8 +219,52 @@
         }
 
 
-        function onDetailsProductHandler(e, id) {
+        function onDetailsProductHandler(Id) {
+            console.log(Id);
+            var settings = {
+                "url": "https://localhost:44336/ProductAPI/GetProductById?id="+Id,
+                "method": "GET",
+                "timeout": 0,
+            };
 
+            $.ajax(settings).done(function (product) {
+                $("table > tbody").empty();
+                $("#createBtn").hide();
+                $("#loadBtn").hide();
+                CreateRowOfProduct(product);
+            }).fail(function () {
+                let template = ShowAlertMessage("alert-danger", "Fail", "Can not get product by id server issues...");
+                $("#messages").append(template, "Fail!", "Can not take product by id somehing went wrong ...");
+            });
+        }
+
+
+
+        function CreateRowOfProduct(product) {
+            let template = `
+                                                <tr>
+                                                    <td class="productId">${product.Id}</td>
+                                                    <td class="productName" contenteditable="false">${product.Name}</td>
+                                                    <td class="productPrice"><input type="number" value=${product.Price} disabled /></td>
+                                                    <td class="productQuantity"><input type="number" value=${product.Quantity} disabled/></td>
+                                                    <td class="productTotal">${CalculateTotal(product.Price, product.Quantity)}</td>
+                                                    <td>
+                                                            <ul>
+                                                                <li>${product.Shop.Title}</li>
+                                                            </ul>
+                                                    </td>
+                                                    <td>
+                                                        <button onclick="GoBackToMain" class="productsMain btn btn-info">Go Back</button>
+                                                    </td>
+                                                </tr>
+                                                `;
+
+            let ele = $(template);
+            $("table > tbody").append(ele);
+        }
+
+        function GoBackToMain() {
+            alert("f");
         }
 
 
@@ -234,10 +282,7 @@
                 $(e).parent().parent().remove();
                 let template = ShowAlertMessage("alert-success", "Success", `Successfully deleted Product with name ${product.Name}`);
                 $("body").append(template);
-            }).fail(function () {
-                let template = ShowAlertMessage("alert-danger", "Fail", "Can not delete product server issues...");
-                $("body").append(template);
-            });
+            })
 
         }
 

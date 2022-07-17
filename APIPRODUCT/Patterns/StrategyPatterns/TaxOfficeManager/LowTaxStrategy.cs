@@ -13,7 +13,7 @@ namespace Patterns.StrategyPatterns.TaxOfficeManager
 
         
 
-        public List<int> CalculateTaxs(List<Employee> employees)
+        public List<double> CalculateTaxs(List<Employee> employees)
         {
             Dictionary<int, int> factors = GetFactorsOfTax(employees);
             throw new NotImplementedException();

@@ -1,0 +1,7 @@
+C:\Users\spyros\source\repos\DesignPatternsHome\LogginExce\bin\Debug\LogginExce.exe.config
+C:\Users\spyros\source\repos\DesignPatternsHome\LogginExce\bin\Debug\LogginExce.exe
+C:\Users\spyros\source\repos\DesignPatternsHome\LogginExce\bin\Debug\LogginExce.pdb
+C:\Users\spyros\source\repos\DesignPatternsHome\LogginExce\obj\Debug\LogginExce.csproj.AssemblyReference.cache
+C:\Users\spyros\source\repos\DesignPatternsHome\LogginExce\obj\Debug\LogginExce.csproj.CoreCompileInputs.cache
+C:\Users\spyros\source\repos\DesignPatternsHome\LogginExce\obj\Debug\LogginExce.exe
+C:\Users\spyros\source\repos\DesignPatternsHome\LogginExce\obj\Debug\LogginExce.pdb

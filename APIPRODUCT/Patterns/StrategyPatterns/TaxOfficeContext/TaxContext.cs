@@ -18,14 +18,11 @@ namespace Patterns.StrategyPatterns.TaxOfficeContext
             strategy = str;
         }
 
-        public int CalculateTaxs()
+        public List<double> CalculateTaxs()
         {
             DataAccess dataAccess = new DataAccess();
             var emps = (List<Employee>)dataAccess.superMarket.Employees.GetAll();
-            foreach (var employee in emps)
-            {
-                Console.WriteLine(employee.FirstName);
-            }
+            
             return strategy.CalculateTaxs(emps);
         }
     }

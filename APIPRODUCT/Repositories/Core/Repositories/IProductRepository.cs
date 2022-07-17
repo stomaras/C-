@@ -12,6 +12,6 @@ namespace Repositories.Core.Repositories
 
         IEnumerable<Product> GetAllProductsWithShops();
 
-        IQueryable<Product> GetProductsWithShopDetails(int id);
+        Product GetProductWithShopDetails(int? id);
     }
 }
