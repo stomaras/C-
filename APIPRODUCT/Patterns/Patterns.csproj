@@ -53,6 +53,9 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="DAL\DataAccess.cs" />
+    <Compile Include="FacadePatterns\ProductFacade.cs" />
+    <Compile Include="FacadePatterns\ProductShopFacade.cs" />
+    <Compile Include="FacadePatterns\ShopFacade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StrategyPatterns\TaxOfficeContext\TaxContext.cs" />
     <Compile Include="StrategyPatterns\TaxOfficeManager\HighTaxStrategy.cs" />
@@ -64,9 +67,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="FacadePatterns\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Entities\Entities.csproj">
       <Project>{D97FD739-3264-47E1-85F3-04CA9FC0158B}</Project>

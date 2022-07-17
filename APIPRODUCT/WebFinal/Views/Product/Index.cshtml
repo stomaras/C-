@@ -116,6 +116,7 @@
     <script>
 
         $(window).on("load", onLoadDataHandler);
+        $("#goback").on("click", onLoadDataHandler);
 
         $("#form").on("submit", function onCreateProductHandler(event) {
             event.preventDefault();
@@ -164,7 +165,6 @@
         function onLoadDataHandler(event) {
 
             LoadSpinner();
-            alert("s");
             var settings = {
                 "url": "https://localhost:44336/ProductAPI/GetAllProducts",
                 "method": "GET",
@@ -254,7 +254,8 @@
                                                             </ul>
                                                     </td>
                                                     <td>
-                                                        <button onclick="GoBackToMain" class="productsMain btn btn-info">Go Back</button>
+                                                       <button onclick="onLoadDataHandler()" class="productDetails btn btn-warning">Go Back</button>
+
                                                     </td>
                                                 </tr>
                                                 `;
@@ -263,11 +264,7 @@
             $("table > tbody").append(ele);
         }
 
-        function GoBackToMain() {
-            alert("f");
-        }
-
-
+        
 
         //// Handler for Delete
         function onDeleteProductHandler(e, id) {
