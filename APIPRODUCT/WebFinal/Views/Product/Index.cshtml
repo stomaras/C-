@@ -3,7 +3,9 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<style>
+    
+</style>
 <h2>Index</h2>
 <div id="messages">
 
@@ -11,6 +13,11 @@
 <div>
     <button id="loadBtn" class="btn btn-info">Load Data...</button>
     <button id="createBtn" class="btn btn-primary" data-toggle="modal" data-target="#CreateModal">Create Product</button>
+    <button id="testBtn">Test</button>
+</div>
+
+<div id="createForm">
+
 </div>
 <table class="table" id="myTable">
     <thead>
@@ -36,6 +43,9 @@
 
     </tbody>
 </table>
+<div>
+    <button id="createProduct" class="btn btn-success">Create Product</button>
+</div>
 
 <!--Create Modal -->
 <div class="modal fade" id="CreateModal" role="dialog">
@@ -109,14 +119,195 @@
     </div>
 </div>
 
+<div id="formAggr">
+    <form method="post" id="createFormAggregation">
+        <div class="form-group">
+            <label for="productNameCreate">Product Name</label>
+            <input name="productNameCreate" type="text" class="form-control" id="productNameCreate" value="" placeholder="Enter Product Name" required>
+        </div>
+
+
+        <div class="form-group">
+            <label for="productPriceCreate">Product Price</label>
+            <input name="productPriceCreate" type="number" class="form-control" id="productPriceCreate" value="" placeholder="Enter Product Price" required>
+        </div>
+
+
+        <div class="form-group">
+            <label for="productQuantityCreate">Product Quantity</label>
+            <input name="productQuantityCreate" type="number" class="form-control" id="productQuantityCreate" value="" placeholder="Enter Product Quantity" required>
+        </div>
+
+
+        <div class="form-group">
+            <label for="shopNamess">Choose a Shop Name:</label>
+            <select class="form-control" name="shopNamess" id="shopNamess">
+            </select>
+        </div>
+
+
+        <div class="form-group">
+            <input type="submit" value="submitForm" id="createProduct2" class="btn btn-success">
+        </div>
+    </form>
+</div>
+
+
+
+
 
 @section MyScripts{
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
     <script>
-
+        $("#formAggr").hide();
         $(window).on("load", onLoadDataHandler);
         $("#goback").on("click", onLoadDataHandler);
+        $("#createProduct").on("click", onCreateProductForm);
+        $("#createFormAggregation").on("submit", onCreatePostWithShop);
+        
+        $("#formAggr").hide();
+
+        function onCreatePostWithShop(event) {
+            event.preventDefault();
+            $("#createFormAggregation").off("submit", onCreatePostWithShop);
+            $("#createFormAggregation").find("#createProduct2").attr('disabled', true);
+
+            let name = $("#productNameCreate").val();
+            let price = $("#productPriceCreate").val();
+            let quantity = $("#productQuantityCreate").val();
+            let shopName = $("#shopNamess option:selected").val();
+
+            console.log(name,price,quantity,shopName);
+            //var settings = {
+            //    "url": "https://localhost:44336/ShopAPI/GetAllShops",
+            //    "method": "GET",
+            //    "timeout": 0,
+            //    "headers": {
+            //        "Content-Type": "application/json"
+            //    },
+            //    "data": JSON.stringify({}),
+            //};
+
+            //var shopNames = [];
+            //$.ajax(settings).done(function (shops) {
+            //    console.log(shops);
+            //    var availableShopsLength = shops.length;
+                
+
+              
+
+            //}).fail(function () {
+            //    let template = ShowAlertMessage("alert-danger", "Fail!", "Unable to read product details...server...issues");
+            //    $("body").append(template);
+            //});
+            
+
+            //console.log(name,price,quantity);
+
+            alert('d');
+        }
+
+       
+        
+
+        function onCreateProductForm(event) {
+            event.preventDefault();
+           
+            $("table > thead").empty();
+            $("table > tbody").empty();
+            $("#loadBtn").hide();
+            $("#createBtn").hide();
+            $("#createProduct").hide();
+            $("#formAggr").show();
+
+            var settings = {
+                "url": "https://localhost:44336/ShopAPI/GetAllShops",
+                "method": "GET",
+                "timeout": 0,
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "data": JSON.stringify({}),
+            };
+
+            var shopNames = [];
+            $.ajax(settings).done(function (shops) {
+                console.log(shops);
+                var availableShopsLength = shops.length;
+
+                //for (var i = 0; i < availableShopsLength; i++) {
+                //    shopNames.push(shops[i].Title);
+                //}
+
+                InitializeShopNames(shops, availableShopsLength);
+                var defaultQuantity = 1;
+                var defaultPrice = 1;
+                InitializePriceQuantity(defaultQuantity, defaultPrice);
+
+
+            }).fail(function () {
+                let template = ShowAlertMessage("alert-danger", "Fail!", "Unable to read product details...server...issues");
+                $("body").append(template);
+            });
+
+
+
+          
+
+
+        }
+
+        //function onCreateProductFormSubmit(event) {
+        //    event.preventDefault();
+        //    $("#createFormAggregation").off("submit", onCreateProductFormSubmit);
+        //    $("#createFormAggregation").find("#createProduct2").attr('disabled', true);
+        //    console.log("ddd");
+        //}
+
+        
+
+
+        // Function  Initialize Drop Down List For Shop Names
+        function InitializeShopNames(shops, availableShopsLength) {
+            for (var i = 0; i < availableShopsLength; i++) {
+                if (i == 1) {
+                    var element = document.createElement("option");
+                    element.innerText = shops[i].Title;
+                    var id = i + 'id';
+                    element.setAttribute('id', id);
+                    element.setAttribute('selected', 'selected');
+                    $("#shopNamess").append(element);
+                    console.log(element);
+                } else {
+                    var element = document.createElement("option");
+                    element.innerText = shops[i].Title;
+                    var id = i + 'id';
+                    element.setAttribute('id', id);
+                    $("#shopNamess").append(element);
+                }
+
+            }
+        }
+
+        function InitializePriceQuantity(i, j) {
+            var quantity = document.getElementById("productQuantityCreate");
+            var price = document.getElementById("productPriceCreate");
+            quantity.setAttribute("value", i);
+            price.setAttribute("value", j);
+        }
+
+        $("#createFormAggregation").on("submit", function onCreateProductWithShop(event) {
+            event.preventDefault();
+            
+        });
+
+
+
+
+
+
+
 
         $("#form").on("submit", function onCreateProductHandler(event) {
             event.preventDefault();
@@ -186,28 +377,28 @@
         function CreateRow(pro) {
             console.log(pro);
             let template = `
-                                                <tr>
-                                                    <td class="productId">${pro.Id}</td>
-                                                    <td class="productName" contenteditable="false">${pro.Name}</td>
-                                                    <td class="productPrice"><input type="number" value=${pro.Price} disabled /></td>
-                                                    <td class="productQuantity"><input type="number" value=${pro.Quantity} disabled/></td>
-                                                    <td class="productTotal">${CalculateTotal(pro.Price, pro.Quantity)}</td>
-                                                    <td>
-                                                            <ul>
-                                                                <li>${pro.Shop.Title}</li>
-                                                            </ul>
-                                                    </td>
-                                                    <td>
-                                                        <button onclick="onEditProductHandler(this,${pro.Id})" class="productEdit btn btn-success">Edit</button>
-                                                        <button onclick="onDeleteProductHandler(this,${pro.Id})" class="productDelete btn btn-danger">Delete</button>
-                                                        <button onclick="onDetailsProductHandler(${pro.Id})" class="productDetails btn btn-warning">Details</button>
+                                                                    <tr>
+                                                                        <td class="productId">${pro.Id}</td>
+                                                                        <td class="productName" contenteditable="false">${pro.Name}</td>
+                                                                        <td class="productPrice"><input type="number" value=${pro.Price} disabled /></td>
+                                                                        <td class="productQuantity"><input type="number" value=${pro.Quantity} disabled/></td>
+                                                                        <td class="productTotal">${CalculateTotal(pro.Price, pro.Quantity)}</td>
+                                                                        <td>
+                                                                                <ul>
+                                                                                    <li>${pro.Shop.Title}</li>
+                                                                                </ul>
+                                                                        </td>
+                                                                        <td>
+                                                                            <button onclick="onEditProductHandler(this,${pro.Id})" class="productEdit btn btn-success">Edit</button>
+                                                                            <button onclick="onDeleteProductHandler(this,${pro.Id})" class="productDelete btn btn-danger">Delete</button>
+                                                                            <button onclick="onDetailsProductHandler(${pro.Id})" class="productDetails btn btn-warning">Details</button>
 
-                                                    </td>
-                                                </tr>
-                                                `;
+                                                                        </td>
+                                                                    </tr>
+                                                                    `;
             // add template in dom
             let ele = $(template);
-            
+
             $("table > tbody").append(ele);
 
 
@@ -222,7 +413,7 @@
         function onDetailsProductHandler(Id) {
             console.log(Id);
             var settings = {
-                "url": "https://localhost:44336/ProductAPI/GetProductById?id="+Id,
+                "url": "https://localhost:44336/ProductAPI/GetProductById?id=" + Id,
                 "method": "GET",
                 "timeout": 0,
             };
@@ -242,29 +433,29 @@
 
         function CreateRowOfProduct(product) {
             let template = `
-                                                <tr>
-                                                    <td class="productId">${product.Id}</td>
-                                                    <td class="productName" contenteditable="false">${product.Name}</td>
-                                                    <td class="productPrice"><input type="number" value=${product.Price} disabled /></td>
-                                                    <td class="productQuantity"><input type="number" value=${product.Quantity} disabled/></td>
-                                                    <td class="productTotal">${CalculateTotal(product.Price, product.Quantity)}</td>
-                                                    <td>
-                                                            <ul>
-                                                                <li>${product.Shop.Title}</li>
-                                                            </ul>
-                                                    </td>
-                                                    <td>
-                                                       <button onclick="onLoadDataHandler()" class="productDetails btn btn-warning">Go Back</button>
+                                                                    <tr>
+                                                                        <td class="productId">${product.Id}</td>
+                                                                        <td class="productName" contenteditable="false">${product.Name}</td>
+                                                                        <td class="productPrice"><input type="number" value=${product.Price} disabled /></td>
+                                                                        <td class="productQuantity"><input type="number" value=${product.Quantity} disabled/></td>
+                                                                        <td class="productTotal">${CalculateTotal(product.Price, product.Quantity)}</td>
+                                                                        <td>
+                                                                                <ul>
+                                                                                    <li>${product.Shop.Title}</li>
+                                                                                </ul>
+                                                                        </td>
+                                                                        <td>
+                                                                           <button onclick="onLoadDataHandler()" class="productDetails btn btn-warning">Go Back</button>
 
-                                                    </td>
-                                                </tr>
-                                                `;
+                                                                        </td>
+                                                                    </tr>
+                                                                    `;
 
             let ele = $(template);
             $("table > tbody").append(ele);
         }
 
-        
+
 
         //// Handler for Delete
         function onDeleteProductHandler(e, id) {
@@ -294,7 +485,7 @@
 
             $.ajax(settings).done(function (product) {
                 console.log(product);
-                
+
                 $("#EditproductName").val(product.Name);
                 $("#EditproductPrice").val(product.Price);
                 $("#EditproductQuantity").val(product.Quantity);
@@ -323,7 +514,7 @@
             let requestObject = JSON.stringify(product);
 
             var settings = {
-                "url": "https://localhost:44336/ProductAPI/UpdateProduct?id="+id,
+                "url": "https://localhost:44336/ProductAPI/UpdateProduct?id=" + id,
                 "method": "POST",
                 "timeout": 0,
                 "headers": {
@@ -337,7 +528,7 @@
                 $('#EditModal').modal('hide');
                 onLoadDataHandler();
                 $("#Editform").find("#EditFormBtn").attr('disabled', false);
-            }).fail(function (){
+            }).fail(function () {
                 ShowAlertMessage("alert-danger", "Fail!", "Unable to edit product ...server...issues");
                 $("#Editform").on("submit", onCreateProductHandler);
                 $("#Editform").find("#EditFormBtn").attr('disabled', false);
@@ -382,11 +573,11 @@
 
         function ShowAlertMessage(status, title, message) {
             let template = `
-                                             <div class="alert ${status} alert-dismissible">
-                                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                                <strong>${title}</strong> ${message}
-                                            </div>
-                                            `;
+                                                                 <div class="alert ${status} alert-dismissible">
+                                                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                                                    <strong>${title}</strong> ${message}
+                                                                </div>
+                                                                `;
             $("body").append(template);
         }
 
