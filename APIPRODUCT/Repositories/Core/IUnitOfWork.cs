@@ -11,6 +11,11 @@ namespace Repositories.Core
     {
         IProductRepository Products { get; }
 
+        IShopRepository Shops { get; }
+
+        IEmployeeRepository Employees { get; }
+
+
         int Complete();
     }
 }

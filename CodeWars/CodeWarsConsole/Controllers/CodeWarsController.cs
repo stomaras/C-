@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CodeWarsConsole.Helpers.Helpers.HelpersFundamentals;
 
 namespace CodeWarsConsole.Controllers
 {
@@ -40,9 +41,38 @@ namespace CodeWarsConsole.Controllers
             pr.OutPutBoolean(booleanToString);
         }
 
+        public void FriendOrFoe()
+        {
+            string[] names = new string[5] {"Spyros","Tom","Niki","Natalia","Nat"};
+            HelperFundamentals helper = new HelperFundamentals();
+            var realFriends = HelperFundamentals.FriendOrNot(names);
+            Console.WriteLine("Real Friends:\n");
+            foreach (var friend in realFriends)
+            {
+                Console.WriteLine("Friend:" + friend);
+            }
+        }
+        /*
+         * Return the number (count) of vowels in the given string.
+            We will consider a, e, i, o, u as vowels for this Kata (but not y).
+            The input string will only consist of lower case letters and/or spaces.
+         * 
+         * 
+         */
+        public void VowelCount()
+        {
+
+        }
+
         public void ErrorService()
         {
-            Console.WriteLine("Wrong Number Try again!");
+            Console.WriteLine("wrong try again!");
         }
+
+
+
+
+
     }
 }
+

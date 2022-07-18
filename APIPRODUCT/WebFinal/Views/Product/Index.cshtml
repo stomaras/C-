@@ -3,11 +3,21 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<style>
+    
+</style>
 <h2>Index</h2>
+<div id="messages">
+
+</div>
 <div>
     <button id="loadBtn" class="btn btn-info">Load Data...</button>
-    <button id="createBtn" class="btn btn-primary">Create Product</button>
+    <button id="createBtn" class="btn btn-primary" data-toggle="modal" data-target="#CreateModal">Create Product</button>
+    <button id="testBtn">Test</button>
+</div>
+
+<div id="createForm">
+
 </div>
 <table class="table" id="myTable">
     <thead>
@@ -17,27 +27,335 @@
             <th>Price</th>
             <th>Quantity</th>
             <th>Total</th>
+            <th>Shops</th>
             <th>Actions</th>
         </tr>
     </thead>
     <tbody>
         @*<tr>
-            <td class="productId">1</td>
-            <td class="productName" contenteditable="false">Samsung</td>
-            <td class="productPrice"><input type="number", value="300" disabled /></td>
-            <td class="productQuantity"><input type="number", value="3" disabled/></td>
-            <td class="productTotal">100</td>
-        </tr>*@
+                <td class="productId">1</td>
+                <td class="productName" contenteditable="false">Samsung</td>
+                <td class="productPrice"><input type="number", value="300" disabled /></td>
+                <td class="productQuantity"><input type="number", value="3" disabled/></td>
+                <td class="productTotal">100</td>
+            </tr>*@
 
-        
+
     </tbody>
 </table>
+<div>
+    <button id="createProduct" class="btn btn-success">Create Product</button>
+</div>
+
+<!--Create Modal -->
+<div class="modal fade" id="CreateModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Create Product</h4>
+            </div>
+            <div class="modal-body">
+
+                <form id="form">
+                    <div class="form-group">
+                        <label for="productName">Product Name</label>
+                        <input id="productName" class="form-control" type="text" value="" placeholder="Give Product Name" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="productPrice">Product Price</label>
+                        <input id="productPrice" class="form-control" type="number" value="" placeholder="Give Product Price" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="productQuantity">Product Quantity</label>
+                        <input id="productQuantity" class="form-control" type="number" value="" placeholder="Give Product Quantity" required />
+                    </div>
+                    <input type="submit" id="createFormBtn" class="btn btn-primary" value="Create Product" />
+                </form>
+
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Edit Modal -->
+<div class="modal" id="EditModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Edit Product</h4>
+            </div>
+            <div class="modal-body">
+
+                <form id="Editform">
+
+                    <input id="EditProductId" type="hidden" value="" />
+                    <div class="form-group">
+                        <label for="EditproductName">Edit Product Name</label>
+                        <input id="EditproductName" class="form-control" type="text" value="" placeholder="Give Product Name" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="EditproductPrice">Edit Product Price</label>
+                        <input id="EditproductPrice" class="form-control" type="number" value="" placeholder="Give Product Price" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="EditproductQuantity">Edit Product Quantity</label>
+                        <input id="EditproductQuantity" class="form-control" type="number" value="" placeholder="Give Product Quantity" required />
+                    </div>
+                    <input type="submit" id="EditFormBtn" class="btn btn-primary" value="Edit Product" />
+                </form>
+
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="formAggr">
+    <form method="post" id="createFormAggregation">
+        <div class="form-group">
+            <label for="productNameCreate">Product Name</label>
+            <input name="productNameCreate" type="text" class="form-control" id="productNameCreate" value="" placeholder="Enter Product Name" required>
+        </div>
+
+
+        <div class="form-group">
+            <label for="productPriceCreate">Product Price</label>
+            <input name="productPriceCreate" type="number" class="form-control" id="productPriceCreate" value="" placeholder="Enter Product Price" required>
+        </div>
+
+
+        <div class="form-group">
+            <label for="productQuantityCreate">Product Quantity</label>
+            <input name="productQuantityCreate" type="number" class="form-control" id="productQuantityCreate" value="" placeholder="Enter Product Quantity" required>
+        </div>
+
+
+        <div class="form-group">
+            <label for="shopNamess">Choose a Shop Name:</label>
+            <select class="form-control" name="shopNamess" id="shopNamess">
+            </select>
+        </div>
+
+
+        <div class="form-group">
+            <input type="submit" value="submitForm" id="createProduct2" class="btn btn-success">
+        </div>
+    </form>
+</div>
+
+
+
 
 
 @section MyScripts{
-    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
     <script>
-        $("#loadBtn").on("click", function onLoadDataHandler(event) {
+        $("#formAggr").hide();
+        $(window).on("load", onLoadDataHandler);
+        $("#goback").on("click", onLoadDataHandler);
+        $("#createProduct").on("click", onCreateProductForm);
+        $("#createFormAggregation").on("submit", onCreatePostWithShop);
+        
+        $("#formAggr").hide();
+
+        function onCreatePostWithShop(event) {
+            event.preventDefault();
+            $("#createFormAggregation").off("submit", onCreatePostWithShop);
+            $("#createFormAggregation").find("#createProduct2").attr('disabled', true);
+
+            let name = $("#productNameCreate").val();
+            let price = $("#productPriceCreate").val();
+            let quantity = $("#productQuantityCreate").val();
+            let shopName = $("#shopNamess option:selected").val();
+
+            console.log(name,price,quantity,shopName);
+            //var settings = {
+            //    "url": "https://localhost:44336/ShopAPI/GetAllShops",
+            //    "method": "GET",
+            //    "timeout": 0,
+            //    "headers": {
+            //        "Content-Type": "application/json"
+            //    },
+            //    "data": JSON.stringify({}),
+            //};
+
+            //var shopNames = [];
+            //$.ajax(settings).done(function (shops) {
+            //    console.log(shops);
+            //    var availableShopsLength = shops.length;
+                
+
+              
+
+            //}).fail(function () {
+            //    let template = ShowAlertMessage("alert-danger", "Fail!", "Unable to read product details...server...issues");
+            //    $("body").append(template);
+            //});
+            
+
+            //console.log(name,price,quantity);
+
+            alert('d');
+        }
+
+       
+        
+
+        function onCreateProductForm(event) {
+            event.preventDefault();
+           
+            $("table > thead").empty();
+            $("table > tbody").empty();
+            $("#loadBtn").hide();
+            $("#createBtn").hide();
+            $("#createProduct").hide();
+            $("#formAggr").show();
+
+            var settings = {
+                "url": "https://localhost:44336/ShopAPI/GetAllShops",
+                "method": "GET",
+                "timeout": 0,
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "data": JSON.stringify({}),
+            };
+
+            var shopNames = [];
+            $.ajax(settings).done(function (shops) {
+                console.log(shops);
+                var availableShopsLength = shops.length;
+
+                //for (var i = 0; i < availableShopsLength; i++) {
+                //    shopNames.push(shops[i].Title);
+                //}
+
+                InitializeShopNames(shops, availableShopsLength);
+                var defaultQuantity = 1;
+                var defaultPrice = 1;
+                InitializePriceQuantity(defaultQuantity, defaultPrice);
+
+
+            }).fail(function () {
+                let template = ShowAlertMessage("alert-danger", "Fail!", "Unable to read product details...server...issues");
+                $("body").append(template);
+            });
+
+
+
+          
+
+
+        }
+
+        //function onCreateProductFormSubmit(event) {
+        //    event.preventDefault();
+        //    $("#createFormAggregation").off("submit", onCreateProductFormSubmit);
+        //    $("#createFormAggregation").find("#createProduct2").attr('disabled', true);
+        //    console.log("ddd");
+        //}
+
+        
+
+
+        // Function  Initialize Drop Down List For Shop Names
+        function InitializeShopNames(shops, availableShopsLength) {
+            for (var i = 0; i < availableShopsLength; i++) {
+                if (i == 1) {
+                    var element = document.createElement("option");
+                    element.innerText = shops[i].Title;
+                    var id = i + 'id';
+                    element.setAttribute('id', id);
+                    element.setAttribute('selected', 'selected');
+                    $("#shopNamess").append(element);
+                    console.log(element);
+                } else {
+                    var element = document.createElement("option");
+                    element.innerText = shops[i].Title;
+                    var id = i + 'id';
+                    element.setAttribute('id', id);
+                    $("#shopNamess").append(element);
+                }
+
+            }
+        }
+
+        function InitializePriceQuantity(i, j) {
+            var quantity = document.getElementById("productQuantityCreate");
+            var price = document.getElementById("productPriceCreate");
+            quantity.setAttribute("value", i);
+            price.setAttribute("value", j);
+        }
+
+        $("#createFormAggregation").on("submit", function onCreateProductWithShop(event) {
+            event.preventDefault();
+            
+        });
+
+
+
+
+
+
+
+
+        $("#form").on("submit", function onCreateProductHandler(event) {
+            event.preventDefault();
+            $("#form").off("submit", onCreateProductHandler);
+            $("#form").find("#createFormBtn").attr('disabled', true);
+            let name = $("#productName").val();
+            let price = $("#productPrice").val();
+            let quantity = $("#productQuantity").val();
+
+            let product = { name, price, quantity };
+
+            console.log(product);
+
+            let requestObject = JSON.stringify(product);
+
+            let settings = {
+                url: "https://localhost:44336/ProductAPI/CreateProduct",
+                method: "POST",
+                timeout: 0,
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                data: requestObject //json....,
+            };
+
+            $.ajax(settings).done(function (product) {
+                // give again the abilty to press submit button
+                $("#form").on("submit", onCreateProductHandler);
+                $('#CreateModal').modal('hide');
+                onLoadDataHandler();
+                let template = ShowAlertMessage("alert-success", "Success", `You have successfully created product with name ${product.Name}`);
+                $("body").append(template);
+                $("#form").find("#createFormBtn").attr('disabled', false);
+            }).fail(function () {
+                let template = ShowAlertMessage("alert-danger", "Fail!", "Unable to create product ...server...issues");
+                $("body").append(template);
+                $("#form").on("submit", onCreateProductHandler);
+                $("#form").find("#createFormBtn").attr('disabled', false);
+            });
+
+        })
+
+
+
+
+        function onLoadDataHandler(event) {
+
+            LoadSpinner();
             var settings = {
                 "url": "https://localhost:44336/ProductAPI/GetAllProducts",
                 "method": "GET",
@@ -48,58 +366,232 @@
                 $("table > tbody").empty();
                 products.forEach(CreateRow);
             }).fail(function () {
+                let template = ShowAlertMessage("alert-danger", "Fail!", "Unable to load data ...server...issues");
+                $("body").append(template);
 
             });
-        });
+        };
 
 
 
         function CreateRow(pro) {
+            console.log(pro);
             let template = `
-                            <tr>
-                                <td class="productId">${pro.Id}</td>
-                                <td class="productName" contenteditable="false">${pro.Name}</td>
-                                <td class="productPrice"><input type="number" value=${pro.Price} disabled /></td>
-                                <td class="productQuantity"><input type="number" value=${pro.Quantity} disabled/></td>
-                                <td class="productTotal">100</td>
-                                <td>
-                                    <button class="productEdit btn btn-success">Edit</button>
-                                    <button onclick="onDeleteProductHandler(this,${pro.Id})" class="productDelete btn btn-danger">Delete</button>
+                                                                    <tr>
+                                                                        <td class="productId">${pro.Id}</td>
+                                                                        <td class="productName" contenteditable="false">${pro.Name}</td>
+                                                                        <td class="productPrice"><input type="number" value=${pro.Price} disabled /></td>
+                                                                        <td class="productQuantity"><input type="number" value=${pro.Quantity} disabled/></td>
+                                                                        <td class="productTotal">${CalculateTotal(pro.Price, pro.Quantity)}</td>
+                                                                        <td>
+                                                                                <ul>
+                                                                                    <li>${pro.Shop.Title}</li>
+                                                                                </ul>
+                                                                        </td>
+                                                                        <td>
+                                                                            <button onclick="onEditProductHandler(this,${pro.Id})" class="productEdit btn btn-success">Edit</button>
+                                                                            <button onclick="onDeleteProductHandler(this,${pro.Id})" class="productDelete btn btn-danger">Delete</button>
+                                                                            <button onclick="onDetailsProductHandler(${pro.Id})" class="productDetails btn btn-warning">Details</button>
 
-                                </td>
-                            </tr>
-                            `
+                                                                        </td>
+                                                                    </tr>
+                                                                    `;
             // add template in dom
             let ele = $(template);
 
-            $("table > tbody").append(template);
+            $("table > tbody").append(ele);
 
 
         }
 
+        // seperation of concerns
+        function CalculateTotal(price, quantity) {
+            return price * quantity;
+        }
 
 
-
-
-
-        // Handler for Delete
-        function onDeleteProductHandler(e, id) {
+        function onDetailsProductHandler(Id) {
+            console.log(Id);
             var settings = {
-                "url": "https://localhost:44336/ProductAPI/GetProductById?id="+ id,
+                "url": "https://localhost:44336/ProductAPI/GetProductById?id=" + Id,
+                "method": "GET",
+                "timeout": 0,
+            };
+
+            $.ajax(settings).done(function (product) {
+                $("table > tbody").empty();
+                $("#createBtn").hide();
+                $("#loadBtn").hide();
+                CreateRowOfProduct(product);
+            }).fail(function () {
+                let template = ShowAlertMessage("alert-danger", "Fail", "Can not get product by id server issues...");
+                $("#messages").append(template, "Fail!", "Can not take product by id somehing went wrong ...");
+            });
+        }
+
+
+
+        function CreateRowOfProduct(product) {
+            let template = `
+                                                                    <tr>
+                                                                        <td class="productId">${product.Id}</td>
+                                                                        <td class="productName" contenteditable="false">${product.Name}</td>
+                                                                        <td class="productPrice"><input type="number" value=${product.Price} disabled /></td>
+                                                                        <td class="productQuantity"><input type="number" value=${product.Quantity} disabled/></td>
+                                                                        <td class="productTotal">${CalculateTotal(product.Price, product.Quantity)}</td>
+                                                                        <td>
+                                                                                <ul>
+                                                                                    <li>${product.Shop.Title}</li>
+                                                                                </ul>
+                                                                        </td>
+                                                                        <td>
+                                                                           <button onclick="onLoadDataHandler()" class="productDetails btn btn-warning">Go Back</button>
+
+                                                                        </td>
+                                                                    </tr>
+                                                                    `;
+
+            let ele = $(template);
+            $("table > tbody").append(ele);
+        }
+
+
+
+        //// Handler for Delete
+        function onDeleteProductHandler(e, id) {
+
+            var settings = {
+                "url": "https://localhost:44336/ProductAPI/DeleteProduct?id=" + id,
+                "method": "POST",
+                "timeout": 0,
+            };
+
+            $.ajax(settings).done(function (product) {
+                $(e).parent().parent().remove();
+                let template = ShowAlertMessage("alert-success", "Success", `Successfully deleted Product with name ${product.Name}`);
+                $("body").append(template);
+            })
+
+        }
+
+
+        function onEditProductHandler(e, id) {
+
+            var settings = {
+                "url": "https://localhost:44336/ProductAPI/GetProductById?id=" + id,
                 "method": "GET",
                 "timeout": 0,
             };
 
             $.ajax(settings).done(function (product) {
                 console.log(product);
+
+                $("#EditproductName").val(product.Name);
+                $("#EditproductPrice").val(product.Price);
+                $("#EditproductQuantity").val(product.Quantity);
+                $("#EditProductId").val(product.Id);
+
+
+                $('#EditModal').modal('show');
             }).fail(function () {
-                alert("Server error");
+                ShowAlertMessage("alert-danger", "Fail!", "Unable to Get product Details... Server Problem ...");
             });
+        }
+
+        $("#Editform").on("submit", function onEditFormProductHandler(event) {
+            event.preventDefault();
+            $("#Editform").off("submit", onEditFormProductHandler);
+            $("#Editform").find("#EditFormBtn").attr('disabled', true);
+            let name = $("#EditproductName").val();
+            let price = $("#EditproductPrice").val();
+            let quantity = $("#EditproductQuantity").val();
+            let id = $("#EditProductId").val();
+
+            let product = { name, price, quantity };
+
+            console.log(product);
+
+            let requestObject = JSON.stringify(product);
+
+            var settings = {
+                "url": "https://localhost:44336/ProductAPI/UpdateProduct?id=" + id,
+                "method": "POST",
+                "timeout": 0,
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "data": requestObject
+            };
+
+            $.ajax(settings).done(function (response) {
+                $("#Editform").on("submit", onEditFormProductHandler);
+                $('#EditModal').modal('hide');
+                onLoadDataHandler();
+                $("#Editform").find("#EditFormBtn").attr('disabled', false);
+            }).fail(function () {
+                ShowAlertMessage("alert-danger", "Fail!", "Unable to edit product ...server...issues");
+                $("#Editform").on("submit", onCreateProductHandler);
+                $("#Editform").find("#EditFormBtn").attr('disabled', false);
+            });
+
+            //let settings = {
+            //    url: "https://localhost:44336/ProductAPI/CreateProduct",
+            //    method: "POST",
+            //    timeout: 0,
+            //    headers: {
+            //        "Content-Type": "application/json"
+            //    },
+            //    data: requestObject //json....,
+            //};
+
+            //$.ajax(settings).done(function (product) {
+            //    // give again the abilty to press submit button
+            //    $("#form").on("submit", onCreateProductHandler);
+            //    $('#CreateModal').modal('hide');
+            //    onLoadDataHandler();
+            //    let template = ShowAlertMessage("alert-success", "Success", `You have successfully created product with name ${product.Name}`);
+            //    $("body").append(template);
+            //    $("#form").find("#createFormBtn").attr('disabled', false);
+            //}).fail(function () {
+            //    let template = ShowAlertMessage("alert-danger", "Fail!", "Unable to create product ...server...issues");
+            //    $("body").append(template);
+            //    $("#form").on("submit", onCreateProductHandler);
+            //    $("#form").find("#createFormBtn").attr('disabled', false);
+            //});
+
+        })
+
+
+
+
+
+        function LoadSpinner() {
+            let template = `<div class="spinner-border"></div>`;
+            $("table > tbody").html(template);
+
+        }
+
+        function ShowAlertMessage(status, title, message) {
+            let template = `
+                                                                 <div class="alert ${status} alert-dismissible">
+                                                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                                                    <strong>${title}</strong> ${message}
+                                                                </div>
+                                                                `;
+            $("body").append(template);
+        }
+
+
+        function ClearForm() {
+            $("#productName").val("");
+            $("#productPrice").val("");
+            $("#productQuantity").val("");
+
         }
 
 
 
 
     </script>
-    
+
 }

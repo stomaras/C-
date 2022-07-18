@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,6 +14,19 @@ namespace WebFinal.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public ActionResult Details(Product product)
+        {
+            return View();
+        }
+
+        public ActionResult ProductChartBar()
+        {
+            return View();
+        }
+
+
 
         [ChildActionOnly]
         public ActionResult MyPartialViewAction()

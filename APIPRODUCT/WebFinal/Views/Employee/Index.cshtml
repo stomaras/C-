@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index of Employees</h2>
+
+<table class="table" id="myTable">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Number Of Kids</th>
+            <th>Annual Income</th>
+            <th>Amount Of Tax</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @*<tr>
+                <td class="employeeId">1</td>
+                <td class="employeeFirstName" contenteditable="false">Spyros</td>
+                <td class="employeeLastName" contenteditable="false">Tomaras</td>
+                <td class="employeeNumOfKids"><input type="number", value="3" disabled/></td>
+                <td class="employeeAnnualIncome">1000000</td>
+                <td class="employeeAmountOfTax">20000</td>
+            </tr>*@
+
+
+    </tbody>
+</table>
+
+@section MyScripts{
+    <script>
+        $(window).on("load", onLoadDataHandler);
+    </script>
+   
+
+
+}

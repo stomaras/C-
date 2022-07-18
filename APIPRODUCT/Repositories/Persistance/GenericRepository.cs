@@ -21,9 +21,10 @@ namespace Repositories.Persistance
             db = context;
             table = db.Set<T>();
         }
-        public void Delete(T obj)
+        public void Delete(object id)
         {
-            db.Entry(obj).State = EntityState.Deleted;  
+            T existing = table.Find(id);
+            table.Remove(existing);
         }
 
         public IEnumerable<T> GetAll()

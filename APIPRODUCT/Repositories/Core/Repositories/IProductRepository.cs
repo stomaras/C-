@@ -9,5 +9,9 @@ namespace Repositories.Core.Repositories
 {
     public interface IProductRepository : IGenericRepository<Product>
     {
+
+        IEnumerable<Product> GetAllProductsWithShops();
+
+        Product GetProductWithShopDetails(int? id);
     }
 }

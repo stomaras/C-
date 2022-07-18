@@ -25,8 +25,8 @@ namespace CodeWarsConsole
                 const int fourth = -50;
 
                 Console.WriteLine("------------------------Code Wars Tasks------------------------------------");
-                Console.WriteLine($"{"Press 1 Convert StringToNumber", first}{"Press 2 Capitalize A Word",second}{"Press 3 something else",third}{"Press 4 something else",fourth}");
-                Console.WriteLine("Choose an option!");
+                Console.WriteLine($"{"Press 1 Convert StringToNumber << 8ku >>", first}{"Press 2 Capitalize A Word << 8ku >>",second}{"Press 3 something else << 8ku >>",third}{"Press 4 Friend Or Not << 7ku >>",fourth}");
+                Console.WriteLine($"{"Press 5 Next One"}");
                 input = Console.ReadLine();
                 isNumber = consoleHelper.CheckIfIsNumber(input);
                 if (isNumber)
@@ -43,6 +43,7 @@ namespace CodeWarsConsole
                         case Choice.ConvertStringToNumber:codeWarsController.ConvertStringToNummber();break;
                         case Choice.CapitalizeWord:codeWarsController.CapitalizeWord();break;
                         case Choice.ConvertBooleanToString:codeWarsController.ConvertBooleanToString();break;
+                        case Choice.FriendOrFoe:codeWarsController.FriendOrFoe();break;
                         default:codeWarsController.ErrorService();
                             break;
                     }
