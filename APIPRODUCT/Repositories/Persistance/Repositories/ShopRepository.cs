@@ -17,6 +17,28 @@ namespace Repositories.Persistance.Repositories
         {
 
         }
-        
+
+        public List<int> GetAllIds()
+        {
+            var shops = GetAll();
+            List<int> ids = new List<int>();
+            foreach (var shop in shops)
+            {
+                ids.Add(shop.Id);
+            }
+            return ids;
+        }
+
+        public Shop GetShopById(int id)
+        {
+            var shop = db.Shops.Find(id);
+            return (Shop)shop;
+        }
+
+        public Shop GetShopByName(string name)
+        {
+            var shop = db.Shops.Find(name);
+            return shop;
+        }
     }
 }

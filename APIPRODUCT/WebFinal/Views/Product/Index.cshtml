@@ -176,34 +176,12 @@
             let name = $("#productNameCreate").val();
             let price = $("#productPriceCreate").val();
             let quantity = $("#productQuantityCreate").val();
-            let shopName = $("#shopNamess option:selected").val();
+            let shopId = $("#shopNamess option:selected").attr('id');
 
-            console.log(name,price,quantity,shopName);
-            //var settings = {
-            //    "url": "https://localhost:44336/ShopAPI/GetAllShops",
-            //    "method": "GET",
-            //    "timeout": 0,
-            //    "headers": {
-            //        "Content-Type": "application/json"
-            //    },
-            //    "data": JSON.stringify({}),
-            //};
+            let product = { name, price, quantity, shopId };
 
-            //var shopNames = [];
-            //$.ajax(settings).done(function (shops) {
-            //    console.log(shops);
-            //    var availableShopsLength = shops.length;
-                
-
-              
-
-            //}).fail(function () {
-            //    let template = ShowAlertMessage("alert-danger", "Fail!", "Unable to read product details...server...issues");
-            //    $("body").append(template);
-            //});
-            
-
-            //console.log(name,price,quantity);
+            console.log(name, price, quantity, shopId);
+           
 
             alert('d');
         }
@@ -234,6 +212,7 @@
             var shopNames = [];
             $.ajax(settings).done(function (shops) {
                 console.log(shops);
+                
                 var availableShopsLength = shops.length;
 
                 //for (var i = 0; i < availableShopsLength; i++) {
@@ -270,24 +249,48 @@
 
         // Function  Initialize Drop Down List For Shop Names
         function InitializeShopNames(shops, availableShopsLength) {
-            for (var i = 0; i < availableShopsLength; i++) {
-                if (i == 1) {
-                    var element = document.createElement("option");
-                    element.innerText = shops[i].Title;
-                    var id = i + 'id';
-                    element.setAttribute('id', id);
-                    element.setAttribute('selected', 'selected');
-                    $("#shopNamess").append(element);
-                    console.log(element);
-                } else {
-                    var element = document.createElement("option");
-                    element.innerText = shops[i].Title;
-                    var id = i + 'id';
-                    element.setAttribute('id', id);
-                    $("#shopNamess").append(element);
-                }
 
-            }
+            // API CALL TO GET ALL SHOP IDS
+
+            //for (var i = 0; i < availableShopsLength; i++) {
+            //    console.log(shops[i].Title);
+            //}
+            
+            var settings = {
+                "url": "https://localhost:44336/ProductAPI/GetAllShopIds",
+                "method": "GET",
+                "timeout": 0,
+            };
+
+            $.ajax(settings).done(function (ids) {
+                
+                for (var i = 0; i <= ids.length-1; i++) {
+                    if (i == 0) {
+                        var element = document.createElement("option");
+                        var content = shops[i].Title;
+                        element.innerText = content;
+                        var id = ids[i];
+                        
+                        element.setAttribute('id', id);
+                        element.setAttribute('selected', 'selected');
+                        $("#shopNamess").append(element);
+                        console.log(element);
+                    } else {
+                        var element = document.createElement("option");
+                        element.innerText = shops[i].Title;
+                        var id = ids[i];
+                        
+                        element.setAttribute('id', id);
+                        $("#shopNamess").append(element);
+                    }
+
+                }
+            }).fail(function () {
+                let template = ShowAlertMessage("alert-danger", "Fail!", "Unable to read shop ids...server...issues");
+                $("body").append(template);
+            });;
+
+           
         }
 
         function InitializePriceQuantity(i, j) {
