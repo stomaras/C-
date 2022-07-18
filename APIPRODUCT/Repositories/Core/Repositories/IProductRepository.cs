@@ -13,5 +13,7 @@ namespace Repositories.Core.Repositories
         IEnumerable<Product> GetAllProductsWithShops();
 
         Product GetProductWithShopDetails(int? id);
+
+        void InsertProductShopId(int? id);
     }
 }

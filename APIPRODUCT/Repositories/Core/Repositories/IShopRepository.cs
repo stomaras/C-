@@ -9,6 +9,10 @@ namespace Repositories.Core.Repositories
 {
     public interface IShopRepository : IGenericRepository<Shop>
     {
+        Shop GetShopByName(string name);
 
+        List<int> GetAllIds();
+
+        Shop GetShopById(int id);
     }
 }
