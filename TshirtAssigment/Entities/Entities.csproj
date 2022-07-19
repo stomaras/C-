@@ -57,6 +57,7 @@
     <Compile Include="Enums\Mark.cs" />
     <Compile Include="Enums\Size.cs" />
     <Compile Include="FabricPriceList.cs" />
+    <Compile Include="PriceList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SizePriceList.cs" />
     <Compile Include="StringExtensions.cs" />

@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    public class ColorPriceList
+    public class ColorPriceList : PriceList
     {
         public int Id { get; set; }
-        public Enum Color { get; set; }
+        public Color Color { get; set; }
         public int Price { get; set; }
 
     }

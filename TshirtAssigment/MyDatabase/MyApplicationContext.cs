@@ -19,5 +19,9 @@ namespace MyDatabase
 
         public DbSet<Tshirt> Tshirts { get; set; }
         public DbSet<ColorPriceList> colorPriceLists { get; set; }
+
+        public DbSet<SizePriceList> sizePriceLists { get; set; }
+
+        public DbSet<FabricPriceList> fabricPriceLists { get; set; }
     }
 }

@@ -51,6 +51,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\IGenericRepository.cs" />
+    <Compile Include="Core\IUnitOfWork.cs" />
+    <Compile Include="Core\Repositories\IColorPriceListRepository.cs" />
+    <Compile Include="Core\Repositories\IFabricPriceListRepository.cs" />
+    <Compile Include="Core\Repositories\ISizePriceListRepository.cs" />
+    <Compile Include="Core\Repositories\ITshirtRepository.cs" />
+    <Compile Include="Persistance\GenericRepository.cs" />
+    <Compile Include="Persistance\Repositories\ColorPriceListRepository.cs" />
+    <Compile Include="Persistance\Repositories\FabricPriceListRepository.cs" />
+    <Compile Include="Persistance\Repositories\SizePriceListRepository.cs" />
+    <Compile Include="Persistance\Repositories\TshirtRepository.cs" />
+    <Compile Include="Persistance\UnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -67,6 +79,7 @@
       <Name>MyDatabase</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    public class SizePriceList
+    public class SizePriceList : PriceList 
     {
         public int Id { get; set; }
         public Size Size { get; set; }
