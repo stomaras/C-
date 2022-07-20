@@ -1,4 +1,5 @@
 ﻿using Entities;
+using Entities.Enums;
 using MyDatabase;
 using Repositories.Core.Repositories;
 using System;
@@ -11,6 +12,8 @@ namespace Repositories.Persistance.Repositories
 {
     public class ColorPriceListRepository : GenericRepository<ColorPriceList>, IColorPriceListRepository
     {
+
+        
         public ColorPriceListRepository(MyApplicationContext context) : base(context)
         {
 
