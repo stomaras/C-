@@ -1,5 +1,4 @@
-﻿using Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +8,7 @@ namespace Patterns.FacadePatterns
 {
     public class ShopFacade
     {
-        public void setShop(Shop shop)
+        public void setShop()
         {
             Console.WriteLine("Insert Product shop details");
         }

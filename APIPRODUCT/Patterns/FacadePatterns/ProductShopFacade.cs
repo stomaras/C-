@@ -17,10 +17,10 @@ namespace Patterns.FacadePatterns
             shopFacade = new ShopFacade();
         }
 
-        //public void CreateCompleteProduct()
-        //{
-        //    productFacade.SetProduct();
-        //    shopFacade.setShop();
-        //}
+        public void CreateCompleteProduct()
+        {
+            productFacade.SetProduct();
+            shopFacade.setShop();
+        }
     }
 }

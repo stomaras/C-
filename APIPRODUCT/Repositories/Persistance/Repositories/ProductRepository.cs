@@ -32,10 +32,5 @@ namespace Repositories.Persistance.Repositories
             return pro;
 
         }
-
-        public void InsertProductShopId(int? id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

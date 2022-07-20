@@ -10,23 +10,41 @@ namespace Patterns.StrategyPatterns.TaxOfficeManager
 {
     public class HighTaxStrategy : ITaxStrategy
     {
+        Func<int, int, bool> precariat;
+        Func<int, int, bool> proletariat;
+        Func<int, int, bool> middleClass;
+        Func<int, int, bool> upperMiddleClass;
+        Func<int, int, bool> rich;
+        Func<int, int, bool> precariatWithManyKids;
+        Func<int, int, bool> proletariatWithManyKids;
+        Func<int, int, bool> middleClassWithManyKids;
+        Func<int, int, bool> upperMiddleClassWithManyKids;
+        Func<int, int, bool> richWithManyKids;
+        Func<int, bool> millionaire;
+        List<double> amountOfTaxes;
+
+        public HighTaxStrategy()
+        {
+            amountOfTaxes = new List<double>();
+            //Initialization In Constructor of HighTaxStrategy
+            // Objet class tax aggregation with class tax
+            precariat = Precariat;
+            proletariat = Proletariat;
+            middleClass = MiddleClass;
+            upperMiddleClass = UpperMiddleClass;
+            rich = Rich;
+            precariatWithManyKids = PrecariatWithManyKids;
+            proletariatWithManyKids = ProletariatWithManyKids;
+            middleClassWithManyKids = MiddleClassWithManyKids;
+            upperMiddleClassWithManyKids = UpperMiddleClassWithManyKids;
+            richWithManyKids = RichWithManyKids;
+            millionaire = Millionaire;
+        }
         public List<double> CalculateTaxs(List<Employee> employees)
         {
-            List<double> amountOfTaxes = new List<double>();
+            
             foreach (var emp in employees)
             {
-                Func<int, int, bool> precariat = Precariat;
-                Func<int, int, bool> proletariat = Proletariat;
-                Func<int, int, bool> middleClass = MiddleClass;
-                Func<int, int, bool> upperMiddleClass = UpperMiddleClass;
-                Func<int, int, bool> rich = Rich;
-                Func<int, int, bool> precariatWithManyKids = PrecariatWithManyKids;
-                Func<int, int, bool> proletariatWithManyKids = ProletariatWithManyKids;
-                Func<int, int, bool> middleClassWithManyKids = MiddleClassWithManyKids;
-                Func<int, int, bool> upperMiddleClassWithManyKids = UpperMiddleClassWithManyKids;
-                Func<int, int, bool> richWithManyKids = RichWithManyKids;
-                Func<int, bool> millionaire = Millionaire;
-
 
                 if (precariat.Invoke(emp.NumOfKids, emp.AnnualIncome))
                 {

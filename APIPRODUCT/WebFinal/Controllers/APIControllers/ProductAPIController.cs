@@ -1,5 +1,4 @@
 ﻿using Entities;
-using Patterns.FacadePatterns;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,11 +34,63 @@ namespace WebFinal.Controllers.APIControllers
 
 
 
+        [HttpPost]
+        public ActionResult CreateProductAggregation(CreateProductDTO createProductDTO, int? shopId)
+        {
+            if (shopId is null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+            }
+
+            Product product = new Product();
+            product.Name = createProductDTO.productName;
+            product.Price = createProductDTO.productPrice;
+            product.Quantity = createProductDTO.productQuantity;
+            product.Shop = superMarket.Shops.GetById(shopId);
+           
+
+           
+
+            if (ModelState.IsValid)
+            {
+                superMarket.Products.Insert(product);
+                superMarket.Complete();
+                CreateProductDTO createProductDto = new CreateProductDTO()
+                {
+                    Id = product.Id,
+                    productName = product.Name,
+                    productPrice = product.Price,
+                    productQuantity = product.Quantity,
+                    
+                    Shop = new { Title = product.Shop?.Title, Address = product.Shop?.Address ,Id = product.Shop?.Id }
+                };
+                return Json(createProductDto, JsonRequestBehavior.AllowGet);
+            }
+            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+        
+        }
 
 
 
+        [HttpPost]
+        public ActionResult CreateProduct(ProductDTO dto) // Name, Price, Quantity
+        {
+            // Mapping
+            Product product = new Product();
+            product.Name = dto.Name;
+            product.Price = dto.Price;
+            product.Quantity = dto.Quantity;
 
 
+            if (ModelState.IsValid)
+            {
+                superMarket.Products.Insert(product);
+                superMarket.Complete();
+                return Json(product, JsonRequestBehavior.AllowGet);
+            }
+            return Json(product, JsonRequestBehavior.AllowGet);
+        }
 
 
 
@@ -102,71 +153,14 @@ namespace WebFinal.Controllers.APIControllers
 ;
         }
 
-        [HttpPost]
-        public ActionResult CreateProduct(ProductDTO dto) // Name, Price, Quantity
-        {
-            // Mapping
-            Product product = new Product();
-            product.Name = dto.Name;
-            product.Price = dto.Price;
-            product.Quantity = dto.Quantity;
 
 
-            if (ModelState.IsValid)
-            {
-                superMarket.Products.Insert(product);
-                superMarket.Complete();
-                return Json(product, JsonRequestBehavior.AllowGet);
-            }
-            return Json(product, JsonRequestBehavior.AllowGet);
-        }
-
-        [HttpPost]
-        public ActionResult CreateProductDTO(CreateProductDTO dto)
-        {
-            
-            var shop = superMarket.Shops.GetShopById(dto.ShopId);
-
-            if (shop is null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
-            }
-            Product product = new Product();
-            product.Name = dto.Name;
-            product.Quantity = dto.Quantity;
-            product.Price = (int)dto.Price;
-            product.Shop.Id = dto.ShopId;
-
-            
-
-            if (ModelState.IsValid)
-            {
-                superMarket.Products.Insert(product);
-                superMarket.Complete();
-                return Json(product, JsonRequestBehavior.AllowGet);
-            }
-
-
-            //ProductShopFacade productShopFacade = new ProductShopFacade();
-            //productShopFacade.productFacade.SetProduct(product);
-            //productShopFacade.shopFacade.setShop(shop);
-            
-            return Json(product, JsonRequestBehavior.AllowGet);
-
-        }
-
-        [HttpGet]
-        public ActionResult GetAllShopIds()
-        {
-            var ids = superMarket.Shops.GetAllIds();
-
-            return Json(ids, JsonRequestBehavior.AllowGet);
-        }
 
 
         [HttpGet]
         public ActionResult GetProductById(int? id)
         {
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

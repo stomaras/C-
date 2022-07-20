@@ -7,11 +7,10 @@ namespace WebFinal.DTOS
 {
     public class CreateProductDTO
     {
-        public string Name { get; set; }
-        public int Quantity { get; set; }
-        public int Price { get; set; }
-
-        public int ShopId { get; set; }
-        
+        public int Id { get; set; }
+        public string productName { get; set; }
+        public int productPrice { get; set; }
+        public int productQuantity { get; set; }
+        public object Shop { get; set; }
     }
 }

@@ -5,3 +5,10 @@ C:\Users\spyros\C-\APIPRODUCT\SimpleFactory\bin\Debug\SimpleFactory.exe
 C:\Users\spyros\C-\APIPRODUCT\SimpleFactory\bin\Debug\SimpleFactory.pdb
 C:\Users\spyros\C-\APIPRODUCT\SimpleFactory\obj\Debug\SimpleFactory.exe
 C:\Users\spyros\C-\APIPRODUCT\SimpleFactory\obj\Debug\SimpleFactory.pdb
+C:\Users\user\APIPRO\APIPRODUCT\SimpleFactory\bin\Debug\SimpleFactory.exe.config
+C:\Users\user\APIPRO\APIPRODUCT\SimpleFactory\bin\Debug\SimpleFactory.exe
+C:\Users\user\APIPRO\APIPRODUCT\SimpleFactory\bin\Debug\SimpleFactory.pdb
+C:\Users\user\APIPRO\APIPRODUCT\SimpleFactory\obj\Debug\SimpleFactory.csproj.AssemblyReference.cache
+C:\Users\user\APIPRO\APIPRODUCT\SimpleFactory\obj\Debug\SimpleFactory.csproj.CoreCompileInputs.cache
+C:\Users\user\APIPRO\APIPRODUCT\SimpleFactory\obj\Debug\SimpleFactory.exe
+C:\Users\user\APIPRO\APIPRODUCT\SimpleFactory\obj\Debug\SimpleFactory.pdb
