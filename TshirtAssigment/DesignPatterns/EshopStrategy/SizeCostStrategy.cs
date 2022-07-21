@@ -21,9 +21,15 @@ namespace DesignPatterns.EshopStrategy
         }
 
 
-        public int Cost(Tshirt tshirt)
+        /// <summary>
+        /// Get tshirt cost and return cost * 3(euro or $)
+        /// </summary>
+        /// <param name="tshirt"></param>
+        /// <returns></returns>
+        public int? Cost(Tshirt tshirt)
         {
-            throw new NotImplementedException();
+            int? cost = tshirt.Price * 3;
+            return cost;
         }
     }
 }

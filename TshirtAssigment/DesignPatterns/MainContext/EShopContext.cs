@@ -19,20 +19,28 @@ namespace DesignPatterns.MainContext
             variationStrategy = strategy;
         }
 
-        public IEnumerable<SizePriceList> CalculateSumTshirtCost(Tshirt tshirt)
+        public int? CalculateSumTshirtCost(Tshirt tshirt)
         {
 
-            var sizePriceListStrategy = GetSizePriceList();
-            var colorRriceListStrategy = GetColorPriceList();
-            var fabricPriceListStrategy = GetFabricPriceList();
+            // Go This to a method
+            var sizePriceListStrategy = GetSizePriceList().ToList();
+            SizeCostStrategy sizeCostStrategy = new SizeCostStrategy();
+            int? costSize = sizeCostStrategy.Cost(tshirt);
 
-            // for to find tshirt color
 
-            // select with linq to find tshirt size
+            var colorRriceListStrategy = GetColorPriceList().ToList();
+            ColorCostStrategy colorCostStrategy = new ColorCostStrategy();
+            int? costColor = colorCostStrategy.Cost(tshirt);
 
-            // select with linq to find tshirt fabric
+            var fabricPriceListStrategy = GetFabricPriceList().ToList();
+            FabricCostStrategy fabricCostStrategy = new FabricCostStrategy();
+            int? costFabric = fabricCostStrategy.Cost(tshirt);
 
-            //return sizeColorStrategy;
+            int? TotalCost = costFabric + costSize + costColor;
+
+            return TotalCost;
+
+            
         }
 
 

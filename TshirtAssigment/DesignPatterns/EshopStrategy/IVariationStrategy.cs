@@ -9,6 +9,6 @@ namespace DesignPatterns.EshopStrategy
 {
     public interface IVariationStrategy
     {
-        int Cost(Tshirt tshirt);
+        int? Cost(Tshirt tshirt);
     }
 }

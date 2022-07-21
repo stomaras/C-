@@ -15,11 +15,11 @@ namespace MyDatabase.Initializers
 
         protected override void Seed(MyApplicationContext context)
         {
-            Tshirt t1 = new Tshirt() { Color = Color.BLACK, Fabric = Fabric.COTTON, Size = Size.S, Mark = Mark.Adidas};
-            Tshirt t2 = new Tshirt() { Color = Color.VIOLET, Fabric = Fabric.LINEN, Size = Size.M, Mark = Mark.Nike};
-            Tshirt t3 = new Tshirt() { Color = Color.PURPLE, Fabric = Fabric.RAYON, Size = Size.XL, Mark = Mark.Armani};
-            Tshirt t4 = new Tshirt() { Color = Color.YELLOW, Fabric = Fabric.CASHMERE, Size = Size.XXL, Mark = Mark.Vans};
-            Tshirt t5 = new Tshirt() { Color = Color.INDIGO, Fabric = Fabric.SILK, Size = Size.XXXL, Mark = Mark.Adidas};
+            Tshirt t1 = new Tshirt() { Color = Color.BLACK, Fabric = Fabric.COTTON, Size = Size.S, Mark = Mark.Adidas, Price = 10};
+            Tshirt t2 = new Tshirt() { Color = Color.VIOLET, Fabric = Fabric.LINEN, Size = Size.M, Mark = Mark.Nike, Price = 22};
+            Tshirt t3 = new Tshirt() { Color = Color.PURPLE, Fabric = Fabric.RAYON, Size = Size.XL, Mark = Mark.Armani, Price = 21};
+            Tshirt t4 = new Tshirt() { Color = Color.YELLOW, Fabric = Fabric.CASHMERE, Size = Size.XXL, Mark = Mark.Vans, Price = 23};
+            Tshirt t5 = new Tshirt() { Color = Color.INDIGO, Fabric = Fabric.SILK, Size = Size.XXXL, Mark = Mark.Adidas, Price = 12};
 
             context.Tshirts.AddOrUpdate(t1, t2, t3, t4, t5);
 
