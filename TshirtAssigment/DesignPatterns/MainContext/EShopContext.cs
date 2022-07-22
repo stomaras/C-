@@ -25,16 +25,16 @@ namespace DesignPatterns.MainContext
             // Go This to a method
             var sizePriceListStrategy = GetSizePriceList().ToList();
             SizeCostStrategy sizeCostStrategy = new SizeCostStrategy();
-            int? costSize = sizeCostStrategy.Cost(tshirt);
+            int? costSize = CalculateSizeCostPrice(sizePriceListStrategy, sizeCostStrategy, tshirt);
 
 
             var colorRriceListStrategy = GetColorPriceList().ToList();
             ColorCostStrategy colorCostStrategy = new ColorCostStrategy();
-            int? costColor = colorCostStrategy.Cost(tshirt);
+            int? costColor = CalculateColorCostPrice(colorRriceListStrategy, colorCostStrategy, tshirt);
 
             var fabricPriceListStrategy = GetFabricPriceList().ToList();
             FabricCostStrategy fabricCostStrategy = new FabricCostStrategy();
-            int? costFabric = fabricCostStrategy.Cost(tshirt);
+            int? costFabric = CalculateFabricCostPrice(fabricPriceListStrategy, fabricCostStrategy, tshirt);
 
             int? TotalCost = costFabric + costSize + costColor;
 
@@ -43,6 +43,44 @@ namespace DesignPatterns.MainContext
             
         }
 
+        /// <summary>
+        /// Claculate Cost based on size
+        /// </summary>
+        /// <param name="sizePriceList"></param>
+        /// <param name="sizeCostStrategy"></param>
+        /// <param name="tshirt"></param>
+        /// <returns></returns>
+        public int? CalculateSizeCostPrice(List<SizePriceList> sizePriceList, SizeCostStrategy sizeCostStrategy, Tshirt tshirt)
+        {
+            int? costSize = sizeCostStrategy.Cost(tshirt);
+            return costSize;
+        }
+
+        /// <summary>
+        /// Calculate Cost Based On Color
+        /// </summary>
+        /// <param name="colorPriceList"></param>
+        /// <param name="colorCostStrategy"></param>
+        /// <param name="tshirt"></param>
+        /// <returns></returns>
+        public int? CalculateColorCostPrice(List<ColorPriceList> colorPriceList, ColorCostStrategy colorCostStrategy, Tshirt tshirt)
+        {
+            int? costColor = colorCostStrategy.Cost(tshirt);
+            return costColor;
+        }
+
+        /// <summary>
+        /// Calculate Cost Based On Fabric
+        /// </summary>
+        /// <param name="fabricPriceList"></param>
+        /// <param name="fabricCostStrategy"></param>
+        /// <param name="tshirt"></param>
+        /// <returns></returns>
+        public int? CalculateFabricCostPrice(List<FabricPriceList> fabricPriceList, FabricCostStrategy fabricCostStrategy, Tshirt tshirt) 
+        {
+            int? costFabric = fabricCostStrategy.Cost(tshirt);
+            return costFabric;
+        }
 
         /// <summary>
         /// Return Price List of Based On Size

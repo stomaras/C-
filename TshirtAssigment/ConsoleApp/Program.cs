@@ -20,10 +20,17 @@ namespace ConsoleApp
             MyApplicationContext myApplicationContext = new MyApplicationContext();
             UnitOfWork unit = new UnitOfWork(myApplicationContext);
 
-            //var fabricPriceList = unit.FabricPriceList.GetAll();
-            //var colorPriceList = unit.ColorPriceList.GetAll();
-            //var sizePriceList = unit.SizePriceList.GetAll();
+            var tshirts = unit.Tshirt.GetAll().ToList();
 
+            //foreach (var tshirt in tshirts)
+            //{
+            //    Console.WriteLine(tshirt.Mark);
+            //}
+
+            var fabricPriceList = unit.FabricPriceList.GetAll();
+            var colorPriceList = unit.ColorPriceList.GetAll();
+            var sizePriceList = unit.SizePriceList.GetAll();
+            List<int?> itemsFinalCost = new List<int?>();
             //Console.WriteLine("\n");
             //Console.WriteLine("Fabric Price List:\n");
             //foreach (var item in fabricPriceList)
@@ -44,9 +51,18 @@ namespace ConsoleApp
             //    Console.WriteLine($" Price : ${item2.Price}, Size :{item2.Size}");
             //}
             //Tshirt tshirt = new Tshirt() {Mark = Mark.Adidas, Color = Color.GREEN, Fabric = Fabric.LINEN, Size = Size.XL };
-            //IVariationStrategy variationStrategy = new SizeCostStrategy();
-            //EShopContext eshopContext = new EShopContext(new SizeCostStrategy());
-            //var priceListSize = eshopContext.CalculateSumTshirtCost(tshirt);
+            IVariationStrategy variationStrategy = new SizeCostStrategy();
+            EShopContext eshopContext = new EShopContext(new SizeCostStrategy());
+            foreach (var tshirt in tshirts)
+            {
+                int? finalCost = eshopContext.CalculateSumTshirtCost(tshirt);
+                itemsFinalCost.Add(finalCost);
+            }
+
+            for (int i = 0; i < itemsFinalCost.Count; i++)
+            {
+                Console.WriteLine($"Item with name ${tshirts[i].Mark} with color ${tshirts[i].Color} with size ${tshirts[i].Size} with fabric ${tshirts[i].Fabric} with final cost ${itemsFinalCost[i]}");
+            }
 
             //foreach (var item in priceListSize)
             //{

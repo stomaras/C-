@@ -1,0 +1,10 @@
+{
+    "compilerOptions":{
+        "target":"es2022",
+        "noUnusedLocals":true,
+        "outFile":"output.js"
+    },
+    "files":[
+        "Models.ts"
+    ]
+}
