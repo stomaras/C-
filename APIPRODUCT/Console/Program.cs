@@ -18,29 +18,29 @@ namespace Console
             ApplicationDbContext db = new ApplicationDbContext();
             UnitOfWork unit = new UnitOfWork(db);
             var products = unit.Products.GetAll();
-            foreach (var pro in products)
-            {
-                System.Console.WriteLine(pro.Price);
+            //foreach (var pro in products)
+            //{
+            //    System.Console.WriteLine(pro.Price);
 
-            }
+            //}
 
-            var productsn = unit.Products.GetAll();
-            foreach (var pro in productsn)
-            {
-                System.Console.WriteLine(pro.Price);
-            }
+            //var productsn = unit.Products.GetAll();
+            //foreach (var pro in productsn)
+            //{
+            //    System.Console.WriteLine(pro.Price);
+            //}
 
             List<Employee> employees = (List<Employee>)unit.Employees.GetAll();
-            System.Console.WriteLine(employees.Count);
+            //System.Console.WriteLine(employees.Count);
 
-            TaxContext context = new TaxContext(new HighTaxStrategy());
+            TaxContext context = new TaxContext(new LowTaxStrategy());
 
             List<double> tasks = context.CalculateTaxs();
-            System.Console.WriteLine(tasks.Count);
+           
 
             foreach (var item in tasks)
             {
-                System.Console.WriteLine(item);
+                System.Console.WriteLine($"Amount of tax for this user is ${item}");
             }
 
 
