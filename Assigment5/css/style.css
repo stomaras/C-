@@ -1,0 +1,105 @@
+/*
+    after searching with color picker
+    body #ebeced
+    header #37454d
+    button #428500
+    check in left #007fad
+    check out left #f48f00
+    search button #007fad
+    price before #c94a3a
+    rating starts #f6ab3f
+    into bg #9ba2a6
+    text-primary #37454d
+    text-secondary #6c767c
+*/
+/*CSS Custom Reset*/
+input,select,body,h1,h2,h3,h4,h5,h6{
+    border:none;
+    background:none;
+    margin:0px;
+    padding:0px;
+}
+
+
+body{
+    background: #ebeced;
+    font-family: sans-serif;
+}
+
+.hotels-page {
+    width: 950px;
+    height: 100%;
+    background-color: rgb(186, 183, 212);
+
+    
+}
+
+
+.hotels-page .search-Filter{
+    background-color: rgb(7, 7, 74);
+}
+
+.hotels-page .search-Filter .row-1{
+    background-color: white;
+    display: flex;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.hotels-page .search-Filter .row-1 .col-1{
+    width: 85%;
+    padding: 10px;
+    margin-left: 2px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    display: flex;
+    text-align: center;
+    
+}
+
+.hotels-page .search-Filter .row-1 .col-1 span{
+    margin-right: 10px;
+    line-height: 30px;
+    width: 10%;
+    height: 10%;
+    color: #b1babe;
+}
+
+
+.hotels-page .search-Filter .row-1 .col-2{
+    width: 15%;
+    padding: 8px;
+    background-color: rgb(75, 75, 161);
+
+}
+
+.hotels-page .search-Filter .row-1 .col-2 input{
+    color: #ffffff;
+    font-size: small;
+    text-align: center;
+    line-height: 30px;
+    width: 100%;
+    height: 100%;
+    
+}
+
+.hotels-page .search-Filter .row-2{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.hotels-page .search-Filter .row-2 .col-1{
+    width: 33%;
+}
+
+.hotels-page .search-Filter .row-2 .col-2{
+    width: 33%;
+}
+
+.hotels-page .search-Filter .row-2 .col-3{
+    width: 33%;
+}
+
+
