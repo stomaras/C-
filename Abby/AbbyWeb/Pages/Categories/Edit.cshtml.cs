@@ -5,23 +5,24 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace AbbyWeb.Pages.Categories
 {
-
-    // With this all the properties which you have here and you are using inside the UI will bind all of them automatically 
-    [BindProperties]
-    public class CreateModel : PageModel
+    public class EditModel : PageModel
     {
         private readonly ApplicationDbContext _db;
 
         [BindProperty]
         public Category Category { get; set; }
 
-        public CreateModel(ApplicationDbContext db)
+        public EditModel(ApplicationDbContext db)
         {
             _db = db;
         }
 
-        public void OnGet()
+        public void OnGet(int id)
         {
+            Category = _db.Category.Find(id);
+            // First will return null if not find an id
+            // FirstOrDefault will thrown an exception
+            // where linq used when i have 2 entities some type of join
         }
 
         public async Task<IActionResult> OnPost()
@@ -32,13 +33,13 @@ namespace AbbyWeb.Pages.Categories
             }
             if (ModelState.IsValid)
             {
-                await _db.Category.AddAsync(Category);
+                _db.Category.Update(Category);
                 await _db.SaveChangesAsync();
-                TempData["success"] = "Category Created Succesfully";
+                TempData["success"] = "Category Edited Succesfully";
                 return RedirectToPage("Index");
             }
             return Page();
-           
+
         }
     }
 }

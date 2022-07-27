@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "J8QE8Lb8h1dYtEPxF6W9RhtJ2eyjJ33L+vwq/mtpDvw=",
+  "Hash": "x0XwSDTgaLBd31dVqrPqfpV7h2YFQN0eQ7MGcULYbtc=",
   "Source": "AbbyWeb",
   "BasePath": "_content/AbbyWeb",
   "Mode": "Default",
@@ -66,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\User\\source\\repos\\Abby\\AbbyWeb\\wwwroot\\css\\theme.css",
+      "SourceId": "AbbyWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\source\\repos\\Abby\\AbbyWeb\\wwwroot\\",
+      "BasePath": "_content/AbbyWeb",
+      "RelativePath": "css/theme.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\theme.css"
     },
     {
       "Identity": "C:\\Users\\User\\source\\repos\\Abby\\AbbyWeb\\wwwroot\\favicon.ico",
