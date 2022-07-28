@@ -1,0 +1,8 @@
+C:\Users\User\Desktop\C-\BulkyBookWeb\ExperimentsAsp\bin\Debug\ExperimentsAsp.exe.config
+C:\Users\User\Desktop\C-\BulkyBookWeb\ExperimentsAsp\bin\Debug\ExperimentsAsp.exe
+C:\Users\User\Desktop\C-\BulkyBookWeb\ExperimentsAsp\bin\Debug\ExperimentsAsp.pdb
+C:\Users\User\Desktop\C-\BulkyBookWeb\ExperimentsAsp\obj\Debug\ExperimentsAsp.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\C-\BulkyBookWeb\ExperimentsAsp\obj\Debug\ExperimentsAsp.csproj.SuggestedBindingRedirects.cache
+C:\Users\User\Desktop\C-\BulkyBookWeb\ExperimentsAsp\obj\Debug\ExperimentsAsp.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\C-\BulkyBookWeb\ExperimentsAsp\obj\Debug\ExperimentsAsp.exe
+C:\Users\User\Desktop\C-\BulkyBookWeb\ExperimentsAsp\obj\Debug\ExperimentsAsp.pdb
