@@ -25,3 +25,10 @@ C:\Users\User\source\repos\WebAppAuthAndAuth\API\obj\Debug\net6.0\refint\API.dll
 C:\Users\User\source\repos\WebAppAuthAndAuth\API\obj\Debug\net6.0\API.pdb
 C:\Users\User\source\repos\WebAppAuthAndAuth\API\obj\Debug\net6.0\API.genruntimeconfig.cache
 C:\Users\User\source\repos\WebAppAuthAndAuth\API\obj\Debug\net6.0\ref\API.dll
+C:\Users\User\source\repos\WebAppAuthAndAuth\API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\User\source\repos\WebAppAuthAndAuth\API\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\User\source\repos\WebAppAuthAndAuth\API\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\User\source\repos\WebAppAuthAndAuth\API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\User\source\repos\WebAppAuthAndAuth\API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\User\source\repos\WebAppAuthAndAuth\API\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\User\source\repos\WebAppAuthAndAuth\API\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using WebAppAuthAndAuth.DTO;
 
 namespace WebAppAuthAndAuth.Pages
 {
@@ -7,13 +8,24 @@ namespace WebAppAuthAndAuth.Pages
     {
         private readonly ILogger<PrivacyModel> _logger;
 
-        public PrivacyModel(ILogger<PrivacyModel> logger)
+        // Create a BindProperty
+        [BindProperty]
+        public List<WeatherForecastDTO> WeatherForecastItems { get; set; }
+
+        private readonly IHttpClientFactory httpClientFactory;
+       
+        public PrivacyModel(ILogger<PrivacyModel> logger, IHttpClientFactory httpClientFactory)
         {
             _logger = logger;
+
+            this.httpClientFactory = httpClientFactory;
         }
 
-        public void OnGet()
+        public async Task OnGetAsync()
         {
+            var httpClient = httpClientFactory.CreateClient("OurWebAPI");
+            WeatherForecastItems = await httpClient.GetFromJsonAsync<List<WeatherForecastDTO>>("WeatherForecast");
+
         }
     }
 }

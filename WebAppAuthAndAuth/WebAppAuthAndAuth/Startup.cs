@@ -53,9 +53,11 @@ namespace WebApp_UnderTheHood
 
             // we need to register the http client 
             // in order to configure the http client factory
+            // With Http Client Factory we successfully call API from our web application 
+            // We dependecy injected HttpClient factory into our privacy page and success trigger web api end point 
             services.AddHttpClient("OurWebAPI", client =>
             {
-                client.BaseAddress = new Uri("https://localhost:44309/");
+                client.BaseAddress = new Uri("https://localhost:7028/");
             });
         }
 
