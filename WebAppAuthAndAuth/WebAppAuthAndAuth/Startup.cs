@@ -25,28 +25,28 @@ namespace WebApp_UnderTheHood
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAuthentication("MyCookieAuth").AddCookie("MyCookieAuth", options =>
-            {
-                options.Cookie.Name = "MyCookieAuth";
-                options.LoginPath = "/Account/Login";
-                options.AccessDeniedPath = "/Account/AccessDenied";
-                options.ExpireTimeSpan = TimeSpan.FromMinutes(2);
-            });
+            //services.AddAuthentication("MyCookieAuth").AddCookie("MyCookieAuth", options =>
+            //{
+            //    options.Cookie.Name = "MyCookieAuth";
+            //    options.LoginPath = "/Account/Login";
+            //    options.AccessDeniedPath = "/Account/AccessDenied";
+            //    options.ExpireTimeSpan = TimeSpan.FromMinutes(2);
+            //});
 
-            services.AddAuthorization(options =>
-            {
-                options.AddPolicy("AdminOnly", policy => policy.RequireClaim("Admin"));
+            //services.AddAuthorization(options =>
+            //{
+            //    options.AddPolicy("AdminOnly", policy => policy.RequireClaim("Admin"));
 
-                options.AddPolicy("MustBelongToHRDepartment", policy => policy.RequireClaim("Department", "HR"));
+            //    options.AddPolicy("MustBelongToHRDepartment", policy => policy.RequireClaim("Department", "HR"));
 
-                options.AddPolicy("HRManagerOnly", policy =>
-                    policy.RequireClaim("Department", "HR")
-                    .RequireClaim("Manager")
-                    .Requirements.Add(new HRManagerProbationRequirement(3)));
-            });
+            //    options.AddPolicy("HRManagerOnly", policy =>
+            //        policy.RequireClaim("Department", "HR")
+            //        .RequireClaim("Manager")
+            //        .Requirements.Add(new HRManagerProbationRequirement(3)));
+            //});
             // with singleton improve the performance just a little bit
             //services.AddSingleton<IAuthorizationHandler, HRManagerProbationRequirement>();
-
+            //services.AddAuthentication().AddJwtBearer(){ }
 
             // Configure HttpClient Factory 
             services.AddRazorPages();

@@ -20,7 +20,7 @@ namespace API.Controllers
             this.configuration = configuration;
         }
 
-
+        // verify the credentials
         [HttpPost]
         public IActionResult Authenticate([FromBody]Credentials credential)
         {
