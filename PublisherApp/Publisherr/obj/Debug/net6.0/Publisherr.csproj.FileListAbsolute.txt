@@ -1,0 +1,5 @@
+C:\Users\User\source\repos\PublisherApp\Publisherr\obj\Debug\net6.0\Publisherr.csproj.AssemblyReference.cache
+C:\Users\User\source\repos\PublisherApp\Publisherr\obj\Debug\net6.0\Publisherr.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\source\repos\PublisherApp\Publisherr\obj\Debug\net6.0\Publisherr.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\PublisherApp\Publisherr\obj\Debug\net6.0\Publisherr.AssemblyInfo.cs
+C:\Users\User\source\repos\PublisherApp\Publisherr\obj\Debug\net6.0\Publisherr.csproj.CoreCompileInputs.cache
