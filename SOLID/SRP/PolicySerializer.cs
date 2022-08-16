@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace SRP
 {
-    internal class PolicyDerializer
+    public class PolicySerializer
     {
+
     }
 }

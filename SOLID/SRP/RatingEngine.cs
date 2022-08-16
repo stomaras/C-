@@ -35,7 +35,7 @@ namespace SRP
 
             // load policy - open file policy.json
             // Persistence Responsibility, how to input policy in the application 
-
+            // delegating the details into other classes
             string policyJson = PolicySource.GetPolicyFromSource();
 
 
