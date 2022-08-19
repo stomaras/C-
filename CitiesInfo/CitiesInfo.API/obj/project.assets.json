@@ -592,11 +592,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\source\\repos\\CitiesInfo\\CitiesInfo.API\\CitiesInfo.API.csproj",
+      "projectUniqueName": "C:\\Users\\User\\C-\\CitiesInfo\\CitiesInfo.API\\CitiesInfo.API.csproj",
       "projectName": "CitiesInfo.API",
-      "projectPath": "C:\\Users\\User\\source\\repos\\CitiesInfo\\CitiesInfo.API\\CitiesInfo.API.csproj",
+      "projectPath": "C:\\Users\\User\\C-\\CitiesInfo\\CitiesInfo.API\\CitiesInfo.API.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\source\\repos\\CitiesInfo\\CitiesInfo.API\\obj\\",
+      "outputPath": "C:\\Users\\User\\C-\\CitiesInfo\\CitiesInfo.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
