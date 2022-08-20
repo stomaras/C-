@@ -7,7 +7,7 @@ namespace CitiesInfo.API
         public List<CityDTO> Cities { get; set; }
 
         // Singleton Pattern
-        public static CitiesDataStore Current { get; } = new CitiesDataStore();
+        //public static CitiesDataStore Current { get; } = new CitiesDataStore();
 
         public CitiesDataStore()
         {
