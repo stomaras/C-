@@ -1,0 +1,66 @@
+<div class="mt-2 mb-2 mx-2">
+    <button (click)="TogglePrice()" class="btn btn-primary">{{PriceIsHidden ? "Hide Price" : "Show Price"}}</button>
+</div>
+
+<!-- 
+<input [(ngModel)]="Arithmos" type="range" min="0" max="1000" />
+
+<input [(ngModel)]="Arithmos" type="number" placeholder="Give Your Number" />
+One Way Binding-->
+<!-- <div>{{Arithmos}}</div> --> 
+
+<input [(ngModel)]="Settings.borderRadius" type="range"/>
+
+
+
+
+
+<div *ngIf="Movies && Movies.length;else NoMoviesData">
+    <table class="table table-dark table-hover">
+        <thead>
+            <tr class="text-center">
+                <th>Image</th>
+                <th>Title</th>
+                <th>Year</th>
+                <th>Director</th>
+                <th>Actors</th>
+                <th>Genres</th>
+                <th>Rating</th>
+                <th *ngIf="PriceIsHidden">Price</th>
+                <th>Duration</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let movie of Movies">
+                <td class="text-center">
+                    <img class="align-middle" style="max-width: 70px;" [style.border-radius.px]="Settings.borderRadius" [style.width.px]="Settings.imageWidth" [src]="movie.photoUrl"/>
+                </td>
+                <td class="align-middle text-center">{{movie.title | uppercase}}</td>
+                <td class="align-middle text-center">{{movie.productionDate | date | uppercase}}</td>
+                <td class="align-middle text-center">{{(movie.director.firstName + " " + movie.director.lastName | addDashBetween)}}</td>
+                <td class="align-middle text-center">
+                    <ul class="list-unstyled">
+                        <li *ngFor="let actor of movie.actors">{{actor.firstName + " " + actor.lastName }}</li>
+                    </ul>
+                </td>
+                <td class="align-middle text-center">
+                    <ul class="list-unstyled">
+                        <li *ngFor="let genre of movie.genres">{{genre.kind}}</li>
+                    </ul>
+                </td>
+                <td class="align-middle text-center">{{movie.rating}}</td>
+                <td *ngIf="PriceIsHidden" class="align-middle text-center">{{movie.price | currency:'Eur'}}</td>
+                <td class="align-middle text-center">{{movie.duration | convertMinutesHours}}</td>
+               
+            </tr>
+        </tbody>
+
+    </table>
+</div>
+
+
+<ng-template #NoMoviesData>
+    <div>
+        <h1>No Movies found...</h1>
+    </div>
+</ng-template>

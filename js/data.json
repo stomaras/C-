@@ -1,0 +1,61 @@
+{
+    "api_response": {
+        "method": "statusbar",
+        "status": "success",
+        "data": [{
+            "engine": 0,
+            "dev_id": 16755,
+            "reg_id": 15704,
+            "name": "XAA-6912",
+            "type": "dev",
+            "lat": 37.960168,
+            "lon": 23.675685,
+            "time": "24\/07\/2020 14:05:14",
+            "fuel_lt": 30,
+            "temp_arr": [{
+                "nameTemp1": "Καμπίνα",
+                "temp1": 41.8
+            }, {
+                "nameTemp2": "",
+                "temp2": null
+            }, {
+                "nameTemp3": "",
+                "temp3": null
+            }],
+            "temp": 41.8,
+            "speed": 0,
+            "odom": 189770,
+            "rpm": 0,
+            "icon": "car_off.png",
+            "locked": 0,
+            "temp_locked": 0,
+            "pressure": null,
+            "humidity": null,
+            "light": null,
+            "order": 1
+        }, {
+            "engine": 0,
+            "dev_id": 16027,
+            "reg_id": 15419,
+            "name": "XAM2097",
+            "type": "dev",
+            "lat": 38.803562,
+            "lon": 23.345845,
+            "time": "23\/07\/2020 21:41:23",
+            "fuel_lt": 0,
+            "temp_arr": null,
+            "temp": null,
+            "speed": 0,
+            "odom": 164227,
+            "rpm": null,
+            "icon": "car_stop.png",
+            "locked": 0,
+            "temp_locked": null,
+            "pressure": null,
+            "humidity": null,
+            "light": null,
+            "order": 2
+        }],
+        "msg": null
+    }
+}
