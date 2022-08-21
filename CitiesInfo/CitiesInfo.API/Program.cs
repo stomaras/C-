@@ -53,6 +53,8 @@ builder.Services.AddTransient<IMailService, CloudMailService>();
 
 builder.Services.AddSingleton<CitiesDataStore>();
 builder.Services.AddDbContext<CityInfoContext>();
+builder.Services.AddScoped<ICityInfoRepository, CityInfoRepository>();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var app = builder.Build();
 
@@ -237,4 +239,57 @@ app.Run();
  *   - HasData() method when configuring the model.
  *   - Use environment variables for safer storage of sensitive data.
  *   
+ *   -----------------------------------------------------------------------------------
+ *   -----------------------------------------------------------------------------------
+ *   ----------- Section 7 Using Entity Framework Core On Your Controllers--------------
+ *   -----------------------------------------------------------------------------------
+ *   -----------------------------------------------------------------------------------
+ *   
+ *   - Introducing the repository pattern
+ *   - Learning about async code
+ *   - Reading, Creating, Updating and Deleting
+ *     resources via Entity Framework Core
+ *   - Using Auto Mapper
+ *   
+ *   
+ *   - Introducing the Repository Pattern
+ *   
+ *   Code duplication is very common you might want to access cities or update points of
+ *   interest from multiple parts of your app, you 'd want that code to be written once,
+ *   rather than in every action or part of the application.
+ *   Harder to test controller actions
+ *   
+ *   The Repository Pattern is an abstraction that reduces complexity and aims to make the code ,
+ *   safe for the repository implementation, persistence ignorant
+ *   
+ *   The Purpose of Async Code
+ *   Freeing up threads so they can be used for other tasks, which improves the scalability
+ *   of your application.
+ *   Reading from a database done with I/O Operation
+ *   Let's say a synchronous request comes into our API.To handle that request, ASP.NET Core
+ *   requires a thread from the thread pool. In a synchronous case one thrad is used to fully
+ *   handle one specific request. When a second request or a third request comes in, it just 
+ *   requires another thread from thr thread pool to handle the request. So the API is already
+ *   experiencing slowdown.
+ *   
+ *   An async request comes into our API. To handle the request ASP.NET Core still requires 
+ *   a thread from the thread pool.This time this part of the code is handle asynchronously 
+ *   Many requests can be handled at the same time without many issues.
+ *   One request can be handled by different threads, and one thread can handle different 
+ *   requests.
+ *   
+ *   When we await the call we also have to make the GetCities in the Controller async
+ *   This is important for allowing asynchronous code to actually free up a thread when an
+ *   I/O Operation happens, async await has to be used from the outer layer all the way 
+ *   down to the innermost layer. typically the database layer
+ *   
+ *   We need to map that list to CityDtos
+ *   
+ *   Automapper can be found on nuget packages
+ *   Automapper is an object to object mapper , object to object mapping works by 
+ *   transforming an input object of one type into an output object of a different 
+ *   type.Provides some interesting conventions to take the dirty work out of figuring 
+ *   how to map type A to type B.
+ *   
+ *   after install from nugets we add this into Program.cs
  */

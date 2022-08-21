@@ -1,4 +1,6 @@
-﻿using CitiesInfo.API.Models;
+﻿using AutoMapper;
+using CitiesInfo.API.Models;
+using CitiesInfo.API.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CitiesInfo.API.Controllers
@@ -24,38 +26,74 @@ namespace CitiesInfo.API.Controllers
      * Status Code tell the consumer of the api
      * - if the request was true
      * - if the request was not good
+     * 
+     * I inject the contract and not the exact repo implementation
      */
     [ApiController]
     [Route("api/cities")]
     public class CitiesController : ControllerBase
     {
-        private readonly CitiesDataStore _citiesDataStore;
+        private readonly ICityInfoRepository _cityInfoRepository;
+        private readonly IMapper _mapper;
 
-        public CitiesController(CitiesDataStore citiesDataStore)
+        public CitiesController(ICityInfoRepository cityInfoRepository,
+            IMapper mapper)
         {
-            _citiesDataStore = citiesDataStore ?? throw new ArgumentNullException(nameof(_citiesDataStore));
+            _cityInfoRepository = cityInfoRepository ?? throw new ArgumentNullException(nameof(cityInfoRepository));
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
+        /*
+         * We have got mapping code here to map a cityEntity to a CityDto
+         * Just imagine this for an object with 20 properties of which 5 are 
+         * collection on types that, again, have 10s of properties.
+         * We inject in the constructor a new IMapper implementing instance
+         */
         [HttpGet]
-        public ActionResult<IEnumerable<CityDTO>> GetCities()
+        public async Task<ActionResult<IEnumerable<CityWithoutPointsOfInterestDto>>> GetCities()
         {
-            return Ok(_citiesDataStore.Cities);
+            var cityEntities = await _cityInfoRepository.GetCitiesAsync();
+
+            return Ok(_mapper.Map<IEnumerable<CityWithoutPointsOfInterestDto>>(cityEntities));
+
+            //var results = new List<CityWithoutPointsOfInterestDto>();
+            //foreach (var cityEntity in cityEntities)
+            //{
+            //    results.Add(new CityWithoutPointsOfInterestDto
+            //    {
+            //        Id = cityEntity.Id,
+            //        Description = cityEntity.Description,
+            //        Name = cityEntity.Name,
+            //    });
+            //}
+            // As we creating the mapping from entity to the DTO,
+            // it will use that mapping to map each item in the source list 
+            // to an item in the destination list.
+            // And that destination list, that is what we return.
+
+           // return Ok(_citiesDataStore.Cities);
         }
 
 
         [HttpGet("{id}")]
-        public ActionResult<CityDTO> GetCity(int id)
+        public async  Task<IActionResult> GetCity(
+            int id, bool includePointsOfInterest = false)
         {
-            // find city
-            var cityToReturn = _citiesDataStore.Cities.FirstOrDefault(c => c.Id == id);
+            var city = await _cityInfoRepository.GetCityAsync(id, includePointsOfInterest);
 
-            if (cityToReturn == null)
+            if (city is null)
             {
                 return NotFound();
             }
+            // we have to map this result either to a CityWithoutPointsOfInterestDto or 
+            // to a CityDto.
+            // We must create a mapping from the CityEntity to the CityDTO
 
-            return Ok(cityToReturn);
-
+            if (includePointsOfInterest)
+            {
+                return Ok(_mapper.Map<CityDTO>(city));
+            }
+            return Ok(_mapper.Map<CityWithoutPointsOfInterestDto>(city));
 
             //return new JsonResult(
             //    CitiesDataStore.Current.Cities.FirstOrDefault(x => x.Id == id));
