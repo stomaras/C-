@@ -292,4 +292,25 @@ app.Run();
  *   how to map type A to type B.
  *   
  *   after install from nugets we add this into Program.cs
+ *   
+ *   We must performing a mapping with the help of automapper between 
+ *   PointOfInterestForUpdateDTO and PointOfInterest Entity
+ *   So we are going to PointOfInterestProfile and Create a Map
+ *   
+ *   PartiallyUpdatePointOfInterest
+ *   As you remember this one accepts a JsonPatchDocument.This patch document is on the 
+ *   DTO and not directly on the entity, as we should not expose entity implementation
+ *   details to the outer-facing layer. So we must find the entity first and mapping 
+ *   to the DTO before applying the patch document.
+ *   
+ *   Deleting the resource with the help of repository instead of the in-memory data store.
+ *   If you call another method that is async then your method must be async
+ *   
+ *   Repository Pattern is an abstraction that reduces complexity and aims to make the code 
+ *   , safe for the repository implementation, persistence ignorant.
+ *   
+ *   Using async code for I/O operations ensures threads can be freed up faster,
+ *   resulting in improved scalability.
+ *   
+ *   Using AutoMapper greatly reduces error-prone mapping code
  */

@@ -64,6 +64,10 @@ namespace CitiesInfo.API.Services
         // The call into SaveChangesAsync() returns the amount of entities 
         // that have been changed. We want our method to be true when 0 or more 
         // entities have successfully been saved.
+        public void DeletePointOfInterest(PointOfInterest pointOfInterest)
+        {
+            _context.PointsOfInterest.Remove(pointOfInterest);
+        }
         public async Task<bool> SaveChangesAsync()
         {
             return (await _context.SaveChangesAsync() >= 0);
