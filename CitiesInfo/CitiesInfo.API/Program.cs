@@ -313,4 +313,113 @@ app.Run();
  *   resulting in improved scalability.
  *   
  *   Using AutoMapper greatly reduces error-prone mapping code
+ *   
+ *   ---------------------------------------------------------------------------------
+ *   ---------------------------------------------------------------------------------
+ *   ------Section 8 Searching,Filtering,Paging Resources-----------------------------
+ *   ---------------------------------------------------------------------------------
+ *   ---------------------------------------------------------------------------------
+ *   
+ *   Common functionality for APIs is searching through filtering and paging through 
+ *   resource collection
+ *   
+ *   Filtering a collection means limiting the collection talking into account a prodicate
+ *   For example you want to return all cities where the name matches Antwerp,
+ *   There are many cities with the same name in USA, Africa, Belgium.
+ *   We are passing in the filed name and the value we want that filed to match
+ *   to make it part of the collection that will be returned.
+ *   
+ *   Searching : means adding matching items to the collection based on a predefined set of rules.
+ *   Pass through a value to search for via the query string . It's up to the API to decide how to implement
+ *   the search functionality.
+ *   
+ *   Filtering allows you to be precise by adding filters until you get exactly the results you want
+ *   
+ *   Searching allows you to go wider- it's used when you don't excatly know which items will be in the collection
+ *   
+ *   We will implement a filtering in name when geting cities.
+ *   First We must allow to the consumer of the api to pass through a value for name to the query string.
+ *   
+ *   Deferred Execution
+ *   Query execution occurs sometime after the query is constructed.
+ *   We can get this behaviour by working with IQueryable<T>: creates an expression tree
+ *   Execution is deferred until the query is iterated over.
+ *   - foreach loop
+ *   - ToList().ToArray().ToDictionary()
+ *   - Singleton Queries.
+ *   
+ *   Collection resources often grow quite large.
+ *   - Implement paging on all of them.
+ *   Paging helps avoid performance issues.
+ *   Pagination Parameters pass through the query string 
+ *   Pass parameters via the query string
+ *   The consumer should be able to choose the page number and page size
+ *   Page Size should be limited.(if we don;t limit this consumer may pass
+ *   1000 through the size.
+ *   We should return the first page by default.
+ *   Page all the way through to the underlying data store.
+ *   
+ *   Imagine we have thousands of cities in our database, and we first return 
+ *   all those cities from the repository to the controller and page them
+ *   if we do that, we still fetch way too much data fromthe database, which will have a
+ *   negative impact on performance.
+ *   
+ *   Defered execution help us to avoid this.
+ *   
+ *   Let's think about how we can include pagination metadata with our response,
+ *   Like total amount of items
+ *   Like total amount of pages
+ *   Current Page Number
+ *   Page Size
+ *   Paging information is included in the response body itself,
+ *   often with the metadata tag or paging info tag.
+ *   If a consumer of the API requests a page of cities,
+ *   the API should return a JSON representation of that page 
+ *   of cities.
+ *   
+ *   Pagination Metadata
+ *   
+ *   An envelope that includes a value & meta property isn't a JSON representation
+ *   of the cities collection resource. It's a JSON representation of cities with 
+ *   paging metadata.
+ *   
+ *   Metadata is part of the response header... The consumer can then parse
+ *   that header to get that information.
+ *   Use a Custom Header, like X-Pagination
+ *   
+ *   
+ *   Summary 
+ *   
+ *   Filtering allows you to be precise by adding filters until you get 
+ *   exactly the results you want
+ *   
+ *   Searching allows you to go wider - it's used when you do not exactly
+ *   know which items will be in the collection
+ *   
+ *   Deferred Execution means query execution occurs sometime after the query 
+ *   is constructed
+ *   
+ *   When correctly implemeted, paging will improve perfromance
+ *   
+ *   Pass page size and page number as query string parameters
+ *   - Limit Page Size
+ *   - Provide default values for page size and page number.
+ *   - Page all the way through to the underlying data store
+ *   - Deferred execution
+ *   - Skip(), Take()
+ *   - Page By Default
+ *   - Return Pagination metadata in a custom pagination header.
+ *   
+ *   
+ *   
+ *   
+ *   
+ *   
+ *   
+ *   
+ *   
+ *   
+ *   
+ *   
+ *   
  */

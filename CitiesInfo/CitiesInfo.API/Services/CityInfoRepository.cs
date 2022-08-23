@@ -59,7 +59,14 @@ namespace CitiesInfo.API.Services
                 city.PointsOfInterest.Add(pointOfInterest);
             }
         }
-
+        /*
+         * We are allow user input via the query string to manipulate our database
+         * queries. It's essential to check for SQL Injection attacks to avoid this 
+         * becoming a problem.
+         * In case you do not use an ORM like Entity Framework core you might need
+         * to check for this yourself.
+         */
+        
 
         // The call into SaveChangesAsync() returns the amount of entities 
         // that have been changed. We want our method to be true when 0 or more 
@@ -71,6 +78,36 @@ namespace CitiesInfo.API.Services
         public async Task<bool> SaveChangesAsync()
         {
             return (await _context.SaveChangesAsync() >= 0);
+        }
+
+        public async Task<(IEnumerable<City>, PaginationMetaData)> GetCitiesAsync(string? name, string? searchQuery, int pageNumber, int pageSize)
+        {
+            var collection = _context.Cities as IQueryable<City>;
+
+            if (!string.IsNullOrWhiteSpace(name))
+            {
+                name = name.Trim();
+                collection = collection.Where(c => c.Name == name);
+            }
+
+            if (!string.IsNullOrWhiteSpace(searchQuery))
+            {
+                searchQuery = searchQuery.Trim();
+                collection = collection.Where(a=>a.Name.Contains(searchQuery)
+                || (a.Description != null && a.Description.Contains(searchQuery)));
+            }
+
+            var totalAmountOfItems = await collection.CountAsync();
+
+            var paginationMetadata = new PaginationMetaData(
+                totalAmountOfItems, pageSize, pageNumber);
+
+            var collectionToReturn = await collection.OrderBy(c => c.Name)
+                .Skip(pageSize * (pageNumber - 1))
+                .Take(pageSize)
+                .ToListAsync();
+
+            return (collectionToReturn, paginationMetadata);
         }
     }
 }

@@ -2,6 +2,7 @@
 using CitiesInfo.API.Models;
 using CitiesInfo.API.Services;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 
 namespace CitiesInfo.API.Controllers
 {
@@ -35,6 +36,7 @@ namespace CitiesInfo.API.Controllers
     {
         private readonly ICityInfoRepository _cityInfoRepository;
         private readonly IMapper _mapper;
+        const int maxCitiesPageSize = 20;
 
         public CitiesController(ICityInfoRepository cityInfoRepository,
             IMapper mapper)
@@ -48,11 +50,24 @@ namespace CitiesInfo.API.Controllers
          * Just imagine this for an object with 20 properties of which 5 are 
          * collection on types that, again, have 10s of properties.
          * We inject in the constructor a new IMapper implementing instance
+         * 
+         * In case your variable has not the same name as the key in the query string,
+         * you can pass through the key name from the query string by using the name property
+         * on the FormQuery Attribute.
          */
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<CityWithoutPointsOfInterestDto>>> GetCities()
+        public async Task<ActionResult<IEnumerable<CityWithoutPointsOfInterestDto>>> 
+            GetCities(string? name, string? searchQuery, int pageNumber = 1, int pageSize = 10)
         {
-            var cityEntities = await _cityInfoRepository.GetCitiesAsync();
+            if (pageSize > maxCitiesPageSize)
+            {
+                pageSize = maxCitiesPageSize;
+            }
+
+            var (cityEntities, paginationMetadata) = await _cityInfoRepository
+                .GetCitiesAsync(name, searchQuery, pageNumber, pageSize);
+
+            Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(paginationMetadata));
 
             return Ok(_mapper.Map<IEnumerable<CityWithoutPointsOfInterestDto>>(cityEntities));
 
