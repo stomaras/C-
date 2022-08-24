@@ -411,7 +411,86 @@ app.Run();
  *   - Return Pagination metadata in a custom pagination header.
  *   
  *   
+ *   -----------------------------------------------------------------------------
+ *   -----------------------------------------------------------------------------
+ *   ---------------------------Securing Your API--------------------------------- 
+ *   -----------------------------------------------------------------------------
+ *   -----------------------------------------------------------------------------
  *   
+ *   A few words on securing APIs
+ *   Supporting and implementing token-base security
+ *   Working with authorization policies
+ *   OAuth2 and OpenID Connect 
+ *   
+ *   There are different ways of securing an api both at infrastructure level and 
+ *   application level. Often different methods are combined.
+ *   APIs are public because modern devices like phones need to be able to access them
+ *   of web apps that run in the browser like Angular Apps need to access them.
+ *   Next to that there is server to server access possible as well
+ *   
+ *   When a client access our API we want to know who the user or app is that accesses
+ *   the API, 
+ *   How can we verify this?
+ *   
+ *   Sending username/password on each request proved to be a bad idea.
+ *   Token based security is better idea 
+ *   Instead of sending over the username and password combinations on each call 
+ *   to the API, we send token on each request.
+ *   A token represent consent , for example consent granted by the user to the client 
+ *   app to access the API.
+ *   Validate that token on level of API.
+ *   We are no longer sending the username and password over on each request.
+ *   We are only sending it once, get a token in return, and on requests after that 
+ *   we send that token to the API.
+ *   
+ *   This Approach works for almost all modern application types.
+ *   
+ *   OAuth and OpenID connect, which you may hear before are protocls related 
+ *   to token-based security.
+ *   
+ *   Implementing Token Based Security
+ *   
+ *   The first thing we are going to need is something to create a token 
+ *   A typical approach is to create an endpoint at level of the API that 
+ *   accepts your username and password , if those check out , a token 
+ *   can be returned in the response message
+ *   
+ *   A token typically consists of three things :
+ *   1) A payload : for example a piece of JSON that contains generic token info,
+ *      like when the token is created, and some info about the user, like username 
+ *      and password.
+ *   2) A signature: You don't want someone to be able to alter the token.
+ *                   Signing it make sure of that.
+ *                   Signature is a hash of a payload, used to ensure the data 
+ *                   wasn't tampered with 
+ *                   That means if someone alter the payload after the signature 
+ *                   is generated , the signature won't match with the payload
+ *                   anymore. So you know someone alter it. For signing something
+ *                   you need a key , which is generated from a secret.
+ *  3) Header : A Header contains information the receiver of the token can use to 
+ *              learn about essential token information it might need for parsing 
+ *              and validating it, like the key algorithm used for signing.
+ *              
+ *  We are talking about token in level of the API, 
+ *  API "login" endpoint accepting a username/password.
+ *  So from that endpoint, a token is potentially returned in the response message.
+ *  The request to that enpoint is coming from a client application.
+ *  This can be an ASP.NET Core Web App or Angular Application, a mobile application
+ *  any type of app that want to access to our API.
+ *  In 0our case the client is POSTMAN .
+ *  It's advised to use Post for accessing thin endpoint
+ *  
+ *  At level of the API we need to ensure that the token is required, so 
+ *  that's what we will do next. We will make sure that our API, safe for the 
+ *  logging endpoint of course, can only be accessed with a valid token.
+ *  From that follows that client apps must send the token on each request to the 
+ *  API to gain access. No valid token means no access. Tokens are sent to the 
+ *  api as bearer tokens.To do that , we set the authorization header value of 
+ *  the request to bearer, which is the authentication scheme, followd by our token.
+ *  Ensuring the API is only accessible with a valid token is what we'll do in the 
+ *  second demo.
+ *  
+ *  ASP.NET Core includes a set of classes we can use for that.
  *   
  *   
  *   
