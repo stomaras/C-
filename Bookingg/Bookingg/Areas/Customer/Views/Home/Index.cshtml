@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
@@ -5,4 +6,38 @@
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+=======
+﻿@model IEnumerable<Product>
+
+
+<div class="row">
+    @foreach(var product in Model)
+    {
+        <div class="col-lg-3 col-md-6">
+            <div class="row p-2">
+                <div class="col-12 p-1" style="border:1px solid #008cba; border-radius:5px;">
+                    <div class="card">
+                        <img src="@product.ImageUrl" class="card-img-top rounded"/>   
+                        <div class="pl-1">
+                            <p class="card-title h5 text-primary">@product.Title</p>
+                            <p class="card-title text-info">@product.Title</p>
+                        </div>
+                        <div class="pl-1">
+                            <p>List Price: <strike><b>@product.ListPrice.ToString("0.00")</b></strike></p>
+                            <p class="card-title text-secondary">@product.Author</p>
+                        </div>
+                        <div class="pl-1">
+                            <p>As Low As: <strike><b>@product.Price100.ToString("0.00")</b></strike></p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <a asp-action="Details" class="btn btn-primary form-control" asp-route-id="@product.Id">
+                        Details
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+>>>>>>> 860dc9c76a361a15f9467575dea54d013bf22dd4
 </div>

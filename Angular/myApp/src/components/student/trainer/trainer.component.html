@@ -1,0 +1,15 @@
+<!--Conditional Rendering-->
+<div *ngIf="Trainers && Trainers.length;else NoTrainers">
+    <h1>All Trainers</h1>
+    <ul>
+
+        <li *ngFor="let trainer of  Trainers">{{trainer.name}} - {{trainer.salary}} - {{trainer.birthday}}</li>
+    </ul>
+</div>
+
+<ng-template #NoTrainers>
+    <div>
+        <h2>No Trainers here...</h2>
+    </div>
+</ng-template>
+
