@@ -12,7 +12,8 @@ namespace PrivateSchoolAPI.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<StudentDTO>> GetStudents()
         {
-            return Ok(StudentsDataStore.Current.Students);
+            var students = SchoolDataStore.Current.Students;
+            return Ok(students);
         }
 
 
@@ -20,7 +21,7 @@ namespace PrivateSchoolAPI.Controllers
         public ActionResult<StudentDTO> GetStudent(int id)
         {
             // find student
-            var studentToReturn = StudentsDataStore.Current.Students
+            var studentToReturn = SchoolDataStore.Current.Students
                 .FirstOrDefault(x=> x.Id == id);
 
             if (studentToReturn == null)

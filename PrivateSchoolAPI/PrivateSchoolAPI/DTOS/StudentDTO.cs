@@ -8,5 +8,7 @@
 
         public string FullName => $"{FirstName} {LastName}" ;
         public int Age { get; set; }
+
+        public CourseDTO CourseDTO { get; set; }
     }
 }
