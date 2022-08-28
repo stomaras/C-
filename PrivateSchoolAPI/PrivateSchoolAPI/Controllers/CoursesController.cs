@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PrivateSchoolAPI.DTOS;
+using PrivateSchoolAPI.Entities;
 
 namespace PrivateSchoolAPI.Controllers
 {
@@ -9,24 +10,34 @@ namespace PrivateSchoolAPI.Controllers
     public class CoursesController : ControllerBase
     {
 
+        
+
        
 
         [HttpGet]
         public ActionResult<IEnumerable<StudentDTO>> GetStudentsPerCourse(int courseId)
         {
             var course = SchoolDataStore.Current.Courses.FirstOrDefault(c => c.Id == courseId);
-            IEnumerable<StudentDTO> students = SchoolDataStore.Current.Students;
             if (course == null)
             {
                 return NotFound();
             }
 
+            IEnumerable<Student> students = SchoolDataStore.Current.Students;
             var studentsPerCourse = new List<StudentDTO>();
             foreach (var student in students)
             {
-                if (student.CourseDTO.Id.Equals(courseId))
+                if (student.Course.Id.Equals(courseId))
                 {
-                    studentsPerCourse.Add(student);
+                    StudentDTO studentDTO = new StudentDTO()
+                    {
+                        Id = student.Id,
+                        FirstName = student.FirstName,
+                        LastName = student.LastName,
+                        Age = student.Age,
+                        CourseName = student.Course.Name
+                    };
+                    studentsPerCourse.Add(studentDTO);
                 }
             }
             return Ok(studentsPerCourse);
@@ -49,18 +60,41 @@ namespace PrivateSchoolAPI.Controllers
             }
 
             var students = SchoolDataStore.Current.Students;
-            foreach (var item in students)
+            foreach (var stu in students)
             {
-                if (item == student)
+                if (stu.Id == student.Id)
                 {
-                    if (item.CourseDTO.Id == courseId)
+                    if (student.Course.Id == courseId)
                     {
-                        return Ok(item);
+                        StudentDTO stuDTO = new StudentDTO()
+                        {
+                            Id = stu.Id,
+                            FirstName = stu.FirstName,
+                            LastName = stu.LastName,
+                            Age = stu.Age,
+                            CourseName = stu.Course.Name,
+                        };
+
+                        return Ok(stuDTO);
                     }
                 }
             }
 
             return NotFound();
         }
+
+        //[HttpPost]
+        //public ActionResult<CourseForCreationDTO> CreateStudent(int courseId,
+        //    [FromBody] StudentForCreationDTO studentForCreationDTO)
+        //{
+        //    var student = SchoolDataStore.Current.Courses.FirstOrDefault(c => c.Id == courseId);
+        //    if (student is null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    // demo purposes
+        //    var maxPointOfInterestId = SchoolDataStore.Current.Courses.SelectMany(c=>c.S)
+        //}
     }
 }
