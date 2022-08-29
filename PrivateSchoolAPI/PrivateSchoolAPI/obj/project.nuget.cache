@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "wa++NXgPFXUiWdZcn8JD5MZSHGN6sDmTU6kVmpv+Q2FtQ8kHI8cEyX6G1j/LZPKlHks7uWUiljWnvikUFauT/Q==",
+  "dgSpecHash": "7Xq94+6wPo67/BXfn3fM+aPBGDYGAQPtVoMqAb5CzxiO/AHJtWUQ1G/2pc1GpXctaPyaTT9XVCNxWeKF/AkgGw==",
   "success": true,
   "projectFilePath": "C:\\Users\\User\\source\\repos\\PrivateSchoolAPI\\PrivateSchoolAPI\\PrivateSchoolAPI.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\User\\.nuget\\packages\\fluentvalidation\\11.0.1\\fluentvalidation.11.0.1.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\fluentassertions\\6.7.0\\fluentassertions.6.7.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\fluentvalidation\\11.2.1\\fluentvalidation.11.2.1.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.0.1\\fluentvalidation.aspnetcore.11.0.1.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.0.1\\fluentvalidation.dependencyinjectionextensions.11.0.1.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

@@ -12,6 +12,8 @@ namespace PrivateSchoolAPI.Controllers
 
         
 
+        
+
        
 
         [HttpGet]
@@ -83,18 +85,6 @@ namespace PrivateSchoolAPI.Controllers
             return NotFound();
         }
 
-        //[HttpPost]
-        //public ActionResult<CourseForCreationDTO> CreateStudent(int courseId,
-        //    [FromBody] StudentForCreationDTO studentForCreationDTO)
-        //{
-        //    var student = SchoolDataStore.Current.Courses.FirstOrDefault(c => c.Id == courseId);
-        //    if (student is null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    // demo purposes
-        //    var maxPointOfInterestId = SchoolDataStore.Current.Courses.SelectMany(c=>c.S)
-        //}
+        
     }
 }
