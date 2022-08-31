@@ -1,0 +1,16 @@
+C:\Users\panos\source\repos\Assignment3\Assignment3\bin\Debug\Assignment3.exe.config
+C:\Users\panos\source\repos\Assignment3\Assignment3\bin\Debug\Assignment3.exe
+C:\Users\panos\source\repos\Assignment3\Assignment3\bin\Debug\Assignment3.pdb
+C:\Users\panos\source\repos\Assignment3\Assignment3\obj\Debug\Assignment3.csproj.AssemblyReference.cache
+C:\Users\panos\source\repos\Assignment3\Assignment3\obj\Debug\Assignment3.csproj.SuggestedBindingRedirects.cache
+C:\Users\panos\source\repos\Assignment3\Assignment3\obj\Debug\Assignment3.csproj.CoreCompileInputs.cache
+C:\Users\panos\source\repos\Assignment3\Assignment3\obj\Debug\Assignment3.exe
+C:\Users\panos\source\repos\Assignment3\Assignment3\obj\Debug\Assignment3.pdb
+C:\Users\User\Downloads\Assignment3 (1)\Assignment3\Assignment3\bin\Debug\Assignment3.exe.config
+C:\Users\User\Downloads\Assignment3 (1)\Assignment3\Assignment3\bin\Debug\Assignment3.exe
+C:\Users\User\Downloads\Assignment3 (1)\Assignment3\Assignment3\bin\Debug\Assignment3.pdb
+C:\Users\User\Downloads\Assignment3 (1)\Assignment3\Assignment3\obj\Debug\Assignment3.csproj.AssemblyReference.cache
+C:\Users\User\Downloads\Assignment3 (1)\Assignment3\Assignment3\obj\Debug\Assignment3.csproj.SuggestedBindingRedirects.cache
+C:\Users\User\Downloads\Assignment3 (1)\Assignment3\Assignment3\obj\Debug\Assignment3.csproj.CoreCompileInputs.cache
+C:\Users\User\Downloads\Assignment3 (1)\Assignment3\Assignment3\obj\Debug\Assignment3.exe
+C:\Users\User\Downloads\Assignment3 (1)\Assignment3\Assignment3\obj\Debug\Assignment3.pdb
