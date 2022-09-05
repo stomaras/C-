@@ -1,0 +1,8 @@
+C:\Users\User\source\repos\ReflectionPlural\ReflectionALLAPluralSight\bin\Debug\ReflectionALLAPluralSight.exe.config
+C:\Users\User\source\repos\ReflectionPlural\ReflectionALLAPluralSight\bin\Debug\ReflectionALLAPluralSight.exe
+C:\Users\User\source\repos\ReflectionPlural\ReflectionALLAPluralSight\bin\Debug\ReflectionALLAPluralSight.pdb
+C:\Users\User\source\repos\ReflectionPlural\ReflectionALLAPluralSight\obj\Debug\ReflectionALLAPluralSight.csproj.AssemblyReference.cache
+C:\Users\User\source\repos\ReflectionPlural\ReflectionALLAPluralSight\obj\Debug\ReflectionALLAPluralSight.csproj.SuggestedBindingRedirects.cache
+C:\Users\User\source\repos\ReflectionPlural\ReflectionALLAPluralSight\obj\Debug\ReflectionALLAPluralSight.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\ReflectionPlural\ReflectionALLAPluralSight\obj\Debug\ReflectionALLAPluralSight.exe
+C:\Users\User\source\repos\ReflectionPlural\ReflectionALLAPluralSight\obj\Debug\ReflectionALLAPluralSight.pdb
