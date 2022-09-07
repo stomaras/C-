@@ -9,10 +9,93 @@ namespace ReflectionALLAPluralSight
 {
     internal class Program
     {
+        /*
+         * Imagine we are reading some information from a configuration file that states that we want to use the Alien Class
+         * imagine this is read from some sort of configuration
+         */
+        private static string _typeFromConfiguration = "ReflectionALLAPluralSight.Person";
         static void Main(string[] args)
         {
-            string name = "Spyros";
-            var stringType = name.GetType();// typeof(string)
+            var personType = typeof(Person);
+            var personConstructors = personType.GetConstructors(
+                BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+
+            foreach (var personConstructor in personConstructors)
+            {
+                Console.WriteLine(personConstructor);
+            }
+
+            // Default constructor is invoked.
+            var person1 = personConstructors[0].Invoke(null);
+
+            var person2 = personConstructors[1].Invoke(new Object[] {"Kevin"});
+
+            var person3 = personConstructors[2].Invoke(new Object[] { "Kevin", 39 });
+
+
+            var person4 = Activator.CreateInstance("ReflectionALLAPluralSight", "ReflectionALLAPluralSight.Person").Unwrap();
+
+            var person5 = Activator.CreateInstance("ReflectionALLAPluralSight",
+                "ReflectionALLAPluralSight.Person", 
+                true, 
+                BindingFlags.Instance | BindingFlags.Public,
+                null,
+                new object[] { "Kevin" },
+                null,
+                null);
+
+            var personTypeFromString = Type.GetType("ReflectionALLAPluralSight.Person");
+            var person6 = Activator.CreateInstance(personTypeFromString, new object[] { "Kevin" });
+
+
+            var assembly = Assembly.GetExecutingAssembly();
+            var person7 = assembly.CreateInstance("ReflectionALLAPluralSight.Person");
+
+            // Create an instance of a configured type
+            var actualTypeFromConfiguration = Type.GetType(_typeFromConfiguration);
+            var iTalkInstance = Activator.CreateInstance(actualTypeFromConfiguration) as ITalk;
+            iTalkInstance.Talk("Hello World");
+
+            var PersonForManipulation = Activator.CreateInstance("ReflectionALLAPluralSight",
+                "ReflectionALLAPluralSight.Person",
+                true,
+                BindingFlags.Instance | BindingFlags.NonPublic,
+                null,
+                new object[] { "Kevin", 39 },
+                null,
+                null).Unwrap();
+
+            var nameProperty = PersonForManipulation.GetType().GetProperty("Name");
+            nameProperty.SetValue(PersonForManipulation, "Sven");
+
+            var ageField = PersonForManipulation.GetType().GetField("age");
+            ageField.SetValue(PersonForManipulation, 34);
+
+            PersonForManipulation.GetType().InvokeMember("_aPrivateField", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.SetField,
+                null, PersonForManipulation, new[] { "update for private field value" });
+            Console.WriteLine(PersonForManipulation);
+
+            // invoke method public 
+            var talkMethod = PersonForManipulation.GetType().GetMethod("Talk");
+            talkMethod.Invoke(PersonForManipulation, new[] { "Something to say." });
+
+
+            //invoke method protected
+            PersonForManipulation.GetType().InvokeMember("Yell", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.InvokeMethod,
+                null, PersonForManipulation, new[] {"Something to yell"});
+
+
+
+
+
+            Console.WriteLine(PersonForManipulation);
+        }
+
+        public void InspectingMetadata()
+        {
+            string name = "Kevin";
+
+            var stringType = typeof(string);
             Console.WriteLine(stringType);
 
             var currentAssembly = Assembly.GetExecutingAssembly();
@@ -21,15 +104,6 @@ namespace ReflectionALLAPluralSight
             {
                 Console.WriteLine(type.Name);
             }
-
-            var oneTypeFromCurrentAssembly = currentAssembly.GetType("ReflectionALLAPluralSight.Person");
-            Console.WriteLine(oneTypeFromCurrentAssembly.Name);
-
-            var externalAssembly = Assembly.Load("System.Text.Json");
-            var typesFromExternalAssembly = externalAssembly.GetTypes();
-
-
-            Console.ReadLine();
         }
     }
 }
@@ -99,6 +173,56 @@ namespace ReflectionALLAPluralSight
  * - Tools like ORM are full of reflection.
  * 
  * In .NET most assemblies contains most one module.
+ *                                                                    |---------> System.Reflection.MethodInfo.
+ * System.Reflection.MemberInfo ---> System.Reflection.MethodBase --->|
+ *                                                                    |---------> System.Reflection.ConstructorInfo.
+ *     
+ *     
+ * Early Binding 
+ * Looks for methods and properties and checks whether they exist and match at compile time.
  * 
+ * Late Binding
+ * It is only at runtime that the actual type is decided on.
+ * The objects are dynamic, so the compiler cannot give a warning.
  * 
+ * BindingFlags enumeration
+ * Used to control binding and to control how reflection searches.
+ * BindingFlags.Public,
+ * BindingFlags.Instance,...
+ * 
+ * Control the binding itself
+ * BindingFlags.GetProperty
+ * BindingFlags.SetField
+ * 
+ * Can be combined bitwise
+ * BindingFlags.Instance | BindingFlags.NonPublic.
+ * 
+ * ObjectHandle all the objects is wrapped in a wrapper
+ * 
+ * ObjectHandle
+ * 
+ * two classes implements the ITalk Interface.
+ * 
+ * At runtime we creating objects which does not know type at design time common use case of reflection.
+ * 
+ * Reflection Behind the Scenes
+ * 
+ * Getting the info object
+ * - Type metadata parsing
+ * Actual method invocation
+ * - Argument validity checks.
+ * - Error Handling
+ * Security Checks
+ * -Restricted methods
+ * - Dynamic code access security permissions.
+ * 
+ * Dynamic activation and dynamic invocation at runtime is somthing you will run quite often when creating a library
+ * An application might configure itslef via a config file that contains instructions on which classes and methods 
+ * to use , with that, you get dynamic invocation and method invocation at runtime.
+ * Relationships between different components are determined at runtime.
+ * Decreases the amount of tight coupling.
+ * Imagine a tool is running that's monitoring your network, 
+ * and it notices somethig is wrong. That means it now needs to warn soemone.It could use a MailService to send email
+ * or SoundHornService to sound a horn.
+ * The service to use, method to use and parameter list for this method are configured in a config file.
  */
