@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Extensions.Configuration;
+using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -12,9 +14,68 @@ namespace ReflectionALLAPluralSight
         /*
          * Imagine we are reading some information from a configuration file that states that we want to use the Alien Class
          * imagine this is read from some sort of configuration
+         * When we start the application, we want to Bootstrap it as it was configured in the 
+         * Config file.
+         * 
+         * These properties used to store the outcome of checks or reflection to improve performance
+         * 
          */
         private static string _typeFromConfiguration = "ReflectionALLAPluralSight.Person";
+        private static NetWorkMonitorSettings netWorkMonitorSettings = new NetWorkMonitorSettings();
+        private static Type _warningServiceType;
+        private static MethodInfo _warningServiceMethod;
+        private static object _warningService;
+        private static List<object> _warningServiceParameterValues;
         static void Main(string[] args)
+        {
+            BootstrapFromConfiguration();
+            // install Microsofts.Extensions.Configuration.Json
+
+
+
+
+
+            
+        }
+
+        private static void BootstrapFromConfiguration()
+        {
+            var appSettingsConfig = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json", true, true)
+                .Build();
+            appSettingsConfig.Bind("NetworkMonitorSettings", netWorkMonitorSettings);
+            // Available on Microsoft.Extension.Configuration.Binder
+
+            // inspect the assembly to check whether the correct types are contained within
+            // we store the instance we inspecting, like that we can reuse tose instances when actually
+            // sending a warning, which is better for performance.
+            _warningService = Assembly.GetExecutingAssembly().GetType(netWorkMonitorSettings.WarningService);
+            if (_warningService == null)
+            {
+                throw new Exception("Configuration is invalid - warning service not found");
+            }
+
+            // inspect the service for the required method
+            _warningServiceMethod = _warningServiceType.GetMethod(netWorkMonitorSettings.MethodToExecute);
+            if (_warningServiceMethod is null)
+            {
+                throw new Exception("Configuration is invalid - method to execute on warning service no exists");
+            }
+
+            // check if the parameter match
+            foreach (var parameterInfo in _warningServiceMethod.GetParameters())
+            {
+                if (!netWorkMonitorSettings.PropertyBag.TryGetValue(parameterInfo.Name, out object parameterValue))
+                {
+                    // parameter name cannot be found
+                    throw new Exception($"Configuration is invalid - parameter" +
+                        $" {parameterInfo.Name} not found");
+                }
+            }
+
+        }
+
+        public void InstantiatingAndManipulatingObjects()
         {
             var personType = typeof(Person);
             var personConstructors = personType.GetConstructors(
@@ -28,7 +89,7 @@ namespace ReflectionALLAPluralSight
             // Default constructor is invoked.
             var person1 = personConstructors[0].Invoke(null);
 
-            var person2 = personConstructors[1].Invoke(new Object[] {"Kevin"});
+            var person2 = personConstructors[1].Invoke(new Object[] { "Kevin" });
 
             var person3 = personConstructors[2].Invoke(new Object[] { "Kevin", 39 });
 
@@ -36,8 +97,8 @@ namespace ReflectionALLAPluralSight
             var person4 = Activator.CreateInstance("ReflectionALLAPluralSight", "ReflectionALLAPluralSight.Person").Unwrap();
 
             var person5 = Activator.CreateInstance("ReflectionALLAPluralSight",
-                "ReflectionALLAPluralSight.Person", 
-                true, 
+                "ReflectionALLAPluralSight.Person",
+                true,
                 BindingFlags.Instance | BindingFlags.Public,
                 null,
                 new object[] { "Kevin" },
@@ -82,15 +143,10 @@ namespace ReflectionALLAPluralSight
 
             //invoke method protected
             PersonForManipulation.GetType().InvokeMember("Yell", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.InvokeMethod,
-                null, PersonForManipulation, new[] {"Something to yell"});
-
-
-
-
+                null, PersonForManipulation, new[] { "Something to yell" });
 
             Console.WriteLine(PersonForManipulation);
         }
-
         public void InspectingMetadata()
         {
             string name = "Kevin";
